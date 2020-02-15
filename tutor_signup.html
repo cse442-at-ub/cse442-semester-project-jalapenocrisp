@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>UB Tutoring -Sign Up</title>
+</head>
+<body>
+    <h1 class="welcome-page-title">Sign Up</h1>
+
+    <div id="tutor_signup_div">
+        <form>
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+            
+            <label for="email">Buffalo Email</label>
+            <input type="text" id="email" name="email" placeholder="Enter @buffalo.edu email..">
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="Password">
+
+            <label for="level">Your currently pursuing</label>
+            <select id="level" name="level">
+                <option value="Undergrad">Undergrad</option>
+                <option value="Graduate">Graduate</option>
+                <option value="PostGraduate">Post Graduate</option>
+            </select>
+            
+            <label for="expertise">Which courses would you like to tutor</label>
+            <input type="text" id="expertise" name="expertise" placeholder="ex. CSE115,MAT101, etc.. without special characters and gaps">
+
+            <label for="phoneNumber">US Phone Number</label>
+            <input type="text" id="phoneNumber" name="phoneNumber" placeholder="555-555-5555">
+            
+
+            <input id="tutor_signup_submit" type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
