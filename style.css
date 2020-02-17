@@ -38,10 +38,39 @@ body {
     margin-top: 200px;
 }
 
+.logo a {
+    font-family: "Righteous", cursive;
+    text-decoration: none;
+}
+
+.header {
+    padding: 10px;
+}
+
+.menu_welcomePage {
+    font-family: "Alatsi", sans-serif;
+    float: right;
+}
+
+ul li {
+    display: inline;
+    padding: 50px;
+}
+
+ul li a {
+    text-decoration: none;
+}
+
+ul li a:hover {
+    text-decoration: underline;
+}
+
 
 /*  styling for the tutor signup page */
 
-input[type=text], input[type=password],  select {
+input[type="text"],
+input[type="password"],
+select {
     width: 100%;
     padding: 12px;
     margin: 8px 0;
@@ -55,9 +84,9 @@ input[type=text], input[type=password],  select {
     padding-bottom: 40px;
 }
 
-input[type=submit] {
+input[type="submit"] {
     width: 100%;
-    background-color: #4CAF50;
+    background-color: #4caf50;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -66,7 +95,7 @@ input[type=submit] {
     cursor: pointer;
 }
 
-input[type=submit]:hover {
+input[type="submit"]:hover {
     background-color: #45a049;
 }
 
