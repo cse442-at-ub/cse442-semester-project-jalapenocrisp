@@ -105,3 +105,64 @@ input[type="submit"]:hover {
     margin-left: 20%;
     margin-right: 20%;
 }
+
+.dropDowns {
+    border-radius: 5px;
+    margin-top: 5%;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 0%;
+}
+.selectButton{
+    margin-top:2%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: black;
+    cursor: pointer;
+    border: none;
+    color: white;
+}
+.info{
+    margin-left: 25%;
+    margin-right: 25%;
+    width: 50%;
+    font-size: larger;
+    text-align: center;
+    margin-top: 40px;
+}
+.center{
+    margin-top: 2%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+ 
+}
+.calendarView{
+    margin-top:2%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: black;
+    cursor: pointer;
+    border: none;
+    color: white;
+}
+.change{
+    margin-top:2%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    padding: 2px;
+    font-size: 12px;
+    cursor: pointer;
+    border: none;
+}
