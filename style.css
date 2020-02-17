@@ -1,0 +1,189 @@
+:root {
+    --teal: #008080;
+    --yellow: #cbcaa5;
+    --black: #000000;
+}
+
+body {
+    background-color: var(--teal);
+    color: white;
+}
+
+
+/* styling for the welcome page */
+
+.welcome-page-title {
+    text-align: center;
+    margin: auto;
+    padding-top: 80px;
+}
+
+.welcome-page-buttons {
+    background-color: var(--black);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    padding: 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.route-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 200px;
+}
+
+.logo a {
+    font-family: "Righteous", cursive;
+    text-decoration: none;
+}
+
+.header {
+    padding: 10px;
+}
+
+.menu_welcomePage {
+    font-family: "Alatsi", sans-serif;
+    float: right;
+}
+
+ul li {
+    display: inline;
+    padding: 50px;
+}
+
+ul li a {
+    text-decoration: none;
+}
+
+ul li a:hover {
+    text-decoration: underline;
+}
+
+
+/*  styling for the tutor signup page */
+
+input[type="text"],
+input[type="password"],
+select {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.input_text_field {
+    padding-bottom: 40px;
+}
+
+input[type="submit"] {
+    width: 100%;
+    background-color: #4caf50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+#tutor_signup_div {
+    border-radius: 5px;
+    margin-top: 5%;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.dropDowns {
+    border-radius: 5px;
+    margin-top: 5%;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 0%;
+}
+.selectButton{
+    margin-top:2%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: black;
+    cursor: pointer;
+    border: none;
+    color: white;
+}
+.info{
+    margin-left: 25%;
+    margin-right: 25%;
+    width: 50%;
+    font-size: larger;
+    text-align: center;
+    margin-top: 40px;
+}
+.center{
+    margin-top: 2%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+ 
+}
+.calendarView{
+    margin-top:2%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: black;
+    cursor: pointer;
+    border: none;
+    color: white;
+}
+.change{
+    margin-top:2%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    padding: 2px;
+    font-size: 12px;
+    cursor: pointer;
+    border: none;
+}
+
+/* styling for the button on tutor view of the tutor calendar page */ 
+
+.add-or-edit-button{
+    margin-top:2%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #cbcaa5;
+    cursor: pointer;
+    border: none;
+    color: #181818;
+}
+
+.add-or-edit-button:hover{
+    background-color: #f1f0c5;
+    color: black;
+}
