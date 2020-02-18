@@ -7,3 +7,7 @@ function log_me_in(){
 function goToLogIn(){
     window.open("login.html", "_self");
 }
+
+function forgot_password(){
+    window.open("login.html", "_self");
+}

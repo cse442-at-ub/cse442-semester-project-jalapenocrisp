@@ -105,6 +105,11 @@ input[type="submit"]:hover {
 #tutor_signup_submit:hover, #log_in_button:hover{
     background-color: #52e93e;
 }
+
+#forgot_link_id{
+    color: yellow;
+    font-weight: bold;
+}
 /* ~~~~~~~~~~~~~~~~~~~~~~~ waring the code above is too good ~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 
