@@ -175,3 +175,24 @@ input[type="submit"]:hover {
     cursor: pointer;
     border: none;
 }
+
+/* styling for the button on tutor view of the tutor calendar page */ 
+
+.add-or-edit-button{
+    margin-top:2%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: ##494949;
+    cursor: pointer;
+    border: none;
+    color: #181818;
+}
+
+.add-or-edit-button:hover{
+    background-color: #777777;
+    color: black;
+}
