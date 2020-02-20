@@ -14,24 +14,25 @@
 <body class="main-container">
 
     <h1 class="welcome-page-title">Find Your Class: </h1>
-    <div class="dropDowns">
-    <label for="department">Choose a department:</label>
+    <div class="dd">
+    <label for="department">Choose a department:</label></br>
 
     <select id="depddl" onchange="configDept(this,document.getElementById('ddl'))">
-        <option value=""></option>
+        <option value="-">-----------------------------------------</option>
         <option value="CSE">CSE</option>
-    </select>
+    </select></br></br>
 
-    <label for="courses">Choose a course:</label>
+    <label for="courses">Choose a course:</label></br>
 
     <select id="ddl" onchange="configureCS(this,document.getElementById('ddl2'))">
+        <option value="-">-----------------------------------------</option>
+    </select></br></br>
 
-    </select>
-
-    <label for="tutor">Choose a tutor:</label>
+    <label for="tutor">Choose a tutor:</label></br>
 
     <select id="ddl2">
-    </select>
+        <option value="-">-----------------------------------------</option>
+    </select></br></br>
     </div>
     <button onclick="window.location.href = './tutorprof_student.html';" class="selectButton">Select</button>
 
@@ -39,7 +40,7 @@
     <script src="index.js"></script>
     <script>
         function configDept(ddl1,ddl2){
-            var cse = ['', 'CSE 115: Intro to Programming 1', 'CSE 116: Intro to Programming 2', 
+            var cse = ['                               ','CSE 115: Intro to Programming 1', 'CSE 116: Intro to Programming 2', 
                         'CSE 220: Systems Programming', 'CSE 250: Data Structures', 'CSE 331: Algorithms and Complexity'];
             switch (ddl1.value) {
                 case 'CSE':
@@ -54,11 +55,11 @@
         }
         }
         function configureCS(ddl1, ddl2) {
-            var cse115 = ['','Jane Doe', 'Mary', 'Steve'];
-            var cse116 = ['','Anthony'];
-            var cse220 = ['','John', 'David', 'Sarah'];
-            var cse250 = ['','Peter', 'Piper'];
-            var cse331 = ['','Karen', 'Carl'];
+            var cse115 = ['Jane Doe', 'Mary', 'Steve'];
+            var cse116 = ['Anthony'];
+            var cse220 = ['John', 'David', 'Sarah'];
+            var cse250 = ['Peter', 'Piper'];
+            var cse331 = ['Karen', 'Carl'];
 
             switch (ddl1.value) {
                 case 'CSE 115: Intro to Programming 1':

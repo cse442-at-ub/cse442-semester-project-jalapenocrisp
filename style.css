@@ -115,13 +115,7 @@ input[type="submit"]:hover {
 
 /* search style */
 
-.dropDowns {
-    border-radius: 5px;
-    margin-top: 5%;
-    margin-left: 20%;
-    margin-right: 20%;
-    margin-bottom: 0%;
-}
+
 .selectButton{
     margin-top:2%;
     display: block;
@@ -175,7 +169,9 @@ input[type="submit"]:hover {
     cursor: pointer;
     border: none;
 }
-
+.dd{
+    text-align: center;
+}
 /* styling for the button on tutor view of the tutor calendar page */ 
 
 .add-or-edit-button{
