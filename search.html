@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>UB Tutoring</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>UB Tutoring Service</title>
+</head>
+
+<body class="main-container">
+
+    <h1 class="welcome-page-title">Find Your Class: </h1>
+    <div class="dropDowns">
+    <label for="department">Choose a department:</label>
+
+    <select id="depddl" onchange="configDept(this,document.getElementById('ddl'))">
+        <option value=""></option>
+        <option value="CSE">CSE</option>
+    </select>
+
+    <label for="courses">Choose a course:</label>
+
+    <select id="ddl" onchange="configureCS(this,document.getElementById('ddl2'))">
+
+    </select>
+
+    <label for="tutor">Choose a tutor:</label>
+
+    <select id="ddl2">
+    </select>
+    </div>
+    <button onclick="window.location.href = './tutorprof_student.html';" class="selectButton">Select</button>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="index.js"></script>
+    <script>
+        function configDept(ddl1,ddl2){
+            var cse = ['', 'CSE 115: Intro to Programming 1', 'CSE 116: Intro to Programming 2', 
+                        'CSE 220: Systems Programming', 'CSE 250: Data Structures', 'CSE 331: Algorithms and Complexity'];
+            switch (ddl1.value) {
+                case 'CSE':
+                ddl2.options.length = 0;
+                for (i = 0; i < cse.length; i++) {
+                    createOption(ddl2, cse[i], cse[i]);
+                }
+                break;
+                default:
+                ddl2.options.length = 0;
+                break;
+        }
+        }
+        function configureCS(ddl1, ddl2) {
+            var cse115 = ['','Jane Doe', 'Mary', 'Steve'];
+            var cse116 = ['','Anthony'];
+            var cse220 = ['','John', 'David', 'Sarah'];
+            var cse250 = ['','Peter', 'Piper'];
+            var cse331 = ['','Karen', 'Carl'];
+
+            switch (ddl1.value) {
+                case 'CSE 115: Intro to Programming 1':
+                ddl2.options.length = 0;
+                for (i = 0; i < cse115.length; i++) {
+                    createOption(ddl2, cse115[i], cse115[i]);
+                }
+                break;
+                case 'CSE 116: Intro to Programming 2':
+                ddl2.options.length = 0;
+                for (i = 0; i < cse116.length; i++) {
+                    createOption(ddl2, cse116[i], cse116[i]);
+                }
+                break;
+                case 'CSE 220: Systems Programming':
+                ddl2.options.length = 0;
+                for (i = 0; i < cse220.length; i++) {
+                    createOption(ddl2, cse220[i], cse220[i]);
+                 }
+                break;
+                case 'CSE 250: Data Structures':
+                ddl2.options.length = 0;
+                for (i = 0; i < cse250.length; i++) {
+                    createOption(ddl2, cse250[i], cse250[i]);
+                 }
+                break;
+                case 'CSE 331: Algorithms and Complexity':
+                ddl2.options.length = 0;
+                for (i = 0; i < cse331.length; i++) {
+                    createOption(ddl2, cse331[i], cse331[i]);
+                 }
+                break;
+                default:
+                ddl2.options.length = 0;
+                break;
+                }
+
+            }
+
+            function createOption(ddl, text, value) {
+                var opt = document.createElement('option');
+                opt.value = value;
+                opt.text = text;
+                ddl.options.add(opt);
+            }     
+    </script>
+
+</body>
+
+</html>

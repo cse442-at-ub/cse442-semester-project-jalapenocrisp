@@ -37,3 +37,162 @@ body {
     justify-content: center;
     margin-top: 200px;
 }
+
+.logo a {
+    font-family: "Righteous", cursive;
+    text-decoration: none;
+}
+
+.header {
+    padding: 10px;
+}
+
+.menu_welcomePage {
+    font-family: "Alatsi", sans-serif;
+    float: right;
+}
+
+ul li {
+    display: inline;
+    padding: 50px;
+}
+
+ul li a {
+    text-decoration: none;
+}
+
+ul li a:hover {
+    text-decoration: underline;
+}
+
+
+/*------------ syed-------- styling for the tutor signup page */
+
+.log_in_input, .sign_up_input {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.input_text_field {
+    padding-bottom: 40px;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+#tutor_signup_div {
+    border-radius: 5px;
+    margin-top: 5%;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+#tutor_signup_submit, #log_in_button{
+    display: inline-block;
+    border: 0px solid #ccc;
+    margin-top: 10px;
+    background-color: #45a038;
+    width: 100%;
+    padding: 12px;
+}
+
+#tutor_signup_submit:hover, #log_in_button:hover{
+    background-color: #52e93e;
+}
+
+#forgot_link_id{
+    color: yellow;
+    font-weight: bold;
+}
+/* ~~~~~~~~~~~~~~~~~~~~~~~ waring the code above is too good ~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+
+/* search style */
+
+.dropDowns {
+    border-radius: 5px;
+    margin-top: 5%;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 0%;
+}
+.selectButton{
+    margin-top:2%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: black;
+    cursor: pointer;
+    border: none;
+    color: white;
+}
+.info{
+    margin-left: 25%;
+    margin-right: 25%;
+    width: 50%;
+    font-size: larger;
+    text-align: center;
+    margin-top: 40px;
+}
+.center{
+    margin-top: 2%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+ 
+}
+.calendarView{
+    margin-top:2%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: black;
+    cursor: pointer;
+    border: none;
+    color: white;
+}
+.change{
+    margin-top:2%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    padding: 2px;
+    font-size: 12px;
+    cursor: pointer;
+    border: none;
+}
+
+/* styling for the button on tutor view of the tutor calendar page */ 
+
+.add-or-edit-button{
+    margin-top:2%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #494949;
+    cursor: pointer;
+    border: none;
+    color: #181818;
+}
+
+.add-or-edit-button:hover{
+    background-color: #777777;
+    color: black;
+}
