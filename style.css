@@ -182,7 +182,7 @@ input[type="submit"]:hover {
     border-radius: 8px;
     padding: 10px;
     font-size: 16px;
-    background-color: #494949;
+    background-color: #707070;
     cursor: pointer;
     border: none;
     color: #181818;
@@ -192,3 +192,10 @@ input[type="submit"]:hover {
     background-color: #777777;
     color: black;
 }
+
+#calender_tutor{
+    margin-left: 15%;
+    margin-right: 15%;
+    
+}
+/* end of tre's stylization */
