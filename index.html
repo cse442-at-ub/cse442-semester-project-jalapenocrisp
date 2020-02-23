@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>UB Tutoring</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>UB Tutoring Service</title>
+</head>
+
+<body class="main-container">
+
+    <div class="header">
+
+        <div class="menu_welcomePage">
+            <ul>
+
+                <!-- the line of code commented below is important when we upload the work on a server. for now, i'm using an alternative below -->
+                <!-- <li><a href="javascript:loadPage('./login.html')">login</a> </li> -->
+                <li><a href="./login.html">login</a> </li>
+                <li>
+                    <a href="./index.html">home</a> </li>
+                <li><a href="./tutor_signup.html">create account</a></li>
+
+            </ul>
+        </div>
+
+        <div class="logo">
+            <h2 class="logo"> <a href="./index.html">UBtutoring</a> </h2>
+        </div>
+
+    </div>
+
+    <h1 class="welcome-page-title">Welcome to UB Tutoring Services</h1>
+
+    <div class="route-buttons">
+        <button onclick="window.location.href = './login.html';" class="welcome-page-buttons tutor-button">I'm a tutor</button>
+        <button onclick="window.location.href = './search.html';" class="welcome-page-buttons student-button">Find Tutor</button>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="index.js"></script>
+    <script>
+        $(document).ready(function() {
+
+
+        });
+    </script>
+
+</body>
+
+</html>
