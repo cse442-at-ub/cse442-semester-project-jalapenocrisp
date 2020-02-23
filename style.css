@@ -199,3 +199,15 @@ input[type="submit"]:hover {
     
 }
 /* end of tre's stylization */
+
+/* styling for tutor page schedule */
+
+.studentViewCalendar {
+    height: 650px;
+    width: 650px;
+
+}
+
+.title-studentView-calendar {
+    text-align: center;
+}
