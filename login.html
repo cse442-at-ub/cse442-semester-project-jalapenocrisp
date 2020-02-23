@@ -10,22 +10,31 @@
 </head>
 
 <body>
+    <button class="selectButton" onclick ="window.location.href = './tutor_signup.html';">Not Registered? Sign Up Here.</button>
+
     <h1 class="welcome-page-title">Log In</h1>
 
     <div id="tutor_signup_div">
         <form>
 
             <label for="email">User Email</label>
-            <input type="text" id="email" name="lastname" placeholder="Enter @buffalo.edu email...">
+            <input class= "log_in_input" type="text" id="email" name="lastname" placeholder="Enter @buffalo.edu email...">
 
             <label for="password">Password</label>
-            <input type="password" id="password" name="Password">
+            <input class= "log_in_input" type="password" id="password" name="Password">
+
+            <input type="button" id="log_in_button" type="submit" value="Log In" onclick= "log_me_in()">
+            <br>
+            <br>
+            <br>
+            <a href="user_forgot.html" id="forgot_link_id"> forgot password? </a>
 
 
-            <input id="log_in_button" type="submit" value="Log In">
         </form>
+
+
+            <!-- <button class="selectButton" onclick ="window.location.href = './tutorprofile.html';">Submit</button> -->
     </div>
-
+    <script src="login.js"></script>
 </body>
-
 </html>

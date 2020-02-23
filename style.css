@@ -66,11 +66,9 @@ ul li a:hover {
 }
 
 
-/*  styling for the tutor signup page */
+/*------------ syed-------- styling for the tutor signup page */
 
-input[type="text"],
-input[type="password"],
-select {
+.log_in_input, .sign_up_input {
     width: 100%;
     padding: 12px;
     margin: 8px 0;
@@ -84,17 +82,6 @@ select {
     padding-bottom: 40px;
 }
 
-input[type="submit"] {
-    width: 100%;
-    background-color: #4caf50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
 input[type="submit"]:hover {
     background-color: #45a049;
 }
@@ -106,13 +93,29 @@ input[type="submit"]:hover {
     margin-right: 20%;
 }
 
-.dropDowns {
-    border-radius: 5px;
-    margin-top: 5%;
-    margin-left: 20%;
-    margin-right: 20%;
-    margin-bottom: 0%;
+#tutor_signup_submit, #log_in_button{
+    display: inline-block;
+    border: 0px solid #ccc;
+    margin-top: 10px;
+    background-color: #45a038;
+    width: 100%;
+    padding: 12px;
 }
+
+#tutor_signup_submit:hover, #log_in_button:hover{
+    background-color: #52e93e;
+}
+
+#forgot_link_id{
+    color: yellow;
+    font-weight: bold;
+}
+/* ~~~~~~~~~~~~~~~~~~~~~~~ waring the code above is too good ~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+
+/* search style */
+
+
 .selectButton{
     margin-top:2%;
     display: block;
@@ -166,3 +169,33 @@ input[type="submit"]:hover {
     cursor: pointer;
     border: none;
 }
+.dd{
+    text-align: center;
+}
+/* styling for the button on tutor view of the tutor calendar page */ 
+
+.add-or-edit-button{
+    margin-top:2%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #707070;
+    cursor: pointer;
+    border: none;
+    color: #181818;
+}
+
+.add-or-edit-button:hover{
+    background-color: #777777;
+    color: black;
+}
+
+#calender_tutor{
+    margin-left: 15%;
+    margin-right: 15%;
+    
+}
+/* end of tre's stylization */
