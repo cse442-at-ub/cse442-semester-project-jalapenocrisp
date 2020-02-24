@@ -13,10 +13,32 @@
 </head>
 
 <body>
+    <div class="header">
 
-    <iframe src="https://calendar.google.com/calendar/embed?height=400&amp;wkst=1&amp;bgcolor=%23F6BF26&amp;ctz=America%2FNew_York&amp;src=a2VzYW1lcmN5QGdtYWlsLmNvbQ&amp;src=bG82MzRrdGRhNmI2c2dib3FtdWNwczNranNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=ZmFtaWx5MTAwODM4NDA5NTU1NTE3ODg3MTdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%23039BE5&amp;color=%23D50000&amp;color=%23E4C441"
-        style="border:solid 1px #777" width="750" height="400" frameborder="0" scrolling="no"></iframe>
+        <div class="menu_welcomePage">
+            <ul>
 
+                <!-- the line of code commented below is important when we upload the work on a server. for now, i'm using an alternative below -->
+                <!-- <li><a href="javascript:loadPage('./login.html')">login</a> </li> -->
+                <li><a href="./login.html">login</a> </li>
+                <li>
+                    <a href="./index.html">home</a> </li>
+                <li>create account</li>
+
+            </ul>
+        </div>
+
+        <div class="logo">
+            <h2 class="logo"> <a href="./index.html">UBtutoring</a> </h2>
+        </div>
+
+    </div>
+
+
+    <br><br>
+    <h1 class="title-studentView-calendar">Calendar for the tutor you Selcted</h1>
+<br><br><br><br>
+    <img class="studentViewCalendar center" src="./calendarimage.jpg" alt="tutor calendar">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="index.js"></script>
