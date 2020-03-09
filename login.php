@@ -1,17 +1,4 @@
-<?php
-$message="";add external php file to html
-if(count($_POST)>0) {
-	//change the local host to thethys and the db schema name
-	$conn = mysqli_connect("localhost","root","","phppot_examples");
-	$result = mysqli_query($conn,"SELECT * FROM tutors WHERE email='" . $_POST["user_email"] . "' and paswd = '". $_POST["user_password"]."'");
-	$count  = mysqli_num_rows($result);
-	if($count==0) {
-		$message = "Invalid Username or Password!";
-	} else {
-		$message = "You are successfully authenticated!";
-	}
-}
-?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
@@ -43,21 +30,61 @@ if(count($_POST)>0) {
     <h1 class="welcome-page-title">Log In</h1>
 
     <div id="tutor_signup_div">
-        <form name="login_user" action="" method='post'>
+        <form action="login_verify.php" method='post'>
             
             <label for="email">User Email</label>
-            <input class= "log_in_input" type="text" id="email" name="user_email" placeholder="Enter @buffalo.edu email...">
+            <input class= "log_in_input" type="text" id="email" name="email" placeholder="Enter @buffalo.edu email...">
 
             <label for="password">Password</label>
-            <input class= "log_in_input" type="password" id="password" name="user_password">
+            <input class= "log_in_input" type="password" id="password" name="paswd">
 
-            <input type="button" id="log_in_button" type="submit" value="Log In" onclick= "log_me_in()">
-            <br>
+            <input id="log_in_button" name="submit" type="submit" value="Submit">
+			<br>
             <br>
             <br>
             <a href="user_forgot.html" id="forgot_link_id"> forgot password? </a>
         </form>
     </div>
+
+	<?php
+		if(!isset($_GET['login'])){
+			exit();
+		}
+		else{
+			$loginCheck = $_GET['login'];
+
+			if($loginCheck == "empty"){
+			echo '<p class="error">Please fill all the fields!</p>';
+			exit();
+				if(!isset($_GET['login'])){
+			exit();
+		}
+		else{
+			$loginCheck = $_GET['login'];
+
+			if($loginCheck == "empty"){
+				echo '<p class="error">Please fill all the fields!</p>';
+				exit();
+			}
+			elseif ($loginCheck=="nosuchuser") {
+				echo '<p class="error">This user does not exist!</p>';
+				exit();# code...
+			}
+			elseif ($loginCheck=="incorrectpass") {
+				echo '<p class="error">Incorrect password!</p>';
+				exit();# code...
+			}
+		}}
+			elseif ($loginCheck=="nosuchuser") {
+				echo '<p class="error">This user does not exist!</p>';
+				exit();# code...
+			}
+			elseif ($loginCheck=="incorrectpass") {
+				echo '<p class="error">Incorrect password!</p>';
+				exit();# code...
+			}
+		}
+          ?>
     <script src="index.js"></script>
 </body>
 </html>
