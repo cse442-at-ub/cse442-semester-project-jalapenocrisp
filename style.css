@@ -172,7 +172,47 @@ input[type="submit"]:hover {
 .dd{
     text-align: center;
 }
-/* styling for the button on tutor view of the tutor calendar page */ 
+
+/* ~~~~~~~~~~~~~~~~~~~~Tutor Calendar View style ~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+
+
+#calendar_tutor{
+    font-family:sans-serif;
+    width: 85%;
+    margin: auto;
+    border-spacing: 0;
+    border-collapse: separate;
+    table-layout: fixed;
+    margin-bottom: 50px;
+    	  
+}
+#calendar_tutor td{
+    text-align: center;
+}
+
+.day_container{
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.day_container h1{
+    margin: auto;
+    margin-bottom: 40px;
+}
+
+.day_popup{
+    margin: auto;
+    height: 400px;
+    width: 600px;
+    background: white;
+    border-radius: 5px;
+    position: relative;
+    
+}
 
 .add-or-edit-button{
     margin-top:2%;
@@ -182,16 +222,21 @@ input[type="submit"]:hover {
     border-radius: 8px;
     padding: 10px;
     font-size: 16px;
-    background-color: #707070;
+    background-color: #b9b739;
     cursor: pointer;
     border: none;
     color: #181818;
 }
 
 .add-or-edit-button:hover{
-    background-color: #777777;
+    background-color: #f7ea33;
     color: black;
 }
+
+/* ~~~~~~~~~~~~~~~~~~~end of Tutor Calendar View style~~~~~~~~~~~~~~~~~~~~~~ */
+
+/* styling for the button on tutor view of the tutor calendar page */ 
+
 
 #calender_tutor{
     margin-left: 15%;
