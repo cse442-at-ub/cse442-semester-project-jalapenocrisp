@@ -34,6 +34,10 @@ function forgot_password(){
     window.open("login.html", "_self");
 }
 
+function goToAboutUs(){
+    window.open("about_us.html", "self");
+}
+
 function calenderTutorPopupClose(){
     document.getElementById("day_popup").style.display = "none";
     console.log("here");
