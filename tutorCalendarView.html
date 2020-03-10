@@ -8,7 +8,7 @@
     <title>UB Tutoring Service</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
+    <!-- <script type="text/javascript" src="js/modernizr.custom.86080.js"></script> -->
 </head>
 
 
@@ -37,31 +37,31 @@
 
     <table id=calendar_tutor>
         <thead>
-          <tr>
-            
-            <th>
-                <span id="calendar_monday">Monday</span>
-            </th>
-            <th>
-                <span id="calendar_tuesday">Tuesday</span>
-            </th>
-            <th>
-                <span id="calendar_wednesday">Wednesday</span>
-            </th>
-            <th>
-                <span id="calendar_thursday">Thursday</span>
-            </th>
-            <th>
-                <span id="calendar_friday">Friday</span>
-            </th>
-            <th>
-                <span id="calendar_saturday">Saturday</span>
-            </th>
-            <th>
-                <span id="calendar_sunday">Sunday</span>
-            </th>
-          </tr>
+            <tr>
+                <th>
+                    <span id="calendar_monday">Monday</span>
+                </th>
+                <th>
+                    <span id="calendar_tuesday">Tuesday</span>
+                </th>
+                <th>
+                    <span id="calendar_wednesday">Wednesday</span>
+                </th>
+                <th>
+                    <span id="calendar_thursday">Thursday</span>
+                </th>
+                <th>
+                    <span id="calendar_friday">Friday</span>
+                </th>
+                <th>
+                    <span id="calendar_saturday">Saturday</span>
+                </th>
+                <th>
+                    <span id="calendar_sunday">Sunday</span>
+                </th>
+            </tr>
         </thead>
+
         <tbody>
             <br>
             <br>
@@ -83,8 +83,34 @@
 
     <div class="day_container">
         <h1>Your Availabilities</h1>
-        <div class="day_popup"></div>
-        <button class="add-or-edit-button">Add/Edit Time Slots</button>
+        <button id="popup_open" class="add-or-edit-button">add or edit</button>
+    </div>
+    
+    <div id= "day_popup" class= "day_popup">
+        <div class = "day_popup_content">
+            <img src="close.png" alt="X" class="day_close" id="day_close"/>
+            <label for="monday_data">Monday:</label>
+            <input id="monday_data" type="text" placeholder= "balh">
+           
+            <label for="tuesday_data">Tuesday:</label>
+            <input id="tuesday_data" type="text" placeholder= "blah">
+            
+            <label for="wednesday_data">Wednesday:</label>
+            <input id="wednesday_data" type="text" placeholder= "balh">
+            
+            <label for="thursday_data">Thursday:</label>
+            <input id="thursday_data" type="text" placeholder= "blah">
+            
+            <label for="friday_data">Friday:</label>
+            <input id="friday_data" type="text" placeholder= "balh">
+            
+            <label for="saturday_data">Saturday:</label>
+            <input id="saturday_data" type="text" placeholder= "blah">
+            
+            <label for="sunday_data">Sunday:</label>
+            <input id="sunday_data" type="text" placeholder= "balh">
+            <button id="day_popout_button"> fasdf </button>
+        </div>
     </div>
     
 
@@ -93,7 +119,10 @@
     </div>
 
     <script src="index.js"></script>
-    
+    <script>
+        document.getElementById("day_close").addEventListener("click", calenderTutorPopupClose);
+        document.getElementById("popup_open").addEventListener("click", calenderTutorPopupOpen);
+    </script>
   
 </body>
 

@@ -173,9 +173,7 @@ input[type="submit"]:hover {
     text-align: center;
 }
 
-/* ~~~~~~~~~~~~~~~~~~~~Tutor Calendar View style ~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-
-
+/* ~~~~~~~~~~~~~~~~~~~~Tutor Calendar View style ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 #calendar_tutor{
     font-family:sans-serif;
@@ -192,46 +190,98 @@ input[type="submit"]:hover {
 }
 
 .day_container{
-    position: absolute;
-    top: 70%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
+    position : absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align:center;
 }
 
 .day_container h1{
-    margin: auto;
-    margin-bottom: 40px;
+    color: #fff;
+	font-size : 36px;
+	margin-bottom: 40px;
 }
 
-.day_popup{
-    margin: auto;
-    height: 400px;
-    width: 600px;
-    background: white;
-    border-radius: 5px;
-    position: relative;
-    
-}
 
 .add-or-edit-button{
-    margin-top:2%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 8px;
-    padding: 10px;
-    font-size: 16px;
-    background-color: #b9b739;
-    cursor: pointer;
-    border: none;
-    color: #181818;
+    /* b9b739 */
+    background: #fff;
+	padding: 10px, 15px;
+	color : #b9b739;
+	font-weight: bolder;
+	text-transform: uppercase;
+	font-size: 18px;
+	border-radius: 5px;
+	box-shadow: 6px, 6px, 29px, -4px rgba(0,0,0,0.75);
+	margin-top:25 px;
+	text-decoration: none;
+	transition: 0.4s;
 }
 
 .add-or-edit-button:hover{
     background-color: #f7ea33;
     color: black;
 }
+
+.day_popup{
+	background: rgba(0,0,0,0.6);
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	display: none;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+.day_popup_content{
+	height: 700px;
+	width: 500px;
+	background: #fff;
+    padding: 40px;
+	border-radius: 5px;
+	position: relative;
+}
+
+.day_popup_content label{
+    padding: 0;
+    color: darkgreen;
+}
+
+.day_popup_content input{
+    margin: 10px auto;
+    display: block;
+    width: 80%;
+    padding: 8px;
+    border: 1px solid gray;
+}
+
+#day_popout_button{
+    margin: 20px auto;
+	display: block;
+	width: 50%;
+	padding: 8px;
+    border: 1px solid gray;
+}
+
+.day_close{
+	position: absolute;
+	top: -15px;
+	right: -15px;
+	background: #fff;
+	height: 20px;
+	width: 20px;
+	border-radius: 50%;
+	box-shadow: 6px, 6px, 29px, -4px rgba(0,0,0,0.75);
+	cursor: pointer;
+}
+/* 
+
+
+
+*/
 
 /* ~~~~~~~~~~~~~~~~~~~end of Tutor Calendar View style~~~~~~~~~~~~~~~~~~~~~~ */
 

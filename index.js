@@ -33,3 +33,13 @@ function goToLogIn(){
 function forgot_password(){
     window.open("login.html", "_self");
 }
+
+function calenderTutorPopupClose(){
+    document.getElementById("day_popup").style.display = "none";
+    console.log("here");
+}
+
+function calenderTutorPopupOpen(){
+    document.getElementById("day_popup").style.display = "flex";
+    console.log("here");
+}
