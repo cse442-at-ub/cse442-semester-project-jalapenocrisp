@@ -293,6 +293,12 @@ input[type="submit"]:hover {
     margin-right: 15%;
     
 }
+
+.about_us_text{
+	margin-left: 15%;
+        margin-right: 15%;
+	text-align: justify;
+}
 /* end of tre's stylization */
 
 /* styling for tutor page schedule */
