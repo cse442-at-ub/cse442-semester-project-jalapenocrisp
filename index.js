@@ -34,18 +34,29 @@ function forgot_password(){
     window.open("login.html", "_self");
 }
 
+
+function calenderTutorPopupClose(){
+    document.getElementById("day_popup").style.display = "none";
+    console.log("here");
+}
+
+function calenderTutorPopupOpen(){
+    document.getElementById("day_popup").style.display = "flex";
+    console.log("here");
+}
+
 function verifyInfo(fname, lname, emailEntered, inputtxt){
     if(fname.value == "" || lname.value == ""){
         alert("Name fields must not be empty!")
     }else{
         var emails = emailEntered.value;
-
+        
         if(emails.length != 20){
             alert("Please enter valid UB email length: \nUB Email length: 20 \nYour email length: " + emails.length)
         }else{
             var address = emails.slice(9,20); 
             var emailName = emails.split("@buffalo.edu", 1);
-        
+             
             if(emailName[0].length != 8 || address != "buffalo.edu"){
                 alert("Please enter valid UB email! \nUB Email: example9@buffalo.edu\n \texamples@buffalo.edu\nYour email: " + emailName)
             }else{

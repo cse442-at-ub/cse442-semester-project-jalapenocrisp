@@ -8,7 +8,7 @@
     <title>UB Tutoring Service</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
+    <!-- <script type="text/javascript" src="js/modernizr.custom.86080.js"></script> -->
 </head>
 
 
@@ -33,32 +33,97 @@
         </div>
         
     </div>
-    <h1 class = "welcome-page-title">Tutor Calendar View</h1>
+    <h1 class = "welcome-page-title">Tutor Calendar View<br><br></h1>
 
-    <button class="add-or-edit-button">Add/Edit Time Slots</button>
+    <table id=calendar_tutor>
+        <thead>
+            <tr>
+                <th>
+                    <span id="calendar_monday">Monday</span>
+                </th>
+                <th>
+                    <span id="calendar_tuesday">Tuesday</span>
+                </th>
+                <th>
+                    <span id="calendar_wednesday">Wednesday</span>
+                </th>
+                <th>
+                    <span id="calendar_thursday">Thursday</span>
+                </th>
+                <th>
+                    <span id="calendar_friday">Friday</span>
+                </th>
+                <th>
+                    <span id="calendar_saturday">Saturday</span>
+                </th>
+                <th>
+                    <span id="calendar_sunday">Sunday</span>
+                </th>
+            </tr>
+        </thead>
 
-    <p>
-        
-    </p>
+        <tbody>
+            <br>
+            <br>
+            <tr>
+                <td><br></td>
+                <td> <br></td>
+            </tr>
+            <tr>
+                <td id="calendar_monday_data"></td>
+                <td id="calendar_tuesday_data"></td>
+                <td id="calendar_wednesday_data"></td>
+                <td id="calendar_thursday_data"></td>
+                <td id="calendar_friday_data"></td>
+                <td id="calendar_saturday_data"></td>
+                <td id="calendar_sunday_data"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="day_container">
+        <h1>Your Availabilities</h1>
+        <button id="popup_open" class="add-or-edit-button">add or edit</button>
+    </div>
     
-        <!-- <iframe src="https://calendar.google.com/calendar/embed?height=400&amp;wkst=1&amp;bgcolor=%23F6BF26&amp;ctz=America%2FNew_York&amp;src=a2VzYW1lcmN5QGdtYWlsLmNvbQ&amp;src=bG82MzRrdGRhNmI2c2dib3FtdWNwczNranNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=ZmFtaWx5MTAwODM4NDA5NTU1NTE3ODg3MTdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%23039BE5&amp;color=%23D50000&amp;color=%23E4C441"
-        style="border:solid 1px #777" width="750" height="400" frameborder="0" scrolling="no"></iframe> -->
+    <div id= "day_popup" class= "day_popup">
+        <div class = "day_popup_content">
+            <img src="close.png" alt="X" class="day_close" id="day_close"/>
+            <label for="monday_data">Monday:</label>
+            <input id="monday_data" type="text" placeholder= "balh">
+           
+            <label for="tuesday_data">Tuesday:</label>
+            <input id="tuesday_data" type="text" placeholder= "blah">
+            
+            <label for="wednesday_data">Wednesday:</label>
+            <input id="wednesday_data" type="text" placeholder= "balh">
+            
+            <label for="thursday_data">Thursday:</label>
+            <input id="thursday_data" type="text" placeholder= "blah">
+            
+            <label for="friday_data">Friday:</label>
+            <input id="friday_data" type="text" placeholder= "balh">
+            
+            <label for="saturday_data">Saturday:</label>
+            <input id="saturday_data" type="text" placeholder= "blah">
+            
+            <label for="sunday_data">Sunday:</label>
+            <input id="sunday_data" type="text" placeholder= "balh">
+            <button id="day_popout_button"> fasdf </button>
+        </div>
+    </div>
+    
 
-        <iframe src="https://calendar.google.com/calendar/embed?mode=WEEK&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=or3k7l52u0lhbr515oe2l3suio%40group.calendar.google.com&amp;color=%23875509&amp;ctz=America%2FNew_York" style="border-width:0" scrolling="no" width="800" height="600" frameborder="0"></iframe>
+    
+    <div><p><br><br><br><br><br><br><br></p>
+    </div>
 
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="index.js"></script>
     <script>
-        $(document).ready(function() {
-
-
-
-        });
-    </script> 
-    
+        document.getElementById("day_close").addEventListener("click", calenderTutorPopupClose);
+        document.getElementById("popup_open").addEventListener("click", calenderTutorPopupOpen);
+    </script>
   
 </body>
 
 </html>
-
