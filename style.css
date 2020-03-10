@@ -210,7 +210,7 @@ input[type="submit"]:hover {
 	padding: 10px, 15px;
 	color : #b9b739;
 	font-weight: bolder;
-	text-transform: uppercase;
+	/* text-transform: uppercase; */
 	font-size: 18px;
 	border-radius: 5px;
 	box-shadow: 6px, 6px, 29px, -4px rgba(0,0,0,0.75);
