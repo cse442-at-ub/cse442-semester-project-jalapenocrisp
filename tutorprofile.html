@@ -33,17 +33,16 @@
         </div>
 
     </div>
-    
     <button class="calendarView" onclick="window.location.href = './tutorCalendarView.html';">Calendar View</button>
 
     <h1 class="welcome-page-title">Jane Doe</h1>
     <img src="https://cdn11.bigcommerce.com/s-sq9zkarfah/images/stencil/1280x1280/products/115789/203691/Girl-Stick-Figure-36-Sticker__96720.1511164309.jpg?c=2?imbypass=on" alt="HTML5 Icon" style="width:180px;height:180px;" class="center">
     <table class= "info" id="profTable">
-
         <tr>
             <th>Title: </th>
             <td contentEditable="true">Undergraduate</td>
             <td><button class="change" onclick="changeTitle();">save changes</button></td>
+
         </tr>
         <tr>
             <th>Email:</th>
@@ -80,6 +79,8 @@
             var title=profileTable.rows[0].cells[1].innerHTML;
             if (title!= "Undergraduate" && title!= "Graduate" && title!= "Postgraduate" ){
                 alert("please enter a valid title: Undergraduate, Graduate or Postgraduate.");
+            }else{
+                updateDb.php("title", title);
             }
             //now get the updated value on change and add to DB
         }
@@ -90,7 +91,10 @@
             for (i=0; i<classList.length; i++){
                 if (!classes.includes(classList[i])){
                     alert("One or more of the chosen classes is invalid. Make sure each class is separated by a comma and a space. Please choose classes from the following list:\n\nCSE 115\nCSE 116\nCSE 250\nCSE 331\nMTH 142\nPHY 207");
-                }//else
+                }else{
+                    updateDb.php("classes", classList);
+
+                }
             //now get the updated value on change and add to DB
             }
         }
@@ -99,7 +103,9 @@
             var email=profileTable.rows[1].cells[1].innerHTML;
             if (!email.includes("@buffalo.edu")){
                 alert("Please enter a valid UB email address including '@buffalo.edu'");
-            }
+            }else{
+                updateDb.php("email", email);
+              }
             //now get the updated value on change and add to DB
         }
         
@@ -107,6 +113,9 @@
             var major=profileTable.rows[2].cells[1].innerHTML;
             if (!majors.includes(major)){
                 alert("Please enter a valid major from the list:\n\nComputer Science\nMathematics\nUndecided\nArt\nBiology\nChemistry\nPhysics");
+            }else{
+                updateDb.php("major", major);
+
             }
             
             //now get the updated value on change and add to DB

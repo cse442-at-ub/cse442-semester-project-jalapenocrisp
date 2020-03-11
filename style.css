@@ -110,7 +110,6 @@ input[type="submit"]:hover {
     color: yellow;
     font-weight: bold;
 }
-/* ~~~~~~~~~~~~~~~~~~~~~~~ waring the code above is too good ~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 
 /* search style */
@@ -134,8 +133,16 @@ input[type="submit"]:hover {
     margin-right: 25%;
     width: 50%;
     font-size: larger;
-    text-align: center;
+    /* text-align: center; */
     margin-top: 40px;
+}
+.info1{
+    margin-left: 20%;
+    margin-right: 40%;
+    font-size: larger;
+    text-align: right;
+    margin-top: 40px;
+
 }
 .center{
     margin-top: 2%;
@@ -164,8 +171,8 @@ input[type="submit"]:hover {
     margin-left: auto;
     margin-right: auto;
     border-radius: 8px;
-    padding: 2px;
-    font-size: 12px;
+    padding: 12px;
+    font-size: 20px;
     cursor: pointer;
     border: none;
 }
