@@ -30,7 +30,7 @@
     <h1 class="welcome-page-title">Log In</h1>
 
     <div id="tutor_signup_div">
-        <form action="login_verify.php" method='post'>
+        <form action="login-verify.php" method='post'>
             
             <label for="email">User Email</label>
             <input class= "log_in_input" type="text" id="email" name="email" placeholder="Enter @buffalo.edu email...">
