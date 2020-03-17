@@ -1,8 +1,6 @@
 
 <?php
 
-echo phpinfo();
-
 // $dbServername= "tethys.cse.buffalo.edu";
 // $dbUsername= "jenniech";
 // $dbPassword= "50041501"; //leave it empty when using XAMPP which does not have a password by default.
@@ -14,6 +12,6 @@ echo phpinfo();
 
 // if(isset($_POST['submit'])){
 // 	// var_dump($_POST);
-// 	echo "clicked!";
-// }
+	echo "clicked!";
+//}
 ?>
