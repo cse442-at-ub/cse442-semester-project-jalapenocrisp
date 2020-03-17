@@ -43,10 +43,9 @@ if(isset($_POST['submit'])){
 	              exit();
 		         }elseif($hashedPwdCheck == true){
 		    	//Log in the user here
-		    	$_SESSION['u_id'] = $row['user_id'];
 		    	$_SESSION['u_email'] = $row['email'];
 		    	$_SESSION['u_pwd'] = $row['paswd'];
-		    	header("Location: ../../html/newsfeed.html?login=success");
+		    	header("Location: ./tutorprofile.html?login=success");
 	            exit();
 		      }
 		     } 
