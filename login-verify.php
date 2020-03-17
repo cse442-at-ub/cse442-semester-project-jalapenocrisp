@@ -37,7 +37,7 @@ if(isset($_POST['submit'])){
     		    while($row=mysqli_fetch_assoc($result)){
     		      //De-hashing the password
 			     $hashedPwdCheck= password_verify($pwd, $row['paswd']); //matching the database password with the password entered by the user using inbuilt password_verify().
-			     //}
+					echo "hashedPwdCheck";
 		         if($hashedPwdCheck == false){
 		    	  header("Location: login.php?login=incorrectpass");
 	              exit();
