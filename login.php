@@ -1,4 +1,16 @@
-<!DOCTYPE html>
+<?php
+$message="";
+if(count($_POST)>0) {
+	$conn = mysqli_connect("tethys.cse.buffalo.edu","nekesame","50278839","cse442_542_2020_spring_teami_db");
+	$result = mysqli_query($conn,"SELECT * FROM tutors WHERE email='" . $_POST["email"] . "' and paswd = '". $_POST["paswd"]."'");
+	$count  = mysqli_num_rows($result);
+	if($count==0) {
+		$message = "Invalid email or paswd!";
+	} else {
+		$message = "You are successfully authenticated!";
+	}
+}
+?>
 <html lang="en">
 
 <head>
@@ -32,8 +44,8 @@
     <h1 class="welcome-page-title">Log In</h1>
 
     <div id="tutor_signup_div">
-        <form action="login-verify.php" method='post'>
-
+        <form action="frmUser" method='post'>
+        <div class="message"><?php if($message!="") { echo $message; } ?></div>
             <label for="email">User Email</label>
             <input class="log_in_input" type="text" id="email" name="email" placeholder="Enter @buffalo.edu email...">
 
@@ -47,46 +59,6 @@
             <a href="user_forgot.html" id="forgot_link_id"> forgot password? </a>
         </form>
     </div>
-
-    <?php
-		if(!isset($_GET['login'])){
-			exit();
-		}
-		else{
-			$loginCheck = $_GET['login'];
-
-			if($loginCheck == "empty"){
-			echo '<p class="error">Please fill all the fields!</p>';
-			exit();
-				if(!isset($_GET['login'])){
-			exit();
-		}
-		else{
-			$loginCheck = $_GET['login'];
-
-			if($loginCheck == "empty"){
-				echo '<p class="error">Please fill all the fields!</p>';
-				exit();
-			}
-			elseif ($loginCheck=="nosuchuser") {
-				echo '<p class="error">This user does not exist!</p>';
-				exit();# code...
-			}
-			elseif ($loginCheck=="incorrectpass") {
-				echo '<p class="error">Incorrect password!</p>';
-				exit();# code...
-			}
-		}}
-			elseif ($loginCheck=="nosuchuser") {
-				echo '<p class="error">This user does not exist!</p>';
-				exit();# code...
-			}
-			elseif ($loginCheck=="incorrectpass") {
-				echo '<p class="error">Incorrect password!</p>';
-				exit();# code...
-			}
-		}
-          ?>
     <script src="index.js"></script>
 </body>
 
