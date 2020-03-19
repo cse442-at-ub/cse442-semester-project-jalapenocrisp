@@ -27,7 +27,7 @@
           $error = $count;
           $error - $row;
           $error = "why the frankfrut won't you login????!!!";
-         $error = "Your Login Name or paswd is invalid";
+         //$error = "Your Login Name or paswd is invalid";
       }
    }
 ?>
