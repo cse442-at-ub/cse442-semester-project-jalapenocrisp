@@ -1,79 +1,39 @@
 <?php
-   include("config.php");
-   session_start();
-   
-   if($_SERVER["REQUEST_METHOD"] == "POST") {
-      // username and paswd sent from form 
-      
-      $myemail = mysqli_real_escape_string($db,$_POST['email']);
-      $mypaswd = mysqli_real_escape_string($db,$_POST['paswd']); 
-      
-      $sql = "SELECT id FROM tutors WHERE email = '$myemail' and paswd = '$mypaswd'";
-      $result = mysqli_query($db,$sql);
-      $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-      $active = $row['active'];
-      
-      $count = mysqli_num_rows($result);
-      
-      // If result matched $myusername and $mypaswd, table row must be 1 row
-		
-      if($count == 1) {
-         session_register("myemail");
-         $_SESSION['login_user'] = $myemail;
-         
-         header("location: welcome.php");
-      }else {
-          echo $result;
-          $error = $count;
-          $error = $row;
-          $error = "why the frankfrut won't you login????!!!";
-         //$error = "Your Login Name or paswd is invalid";
-      }
-   }
+$message="";
+if(count($_POST)>0) {
+	$conn = mysqli_connect("tethys.cse.buffalo.edu","nekesame","50278839","cse442_542_2020_spring_teami_db");
+	$result = mysqli_query($conn,"SELECT * FROM tutors WHERE email='" . $_POST["email"] . "' and paswd = '". $_POST["paswd"]."'");
+	$count  = mysqli_num_rows($result);
+	if($count==0) {
+		$message = "Invalid email or paswd!";
+	} else {
+		$message = "You are successfully authenticated!";
+	}
+}
 ?>
 <html>
-   
-   <head>
-      <title>Login Page</title>
-      
-      <style type = "text/css">
-         body {
-            font-family:Arial, Helvetica, sans-serif;
-            font-size:14px;
-         }
-         label {
-            font-weight:bold;
-            width:100px;
-            font-size:14px;
-         }
-         .box {
-            border:#666666 solid 1px;
-         }
-      </style>
-      
-   </head>
-   
-   <body bgcolor = "#FFFFFF">
-	
-      <div align = "center">
-         <div style = "width:300px; border: solid 1px #333333; " align = "left">
-            <div style = "background-color:#333333; color:#FFFFFF; padding:3px;"><b>Login</b></div>
-				
-            <div style = "margin:30px">
-               
-               <form action = "" method = "post">
-                  <label>UserName  :</label><input type = "text" name = "username" class = "box"/><br /><br />
-                  <label>paswd  :</label><input type = "paswd" name = "paswd" class = "box" /><br/><br />
-                  <input type = "submit" value = " Submit "/><br />
-               </form>
-               
-               <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
-					
-            </div>
-				
-         </div>
-			
-      </div>
-
-   </body>
-</html>
+<head>
+<title>User Login</title>
+<link rel="stylesheet" type="text/css" href="styles.css" />
+</head>
+<body>
+<form name="frmUser" method="post" action="">
+	<div class="message"><?php if($message!="") { echo $message; } ?></div>
+		<table border="0" cellpadding="10" cellspacing="1" width="500" align="center" class="tblLogin">
+			<tr class="tableheader">
+			<td align="center" colspan="2">Enter Login Details</td>
+			</tr>
+			<tr class="tablerow">
+			<td>
+			<input type="text" name="email" placeholder="User Name" class="login-input"></td>
+			</tr>
+			<tr class="tablerow">
+			<td>
+			<input type="paswd" name="paswd" placeholder="paswd" class="login-input"></td>
+			</tr>
+			<tr class="tableheader">
+			<td align="center" colspan="2"><input type="submit" name="submit" value="Submit" class="btnSubmit"></td>
+			</tr>
+		</table>
+</form>
+</body></html>
