@@ -20,9 +20,9 @@ if(count($_POST)>0) {
 <form name="frmUser" method="post" action="">
 	<div class="message"><?php if($message!="") { 
 
-        echo $message; 
+        //echo $message; 
 
-        //header("Location: ./tutorprofile.html?login=success");
+        header('Location: http://www.example.com/');
         
         } ?></div>
 		<table border="0" cellpadding="10" cellspacing="1" width="500" align="center" class="tblLogin">
