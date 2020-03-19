@@ -7,7 +7,8 @@ if(count($_POST)>0) {
 	if($count==0) {
 		$message = "Invalid email or paswd!";
 	} else {
-		$message = "You are successfully authenticated!";
+        $message = "You are successfully authenticated!";
+        header('Location: htpp://www.example.com');
 	}
 }
 ?>
@@ -18,13 +19,16 @@ if(count($_POST)>0) {
 </head>
 <body>
 <form name="frmUser" method="post" action="">
-	<div class="message"><?php if($message!="") { 
+	<!-- <div class="message">
+    
+    <!-- <?php if($message!="") { 
 
-        //echo $message; 
+        // echo $message; 
 
-        header('Location: http://www.example.com/');
+        //header('Location: http://www.example.com/');
         
-        } ?></div>
+        } ?> -->
+    </div> -->
 		<table border="0" cellpadding="10" cellspacing="1" width="500" align="center" class="tblLogin">
 			<tr class="tableheader">
 			<td align="center" colspan="2">Enter Login Details</td>
