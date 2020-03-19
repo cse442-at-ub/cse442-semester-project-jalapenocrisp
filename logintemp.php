@@ -23,9 +23,9 @@
          
          header("location: welcome.php");
       }else {
-          $error = $result;
+          echo $result;
           $error = $count;
-          $error - $row;
+          $error = $row;
           $error = "why the frankfrut won't you login????!!!";
          //$error = "Your Login Name or paswd is invalid";
       }
