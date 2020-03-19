@@ -8,7 +8,7 @@ if(count($_POST)>0) {
 		$message = "Invalid email or paswd!";
 	} else {
         $message = "You are successfully authenticated!";
-        header('Location: htpp://www.example.com');
+        header('Location: ./tutorprofile.html');
 	}
 }
 ?>
