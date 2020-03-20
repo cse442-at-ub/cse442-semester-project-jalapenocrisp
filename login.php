@@ -101,7 +101,7 @@ if(count($_POST)>0) {
     </div>
 
     
-    <script src="index.js"></script>
+    
 </body>
 
 </html>
