@@ -1,6 +1,6 @@
 <?php
 include_once "updateDb.php";
-$result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id=1");
+$result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['user_id'] . "'");
 ?>
 <!DOCTYPE html>
 <html lang="en">
