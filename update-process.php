@@ -8,13 +8,20 @@ $message = "Record Modified Successfully";
 $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['user_id'] . "'");
 $row= mysqli_fetch_array($result);
 ?>
-<html>
-<head>
-<title>UB Tutoring</title>
-</head>
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>UB Tutoring</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>UB Tutoring Service</title>
+</head>
 <body>
-<form name="frmUser" method="post" action="">
+<form class = "info1" name="frmUser" method="post" action="">
 <div><?php if(isset($message)) { echo $message; } ?>
 </div>
 <div style="padding-bottom:5px;">
@@ -26,19 +33,25 @@ $row= mysqli_fetch_array($result);
 Phone Number:<br>
 <input type="text" name="phone" class="txtField" value="<?php echo $row['phone']; ?>">
 <br>
+<br>
 Title:<br>
 <input type="text" name="title" class="txtField" value="<?php echo $row['title']; ?>">
+<br>
 <br>
 Email:<br>
 <input type="text" name="email" class="txtField" value="<?php echo $row['email']; ?>">
 <br>
+<br>
 Course:<br>
 <input type="text" name="courses" class="txtField" value="<?php echo $row['courses']; ?>">
+<br>
 <br>
 Password:<br>
 <input type="text" name="paswd" class="txtField" value="<?php echo $row['paswd']; ?>">
 <br>
+<br>
 <input type="submit" name="submit" value="Submit" class="button">
 </form>
+<button class = "calendarView" onclick="window.location.href = './tutorprof.php';"> Return to profile</button>
 </body>
 </html>

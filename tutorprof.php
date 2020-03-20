@@ -40,21 +40,18 @@ $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id=1");
     <button class="calendarView" onclick="window.location.href = './tutorCalendarView.html';">Calendar View</button>
 
     <h1 class="welcome-page-title"></h1>
-    <table class= "info" id="profTable">
-    <table>
+    <table class="info">
 
     <?php
     $row = mysqli_fetch_array($result);
     ?>
-    <tr>Name: <?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?></tr><br>
-    <tr>Phone Number: <?php echo $row["phone"]; ?></tr><br>
-    <tr>Title: <?php echo $row["title"]; ?></tr><br>
-    <tr>Email: <?php echo $row["email"]; ?></tr><br>
-    <tr>Course: <?php echo $row["courses"]; ?></tr><br>
-
-    <td><a href="update-process.php?user_id=<?php echo $row["user_id"]; ?>">Update</a></td>    
-    </tr>
-
+    <tr><td>Name: </td><td><?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?></td></tr>
+    <tr><td>Phone Number: </td><td><?php echo $row["phone"]; ?></td></tr>
+    <tr><td>Title: </td><td><?php echo $row["title"]; ?></td></tr>
+    <tr><td>Email: </td><td><?php echo $row["email"]; ?></td></tr>
+    <tr><td>Course: </td><td><?php echo $row["courses"]; ?></td></tr>
+    <tr><td><a href="update-process.php?user_id=<?php echo $row["user_id"]; ?>">Edit Information</a></td></tr>    
+    
     </table>
     <br><br><br>
 

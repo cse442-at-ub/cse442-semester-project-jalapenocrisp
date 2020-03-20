@@ -129,20 +129,22 @@ input[type="submit"]:hover {
     color: white;
 }
 .info{
-    margin-left: 25%;
-    margin-right: 25%;
-    width: 50%;
     font-size: larger;
-    /* text-align: center; */
-    margin-top: 40px;
+    width: 50%;
+    margin-left: 25%;    
+    margin-right: 25%; 
+    text-align: center;   
+}
+.info td{
+    height:50px;
 }
 .info1{
-    margin-left: 20%;
-    margin-right: 40%;
     font-size: larger;
-    text-align: right;
-    margin-top: 40px;
-
+    width: 50%;
+    margin-left: 25%;    
+    margin-right: 25%; 
+    text-align: center;   
+    margin-top: 140px;
 }
 .center{
     margin-top: 2%;
