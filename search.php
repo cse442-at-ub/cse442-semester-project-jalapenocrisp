@@ -29,7 +29,7 @@ while($row=mysqli_fetch_array($result)){
 
         <div class="menu_welcomePage">
             <ul>
-                <li><a href="./login.html">login</a> </li>
+                <li><a href="./login.php">login</a> </li>
                 <li>
                     <a href="./index.html">home</a> </li>
                 <li>create account</li>
