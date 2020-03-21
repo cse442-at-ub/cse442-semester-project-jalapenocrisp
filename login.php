@@ -7,8 +7,10 @@ if(count($_POST)>0) {
 	if($count==0) {
 		$message = "Invalid email or paswd!";
 	} else {
+        $row = mysqli_fetch_array($result);
         $message = "You are successfully authenticated!";
-        header('Location: ./tutorprofile.html');
+        $var1=$row['user_id'];
+        header('Location: ./tutorprof.php?user_id=' .$var1);
 	}
 }
 ?>
