@@ -1,5 +1,5 @@
 <?php
-include_once "updateDb.php";
+include_once "access-db.php";
 $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['user_id'] . "'");
 ?>
 <!DOCTYPE html>

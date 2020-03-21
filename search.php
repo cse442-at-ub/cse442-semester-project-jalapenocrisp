@@ -1,5 +1,5 @@
 <?php
-include_once "updateDb.php";
+include_once "access-db.php";
 $result = mysqli_query($conn,"SELECT courses FROM tutors");
 $courseArray=Array();
 while($row=mysqli_fetch_array($result)){
