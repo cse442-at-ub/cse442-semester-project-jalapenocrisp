@@ -33,21 +33,17 @@
 
     <div id="tutor_signup_div">
         <form>
-            <label>(Fields with asterisks '*' must be filled and valid in order to create an account)</label>
-            <br>
-            <label for="fname">First Name *</label>
+            <label for="fname">First Name</label>
 
-            <input class="sign_up_input" type="text" id="fname" name="firstname" placeholder="Your first name.">
+            <input class="sign_up_input" type="text" id="fname" name="firstname" placeholder="Your name..">
 
-            <label for="lname">Last Name *</label>
-            <input class="sign_up_input" type="text" id="lname" name="lastname" placeholder="Your last name.">
+            <label for="lname">Last Name</label>
+            <input class="sign_up_input" type="text" id="lname" name="lastname" placeholder="Your last name..">
             
-            <label for="email">Buffalo Email *</label>
-            <input class="sign_up_input" type="text" id="email" name="Email" placeholder="Enter @buffalo.edu email.">
+            <label for="email">Buffalo Email</label>
+            <input class="sign_up_input" type="text" id="email" name="email" placeholder="Enter @buffalo.edu email..">
 
-            <label for="password">Password *</label>
-            <br>
-            <label>[8-15 characters, at least 1 upper & lowercase letter, 1 special character, and 1 number are required]</label>
+            <label for="password">Password</label>
             <input class="sign_up_input" type="password" id="password" name="Password">
 
             <label for="level">Your currently pursuing</label>
@@ -64,7 +60,8 @@
             <label for="phoneNumber">US Phone Number</label>
             <input class="sign_up_input" type="text" id="phoneNumber" name="phoneNumber" placeholder="555-555-5555">
             
-            <input type="button" id="tutor_signup_submit" onclick="verifyInfo(firstname, lastname, Email, Password)" value= "Verify"> 
+
+            <input type="button" id="tutor_signup_submit" onclick="goToLogIn()" value= "Submit">
 
         </form>
 
