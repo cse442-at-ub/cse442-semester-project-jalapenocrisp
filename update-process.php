@@ -1,9 +1,27 @@
 <?php
 include_once "updateDb.php";
 if(count($_POST)>0) {
+$phone=$_POST['phone'];
+$title=$_POST['title'];
+$email=$_POST['email'];
+$course=$_POST['courses'];
+$password=$_POST['paswd'];
+if (strlen($phone)!=12){
+    echo'<script>alert("Please input phone number as 555-555-5555.")</script>';
+}if ($title!='Graduate' && $title!='Postgraduate' && $title!='Undergraduate'){
+    echo'<script>alert("Please input title as Undergraduate, Graduate, or Postgraduate.")</script>';
+}if ((strpos( $email, '@buffalo.edu' ) === false)){
+    echo'<script>alert("Please enter a valid UB email address.")</script>';
+}if ((strpos( $course, 'CSE' ) === false) || (strlen($course) < 6)){
+    echo'<script>alert("Please enter the course as CSEXXX.")</script>';
+}if (strlen($password)<8){
+    echo'<script>alert("Please enter a password with the correct format.")</script>';
+}else{
+    mysqli_query($conn,"UPDATE tutors SET fname='" . $_POST['fname'] . "', lname='" . $_POST['lname'] . "', phone='" . $_POST['phone'] . "' ,title='" . $_POST['title'] . "' , email='" . $_POST['email'] . "', courses='" . $_POST['courses'] . "', paswd='" . $_POST['paswd'] . "' WHERE user_id='" . $_POST['user_id'] . "'"); 
+    $message = "Record Modified Successfully";
+}
 
-mysqli_query($conn,"UPDATE tutors SET fname='" . $_POST['fname'] . "', lname='" . $_POST['lname'] . "', phone='" . $_POST['phone'] . "' ,title='" . $_POST['title'] . "' , email='" . $_POST['email'] . "', courses='" . $_POST['courses'] . "', paswd='" . $_POST['paswd'] . "' WHERE user_id='" . $_POST['user_id'] . "'"); 
-$message = "Record Modified Successfully";
+
 }
 $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['user_id'] . "'");
 $row= mysqli_fetch_array($result);
