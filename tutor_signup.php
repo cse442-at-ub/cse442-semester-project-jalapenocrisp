@@ -96,7 +96,7 @@
             console.log("here");
             if(fname.value == "" || lname.value == ""){
                 alert("Name fields must not be empty!");
-            }else if(phone.length!=12){
+            }else if(phone.length!=10){
                 console.log(phone);
                 alert("Please input phone number as 555-555-5555.");
             }else{
