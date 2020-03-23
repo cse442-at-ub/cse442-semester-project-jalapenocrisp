@@ -122,7 +122,8 @@
                             $stmt->execute();
                         
                         ?>
-                        window.open("./login.php", "self");
+                       // window.open("./login.php", "self");
+                        header('Location: ./login.php');
                     }
                     else{ 
                         alert('Password must be 8 to 15 characters long and have at least 1 uppercase and lowercase letter, 1 number, and 1 special character.' )
