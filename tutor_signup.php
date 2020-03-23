@@ -83,7 +83,7 @@
 
             <label for="phoneNumber">US Phone Number</label>
             <input class="sign_up_input" type="text" id= "phone" name="phone" placeholder="555-555-5555">
-            <input type="submit" id="tutor_signup_submit" onclick="automove()" value= "Verify">  <!-- onclick="verifyInfo(fname, lname, email, paswd, phone);" --->
+            <input type="submit" id="tutor_signup_submit" onclick="verifyInfo(fname, lname, email, paswd, phone);" value= "Verify">  <!-- onclick="" --->
             <br><br><br>
         </form>
 
@@ -91,9 +91,6 @@
     </div>
     <script src="index.js"></script>
     <script>
-        function automove(){
-            window.open("./login.php", "self");
-        }
 
         function verifyInfo(fname, lname, email, pw, phone){
             console.log("here");
@@ -125,7 +122,7 @@
                             $stmt->execute();
                         
                         ?>
-                        window.open("login.php", "self");
+                        window.open("./login.php", "self");
                     }
                     else{ 
                         alert('Password must be 8 to 15 characters long and have at least 1 uppercase and lowercase letter, 1 number, and 1 special character.' )
