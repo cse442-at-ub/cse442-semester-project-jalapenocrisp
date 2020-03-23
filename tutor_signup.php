@@ -92,41 +92,43 @@
     <script src="index.js"></script>
     <script>
         function verifyInfo(fname, lname, email, pw, phone){
-        if(fname.value == "" || lname.value == ""){
-            alert("Name fields must not be empty!");
-        }else if(phone.length!=12){
-            alert("Please input phone number as 555-555-5555.");
-        }else{
-            var emails = email.value;
-            if ((!emails.includes('@buffalo.edu')) || emails.length<13){
-                alert("Please enter a valid UB email address.");
+            console.log("here");
+            if(fname.value == "" || lname.value == ""){
+                alert("Name fields must not be empty!");
+            }else if(phone.length!=12){
+                console.log(phone);
+                alert("Please input phone number as 555-555-5555.");
             }else{
-                var decimal=  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
-                if(pw.value.match(decimal)){ 
-                    <?php
-                        include_once "access-db.php";
-                        $fname=$_POST['fname'];
-                        $lname=$_POST['lname'];
-                        $email=$_POST['email'];
-                        $phone=$_POST['phone'];
-                        $title=$_POST['title'];
-                        $courses=$_POST['courses'];                        
-                        $pass=$_POST['paswd'];
+                var emails = email.value;
+                if ((!emails.includes('@buffalo.edu')) || emails.length<13){
+                    alert("Please enter a valid UB email address.");
+                }else{
+                    var decimal=  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
+                    if(pw.value.match(decimal)){ 
+                        <?php
+                            include_once "access-db.php";
+                            $fname=$_POST['fname'];
+                            $lname=$_POST['lname'];
+                            $email=$_POST['email'];
+                            $phone=$_POST['phone'];
+                            $title=$_POST['title'];
+                            $courses=$_POST['courses'];                        
+                            $pass=$_POST['paswd'];
 
-                        $sql = "INSERT INTO tutors (fname, lname, email, phone, title, courses, paswd) VALUES (?,?,?,?,?,?,?)";
-                        $stmt= $conn->prepare($sql);
-                        $stmt->bind_param("sssssss", $fname, $lname, $email, $phone, $title, $courses, $pass);
-                        $stmt->execute();
-                      
-                    ?>
-                    window.open("login.php", "self");
-                }
-                else{ 
-                    alert('Password must be 8 to 15 characters long and have at least 1 uppercase and lowercase letter, 1 number, and 1 special character.' )
-                }  
-            } 
+                            $sql = "INSERT INTO tutors (fname, lname, email, phone, title, courses, paswd) VALUES (?,?,?,?,?,?,?)";
+                            $stmt= $conn->prepare($sql);
+                            $stmt->bind_param("sssssss", $fname, $lname, $email, $phone, $title, $courses, $pass);
+                            $stmt->execute();
+                        
+                        ?>
+                        window.open("login.php", "self");
+                    }
+                    else{ 
+                        alert('Password must be 8 to 15 characters long and have at least 1 uppercase and lowercase letter, 1 number, and 1 special character.' )
+                    }  
+                } 
+            }
         }
-    }
-</script>
+    </script>
 </body>
 </html>
