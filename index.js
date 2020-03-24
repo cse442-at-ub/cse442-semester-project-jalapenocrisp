@@ -46,27 +46,27 @@ function changeAvailibility(mon, tue, wed, thu, fri, sat, sun){
     var saturday = document.getElementById("calendar_saturday_data");
     var sunday = document.getElementById("calendar_sunday_data");
 
-    if(!(mon === "")){
+    
         monday.innerHTML = mon;
-    }
-    if(!(tue === "")){
+    
+    
         tuesday.innerHTML = tue;
-    }
-    if(!(wed === "")){
+    
+   
         wednesday.innerHTML = wed;
-    }
-    if(!(thu === "")){
+   
+   
         thursday.innerHTML = thu;
-    }
-    if(!(fri === "")){
+   
+   
         friday.innerHTML = fri;
-    }
-    if(!(sat === "")){
+   
+   
         saturday.innerHTML = sat;
-    }
-    if(!(sun === "")){
+   
+   
         sunday.innerHTML = sun;
-    }
+   
 
     console.log("here1");
     
