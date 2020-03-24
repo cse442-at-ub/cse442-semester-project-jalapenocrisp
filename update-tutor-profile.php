@@ -66,6 +66,7 @@ Course:<br>
 <br>
 Password:<br>
 <input type="password" name="paswd" class="txtField" value="<?php echo $row['paswd']; ?>">
+
 <br>
 <br>
 <input type="submit" name="submit" value="Submit" class="button">

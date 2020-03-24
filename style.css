@@ -110,7 +110,6 @@ input[type="submit"]:hover {
     color: yellow;
     font-weight: bold;
 }
-/* ~~~~~~~~~~~~~~~~~~~~~~~ waring the code above is too good ~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 
 /* search style */
@@ -130,12 +129,22 @@ input[type="submit"]:hover {
     color: white;
 }
 .info{
-    margin-left: 25%;
-    margin-right: 25%;
-    width: 50%;
     font-size: larger;
-    text-align: center;
-    margin-top: 40px;
+    width: 50%;
+    margin-left: 25%;    
+    margin-right: 25%; 
+    text-align: center;   
+}
+.info td{
+    height:50px;
+}
+.info1{
+    font-size: larger;
+    width: 50%;
+    margin-left: 25%;    
+    margin-right: 25%; 
+    text-align: center;   
+    margin-top: 140px;
 }
 .center{
     margin-top: 2%;
@@ -164,8 +173,8 @@ input[type="submit"]:hover {
     margin-left: auto;
     margin-right: auto;
     border-radius: 8px;
-    padding: 2px;
-    font-size: 12px;
+    padding: 12px;
+    font-size: 20px;
     cursor: pointer;
     border: none;
 }
@@ -210,7 +219,6 @@ input[type="submit"]:hover {
 	padding: 10px, 15px;
 	color : #b9b739;
 	font-weight: bolder;
-	text-transform: uppercase;
 	font-size: 18px;
 	border-radius: 5px;
 	box-shadow: 6px, 6px, 29px, -4px rgba(0,0,0,0.75);

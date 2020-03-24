@@ -39,7 +39,8 @@ if(count($_POST)>0) {
             <h2 class="logo"> <a href="./index.html">UBtutoring</a> </h2>
         </div>
     </div>
-    <button class="selectButton" onclick="window.location.href = './tutor_signup.php';">Not Registered? Sign Up
+
+    <button class="selectButton" onclick="window.location.href = './tutor_signup.html';">Not Registered? Sign Up
         Here.</button>
 
     <h1 class="welcome-page-title">Log In</h1>
@@ -72,5 +73,4 @@ if(count($_POST)>0) {
     <script src="index.js"></script>
     
 </body>
-
 </html>

@@ -29,7 +29,6 @@ while($row=mysqli_fetch_array($result)){
 
         <div class="menu_welcomePage">
             <ul>
-                <li><a href="./login.html">login</a> </li>
                 <li>
                     <a href="./index.html">home</a> </li>
                 <li>create account</li>
@@ -46,7 +45,6 @@ while($row=mysqli_fetch_array($result)){
     <h1 class="welcome-page-title">Find Your Class: </h1>
     <div class="dd">
     <form method="post">
-      <div class="options">
         <select id ="first-choice">
             <option selected="selected">Pick a class</option>
             <?php    
@@ -95,5 +93,4 @@ while($row=mysqli_fetch_array($result)){
 
     </script>
 </body>
-
 </html>
