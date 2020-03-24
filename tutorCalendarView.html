@@ -20,8 +20,7 @@
             <ul>
 
                 <!-- the line of code commented below is important when we upload the work on a server. for now, i'm using an alternative below -->
-                <!-- <li><a href="javascript:loadPage('./login.html')">login</a> </li> -->
-                <li><a href="./tutorprofile.html">tutor profile</a> </li>
+                <!-- <li><a href="javascript:loadPage('./login.php')">login</a> </li> -->
                 <li><a href="./index.html">home</a> </li>
                 <li><a href="./tutor_signup.html">create account</a></li>
 
@@ -35,7 +34,7 @@
     </div>
     <h1 class = "welcome-page-title">Tutor Calendar View<br><br></h1>
 
-    <table id=calendar_tutor>
+    <table id=calendar_tutor rules="all">
         <thead>
             <tr>
                 <th>
@@ -66,8 +65,7 @@
             <br>
             <br>
             <tr>
-                <td><br></td>
-                <td> <br></td>
+                <br>
             </tr>
             <tr>
                 <td id="calendar_monday_data"></td>
@@ -83,33 +81,33 @@
 
     <div class="day_container">
         <h1>Your Availabilities</h1>
-        <button id="popup_open" class="add-or-edit-button">add or edit</button>
+        <button id="popup_open" class="add-or-edit-button"> Add or Edit </button>
     </div>
     
     <div id= "day_popup" class= "day_popup">
         <div class = "day_popup_content">
             <img src="close.png" alt="X" class="day_close" id="day_close"/>
             <label for="monday_data">Monday:</label>
-            <input id="monday_data" type="text" placeholder= "balh">
+            <input id="monday_data" type="text" placeholder= "ex. 10:30 - 13:30">
            
             <label for="tuesday_data">Tuesday:</label>
-            <input id="tuesday_data" type="text" placeholder= "blah">
+            <input id="tuesday_data" type="text" placeholder= "ex. 10:30 - 13:30">
             
             <label for="wednesday_data">Wednesday:</label>
-            <input id="wednesday_data" type="text" placeholder= "balh">
+            <input id="wednesday_data" type="text" placeholder= "ex. 10:30 - 13:30">
             
             <label for="thursday_data">Thursday:</label>
-            <input id="thursday_data" type="text" placeholder= "blah">
+            <input id="thursday_data" type="text" placeholder= "ex. 10:30 - 13:30">
             
             <label for="friday_data">Friday:</label>
-            <input id="friday_data" type="text" placeholder= "balh">
+            <input id="friday_data" type="text" placeholder= "ex. 10:30 - 13:30">
             
             <label for="saturday_data">Saturday:</label>
-            <input id="saturday_data" type="text" placeholder= "blah">
+            <input id="saturday_data" type="text" placeholder= "ex. 10:30 - 13:30">
             
             <label for="sunday_data">Sunday:</label>
-            <input id="sunday_data" type="text" placeholder= "balh">
-            <button id="day_popout_button"> fasdf </button>
+            <input id="sunday_data" type="text" placeholder= "ex. 10:30 - 13:30">
+            <button id="day_popout_button" onclick="addAvailability()"> Submit </button>
         </div>
     </div>
     

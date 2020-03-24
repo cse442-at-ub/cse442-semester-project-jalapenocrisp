@@ -46,7 +46,9 @@ while($row=mysqli_fetch_array($result)){
     <h1 class="welcome-page-title">Find Your Class: </h1>
     <div class="dd">
     <form method="post">
+
       <div class="options">
+
         <select id ="first-choice">
             <option selected="selected">Pick a class</option>
             <?php    
@@ -59,6 +61,7 @@ while($row=mysqli_fetch_array($result)){
         </select>
         
         <br>
+
         <br>
 
         <select id="second-choice" name="tutor">
@@ -68,6 +71,7 @@ while($row=mysqli_fetch_array($result)){
         <br>
         <input type="submit" value="Submit">
       </div>
+
     </form>
     <?php
     if(count($_POST)>0) {
