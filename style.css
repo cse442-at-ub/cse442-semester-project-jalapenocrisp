@@ -110,10 +110,13 @@ input[type="submit"]:hover {
     color: yellow;
     font-weight: bold;
 }
+<<<<<<< HEAD
 .message{
     color:red;
     font-size: larger;
 }
+=======
+>>>>>>> 961210311904361052dd274e4c9ff68d8781e946
 
 
 /* search style */
@@ -144,11 +147,24 @@ input[type="submit"]:hover {
 }
 .info1{
     font-size: larger;
+<<<<<<< HEAD
     width: 50%;
     margin-left: 25%;    
     margin-right: 25%; 
     text-align: center;   
     margin-top: 140px;
+=======
+    /* text-align: center; */
+    margin-top: 40px;
+}
+.info1{
+    margin-left: 20%;
+    margin-right: 40%;
+    font-size: larger;
+    text-align: right;
+    margin-top: 40px;
+
+>>>>>>> 961210311904361052dd274e4c9ff68d8781e946
 }
 .center{
     margin-top: 2%;
@@ -185,6 +201,7 @@ input[type="submit"]:hover {
 .dd{
     text-align: center;
 }
+<<<<<<< HEAD
 .input1{
     width: 50%;
     padding: 12px;
@@ -197,6 +214,12 @@ input[type="submit"]:hover {
 
 
 /* ~~~~~~~~~~~~~~~~~~~~Tutor Calendar View style ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+=======
+
+/* ~~~~~~~~~~~~~~~~~~~~Tutor Calendar View style ~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+
+>>>>>>> 961210311904361052dd274e4c9ff68d8781e946
 
 #calendar_tutor{
     font-family:sans-serif;
@@ -213,6 +236,7 @@ input[type="submit"]:hover {
 }
 
 .day_container{
+<<<<<<< HEAD
     position : absolute;
 	top: 50%;
 	left: 50%;
@@ -240,6 +264,42 @@ input[type="submit"]:hover {
 	margin-top:25 px;
 	text-decoration: none;
 	transition: 0.4s;
+=======
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.day_container h1{
+    margin: auto;
+    margin-bottom: 40px;
+}
+
+.day_popup{
+    margin: auto;
+    height: 400px;
+    width: 600px;
+    background: white;
+    border-radius: 5px;
+    position: relative;
+    
+}
+
+.add-or-edit-button{
+    margin-top:2%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #b9b739;
+    cursor: pointer;
+    border: none;
+    color: #181818;
+>>>>>>> 961210311904361052dd274e4c9ff68d8781e946
 }
 
 .add-or-edit-button:hover{
@@ -247,6 +307,7 @@ input[type="submit"]:hover {
     color: black;
 }
 
+<<<<<<< HEAD
 .day_popup{
 	background: rgba(0,0,0,0.6);
 	width: 100%;
@@ -306,6 +367,8 @@ input[type="submit"]:hover {
 
 */
 
+=======
+>>>>>>> 961210311904361052dd274e4c9ff68d8781e946
 /* ~~~~~~~~~~~~~~~~~~~end of Tutor Calendar View style~~~~~~~~~~~~~~~~~~~~~~ */
 
 /* styling for the button on tutor view of the tutor calendar page */ 
@@ -316,6 +379,10 @@ input[type="submit"]:hover {
     margin-right: 15%;
     
 }
+<<<<<<< HEAD
+=======
+/* end of tre's stylization */
+>>>>>>> 961210311904361052dd274e4c9ff68d8781e946
 
 /* styling for tutor page schedule */
 

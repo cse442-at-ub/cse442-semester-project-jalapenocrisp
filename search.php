@@ -29,8 +29,15 @@ while($row=mysqli_fetch_array($result)){
 
         <div class="menu_welcomePage">
             <ul>
+<<<<<<< HEAD
                 <li>
                     <a href="./index.html">home</a> </li>
+=======
+                <li><a href="./login.php">login</a> </li>
+                <li>
+                    <a href="./index.html">home</a> </li>
+                <li>create account</li>
+>>>>>>> 961210311904361052dd274e4c9ff68d8781e946
 
             </ul>
         </div>
@@ -44,10 +51,15 @@ while($row=mysqli_fetch_array($result)){
     <h1 class="welcome-page-title">Find Your Class: </h1>
     <div class="dd">
     <form method="post">
+<<<<<<< HEAD
 
       <div class="options">
 
         <select class="input1" id ="first-choice">
+=======
+      <div class="options">
+        <select id ="first-choice">
+>>>>>>> 961210311904361052dd274e4c9ff68d8781e946
             <option selected="selected">Pick a class</option>
             <?php    
                 foreach($courseArray as $item){
@@ -59,17 +71,26 @@ while($row=mysqli_fetch_array($result)){
         </select>
         
         <br>
+<<<<<<< HEAD
 
         <br>
 
         <select class="input1" id="second-choice" name="tutor">
+=======
+        <br>
+
+        <select id="second-choice" name="tutor">
+>>>>>>> 961210311904361052dd274e4c9ff68d8781e946
             <option selected="selected">Please choose from above</option>
         </select>
         <br>
         <br>
         <input type="submit" value="Submit">
       </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 961210311904361052dd274e4c9ff68d8781e946
     </form>
     <?php
     if(count($_POST)>0) {

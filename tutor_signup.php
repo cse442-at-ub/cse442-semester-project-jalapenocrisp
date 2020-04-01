@@ -1,3 +1,13 @@
+<<<<<<< HEAD
+<?php
+    include_once "access-db.php";
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<?php
+    include_once "access-db.php";
+=======
 <?php
     include_once "access-db.php";
 
@@ -34,7 +44,86 @@
     }
                       
 ?>
+>>>>>>> e49d556... rewrite validility checks in php for simplicity
 
+    if(count($_POST)>0) {
+        $fname=$_POST['fname'];
+        $lname=$_POST['lname'];
+        $email=$_POST['email'];
+        $phone=$_POST['phone'];
+        $title=$_POST['title'];
+        $courses=$_POST['courses'];                        
+        $pass=$_POST['paswd'];
+
+        $result = mysqli_query($conn,"SELECT * FROM tutors WHERE email='" . $_POST["email"] . "'");
+        $count  = mysqli_num_rows($result);
+
+
+        if (strlen($phone)!=12){
+            echo'<script>alert("Please input phone number as 555-555-5555.")</script>';
+        }else if ((strpos( $email, '@buffalo.edu' ) === false)){
+            echo'<script>alert("Please enter a valid UB email address.")</script>';
+        }else if($count>0){
+            echo'<script>alert("Email address is already in use.")</script>';
+        }else if(empty($fname) || empty($lname)){
+            echo'<script>alert("Please enter a first and last name.")</script>';
+        }else if(!preg_match('(^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])\S*$)', $pass)){
+            echo'<script>alert("Please enter a valid password.")</script>';
+        }else{
+            $sql = "INSERT INTO tutors (fname, lname, email, phone, title, courses, paswd) VALUES (?,?,?,?,?,?,?)";
+            $stmt= $conn->prepare($sql);
+            $stmt->bind_param("sssssss", $fname, $lname, $email, $phone, $title, $courses, $pass);
+            $stmt->execute();
+            header('Location: ./login.php');
+        }
+    }
+                      
+?>
+>>>>>>> e49d556... rewrite validility checks in php for simplicity
+>>>>>>> 961210311904361052dd274e4c9ff68d8781e946
+
+    if(count($_POST)>0) {
+        $fname=$_POST['fname'];
+        $lname=$_POST['lname'];
+        $email=$_POST['email'];
+        $phone=$_POST['phone'];
+        $title=$_POST['title'];
+        $courses=$_POST['courses'];                        
+        $pass=$_POST['paswd'];
+
+        $result = mysqli_query($conn,"SELECT * FROM tutors WHERE email='" . $_POST["email"] . "'");
+        $count  = mysqli_num_rows($result);
+
+
+        if (strlen($phone)!=12){
+            echo'<script>alert("Please input phone number as 555-555-5555.")</script>';
+        }else if ((strpos( $email, '@buffalo.edu' ) === false)){
+            echo'<script>alert("Please enter a valid UB email address.")</script>';
+        }else if($count>0){
+            echo'<script>alert("Email address is already in use.")</script>';
+        }else if(empty($fname) || empty($lname)){
+            echo'<script>alert("Please enter a first and last name.")</script>';
+        }else if(!preg_match('(^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])\S*$)', $pass)){
+            echo'<script>alert("Please enter a valid password.")</script>';
+        }else{
+            $sql = "INSERT INTO tutors (fname, lname, email, phone, title, courses, paswd) VALUES (?,?,?,?,?,?,?)";
+            $stmt= $conn->prepare($sql);
+            $stmt->bind_param("sssssss", $fname, $lname, $email, $phone, $title, $courses, $pass);
+            $stmt->execute();
+            header('Location: ./login.php');
+        }
+    }
+                      
+?>
+
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 3a01d2c... committing new branch
+=======
+
+>>>>>>> 1df9ba6... inserting all CSE classes into drop down
+>>>>>>> 961210311904361052dd274e4c9ff68d8781e946
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -85,7 +174,19 @@
 
             <label for="password">Password *</label>
             <br>
+<<<<<<< HEAD
             <label>Requires at least 8 characters, 1 uppercase, 1 lowercase, 1 special character and 1 number.</label>
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+            <label>Requires at least 8 characters, 1 uppercase, 1 lowercase, 1 special character and 1 number.</label>
+=======
+            <label>[8-15 characters, at least 1 upper & lowercase letter, 1 special character, and 1 number are required]</label>
+>>>>>>> 3a01d2c... committing new branch
+=======
+            <label>Requires at least 8 characters, 1 uppercase, 1 lowercase, 1 special character and 1 number.</label>
+>>>>>>> acb9ffd... adding check for existing ubmail
+>>>>>>> 961210311904361052dd274e4c9ff68d8781e946
             <input class="sign_up_input" type="password" id= "paswd" name="paswd">
 
             <label for="level">Current Educational Level</label>
@@ -108,6 +209,11 @@
                 <option value="CSE306">CSE306</option>
                 <option value="CSE321">CSE321</option>
                 <option value="CSE331">CSE331</option>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 961210311904361052dd274e4c9ff68d8781e946
 		        <option value="CSE341">CSE341</option>
 		        <option value="CSE365">CSE365</option>
                 <option value="CSE368">CSE368</option>
@@ -146,17 +252,105 @@
 		        <option value="CSE490">CSE490</option>
 		        <option value="CSE491">CSE491</option>
 		        <option value="CSE493">CSE493</option>
+<<<<<<< HEAD
+=======
+=======
+=======
+		        <option value="CSE341">CSE341</option>
+		        <option value="CSE365">CSE365</option>
+>>>>>>> 1df9ba6... inserting all CSE classes into drop down
+                <option value="CSE368">CSE368</option>
+                <option value="CSE370">CSE370</option>
+		        <option value="CSE379">CSE379</option>
+                <option value="CSE396">CSE396</option>
+		        <option value="CSE404">CSE404</option>
+		        <option value="CSE411">CSE411</option>
+		        <option value="CSE421">CSE421</option>
+		        <option value="CSE422">CSE422</option>
+		        <option value="CSE426">CSE426</option>
+		        <option value="CSE429">CSE429</option>
+		        <option value="CSE430">CSE430</option>
+		        <option value="CSE431">CSE431</option>
+		        <option value="CSE432">CSE432</option>
+		        <option value="CSE435">CSE435</option>
+		        <option value="CSE443">CSE443</option>
+		        <option value="CSE445">CSE445</option>
+		        <option value="CSE450">CSE450</option>
+		        <option value="CSE451">CSE451</option>
+		        <option value="CSE453">CSE453</option>
+		        <option value="CSE454">CSE454</option>
+		        <option value="CSE455">CSE455</option>
+		        <option value="CSE460">CSE460</option>
+		        <option value="CSE462">CSE462</option>	
+		        <option value="CSE463">CSE463</option>
+		        <option value="CSE467">CSE467</option>
+		        <option value="CSE468">CSE468</option>
+		        <option value="CSE469">CSE469</option>
+		        <option value="CSE470">CSE470</option>
+		        <option value="CSE473">CSE473</option>	
+                <option value="CSE474">CSE474</option>
+		        <option value="CSE486">CSE486</option>
+                <option value="CSE487">CSE487</option>
+                <option value="CSE489">CSE489</option>
+<<<<<<< HEAD
+
+
+>>>>>>> 3a01d2c... committing new branch
+=======
+		        <option value="CSE490">CSE490</option>
+		        <option value="CSE491">CSE491</option>
+		        <option value="CSE493">CSE493</option>
+>>>>>>> 1df9ba6... inserting all CSE classes into drop down
+>>>>>>> 961210311904361052dd274e4c9ff68d8781e946
             </select>
 
             <label for="phoneNumber">US Phone Number</label>
             <input class="sign_up_input" type="text" id= "phone" name="phone" placeholder="555-555-5555">
+<<<<<<< HEAD
             <input type="submit" id="tutor_signup_submit" value= "Verify"> 
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+            <input type="submit" id="tutor_signup_submit" value= "Verify"> 
+=======
+            <input type="submit" id="tutor_signup_submit" onclick="verifyInfo(fname, lname, email, paswd, phone);" value= "Verify"> 
+>>>>>>> 3a01d2c... committing new branch
+=======
+            <input type="submit" id="tutor_signup_submit" value= "Verify"> 
+>>>>>>> e49d556... rewrite validility checks in php for simplicity
+>>>>>>> 961210311904361052dd274e4c9ff68d8781e946
             <br><br><br>
         </form>
 
             <!-- <button class="selectButton" onclick="window.location.href = './tutorprofile.html';">Submit</button> -->
     </div>
     <script src="index.js"></script>
+<<<<<<< HEAD
 
     </body>
     </html>
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+    </body>
+    </html>
+=======
+    <script>
+        
+                        
+
+    
+</script>
+</body>
+</html>
+<<<<<<< HEAD
+>>>>>>> 3a01d2c... committing new branch
+=======
+>>>>>>> 1df9ba6... inserting all CSE classes into drop down
+=======
+
+    </body>
+    </html>
+>>>>>>> 3e27950... bigfix matching parenthese
+>>>>>>> 961210311904361052dd274e4c9ff68d8781e946
