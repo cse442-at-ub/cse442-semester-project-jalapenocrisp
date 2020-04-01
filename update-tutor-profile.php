@@ -5,21 +5,14 @@ $message="";
 if(count($_POST)>0) {
     $fname=$_POST['fname'];
     $lname=$_POST['lname'];
-    $email=$_POST['email'];
     $phone=$_POST['phone'];
     $title=$_POST['title'];
     $courses=$_POST['courses'];                        
     $pass=$_POST['paswd'];
 
-    $result = mysqli_query($conn,"SELECT * FROM tutors WHERE email='" . $_POST["email"] . "'");
-    $count  = mysqli_num_rows($result);
 
     if(empty($fname) || empty($lname)){
         $message="Please enter a first and last name.";
-    }else if ((strpos( $email, '@buffalo.edu' ) === false)){
-        $message="Please enter a valid UB email address.";
-    }else if($count>0){
-        $message="Email address is already in use.";
     }else if(!preg_match('(^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])\S*$)', $pass)){
         $message="Please enter a valid password.";
     }else if (strlen($phone)!=12){
@@ -83,10 +76,6 @@ Level:<br>
     <option value="Graduate">Graduate</option>
     <option value="Postgraduate">Postgraduate</option>
 </select>
-<br>
-<br>
-Email:<br>
-<input type="text" name="email" class="input1" value="<?php echo $row['email']; ?>">
 <br>
 <br>
 Course:<br>
