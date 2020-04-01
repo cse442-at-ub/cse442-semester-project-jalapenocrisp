@@ -1,24 +1,32 @@
 <?php
 include_once "access-db.php";
+$message="";
+
 if(count($_POST)>0) {
-$phone=$_POST['phone'];
-$title=$_POST['title'];
-$email=$_POST['email'];
-$course=$_POST['courses'];
-$password=$_POST['paswd'];
-if (strlen($phone)!=12){
-    echo'<script>alert("Please input phone number as 555-555-5555.")</script>';
-}if ($title!='Graduate' && $title!='Postgraduate' && $title!='Undergraduate'){
-    echo'<script>alert("Please input title as Undergraduate, Graduate, or Postgraduate.")</script>';
-}if ((strpos( $email, '@buffalo.edu' ) === false)){
-    echo'<script>alert("Please enter a valid UB email address.")</script>';
-}if ((strpos( $course, 'CSE' ) === false) || (strlen($course) < 6)){
-    echo'<script>alert("Please enter the course as CSEXXX.")</script>';
-}if (strlen($password)<8){
-    echo'<script>alert("Please enter a password with the correct format.")</script>';
-}else{
-    mysqli_query($conn,"UPDATE tutors SET fname='" . $_POST['fname'] . "', lname='" . $_POST['lname'] . "', phone='" . $_POST['phone'] . "' ,title='" . $_POST['title'] . "' , email='" . $_POST['email'] . "', courses='" . $_POST['courses'] . "', paswd='" . $_POST['paswd'] . "' WHERE user_id='" . $_POST['user_id'] . "'"); 
-    $message = "Record Modified Successfully";
+    $fname=$_POST['fname'];
+    $lname=$_POST['lname'];
+    $email=$_POST['email'];
+    $phone=$_POST['phone'];
+    $title=$_POST['title'];
+    $courses=$_POST['courses'];                        
+    $pass=$_POST['paswd'];
+
+    $result = mysqli_query($conn,"SELECT * FROM tutors WHERE email='" . $_POST["email"] . "'");
+    $count  = mysqli_num_rows($result);
+
+    if(empty($fname) || empty($lname)){
+        $message="Please enter a first and last name.";
+    }else if ((strpos( $email, '@buffalo.edu' ) === false)){
+        $message="Please enter a valid UB email address.";
+    }else if($count>0){
+        $message="Email address is already in use.";
+    }else if(!preg_match('(^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])\S*$)', $pass)){
+        $message="Please enter a valid password.";
+    }else if (strlen($phone)!=12){
+        $message="Please input phone number as 555-555-5555.";
+    }else{
+        mysqli_query($conn,"UPDATE tutors SET fname='" . $_POST['fname'] . "', lname='" . $_POST['lname'] . "', phone='" . $_POST['phone'] . "' ,title='" . $_POST['title'] . "' , email='" . $_POST['email'] . "', courses='" . $_POST['courses'] . "', paswd='" . $_POST['paswd'] . "' WHERE user_id='" . $_POST['user_id'] . "'"); 
+        $message = "Record Modified Successfully";
 }
 
 
@@ -55,6 +63,7 @@ $row= mysqli_fetch_array($result);
         </div>
     </div>
 <form class = "info1" name="frmUser" method="post" action="">
+
 <div><?php if(isset($message)) { echo $message; } ?>
 </div>
 <div style="padding-bottom:5px;">
