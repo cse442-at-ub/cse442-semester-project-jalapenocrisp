@@ -110,6 +110,10 @@ input[type="submit"]:hover {
     color: yellow;
     font-weight: bold;
 }
+.message{
+    color:red;
+    font-size: larger;
+}
 
 
 /* search style */

@@ -28,7 +28,6 @@ if(count($_POST)>0) {
             <ul>
                 <!-- the line of code commented below is important when we upload the work on a server. for now, i'm using an alternative below -->
                 <!-- <li><a href="javascript:loadPage('./login.php')">login</a> </li> -->
-                <li><a href="./login.php">login</a> </li>
                 <li>
                     <a href="./index.html">home</a> </li>
                 <li>

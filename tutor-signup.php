@@ -57,7 +57,6 @@
                 <li><a href="./login.html">login</a> </li>
                 <li>
                     <a href="./index.html">home</a> </li>
-                <li>create account</li>
 
             </ul>
         </div>
@@ -83,6 +82,8 @@
         
                     } ?> 
             </div> 
+            <br>
+            <br>
             <label for="fname">First Name *</label>
 
             <input class="sign_up_input" type="text"  id= "fname" name="fname" placeholder="First">
