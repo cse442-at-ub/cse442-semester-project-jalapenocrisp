@@ -5,7 +5,7 @@ if(count($_POST)>0) {
 	$result = mysqli_query($conn,"SELECT * FROM tutors WHERE email='" . $_POST["email"] . "' and paswd = '". $_POST["paswd"]."'");
 	$count  = mysqli_num_rows($result);
 	if($count==0) {
-		$message = "Invalid email or paswd!";
+		$message = "Invalid email or password!";
 	} else {
         $row = mysqli_fetch_array($result);
         $message = "You are successfully authenticated!";
@@ -42,7 +42,7 @@ if(count($_POST)>0) {
         </div>
     </div>
 
-    <button class="selectButton" onclick="window.location.href = './tutor_signup.html';">Not Registered? Sign Up
+    <button class="selectButton" onclick="window.location.href = './tutor-signup.php';">Not Registered? Sign Up
 
         Here.</button>
 
@@ -60,7 +60,7 @@ if(count($_POST)>0) {
         </div> 
 
             <label for="email">User Email</label>
-            <input class="log_in_input" type="text" id="email" name="email" placeholder="Enter @buffalo.edu email...">
+            <input class="log_in_input" type="text" id="email" name="email" placeholder="Email">
 
             <label for="password">Password</label>
             <input class="log_in_input" type="password" id="password" name="paswd">

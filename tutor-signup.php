@@ -1,4 +1,6 @@
 <?php
+    $message="";
+
     include_once "access-db.php";
 
     if(count($_POST)>0) {
@@ -15,15 +17,15 @@
 
 
         if (strlen($phone)!=12){
-            echo'<script>alert("Please input phone number as 555-555-5555.")</script>';
+            $message="Please input phone number as 555-555-5555.";
         }else if ((strpos( $email, '@buffalo.edu' ) === false)){
-            echo'<script>alert("Please enter a valid UB email address.")</script>';
+            $message="Please enter a valid UB email address.";
         }else if($count>0){
-            echo'<script>alert("Email address is already in use.")</script>';
+            $message="Email address is already in use.";
         }else if(empty($fname) || empty($lname)){
-            echo'<script>alert("Please enter a first and last name.")</script>';
+            $message="Please enter a first and last name.";
         }else if(!preg_match('(^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])\S*$)', $pass)){
-            echo'<script>alert("Please enter a valid password.")</script>';
+            $message="Please enter a valid password.";
         }else{
             $sql = "INSERT INTO tutors (fname, lname, email, phone, title, courses, paswd) VALUES (?,?,?,?,?,?,?)";
             $stmt= $conn->prepare($sql);
@@ -73,13 +75,20 @@
             <label>Fields marked * must be filled in order to create an account.</label>
             <br>
             <br>
+            <div class="message">
+    
+                <?php 
+                if($message!="") { 
+                    echo $message; 
+        
+                    } ?> 
+            </div> 
             <label for="fname">First Name *</label>
 
             <input class="sign_up_input" type="text"  id= "fname" name="fname" placeholder="First">
 
             <label for="lname">Last Name *</label>
             <input class="sign_up_input" type="text" id= "lname" name="lname" placeholder="Last">
-            
             <label for="email">UB Email *</label>
             <input class="sign_up_input" type="text" id= "email" name="email" placeholder="johnsmith@buffalo.edu">
 
