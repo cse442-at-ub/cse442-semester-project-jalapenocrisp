@@ -53,7 +53,6 @@ Phone Number:<br>
 <br>
 <br>
 Level:<br>
-<label for="level">Current Educational Level</label>
 <select class="txtField" name="title" id= "title">
     <option selected="<?php echo $row['title']; ?>"></option>
     <option value="Undergraduate">Undergraduate</option>
@@ -67,7 +66,6 @@ Email:<br>
 <br>
 <br>
 Course:<br>
-<label for="expertise">CSE Course to tutor</label>
 
 <select class="txtField" name="courses" id= "courses">
                 <option selected="choose one"></option>
