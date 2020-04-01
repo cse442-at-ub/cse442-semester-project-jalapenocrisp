@@ -47,7 +47,7 @@ while($row=mysqli_fetch_array($result)){
 
       <div class="options">
 
-        <select id ="first-choice">
+        <select class="sign_up_input" id ="first-choice">
             <option selected="selected">Pick a class</option>
             <?php    
                 foreach($courseArray as $item){
@@ -62,7 +62,7 @@ while($row=mysqli_fetch_array($result)){
 
         <br>
 
-        <select id="second-choice" name="tutor">
+        <select class="sign_up_input" id="second-choice" name="tutor">
             <option selected="selected">Please choose from above</option>
         </select>
         <br>
