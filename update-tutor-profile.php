@@ -59,12 +59,12 @@ $row= mysqli_fetch_array($result);
 </div>
 <div style="padding-bottom:5px;">
 </div>
-<input type="hidden" name="user_id" class="sign_up_input" value="<?php echo $row['user_id']; ?>">
-<input type="hidden" name="fname" class="sign_up_input" value="<?php echo $row['fname']; ?>">
-<input type="hidden" name="lname" class="sign_up_input" value="<?php echo $row['lname']; ?>">
+<input type="hidden" name="user_id" class="input1" value="<?php echo $row['user_id']; ?>">
+<input type="hidden" name="fname" class="input1" value="<?php echo $row['fname']; ?>">
+<input type="hidden" name="lname" class="input1" value="<?php echo $row['lname']; ?>">
 <br>
 Phone Number:<br>
-<input type="text" name="phone" class="sign_up_input" value="<?php echo $row['phone']; ?>">
+<input type="text" name="phone" class="input1" value="<?php echo $row['phone']; ?>">
 <br>
 <br>
 Level:<br>
@@ -77,7 +77,7 @@ Level:<br>
 <br>
 <br>
 Email:<br>
-<input type="text" name="email" class="sign_up_input" value="<?php echo $row['email']; ?>">
+<input type="text" name="email" class="input1" value="<?php echo $row['email']; ?>">
 <br>
 <br>
 Course:<br>
@@ -135,12 +135,15 @@ Course:<br>
 <br>
 Password:<br>
 
-<input type="password" name="paswd" class="sign_up_input" value="<?php echo $row['paswd']; ?>">
+<input type="password" name="paswd" class="input1" value="<?php echo $row['paswd']; ?>">
 
 <br>
 <br>
 <input type="submit" name="submit" value="Submit" class="button">
 </form>
 <button class = "calendarView" onclick="window.location.href = './tutorprof.php?user_id=<?php echo $row['user_id']; ?>';"> Return to profile</button>
+<br>
+<br>
+<br>
 </body>
 </html>
