@@ -27,6 +27,7 @@
             $stmt->execute();
             header('Location: ./login.php');
         }
+    }
                       
 ?>
 
@@ -152,11 +153,6 @@
             <!-- <button class="selectButton" onclick="window.location.href = './tutorprofile.html';">Submit</button> -->
     </div>
     <script src="index.js"></script>
-    <script>
-        
-                        
 
-    
-</script>
-</body>
-</html>
+    </body>
+    </html>
