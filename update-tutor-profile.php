@@ -52,9 +52,14 @@ Phone Number:<br>
 <input type="text" name="phone" class="txtField" value="<?php echo $row['phone']; ?>">
 <br>
 <br>
-Title:<br>
-<input type="text" name="title" class="txtField" value="<?php echo $row['title']; ?>">
-<br>
+Level:<br>
+<label for="level">Current Educational Level</label>
+            <select class="sign_up_input" name="title" id= "title">
+                <option selected="<?php echo $row['title']; ?>"></option>
+                <option value="Undergraduate">Undergraduate</option>
+                <option value="Graduate">Graduate</option>
+                <option value="Postgraduate">Postgraduate</option>
+            </select><br>
 <br>
 Email:<br>
 <input type="text" name="email" class="txtField" value="<?php echo $row['email']; ?>">
