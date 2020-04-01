@@ -18,7 +18,7 @@
             echo'<script>alert("Please enter a valid UB email address.")</script>';
         }else if(empty($fname) || empty($lname)){
             echo'<script>alert("Please enter a first and last name.")</script>';
-        }else if(!$valid){
+        }else if($valid){
             echo'<script>alert("Please enter a valid password.")</script>';
         }else{
             $sql = "INSERT INTO tutors (fname, lname, email, phone, title, courses, paswd) VALUES (?,?,?,?,?,?,?)";
