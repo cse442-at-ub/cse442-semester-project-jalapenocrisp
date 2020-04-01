@@ -16,6 +16,36 @@
         $courses=$_POST['courses'];                        
         $pass=$_POST['paswd'];
 
+        $valid=preg_match('^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])\S*$', $pass);
+
+        if (strlen($phone)!=12){
+            echo'<script>alert("Please input phone number as 555-555-5555.")</script>';
+        }else if ((strpos( $email, '@buffalo.edu' ) === false)){
+            echo'<script>alert("Please enter a valid UB email address.")</script>';
+        }else if(empty($fname) || empty($lname)){
+            echo'<script>alert("Please enter a first and last name.")</script>';
+        }else if(!$valid){
+            echo'<script>alert("Please enter a valid password.")</script>';
+        }else{
+            $sql = "INSERT INTO tutors (fname, lname, email, phone, title, courses, paswd) VALUES (?,?,?,?,?,?,?)";
+            $stmt= $conn->prepare($sql);
+            $stmt->bind_param("sssssss", $fname, $lname, $email, $phone, $title, $courses, $pass);
+            $stmt->execute();
+            header('Location: ./login.php');
+        }
+                      
+?>
+>>>>>>> e49d556... rewrite validility checks in php for simplicity
+
+    if(count($_POST)>0) {
+        $fname=$_POST['fname'];
+        $lname=$_POST['lname'];
+        $email=$_POST['email'];
+        $phone=$_POST['phone'];
+        $title=$_POST['title'];
+        $courses=$_POST['courses'];                        
+        $pass=$_POST['paswd'];
+
         $result = mysqli_query($conn,"SELECT * FROM tutors WHERE email='" . $_POST["email"] . "'");
         $count  = mysqli_num_rows($result);
 
