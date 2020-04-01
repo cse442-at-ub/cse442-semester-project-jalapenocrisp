@@ -28,7 +28,7 @@
             echo'<script>alert("Email address is already in use.")</script>';
         }else if(empty($fname) || empty($lname)){
             echo'<script>alert("Please enter a first and last name.")</script>';
-        }else if(!preg_match('^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])\S*$', $pass)){
+        }else if(!preg_match('(^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])\S*$)', $pass)){
             echo'<script>alert("Please enter a valid password.")</script>';
         }else{
             $sql = "INSERT INTO tutors (fname, lname, email, phone, title, courses, paswd) VALUES (?,?,?,?,?,?,?)";
