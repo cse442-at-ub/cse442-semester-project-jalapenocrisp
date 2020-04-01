@@ -5,6 +5,7 @@ $message="";
 if(count($_POST)>0) {
     $fname=$_POST['fname'];
     $lname=$_POST['lname'];
+    $email=$_POST['email'];
     $phone=$_POST['phone'];
     $title=$_POST['title'];
     $courses=$_POST['courses'];                        
@@ -13,12 +14,14 @@ if(count($_POST)>0) {
 
     if(empty($fname) || empty($lname)){
         $message="Please enter a first and last name.";
+    }else if ((strpos( $email, '@buffalo.edu' ) === false)){
+        $message="Please enter a valid UB email address.";
     }else if(!preg_match('(^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])\S*$)', $pass)){
         $message="Please enter a valid password.";
     }else if (strlen($phone)!=12){
         $message="Please input phone number as 555-555-5555.";
     }else{
-        mysqli_query($conn,"UPDATE tutors SET fname='" . $_POST['fname'] . "', lname='" . $_POST['lname'] . "', phone='" . $_POST['phone'] . "' ,title='" . $_POST['title'] . "' , courses='" . $_POST['courses'] . "', paswd='" . $_POST['paswd'] . "' WHERE user_id='" . $_POST['user_id'] . "'"); 
+        mysqli_query($conn,"UPDATE tutors SET fname='" . $_POST['fname'] . "', lname='" . $_POST['lname'] . "', phone='" . $_POST['phone'] . "' ,title='" . $_POST['title'] . "' , email='" . $_POST['email'] . "', courses='" . $_POST['courses'] . "', paswd='" . $_POST['paswd'] . "' WHERE user_id='" . $_POST['user_id'] . "'"); 
         $message = "Record Modified Successfully";
 }
 
@@ -76,6 +79,10 @@ Level:<br>
     <option value="Graduate">Graduate</option>
     <option value="Postgraduate">Postgraduate</option>
 </select>
+<br>
+<br>
+Email:<br>
+<input type="text" name="email" class="input1" value="<?php echo $row['email']; ?>">
 <br>
 <br>
 Course:<br>
