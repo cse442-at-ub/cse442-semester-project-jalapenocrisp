@@ -15,17 +15,16 @@
         $result = mysqli_query($conn,"SELECT * FROM tutors WHERE email='" . $_POST["email"] . "'");
         $count  = mysqli_num_rows($result);
 
-
-        if (strlen($phone)!=12){
-            $message="Please input phone number as 555-555-5555.";
+        if(empty($fname) || empty($lname)){
+            $message="Please enter a first and last name.";
         }else if ((strpos( $email, '@buffalo.edu' ) === false)){
             $message="Please enter a valid UB email address.";
         }else if($count>0){
             $message="Email address is already in use.";
-        }else if(empty($fname) || empty($lname)){
-            $message="Please enter a first and last name.";
         }else if(!preg_match('(^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])\S*$)', $pass)){
             $message="Please enter a valid password.";
+        }else if (strlen($phone)!=12){
+            $message="Please input phone number as 555-555-5555.";
         }else{
             $sql = "INSERT INTO tutors (fname, lname, email, phone, title, courses, paswd) VALUES (?,?,?,?,?,?,?)";
             $stmt= $conn->prepare($sql);
