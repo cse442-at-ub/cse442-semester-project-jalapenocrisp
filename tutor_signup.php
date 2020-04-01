@@ -1,3 +1,34 @@
+<?php
+    include_once "access-db.php";
+
+    if(count($_POST)>0) {
+        $fname=$_POST['fname'];
+        $lname=$_POST['lname'];
+        $email=$_POST['email'];
+        $phone=$_POST['phone'];
+        $title=$_POST['title'];
+        $courses=$_POST['courses'];                        
+        $pass=$_POST['paswd'];
+
+        $valid=preg_match('^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])\S*$', $pass);
+
+        if (strlen($phone)!=12){
+            echo'<script>alert("Please input phone number as 555-555-5555.")</script>';
+        }else if ((strpos( $email, '@buffalo.edu' ) === false)){
+            echo'<script>alert("Please enter a valid UB email address.")</script>';
+        }else if(empty($fname) || empty($lname)){
+            echo'<script>alert("Please enter a first and last name.")</script>';
+        }else if(!$valid){
+            echo'<script>alert("Please enter a valid password.")</script>';
+        }else{
+            $sql = "INSERT INTO tutors (fname, lname, email, phone, title, courses, paswd) VALUES (?,?,?,?,?,?,?)";
+            $stmt= $conn->prepare($sql);
+            $stmt->bind_param("sssssss", $fname, $lname, $email, $phone, $title, $courses, $pass);
+            $stmt->execute();
+            header('Location: ./login.php');
+        }
+                      
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -114,7 +145,7 @@
 
             <label for="phoneNumber">US Phone Number</label>
             <input class="sign_up_input" type="text" id= "phone" name="phone" placeholder="555-555-5555">
-            <input type="submit" id="tutor_signup_submit" onclick="verifyInfo(fname, lname, email, paswd, phone);" value= "Verify"> 
+            <input type="submit" id="tutor_signup_submit" value= "Verify"> 
             <br><br><br>
         </form>
 
@@ -122,43 +153,10 @@
     </div>
     <script src="index.js"></script>
     <script>
-        function verifyInfo(fname, lname, email, pw, phone){
-        if(fname.value == "" || lname.value == ""){
-            alert("Name fields must not be empty!");
-        }else if(phone.length!=12){
-            alert("Please input phone number as 555-555-5555.");
-        }else{
-            var emails = email.value;
-            if ((!emails.includes('@buffalo.edu')) || emails.length<13){
-                alert("Please enter a valid UB email address.");
-            }else{
-                var decimal=  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
-                if(pw.value.match(decimal)){ 
-                    <?php
-                        include_once "access-db.php";
-                        $fname=$_POST['fname'];
-                        $lname=$_POST['lname'];
-                        $email=$_POST['email'];
-                        $phone=$_POST['phone'];
-                        $title=$_POST['title'];
-                        $courses=$_POST['courses'];                        
-                        $pass=$_POST['paswd'];
+        
+                        
 
-                        $sql = "INSERT INTO tutors (fname, lname, email, phone, title, courses, paswd) VALUES (?,?,?,?,?,?,?)";
-                        $stmt= $conn->prepare($sql);
-                        $stmt->bind_param("sssssss", $fname, $lname, $email, $phone, $title, $courses, $pass);
-                        $stmt->execute();
-                      
-                        ?>
-                        window.open("login.php", "self");
-                    }
-                    else{ 
-                        alert('Password must be 8 to 15 characters long and have at least 1 uppercase and lowercase letter, 1 number, and 1 special character.' )
-                    }
-                }  
-            } 
-        }
-    }
+    
 </script>
 </body>
 </html>
