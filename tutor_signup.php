@@ -33,6 +33,7 @@
             $stmt->execute();
             header('Location: ./login.php');
         }
+    }
                       
 ?>
 >>>>>>> e49d556... rewrite validility checks in php for simplicity
