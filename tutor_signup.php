@@ -33,6 +33,7 @@
             $stmt->execute();
             header('Location: ./login.php');
         }
+    }
                       
 ?>
 >>>>>>> e49d556... rewrite validility checks in php for simplicity
@@ -260,6 +261,7 @@
     </div>
     <script src="index.js"></script>
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     </body>
     </html>
@@ -276,3 +278,8 @@
 >>>>>>> 3a01d2c... committing new branch
 =======
 >>>>>>> 1df9ba6... inserting all CSE classes into drop down
+=======
+
+    </body>
+    </html>
+>>>>>>> 3e27950... bigfix matching parenthese
