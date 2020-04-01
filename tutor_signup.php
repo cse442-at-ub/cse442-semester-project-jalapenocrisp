@@ -17,14 +17,19 @@
         $pass=$_POST['paswd'];
 
         $valid=preg_match('^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])\S*$', $pass);
+        $result = mysqli_query($conn,"SELECT * FROM tutors WHERE email='" . $_POST["email"] . "'");
+        $count  = mysqli_num_rows($result);
+
 
         if (strlen($phone)!=12){
             echo'<script>alert("Please input phone number as 555-555-5555.")</script>';
         }else if ((strpos( $email, '@buffalo.edu' ) === false)){
             echo'<script>alert("Please enter a valid UB email address.")</script>';
+        }else if($count>0){
+            echo'<script>alert("Email address is already in use.")</script>';
         }else if(empty($fname) || empty($lname)){
             echo'<script>alert("Please enter a first and last name.")</script>';
-        }else if($valid){
+        }else if($valid==0){
             echo'<script>alert("Please enter a valid password.")</script>';
         }else{
             $sql = "INSERT INTO tutors (fname, lname, email, phone, title, courses, paswd) VALUES (?,?,?,?,?,?,?)";
@@ -128,10 +133,14 @@
             <label for="password">Password *</label>
             <br>
 <<<<<<< HEAD
+<<<<<<< HEAD
             <label>Requires at least 8 characters, 1 uppercase, 1 lowercase, 1 special character and 1 number.</label>
 =======
             <label>[8-15 characters, at least 1 upper & lowercase letter, 1 special character, and 1 number are required]</label>
 >>>>>>> 3a01d2c... committing new branch
+=======
+            <label>Requires at least 8 characters, 1 uppercase, 1 lowercase, 1 special character and 1 number.</label>
+>>>>>>> acb9ffd... adding check for existing ubmail
             <input class="sign_up_input" type="password" id= "paswd" name="paswd">
 
             <label for="level">Current Educational Level</label>
