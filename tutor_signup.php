@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php
     include_once "access-db.php";
 
@@ -38,6 +39,9 @@
 
 =======
 >>>>>>> 3a01d2c... committing new branch
+=======
+
+>>>>>>> 1df9ba6... inserting all CSE classes into drop down
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -116,6 +120,7 @@
                 <option value="CSE321">CSE321</option>
                 <option value="CSE331">CSE331</option>
 <<<<<<< HEAD
+<<<<<<< HEAD
 		        <option value="CSE341">CSE341</option>
 		        <option value="CSE365">CSE365</option>
                 <option value="CSE368">CSE368</option>
@@ -155,15 +160,52 @@
 		        <option value="CSE491">CSE491</option>
 		        <option value="CSE493">CSE493</option>
 =======
+=======
+		        <option value="CSE341">CSE341</option>
+		        <option value="CSE365">CSE365</option>
+>>>>>>> 1df9ba6... inserting all CSE classes into drop down
                 <option value="CSE368">CSE368</option>
                 <option value="CSE370">CSE370</option>
+		        <option value="CSE379">CSE379</option>
                 <option value="CSE396">CSE396</option>
+		        <option value="CSE404">CSE404</option>
+		        <option value="CSE411">CSE411</option>
+		        <option value="CSE421">CSE421</option>
+		        <option value="CSE422">CSE422</option>
+		        <option value="CSE426">CSE426</option>
+		        <option value="CSE429">CSE429</option>
+		        <option value="CSE430">CSE430</option>
+		        <option value="CSE431">CSE431</option>
+		        <option value="CSE432">CSE432</option>
+		        <option value="CSE435">CSE435</option>
+		        <option value="CSE443">CSE443</option>
+		        <option value="CSE445">CSE445</option>
+		        <option value="CSE450">CSE450</option>
+		        <option value="CSE451">CSE451</option>
+		        <option value="CSE453">CSE453</option>
+		        <option value="CSE454">CSE454</option>
+		        <option value="CSE455">CSE455</option>
+		        <option value="CSE460">CSE460</option>
+		        <option value="CSE462">CSE462</option>	
+		        <option value="CSE463">CSE463</option>
+		        <option value="CSE467">CSE467</option>
+		        <option value="CSE468">CSE468</option>
+		        <option value="CSE469">CSE469</option>
+		        <option value="CSE470">CSE470</option>
+		        <option value="CSE473">CSE473</option>	
                 <option value="CSE474">CSE474</option>
+		        <option value="CSE486">CSE486</option>
                 <option value="CSE487">CSE487</option>
                 <option value="CSE489">CSE489</option>
+<<<<<<< HEAD
 
 
 >>>>>>> 3a01d2c... committing new branch
+=======
+		        <option value="CSE490">CSE490</option>
+		        <option value="CSE491">CSE491</option>
+		        <option value="CSE493">CSE493</option>
+>>>>>>> 1df9ba6... inserting all CSE classes into drop down
             </select>
 
             <label for="phoneNumber">US Phone Number</label>
@@ -225,4 +267,7 @@
 </script>
 </body>
 </html>
+<<<<<<< HEAD
 >>>>>>> 3a01d2c... committing new branch
+=======
+>>>>>>> 1df9ba6... inserting all CSE classes into drop down
