@@ -110,6 +110,10 @@ input[type="submit"]:hover {
     color: yellow;
     font-weight: bold;
 }
+.message{
+    color:red;
+    font-size: larger;
+}
 
 
 /* search style */
@@ -181,6 +185,16 @@ input[type="submit"]:hover {
 .dd{
     text-align: center;
 }
+.input1{
+    width: 50%;
+    padding: 12px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
 
 /* ~~~~~~~~~~~~~~~~~~~~Tutor Calendar View style ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
@@ -302,7 +316,6 @@ input[type="submit"]:hover {
     margin-right: 15%;
     
 }
-/* end of tre's stylization */
 
 /* styling for tutor page schedule */
 
