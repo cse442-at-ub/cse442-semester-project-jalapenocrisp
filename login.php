@@ -31,7 +31,9 @@ if(count($_POST)>0) {
                 <li><a href="./login.php">login</a> </li>
                 <li>
                     <a href="./index.html">home</a> </li>
-                <li>create account</li>
+                <li>
+                    <a href="./tutor-signup.php">create account</a> </li>
+
             </ul>
         </div>
 
