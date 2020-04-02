@@ -1,3 +1,7 @@
+<?php
+include_once "access-db.php";
+$result = mysqli_query($conn,"SELECT * FROM students WHERE user_id='" . $_GET['user_id'] . "'");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,10 +23,10 @@
             <ul>
 
                 <!-- the line of code commented below is important when we upload the work on a server. for now, i'm using an alternative below -->
-                <!-- <li><a href="javascript:loadPage('./login.php')">login</a> </li> -->
-                <li><a href="./login.php">tutor login</a> </li>
-                <li><a href="./login-student.php">student login</a> </li>
-                <li><a href="./create-account.html">create account</a></li>
+                <!-- <li><a href="javascript:loadPage('./login.html')">login</a> </li> -->
+                <li><a href="./search.php">find a tutor</a> </li>
+
+                <li><a href="./index.html">logout</a> </li>
 
             </ul>
         </div>
@@ -33,21 +37,26 @@
 
     </div>
 
-    <h1 class="welcome-page-title">Welcome to UB Tutoring Services</h1>
+    <h1 class="welcome-page-title"></h1>
+    <table class="info">
 
-    <div class="route-buttons">
-        <button onclick="window.location.href = './login.php';" class="welcome-page-buttons tutor-button">I'm a tutor</button>
-        <button onclick="window.location.href = './search.php';" class="welcome-page-buttons student-button">Find Tutor</button>
-    </div>
-
+    <?php
+    $row = mysqli_fetch_array($result);
+    ?>
+    <tr><td>Name: </td><td><?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?></td></tr>
+    <tr><td>Phone Number: </td><td><?php echo $row["phone"]; ?></td></tr>
+    <tr><td>Title: </td><td><?php echo $row["title"]; ?></td></tr>
+    <tr><td>Email: </td><td><?php echo $row["email"]; ?></td></tr>
+    <tr><td>Course: </td><td><?php echo $row["courses"]; ?></td></tr>
+    <tr><td><a href="update-student-profile.php?user_id=<?php echo $row["user_id"]; ?>">Edit Information</a></td></tr>    
+    
+    </table>
+    <br><br><br>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="index.js"></script>
     <script>
-        $(document).ready(function() {
-
-
-        });
+        
     </script>
 
 </body>

@@ -12,7 +12,7 @@
         $courses=$_POST['courses'];                        
         $pass=$_POST['paswd'];
 
-        $result = mysqli_query($conn,"SELECT * FROM tutors WHERE email='" . $_POST["email"] . "'");
+        $result = mysqli_query($conn,"SELECT * FROM students WHERE email='" . $_POST["email"] . "'");
         $count  = mysqli_num_rows($result);
 
         if(empty($fname) || empty($lname)){
@@ -26,7 +26,7 @@
         }else if (strlen($phone)!=12){
             $message="Please input phone number as 555-555-5555.";
         }else{
-            $sql = "INSERT INTO tutors (fname, lname, email, phone, title, courses, paswd) VALUES (?,?,?,?,?,?,?)";
+            $sql = "INSERT INTO students (fname, lname, email, phone, title, courses, paswd) VALUES (?,?,?,?,?,?,?)";
             $stmt= $conn->prepare($sql);
             $stmt->bind_param("sssssss", $fname, $lname, $email, $phone, $title, $courses, $pass);
             $stmt->execute();
@@ -42,7 +42,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css" />
-    <title>UB Tutoring Tutor Sign Up</title>
+    <title>UB Tutoring Student Sign Up</title>
 </head>
 <body>
 
