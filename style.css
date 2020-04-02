@@ -1,12 +1,12 @@
 :root {
-    --teal: #008080;
+    --teal: #b1cddd;
     --yellow: #cbcaa5;
     --black: #000000;
 }
 
 body {
     background-color: var(--teal);
-    color: white;
+    color: black;
 }
 
 
@@ -39,7 +39,7 @@ body {
 }
 
 .logo a {
-    font-family: "Righteous", cursive;
+    font-family: sans-serif;
     text-decoration: none;
 }
 
