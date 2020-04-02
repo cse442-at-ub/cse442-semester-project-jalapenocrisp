@@ -44,13 +44,13 @@ $result = mysqli_query($conn,"SELECT * FROM students WHERE user_id='" . $_GET['u
     $row = mysqli_fetch_array($result);
     ?>
     <tr><td>Name: </td><td><?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?></td></tr>
-    <tr><td>Phone Number: </td><td><?php echo $row["phone"]; ?></td></tr>
-    <tr><td>Title: </td><td><?php echo $row["title"]; ?></td></tr>
     <tr><td>Email: </td><td><?php echo $row["email"]; ?></td></tr>
-    <tr><td>Course: </td><td><?php echo $row["courses"]; ?></td></tr>
-    <tr><td><a href="update-student-profile.php?user_id=<?php echo $row["user_id"]; ?>">Edit Information</a></td></tr>    
     
     </table>
+    <button class="selectButton" onclick="window.location.href ='./update-tutor-profile.php?user_id=<?php echo $row['user_id']; ?>';">Edit Information</button>  
+    <br><br><br>
+    <button class="selectButton" onclick="window.location.href ='./delete-profile.php';">Delete Profile</button> 
+    <br><br><br>
     <br><br><br>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
