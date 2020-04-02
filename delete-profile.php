@@ -17,6 +17,7 @@ if(count($_POST)>0) {
         $stmt->execute();
         $stmt->close();
         header('Location: ./');
+        echo "Profile deleted successfully, we are sad to see you go!";
     }
 
 }
