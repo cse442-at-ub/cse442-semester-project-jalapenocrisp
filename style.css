@@ -17,6 +17,9 @@ body {
     margin: auto;
     padding-top: 80px;
 }
+hr.hr-navbar{
+    border-top: .5px solid black;
+}
 
 .welcome-page-buttons {
     width:25%;
@@ -45,7 +48,7 @@ body {
 }
 
 .header {
-    padding: 10px;
+    padding-left: 10px;
 }
 
 .menu_welcomePage {
@@ -55,7 +58,7 @@ body {
 
 ul li {
     display: inline;
-    padding: 50px;
+    padding: 30px;
 }
 
 ul li a {

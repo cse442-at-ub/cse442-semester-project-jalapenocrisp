@@ -56,6 +56,7 @@ $row= mysqli_fetch_array($result);
             <h2 class="logo"> <a href="./index.html">UBtutoring</a> </h2>
         </div>
     </div>
+    <hr class="hr-navbar">
 
 <h1 class="welcome-page-title">Please Save Before Returning</h1>
 

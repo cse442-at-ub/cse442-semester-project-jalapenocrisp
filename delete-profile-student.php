@@ -44,6 +44,7 @@ if(count($_POST)>0) {
         </div>
 
     </div>
+    <hr class="hr-navbar">
 
     <h1 class="welcome-page-title">Enter your password to complete profile delete: </h1>
     <form class = "info1" name="frmUser" method="post" action="">

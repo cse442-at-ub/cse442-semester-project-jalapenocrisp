@@ -41,6 +41,7 @@ if(count($_POST)>0) {
             <h2 class="logo"> <a href="./index.html">UBtutoring</a> </h2>
         </div>
     </div>
+    <hr class="hr-navbar">
 
     <button class="selectButton" onclick="window.location.href = './create-account.html';">Not Registered? Sign Up
 

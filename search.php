@@ -40,6 +40,7 @@ while($row=mysqli_fetch_array($result)){
         </div>
 
     </div>
+    <hr class="hr-navbar">
 
     <h1 class="welcome-page-title">Find Your Class: </h1>
     <div class="dd">

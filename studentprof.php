@@ -36,6 +36,7 @@ $result = mysqli_query($conn,"SELECT * FROM students WHERE user_id='" . $_GET['u
         </div>
 
     </div>
+    <hr class="hr-navbar">
 
     <h1 class="welcome-page-title"></h1>
     <button class="calendarView" onclick="window.location.href = './search.php';">Search for a tutor</button>
