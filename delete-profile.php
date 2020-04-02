@@ -5,7 +5,7 @@ $sql  =  "DELETE FROM tutors WHERE id=?";
 $stmt= $conn->prepare($sql);
 $stmt->bind_param("i", $uid);
 $stmt->execute();
-
+echo "deleted";
 header('Location: ./index.html');
 ?>
 
