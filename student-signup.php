@@ -60,6 +60,7 @@
         </div>
 
     </div>
+    <br>
     <hr class="hr-navbar">
 
     <h1 class="welcome-page-title">Student Sign Up</h1>
