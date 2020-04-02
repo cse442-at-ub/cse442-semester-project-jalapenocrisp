@@ -7,7 +7,7 @@ if(count($_POST)>0) {
     $lname=$_POST['lname'];
     $email=$_POST['email'];                     
     $pass=$_POST['paswd'];
-
+    $uid=$_GET['user_id'];
 
     if(empty($fname) || empty($lname)){
         $message="Please enter a first and last name.";
@@ -18,12 +18,15 @@ if(count($_POST)>0) {
     }else{
         mysqli_query($conn,"UPDATE students SET fname='" . $_POST['fname'] . "', lname='" . $_POST['lname'] . "', email='" . $_POST['email'] . "', paswd='" . $_POST['paswd'] . "' WHERE user_id='" . $_POST['user_id'] . "'"); 
         $message = "Record Modified Successfully";
+        header('Location: ./studentprof.php?user_id=' .$uid);
+        
 }
 
 
 }
 $result = mysqli_query($conn,"SELECT * FROM students WHERE user_id='" . $_GET['user_id'] . "'");
 $row= mysqli_fetch_array($result);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -77,9 +80,8 @@ Password:<br>
 
 <br>
 <br>
-<input type="submit" name="submit" value="Save" class="button">
+<input class="selectButton" type="submit" name="submit" value="Save" class="button">
 </form>
-<button class = "calendarView" onclick="window.location.href = './studentprof.php?user_id=<?php echo $row['user_id']; ?>';"> Return to profile</button>
 <br>
 <br>
 <br>
