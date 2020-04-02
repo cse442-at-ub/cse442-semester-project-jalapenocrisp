@@ -83,7 +83,7 @@ ul li a:hover {
 }
 
 input[type="submit"]:hover {
-    background-color: #45a049;
+    background-color: blue;
 }
 
 #tutor_signup_div {
@@ -97,17 +97,17 @@ input[type="submit"]:hover {
     display: inline-block;
     border: 0px solid #ccc;
     margin-top: 10px;
-    background-color: #45a038;
+    background-color: blue;
     width: 100%;
     padding: 12px;
 }
 
 #tutor_signup_submit:hover, #log_in_button:hover{
-    background-color: #52e93e;
+    background-color: lightblue;
 }
 
 #forgot_link_id{
-    color: yellow;
+    color:black;
     font-weight: bold;
 }
 .message{
