@@ -9,8 +9,7 @@ if(count($_POST)>0) {
     $pwd=$row['paswd'];
     //if password != pwd, exit or prompt for it agian
     if ($pwd!=$pass){
-        $message = "Passwords do not match.";
-
+        $message = "Passwords do not match";
     }
     $uid=$_GET['user_id'];
     $sql  =  "DELETE FROM tutors WHERE id=?";
