@@ -11,7 +11,7 @@ if(count($_POST)>0) {
         $message = "Passwords do not match";
     }else{
         $uid=$_GET['user_id'];
-        $sql  =  "DELETE FROM tutors WHERE id=?";
+        $sql  =  "DELETE FROM tutors WHERE user_id=?";
         $stmt= $conn->prepare($sql);
         $stmt->bind_param("i", $uid);
         $stmt->execute();
