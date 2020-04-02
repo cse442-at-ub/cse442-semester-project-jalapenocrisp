@@ -78,7 +78,7 @@ Password:<br>
 <br>
 <input type="submit" name="submit" value="Save" class="button">
 </form>
-<button class = "calendarView" onclick="window.location.href = './tutorprof.php?user_id=<?php echo $row['user_id']; ?>';"> Return to profile</button>
+<button class = "calendarView" onclick="window.location.href = './studentprof.php?user_id=<?php echo $row['user_id']; ?>';"> Return to profile</button>
 <br>
 <br>
 <br>
