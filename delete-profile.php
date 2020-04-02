@@ -7,9 +7,9 @@ if(count($_POST)>0) {
     $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET["user_id"] . "'");
     $row = mysqli_fetch_array($result);
     $pwd=$row['paswd'];
-    echo "$pwd";
     //if password != pwd, exit or prompt for it agian
     if ($pwd!=$pass){
+        echo "passwords dont match";
         $message = "Passwords do not match";
     }
     $uid=$_GET['user_id'];
