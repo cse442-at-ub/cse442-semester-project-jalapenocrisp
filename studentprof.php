@@ -47,9 +47,9 @@ $result = mysqli_query($conn,"SELECT * FROM students WHERE user_id='" . $_GET['u
     <tr><td>Email: </td><td><?php echo $row["email"]; ?></td></tr>
     
     </table>
-    <button class="selectButton" onclick="window.location.href ='./update-tutor-profile.php?user_id=<?php echo $row['user_id']; ?>';">Edit Information</button>  
+    <button class="selectButton" onclick="window.location.href ='./update-student-profile.php?user_id=<?php echo $row['user_id']; ?>';">Edit Information</button>  
     <br><br><br>
-    <button class="selectButton" onclick="window.location.href ='./delete-profile.php';">Delete Profile</button> 
+    <button class="selectButton" onclick="window.location.href ='./delete-profile-student.php';">Delete Profile</button> 
     <br><br><br>
     <br><br><br>
 
