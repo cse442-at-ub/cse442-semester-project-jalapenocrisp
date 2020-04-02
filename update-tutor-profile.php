@@ -68,7 +68,7 @@ $row= mysqli_fetch_array($result);
 <input type="hidden" name="user_id" class="input1" value="<?php echo $row['user_id']; ?>">
 <input type="hidden" name="fname" class="input1" value="<?php echo $row['fname']; ?>">
 <input type="hidden" name="lname" class="input1" value="<?php echo $row['lname']; ?>">
-<br>
+
 Phone Number:<br>
 <input type="text" name="phone" class="input1" value="<?php echo $row['phone']; ?>">
 <br>
