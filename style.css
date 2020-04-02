@@ -122,6 +122,7 @@ input[type="submit"]:hover {
 
 
 .selectButton{
+    width: 25%;
     margin-top:2%;
     display: block;
     margin-left: auto;
@@ -135,6 +136,7 @@ input[type="submit"]:hover {
     color: black;
 }
 .delButton{
+    width: 25%;
     margin-top:2%;
     display: block;
     margin-left: auto;
@@ -145,7 +147,7 @@ input[type="submit"]:hover {
     background-color: rgb(214, 3, 3);
     cursor: pointer;
     border: none;
-    color: black;
+    color:white;
 }
 .info{
     font-size: larger;
