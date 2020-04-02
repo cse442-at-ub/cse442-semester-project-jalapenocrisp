@@ -1,11 +1,17 @@
 <?php
 include_once "access-db.php";
+$message="";
+
 if(count($_POST)>0) {
     $pass=$_POST['pass'];
     $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET["user_id"] . "'");
     $row = mysqli_fetch_array($result);
     $pwd=$row['paswd'];
     //if password != pwd, exit or prompt for it agian
+    if ($pwd!=$pass){
+        $message = "Passwords do not match.";
+
+    }
     $uid=$_GET['user_id'];
     $sql  =  "DELETE FROM tutors WHERE id=?";
     $stmt= $conn->prepare($sql);
@@ -41,8 +47,17 @@ if(count($_POST)>0) {
 
     <h1 class="welcome-page-title">Enter your password to complete profile delete: </h1>
     <form class = "info1" name="frmUser" method="post" action="">
-        Email:<br>
+    <div class="message">
+    
+    <?php if($message!="") { 
+        echo $message; 
+        
+        } ?> 
+    </div> 
+    <br>
+        Password:<br>
         <input type="password" name="pass" class="input1">
+        <input type="submit" name="submit" value="delete forever" class="button">
 
 
 
