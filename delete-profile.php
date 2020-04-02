@@ -7,6 +7,7 @@ if(count($_POST)>0) {
     $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET["user_id"] . "'");
     $row = mysqli_fetch_array($result);
     $pwd=$row['paswd'];
+    echo "$pwd";
     //if password != pwd, exit or prompt for it agian
     if ($pwd!=$pass){
         $message = "Passwords do not match";
@@ -55,7 +56,7 @@ if(count($_POST)>0) {
     </div> 
     <br>
         Password:<br>
-        <input type="password" name="pass" class="input1">
+        <input type="password" name="pass" class="input1"><br>
         <input type="submit" name="submit" value="delete forever" class="button">
 
 
