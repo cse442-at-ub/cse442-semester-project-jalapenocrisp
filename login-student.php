@@ -42,7 +42,7 @@ if(count($_POST)>0) {
         </div>
     </div>
 
-    <button class="selectButton" onclick="window.location.href = '././create-account.html';">Not Registered? Sign Up
+    <button class="selectButton" onclick="window.location.href = './create-account.html';">Not Registered? Sign Up
 
         Here.</button>
 

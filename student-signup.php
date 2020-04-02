@@ -25,7 +25,6 @@
             $stmt= $conn->prepare($sql);
             $stmt->bind_param("ssss", $fname, $lname, $email, $pass);
             $stmt->execute();
-            header('Location: ./login-student.php');
         }
     }
                       
