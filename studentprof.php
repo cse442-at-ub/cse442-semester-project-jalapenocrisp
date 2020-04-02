@@ -52,7 +52,7 @@ $result = mysqli_query($conn,"SELECT * FROM students WHERE user_id='" . $_GET['u
     <br><br><br>
     <button class="selectButton" onclick="window.location.href ='./update-student-profile.php?user_id=<?php echo $row['user_id']; ?>';">Edit Information</button>  
     
-    <button class="selectButton" onclick="window.location.href ='./delete-profile-student.php?user_id=<?php echo $row['user_id']; ?>';">Delete Profile</button> 
+    <button class="delButton" onclick="window.location.href ='./delete-profile-student.php?user_id=<?php echo $row['user_id']; ?>';">Delete Profile</button> 
     <br><br><br>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
