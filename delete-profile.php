@@ -16,7 +16,7 @@ if(count($_POST)>0) {
         $stmt->bind_param("i", $uid);
         $stmt->execute();
         $stmt->close();
-        header('Location: ./index.html');
+        header('Location: ./');
     }
 
 }
