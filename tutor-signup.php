@@ -65,6 +65,7 @@
         </div>
 
     </div>
+    <br>
     <hr class="hr-navbar">
 
     <h1 class="welcome-page-title">Tutor Sign Up</h1>
