@@ -84,6 +84,7 @@ ul li a:hover {
 
 input[type="submit"]:hover {
     background-color: blue;
+    color:white
 }
 
 #tutor_signup_div {
@@ -98,12 +99,13 @@ input[type="submit"]:hover {
     border: 0px solid #ccc;
     margin-top: 10px;
     background-color: blue;
+    color: white
     width: 100%;
     padding: 12px;
 }
 
 #tutor_signup_submit:hover, #log_in_button:hover{
-    background-color: lightblue;
+    background-color:rgb(79, 79, 252);
 }
 
 #forgot_link_id{
