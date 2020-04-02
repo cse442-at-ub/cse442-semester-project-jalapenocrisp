@@ -6,6 +6,7 @@ $stmt= $conn->prepare($sql);
 $stmt->bind_param("i", $uid);
 $stmt->execute();
 echo "deleted";
+$stmt->close();
 header('Location: ./index.html');
 ?>
 
