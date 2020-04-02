@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>UB Tutoring -Forgot User Name or Password</title>
+
+</head>
+
+<body>
+
+    <div class="header">
+
+        <div class="menu_welcomePage">
+            <ul>
+
+                <!-- the line of code commented below is important when we upload the work on a server. for now, i'm using an alternative below -->
+                <!-- <li><a href="javascript:loadPage('./login.php')">login</a> </li> -->
+                <li>
+                    <a href="./index.html">home</a> </li>
+
+            </ul>
+        </div>
+
+        <div class="logo">
+            <h2 class="logo"> <a href="./index.html">UBtutoring</a> </h2>
+        </div>
+
+    </div>
+    <!-- <button class="selectButton" onclick ="window.location.href = './tutor_signup.html';">Not Registered? Sign Up Here.</button> -->
+
+    <h1 class="welcome-page-title">Forgot User Name or Password</h1>
+
+    <div id="tutor_signup_div">
+        <form>
+            
+            <label for="email">User Email</label>
+            <input class= "log_in_input" type="text" id="email" name="lastname" placeholder="Enter @buffalo.edu email...">
+
+            <input type="button" id="log_in_button" type="submit" value="Submit" onclick= "forgot_password()">
+
+
+        </form>
+
+
+            <!-- <button class="selectButton" onclick ="window.location.href = './tutorprofile.html';">Submit</button> -->
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
