@@ -84,7 +84,7 @@ ul li a:hover {
 
 input[type="submit"]:hover {
     background-color: blue;
-    color:white
+    color:white;
 }
 
 #tutor_signup_div {
@@ -99,7 +99,7 @@ input[type="submit"]:hover {
     border: 0px solid #ccc;
     margin-top: 10px;
     background-color: blue;
-    color: white
+    color: white;
     width: 100%;
     padding: 12px;
 }
