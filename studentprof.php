@@ -38,6 +38,8 @@ $result = mysqli_query($conn,"SELECT * FROM students WHERE user_id='" . $_GET['u
     </div>
 
     <h1 class="welcome-page-title"></h1>
+    <button class="selectButton" onclick="window.location.href = './search.php';">Search for a tutor</button>
+
     <table class="info">
 
     <?php
@@ -48,9 +50,8 @@ $result = mysqli_query($conn,"SELECT * FROM students WHERE user_id='" . $_GET['u
     
     </table>
     <button class="selectButton" onclick="window.location.href ='./update-student-profile.php?user_id=<?php echo $row['user_id']; ?>';">Edit Information</button>  
-    <br><br><br>
+    <br>
     <button class="selectButton" onclick="window.location.href ='./delete-profile-student.php';">Delete Profile</button> 
-    <br><br><br>
     <br><br><br>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
