@@ -58,6 +58,7 @@ $row= mysqli_fetch_array($result);
             <h2 class="logo"> <a href="./index.html">UBtutoring</a> </h2>
         </div>
     </div>
+<h1 class="welcome-page-title">Please Save Before Returning</h1>
 <form class = "info1" name="frmUser" method="post" action="">
 
 <div><?php if(isset($message)) { echo $message; } ?>
@@ -67,7 +68,7 @@ $row= mysqli_fetch_array($result);
 <input type="hidden" name="user_id" class="input1" value="<?php echo $row['user_id']; ?>">
 <input type="hidden" name="fname" class="input1" value="<?php echo $row['fname']; ?>">
 <input type="hidden" name="lname" class="input1" value="<?php echo $row['lname']; ?>">
-<br>
+
 Phone Number:<br>
 <input type="text" name="phone" class="input1" value="<?php echo $row['phone']; ?>">
 <br>
@@ -144,7 +145,7 @@ Password:<br>
 
 <br>
 <br>
-<input type="submit" name="submit" value="Submit" class="button">
+<input type="submit" name="submit" value="Save" class="button">
 </form>
 <button class = "calendarView" onclick="window.location.href = './tutorprof.php?user_id=<?php echo $row['user_id']; ?>';"> Return to profile</button>
 <br>
