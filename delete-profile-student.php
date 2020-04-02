@@ -57,7 +57,7 @@ if(count($_POST)>0) {
     <br>
         Password:<br>
         <input type="password" name="pass" class="input1"><br>
-        <input type="submit" name="submit" value="delete forever" class="button">
+        <input class="selectButton" type="submit" name="submit" value="delete forever" class="button">
 
 
 
