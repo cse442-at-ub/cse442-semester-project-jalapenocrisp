@@ -42,7 +42,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css" />
-    <title>UB Tutoring -Sign Up</title>
+    <title>UB Tutoring Tutor Sign Up</title>
 </head>
 <body>
 
@@ -53,7 +53,7 @@
 
                 <!-- the line of code commented below is important when we upload the work on a server. for now, i'm using an alternative below -->
                 <!-- <li><a href="javascript:loadPage('./login.html')">login</a> </li> -->
-                <li><a href="./login.php">login</a> </li>
+                <li><a href="./login.php">tutor login</a> </li>
                 <li>
                     <a href="./index.html">home</a> </li>
 
@@ -66,7 +66,7 @@
 
     </div>
     
-    <h1 class="welcome-page-title">Sign Up</h1>
+    <h1 class="welcome-page-title">Tutor Sign Up</h1>
 
     <div id="tutor_signup_div">
         <form method="post" action="">

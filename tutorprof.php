@@ -24,6 +24,7 @@ $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['use
 
                 <!-- the line of code commented below is important when we upload the work on a server. for now, i'm using an alternative below -->
                 <!-- <li><a href="javascript:loadPage('./login.html')">login</a> </li> -->
+
                 <li><a href="./index.html">logout</a> </li>
 
             </ul>
@@ -47,9 +48,11 @@ $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['use
     <tr><td>Title: </td><td><?php echo $row["title"]; ?></td></tr>
     <tr><td>Email: </td><td><?php echo $row["email"]; ?></td></tr>
     <tr><td>Course: </td><td><?php echo $row["courses"]; ?></td></tr>
-    <tr><td><a href="update-tutor-profile.php?user_id=<?php echo $row["user_id"]; ?>">Edit Information</a></td></tr>    
     
     </table>
+    <button class="selectButton" onclick="window.location.href ='./update-tutor-profile.php?user_id=<?php echo $row['user_id']; ?>';">Edit Information</button>  
+    <br>
+    <button class="selectButton" onclick="window.location.href ='./delete-profile.php';">Delete Profile</button> 
     <br><br><br>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
