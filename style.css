@@ -58,7 +58,6 @@ hr.hr-navbar{
 }
 .logo:hover{
     color:blue;
-
 }
 .header {
     padding-left: 10px;
@@ -124,6 +123,7 @@ input[type="submit"]:hover {
 
 #tutor_signup_submit:hover, #log_in_button:hover{
     background-color:rgb(79, 79, 252);
+
 }
 
 #forgot_link_id{
@@ -155,8 +155,9 @@ input[type="submit"]:hover {
 }
 .selectButton:hover, .calendarView:hover{
     background-color:rgb(79, 79, 252);
-
+    color: white;
 }
+
 .delButton{
     width: 20%;
     margin-top:2%;
@@ -172,7 +173,7 @@ input[type="submit"]:hover {
     color:white;
 }
 .delButton:hover{
-    background-color: rgb(211, 78, 78));
+    background-color: rgb(211, 78, 78);
 }
 .info{
     font-size: larger;
