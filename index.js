@@ -28,6 +28,9 @@ function goToLogIn(){
 function forgot_password(){
     window.open("login.php", "_self");
 }
+function forgot_password_student(){
+    window.open("login-student.php", "_self");
+}
 
 function calenderTutorPopupClose(){
     document.getElementById("day_popup").style.display = "none";

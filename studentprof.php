@@ -1,6 +1,6 @@
 <?php
 include_once "access-db.php";
-$result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['user_id'] . "'");
+$result = mysqli_query($conn,"SELECT * FROM students WHERE user_id='" . $_GET['user_id'] . "'");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,7 +26,7 @@ $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['use
                 <!-- <li><a href="javascript:loadPage('./login.html')">login</a> </li> -->
                 <li><a href="./search.php">find a tutor</a> </li>
 
-                <li><a href="./index.html">home</a> </li>
+                <li><a href="./index.html">logout</a> </li>
 
             </ul>
         </div>
@@ -36,21 +36,23 @@ $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['use
         </div>
 
     </div>
-    <button class="calendarView" onclick="window.location.href = './tutor-calendar-view-student.html';">Make an Appointment</button>
 
     <h1 class="welcome-page-title"></h1>
+    <button class="selectButton" onclick="window.location.href = './search.php';">Search for a tutor</button>
+    <br><br><br>
     <table class="info">
 
     <?php
     $row = mysqli_fetch_array($result);
     ?>
     <tr><td>Name: </td><td><?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?></td></tr>
-    <tr><td>Phone Number: </td><td><?php echo $row["phone"]; ?></td></tr>
-    <tr><td>Title: </td><td><?php echo $row["title"]; ?></td></tr>
     <tr><td>Email: </td><td><?php echo $row["email"]; ?></td></tr>
-    <tr><td>Course: </td><td><?php echo $row["courses"]; ?></td></tr>
     
     </table>
+    <br><br><br>
+    <button class="selectButton" onclick="window.location.href ='./update-student-profile.php?user_id=<?php echo $row['user_id']; ?>';">Edit Information</button>  
+    <br>
+    <button class="selectButton" onclick="window.location.href ='./delete-profile-student.php';">Delete Profile</button> 
     <br><br><br>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
