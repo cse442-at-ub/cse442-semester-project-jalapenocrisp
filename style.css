@@ -172,7 +172,9 @@ input[type="submit"]:hover {
     border: none;
     color:white;
 }
-
+.delButton:hover{
+    background-color: rgb(211, 78, 78);
+}
 .info{
     font-size: larger;
     width: 50%;
