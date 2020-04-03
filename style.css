@@ -56,7 +56,7 @@ hr.hr-navbar{
     font-family: sans-serif;
     text-decoration: none;
 }
-.logo:hover{
+.logo a:hover{
     color:blue;
 }
 .header {
