@@ -1,36 +1,3 @@
-<?php
-    $message="";
-
-    include_once "access-db.php";
-
-    if(count($_POST)>0) {
-        $fname=$_POST['fname'];
-        $lname=$_POST['lname'];
-        $email=$_POST['email'];
-        $pass=$_POST['paswd'];
-
-        $result = mysqli_query($conn,"SELECT * FROM students WHERE email='" . $_POST["email"] . "'");
-        $count  = mysqli_num_rows($result);
-
-        if(empty($fname) || empty($lname)){
-            $message="Please enter a first and last name.";
-        }else if ((strpos( $email, '@buffalo.edu' ) === false)){
-            $message="Please enter a valid UB email address.";
-        }else if($count>0){
-            $message="Email address is already in use.";
-        }else if(!preg_match('(^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])\S*$)', $pass)){
-            $message="Please enter a valid password.";
-        }else{
-            $sql = "INSERT INTO students (fname, lname, email, paswd) VALUES (?,?,?,?)";
-            $stmt= $conn->prepare($sql);
-            $stmt->bind_param("ssss", $fname, $lname, $email, $pass);
-            $stmt->execute();
-            header('Location: ./login-student.php');
-        }
-    }
-                      
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -105,3 +72,36 @@
 
     </body>
     </html>
+    
+    <?php
+    $message="";
+
+    include_once "access-db.php";
+
+    if(count($_POST)>0) {
+        $fname=$_POST['fname'];
+        $lname=$_POST['lname'];
+        $email=$_POST['email'];
+        $pass=$_POST['paswd'];
+
+        $result = mysqli_query($conn,"SELECT * FROM students WHERE email='" . $_POST["email"] . "'");
+        $count  = mysqli_num_rows($result);
+
+        if(empty($fname) || empty($lname)){
+            $message="Please enter a first and last name.";
+        }else if ((strpos( $email, '@buffalo.edu' ) === false)){
+            $message="Please enter a valid UB email address.";
+        }else if($count>0){
+            $message="Email address is already in use.";
+        }else if(!preg_match('(^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])\S*$)', $pass)){
+            $message="Please enter a valid password.";
+        }else{
+            $sql = "INSERT INTO students (fname, lname, email, paswd) VALUES (?,?,?,?)";
+            $stmt= $conn->prepare($sql);
+            $stmt->bind_param("ssss", $fname, $lname, $email, $pass);
+            $stmt->execute();
+            header('Location: ./login-student.php');
+        }
+    }
+                      
+?>
