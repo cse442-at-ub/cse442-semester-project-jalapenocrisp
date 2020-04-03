@@ -53,9 +53,9 @@
 
                 <!-- the line of code commented below is important when we upload the work on a server. for now, i'm using an alternative below -->
                 <!-- <li><a href="javascript:loadPage('./login.html')">login</a> </li> -->
-                <li><a href="./login.php">tutor login</a> </li>
+                <li><a class="navlink" href="./login.php">tutor login</a> </li>
                 <li>
-                    <a href="./index.html">home</a> </li>
+                    <a class="navlink" href="./index.html">home</a> </li>
 
             </ul>
         </div>
@@ -65,7 +65,9 @@
         </div>
 
     </div>
-    
+    <br>
+    <hr class="hr-navbar">
+
     <h1 class="welcome-page-title">Tutor Sign Up</h1>
 
     <div id="tutor_signup_div">

@@ -30,7 +30,7 @@ while($row=mysqli_fetch_array($result)){
         <div class="menu_welcomePage">
             <ul>
                 <li>
-                    <a href="./index.html">home</a> </li>
+                    <a class="navlink" href="./index.html">home</a> </li>
 
             </ul>
         </div>
@@ -40,6 +40,7 @@ while($row=mysqli_fetch_array($result)){
         </div>
 
     </div>
+    <hr class="hr-navbar">
 
     <h1 class="welcome-page-title">Find Your Class: </h1>
     <div class="dd">
@@ -67,7 +68,7 @@ while($row=mysqli_fetch_array($result)){
         </select>
         <br>
         <br>
-        <input type="submit" value="Submit">
+        <input class="selectButton" type="submit" value="Go">
       </div>
     </form>
     <?php

@@ -1,12 +1,12 @@
 :root {
-    --teal: #008080;
+    --teal: #b1cddd;
     --yellow: #cbcaa5;
     --black: #000000;
 }
 
 body {
     background-color: var(--teal);
-    color: white;
+    color: black;
 }
 
 
@@ -17,17 +17,21 @@ body {
     margin: auto;
     padding-top: 80px;
 }
+hr.hr-navbar{
+    border-top: .5px solid black;
+}
 
 .welcome-page-buttons {
-    background-color: var(--black);
+    width:25%;
+    background-color: white;
     border: none;
     border-radius: 8px;
-    color: white;
-    padding: 32px;
+    color: black;
+    padding: 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 20px;
     margin: 4px 2px;
     cursor: pointer;
 }
@@ -37,14 +41,26 @@ body {
     justify-content: center;
     margin-top: 200px;
 }
+.welcome-page-buttons:hover{
+    background-color: rgb(0, 0, 131);
+    color: white;
 
-.logo a {
-    font-family: "Righteous", cursive;
-    text-decoration: none;
+}
+.navlink:hover{
+    color:blue;
+
 }
 
+.logo a {
+    color:black;
+    font-family: sans-serif;
+    text-decoration: none;
+}
+.logo a:hover{
+    color:blue;
+}
 .header {
-    padding: 10px;
+    padding-left: 10px;
 }
 
 .menu_welcomePage {
@@ -54,10 +70,11 @@ body {
 
 ul li {
     display: inline;
-    padding: 50px;
+    padding: 30px;
 }
 
 ul li a {
+    color: black;
     text-decoration: none;
 }
 
@@ -66,7 +83,7 @@ ul li a:hover {
 }
 
 
-/*------------ syed-------- styling for the tutor signup page */
+/*-------------------- styling for the tutor signup page */
 
 .log_in_input, .sign_up_input {
     width: 100%;
@@ -83,7 +100,8 @@ ul li a:hover {
 }
 
 input[type="submit"]:hover {
-    background-color: #45a049;
+    background-color: blue;
+    color:white;
 }
 
 #tutor_signup_div {
@@ -97,17 +115,19 @@ input[type="submit"]:hover {
     display: inline-block;
     border: 0px solid #ccc;
     margin-top: 10px;
-    background-color: #45a038;
+    background-color: blue;
+    color: white;
     width: 100%;
     padding: 12px;
 }
 
 #tutor_signup_submit:hover, #log_in_button:hover{
-    background-color: #52e93e;
+    background-color:rgb(0, 0, 131);
+
 }
 
 #forgot_link_id{
-    color: yellow;
+    color:black;
     font-weight: bold;
 }
 .message{
@@ -120,6 +140,7 @@ input[type="submit"]:hover {
 
 
 .selectButton{
+    width: 20%;
     margin-top:2%;
     display: block;
     margin-left: auto;
@@ -127,10 +148,32 @@ input[type="submit"]:hover {
     border-radius: 8px;
     padding: 10px;
     font-size: 16px;
-    background-color: black;
+    background-color: white;
     cursor: pointer;
     border: none;
+    color: black;
+}
+.selectButton:hover, .calendarView:hover{
+    background-color:rgb(0, 0, 131);
     color: white;
+}
+
+.delButton{
+    width: 20%;
+    margin-top:2%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: rgb(214, 3, 3);
+    cursor: pointer;
+    border: none;
+    color:white;
+}
+.delButton:hover{
+    background-color: rgb(134, 4, 4);
 }
 .info{
     font-size: larger;
@@ -159,6 +202,7 @@ input[type="submit"]:hover {
  
 }
 .calendarView{
+    width: 20%;
     margin-top:2%;
     display: block;
     margin-left: auto;
@@ -166,10 +210,10 @@ input[type="submit"]:hover {
     border-radius: 8px;
     padding: 10px;
     font-size: 16px;
-    background-color: black;
+    background-color: white;
     cursor: pointer;
     border: none;
-    color: white;
+    color: black;
 }
 .change{
     margin-top:2%;
