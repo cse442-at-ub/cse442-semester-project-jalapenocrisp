@@ -41,12 +41,24 @@ hr.hr-navbar{
     justify-content: center;
     margin-top: 200px;
 }
+.welcome-page-buttons:hover{
+    background-color: rgb(79, 79, 252);
+    color: white;
+
+}
+.navlink:hover{
+    color:blue;
+
+}
 
 .logo a {
     font-family: sans-serif;
     text-decoration: none;
 }
+.logo:hover{
+    color:blue;
 
+}
 .header {
     padding-left: 10px;
 }
@@ -70,7 +82,7 @@ ul li a:hover {
 }
 
 
-/*------------ syed-------- styling for the tutor signup page */
+/*-------------------- styling for the tutor signup page */
 
 .log_in_input, .sign_up_input {
     width: 100%;

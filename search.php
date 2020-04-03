@@ -30,7 +30,7 @@ while($row=mysqli_fetch_array($result)){
         <div class="menu_welcomePage">
             <ul>
                 <li>
-                    <a href="./index.html">home</a> </li>
+                    <a class="navlink" href="./index.html">home</a> </li>
 
             </ul>
         </div>
