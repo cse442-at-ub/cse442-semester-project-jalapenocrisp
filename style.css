@@ -389,11 +389,11 @@ input[type="submit"]:hover {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    border-radius: 8px;
+    border-radius: 4px;
     padding: 2px;
-    font-size: 8px;
-    background-color: white;
+    font-size: 11px;
+    background-color: rgb(70, 68, 68);
     cursor: pointer;
     border: none;
-    color: black;
+    color: white;
 }
