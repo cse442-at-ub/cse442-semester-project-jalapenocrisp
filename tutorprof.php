@@ -51,7 +51,7 @@ $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['use
     <tr><td>Title: </td><td><?php echo $row["title"]; ?></td></tr>
     <tr><td>Email: </td><td><?php echo $row["email"]; ?></td></tr>
     <tr><td>Course: </td><td><?php echo $row["courses"]; ?></td></tr>
-    <tr><td><img class="info" src="info.png" title="The number of tutoring hours this tutor has completed."></img> Score: </td><td><?php echo $row["score"]; ?></td></tr>
+    <tr><td><img class="info" src="info.png" title="The number of tutoring hours this tutor has completed." width="20" height="20"></img> Score: </td><td><?php echo $row["score"]; ?></td></tr>
     
     </table>
     <button class="selectButton" onclick="window.location.href ='./update-tutor-profile.php?user_id=<?php echo $row['user_id']; ?>';">Edit Information</button>  
