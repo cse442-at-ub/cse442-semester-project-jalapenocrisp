@@ -29,10 +29,8 @@ while($row=mysqli_fetch_array($result)){
 
         <div class="menu_welcomePage">
             <ul>
-                <li><a href="./login.php">login</a> </li>
                 <li>
-                    <a href="./index.html">home</a> </li>
-                <li>create account</li>
+                    <a class="navlink" href="./index.html">home</a> </li>
 
             </ul>
         </div>
@@ -42,6 +40,7 @@ while($row=mysqli_fetch_array($result)){
         </div>
 
     </div>
+    <hr class="hr-navbar">
 
     <h1 class="welcome-page-title">Find Your Class: </h1>
     <div class="dd">
@@ -49,7 +48,7 @@ while($row=mysqli_fetch_array($result)){
 
       <div class="options">
 
-        <select id ="first-choice">
+        <select class="input1" id ="first-choice">
             <option selected="selected">Pick a class</option>
             <?php    
                 foreach($courseArray as $item){
@@ -64,14 +63,13 @@ while($row=mysqli_fetch_array($result)){
 
         <br>
 
-        <select id="second-choice" name="tutor">
+        <select class="input1" id="second-choice" name="tutor">
             <option selected="selected">Please choose from above</option>
         </select>
         <br>
         <br>
-        <input type="submit" value="Submit">
+        <input class="selectButton" type="submit" value="Go">
       </div>
-
     </form>
     <?php
     if(count($_POST)>0) {
