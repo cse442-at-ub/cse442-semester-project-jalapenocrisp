@@ -397,6 +397,7 @@ input[type="submit"]:hover {
     text-align: center;
     text-decoration: none;
     display: inline-block;
+    margin-left: 130px;
 }
 
 .contact-tutor-btn:hover,
