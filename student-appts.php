@@ -4,30 +4,6 @@ $result = mysqli_query($conn,"SELECT * FROM students WHERE user_id='" . $_GET['u
 $row = mysqli_fetch_array($result);
 
 $result2 = mysqli_query($conn,"SELECT * FROM appointments WHERE student_id='" . $_GET['user_id'] . "'");
-$appt = mysqli_fetch_array($result2);
-//find date and time
-$day="";
-$dayCode=$appt["day"];
-if ($dayCode==0){
-    $day="Monday";
-}elseif($dayCode==1){
-    $day="Tuesday";
-}elseif($dayCode==2){
-    $day="Wednesday";
-}elseif($dayCode==3){
-    $day="Thursday";
-}elseif($dayCode==4){
-    $day="Friday";
-}elseif($dayCode==5){
-    $day="Saturday";
-}elseif($dayCode==6){
-    $day="Sunday";
-}
-//find tutor name
-$tid=$appt['tutor_id'];
-$tutorRes= mysqli_query($conn,"SELECT * FROM tutors WHERE user_id=$tid");
-$tutarray = mysqli_fetch_array($tutorRes);
-
 ?>
 
 <!DOCTYPE html>
@@ -73,13 +49,43 @@ $tutarray = mysqli_fetch_array($tutorRes);
     <th width="15%">Time</th>
     <th width="50%">Tutor</th>
     <th width="25%">Class</th>
-
     </tr>
+
+    <?php
+    while($appt = mysqli_fetch_array($result2)){
+//find date and time
+    $day="";
+    $dayCode=$appt["day"];
+    if ($dayCode==0){
+        $day="Monday";
+    }elseif($dayCode==1){
+        $day="Tuesday";
+    }elseif($dayCode==2){
+        $day="Wednesday";
+    }elseif($dayCode==3){
+        $day="Thursday";
+    }elseif($dayCode==4){
+        $day="Friday";
+    }elseif($dayCode==5){
+        $day="Saturday";
+    }elseif($dayCode==6){
+        $day="Sunday";
+    }
+    //find tutor name
+    $tid=$appt['tutor_id'];
+    $tutorRes= mysqli_query($conn,"SELECT * FROM tutors WHERE user_id=$tid");
+    $tutarray = mysqli_fetch_array($tutorRes);
+    ?>
+
+ 
     <tr><td><?php echo $day; ?></td>
         <td><?php echo $appt["time"]; ?>:00</td>
         <td><?php echo $tutarray["fname"]; ?> <?php echo $tutarray["lname"]; ?></td>
-        <td><?php echo $tutarray["fname"]; ?> <?php echo $tutarray["courses"]; ?></td>
+        <td><?php echo $tutarray["courses"]; ?></td>
     </tr>
+    <?php
+    }
+    ?>
     
     </table>
 
