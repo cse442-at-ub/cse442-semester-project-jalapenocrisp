@@ -3,7 +3,7 @@ include_once "access-db.php";
 $result = mysqli_query($conn,"SELECT * FROM students WHERE user_id='" . $_GET['user_id'] . "'");
 $row = mysqli_fetch_array($result);
 
-$result2 = mysqli_query($conn,"SELECT * FROM appts WHERE student_id='" . $_GET['user_id'] . "'");
+$result2 = mysqli_query($conn,"SELECT * FROM appointments WHERE student_id='" . $_GET['user_id'] . "'");
 $appt = mysqli_fetch_array($result2);
 $tid=$row['tutor_id'];
 
