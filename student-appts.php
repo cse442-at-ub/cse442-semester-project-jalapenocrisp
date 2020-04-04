@@ -5,7 +5,9 @@ $row = mysqli_fetch_array($result);
 
 $result2 = mysqli_query($conn,"SELECT * FROM appointments WHERE student_id='" . $_GET['user_id'] . "'");
 $appt = mysqli_fetch_array($result2);
-$tid=$row['tutor_id'];
+$tid=$appt['tutor_id'];
+$tutorRes= mysqli_query($conn,"SELECT * FROM tutors WHERE user_id=$tid");
+$tutarray = mysqli_fetch_array($tutorRes);
 
 ?>
 
@@ -52,7 +54,7 @@ $tid=$row['tutor_id'];
     <th width="50%"></th>
     </tr>
     <tr><td>Date: </td><td><?php echo $appt["day"]; ?> <?php echo $appt["time"]; ?></td></tr>
-    <tr><td>Tutor: </td><td><?php echo $appt["tutor_id"]; ?></td></tr>
+    <tr><td>Tutor: </td><td><?php echo $tutarray["fname"]; ?> <?php echo $tutarray["lname"]; ?></td></tr>
     
     </table>
 
