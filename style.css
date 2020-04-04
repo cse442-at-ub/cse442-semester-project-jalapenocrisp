@@ -377,7 +377,6 @@ input[type="submit"]:hover {
 
 .info:hover:after {
     content: attr(title);
-    display: inline-block;
     background-color: white;
     color: black;
 }
