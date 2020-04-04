@@ -46,6 +46,10 @@ $result = mysqli_query($conn,"SELECT * FROM students WHERE user_id='" . $_GET['u
     <?php
     $row = mysqli_fetch_array($result);
     ?>
+    <tr>
+    <th width="50%"></th>
+    <th width="50%"></th>
+    </tr>
     <tr><td>Name: </td><td><?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?></td></tr>
     <tr><td>Email: </td><td><?php echo $row["email"]; ?></td></tr>
     
