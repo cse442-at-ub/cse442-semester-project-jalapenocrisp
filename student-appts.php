@@ -67,7 +67,7 @@ $tutarray = mysqli_fetch_array($tutorRes);
     <hr class="hr-navbar">
 
     <h1 class="welcome-page-title"><?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?>'s Appointments</h1>
-    <table class="info">
+    <table class="infoAppt">
     <tr>
     <th width="15%">Date</th>
     <th width="15%">Time</th>
