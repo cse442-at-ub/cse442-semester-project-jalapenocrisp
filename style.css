@@ -386,6 +386,7 @@ input[type="submit"]:hover {
     height:50px;
 }
 .cancel{
+    width: 40px;
     display: block;
     margin-left: auto;
     margin-right: auto;
