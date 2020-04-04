@@ -31,7 +31,7 @@ $tid=$row['tutor_id'];
 
                 <!-- the line of code commented below is important when we upload the work on a server. for now, i'm using an alternative below -->
                 <!-- <li><a href="javascript:loadPage('./login.php')">login</a> </li> -->
-                <li><a class="navlink" href="./login.php?user_id=<?php echo $row['user_id']; ?>">profile</a> </li>
+                <li><a class="navlink" href="./studentprof.php?user_id=<?php echo $row['user_id']; ?>">profile</a> </li>
                 <li><a class="navlink" href="./search.php">find a tutor</a> </li>
                 <li><a class="navlink" href="./index.html">logout</a> </li>
 
@@ -51,8 +51,8 @@ $tid=$row['tutor_id'];
     <th width="50%"></th>
     <th width="50%"></th>
     </tr>
-    <tr><td>Date: </td><td><?php echo $row["day"]; ?> <?php echo $row["time"]; ?></td></tr>
-    <tr><td>Tutor: </td><td><?php echo $tid; ?></td></tr>
+    <tr><td>Date: </td><td><?php echo $appt["day"]; ?> <?php echo $appt["time"]; ?></td></tr>
+    <tr><td>Tutor: </td><td><?php echo $appt["tutor_id"]; ?></td></tr>
     
     </table>
 
