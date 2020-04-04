@@ -178,8 +178,8 @@ input[type="submit"]:hover {
 .info{
     font-size: larger;
     width: 960px;
-    margin-left: 35%;    
-    margin-right: 25%; 
+    margin-left: auto;    
+    margin-right: auto; 
     text-align: left;   
 }
 .info td{
