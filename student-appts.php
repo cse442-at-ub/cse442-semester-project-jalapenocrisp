@@ -47,8 +47,9 @@ $result2 = mysqli_query($conn,"SELECT * FROM appointments WHERE student_id='" . 
     <tr>
     <th width="15%">Date</th>
     <th width="15%">Time</th>
-    <th width="50%">Tutor</th>
-    <th width="25%">Class</th>
+    <th width="40%">Tutor</th>
+    <th width="20%">Class</th>
+    <th width="10%"></th>
     </tr>
 
     <?php
@@ -82,7 +83,10 @@ $result2 = mysqli_query($conn,"SELECT * FROM appointments WHERE student_id='" . 
         <td><?php echo $appt["time"]; ?>:00</td>
         <td><?php echo $tutarray["fname"]; ?> <?php echo $tutarray["lname"]; ?></td>
         <td><?php echo $tutarray["courses"]; ?></td>
+        <td><button class="cancel">cancel</button></td>
+
     </tr>
+
     <?php
     }
     ?>
