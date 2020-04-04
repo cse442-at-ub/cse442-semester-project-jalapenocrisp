@@ -375,8 +375,7 @@ input[type="submit"]:hover {
 
 /* styling for student appt page */
 .infoAppt{
-    padding-top: 40px;
-    border: 1px solid gray;
+    padding-top: 140px;
     font-size: larger;
     width: 50%;
     margin-left: 25%;    
