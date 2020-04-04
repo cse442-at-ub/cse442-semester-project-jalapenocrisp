@@ -376,12 +376,8 @@ input[type="submit"]:hover {
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ profile styling ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 .info:hover:after {
-    position: absolute;
     content: attr(title);
     display: inline-block;
-    left: 0px;
-    top: 0px;
-    padding: 5px;
     background-color: white;
     color: black;
 }
