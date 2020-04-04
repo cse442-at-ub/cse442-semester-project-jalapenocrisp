@@ -372,3 +372,16 @@ input[type="submit"]:hover {
 .title-studentView-calendar {
     text-align: center;
 }
+
+/* styling for student appt page */
+.infoAppt{
+    border: 1px solid gray;
+    font-size: larger;
+    width: 50%;
+    margin-left: 25%;    
+    margin-right: 25%; 
+    text-align: center;   
+}
+.infoAppt td{
+    height:50px;
+}

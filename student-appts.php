@@ -69,11 +69,15 @@ $tutarray = mysqli_fetch_array($tutorRes);
     <h1 class="welcome-page-title"><?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?>'s Appointments</h1>
     <table class="info">
     <tr>
-    <th width="50%"></th>
-    <th width="50%"></th>
+    <th width="25%">Date</th>
+    <th width="50%">Tutor</th>
+    <th width="25%">Class</th>
+
     </tr>
-    <tr><td>Date: </td><td><?php echo $day; ?> <?php echo $appt["time"]; ?>:00</td></tr>
-    <tr><td>Tutor: </td><td><?php echo $tutarray["fname"]; ?> <?php echo $tutarray["lname"]; ?></td></tr>
+    <tr><td>Date: </td><td><?php echo $day; ?> <?php echo $appt["time"]; ?>:00</td>
+        <td>Tutor: </td><td><?php echo $tutarray["fname"]; ?> <?php echo $tutarray["lname"]; ?></td>
+        <td>Class: </td><td><?php echo $tutarray["fname"]; ?> <?php echo $tutarray["courses"]; ?></td>
+    </tr>
     
     </table>
 
