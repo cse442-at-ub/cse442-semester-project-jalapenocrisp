@@ -176,6 +176,7 @@ input[type="submit"]:hover {
     background-color: rgb(134, 4, 4);
 }
 .info{
+    border: 1px solid black;
     font-size: larger;
     width: 960px;
     margin-left: auto;    
