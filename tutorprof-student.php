@@ -1,7 +1,26 @@
 <?php
 include_once "access-db.php";
+
+if(count(&_POST)>0){
+	$rank=$_POST['rank'];
+	$score=$_POST['score'] +1;
+
+	if(empty($rank)){
+		$message="Please enter a value.";
+	}else if($rank == 1 || $rank == 2 || $rank == 3 || $rank == 4 || $rank == 5){
+		mysqli_query($conn,"UPDATE tutors SET score='" . $_POST['score'] . "', rank='" . $_POST['rank'] . "' WHERE user_id'" . $_POST['user_id']. "'");
+		
+		$message = "Rating Recorded Successfully";
+	}else{
+		$message="Enter a number from 1 to 5 (inclusive).";
+	}	
+	  
+}
+
 $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['user_id'] . "'");
+$row= mysqi_fetch_array($result); 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,6 +57,7 @@ $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['use
 
     </div>
     <button class="calendarView" onclick="window.location.href = './tutor-calendar-view-student.html';">View Tutor's Availability</button>
+    <button class="calendarView" onclick="">
 
     <h1 class="welcome-page-title"></h1>
     <table class="info">
@@ -51,7 +71,13 @@ $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['use
     <tr><td>Email: </td><td><?php echo $row["email"]; ?></td></tr>
     <tr><td>Course: </td><td><?php echo $row["courses"]; ?></td></tr>
     
+    <tr><td>Average Rating: </td><td><?php echo $row["rank"]; ?></td></tr>
+    <tr><td>Number of Ratings: </td><td><?php echo $row["numRatings"]; ?></td></tr>
+    <tr><td>Score: </td><td><?php echo $row["score"]; ?></td></tr>
+    
     </table>
+    <br></br>
+    <button class = "calendarView" onclick="window.location.href = './rate-tutor.php?user_id=<?php echo $row['user_id']; ?.';">Rate this Tutor</button>
     <br><br><br>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
