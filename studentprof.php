@@ -47,6 +47,8 @@ $row = mysqli_fetch_array($result);
     <br><br><br>
     
     <table class="info">
+
+    
     <tr>
     <th width="50%"></th>
     <th width="50%"></th>
