@@ -375,12 +375,6 @@ input[type="submit"]:hover {
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ profile styling ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-/* .info:hover:after {
-    content: attr(title);
-    background-color: white;
-    color: black;
+.score:hover{
+    color: blue;
 }
-.info {
-    height: 20px;
-    width:20px;
-} */
