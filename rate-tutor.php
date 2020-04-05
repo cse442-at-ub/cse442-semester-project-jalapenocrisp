@@ -55,7 +55,8 @@ $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['use
 <?php
 $row = mysqli_fetch_array($result);
 ?>
-    
+
+
 <form class = "info1" method="post" action="">
 <div><?php if(isset($message)) { echo $message; } ?>
 </div>
@@ -66,9 +67,12 @@ $row = mysqli_fetch_array($result);
 <input type= "hidden" name="user_id" value="<?php echo $row['user_id']; ?>
 <input type="hidden" name="numRatings" class="txtField" value="<?php echo $row['numRatings']; ?>
 
+<label>Rating for Tutor: <?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?> </label>
 
-Rating for Tutor: <?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?> <br>
-<input type="text" id="rating" class="txtField" value="Enter a value from 1 - 5">
+
+<input type='text' id='rating' value="Enter a value from 1 - 5">
+<br>
+
 <br>
 <br>
 
@@ -76,9 +80,10 @@ Rating for Tutor: <?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?> <br>
 </form>
 
 <?php
-    if($_POST['submit']){
+    if(isset($_POST['submit'])){
 	$rating = $_POST['rating'];
-
+	$numRatings = $_POST['numRatings']; 
+	
 	if(empty($rating)){
 		$message="Please enter a value (1-5)";
 	}else if($rating != 1 && $rating != 2 && $rating != 3 && $rating != 4 && $rating != 5){
@@ -89,6 +94,7 @@ Rating for Tutor: <?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?> <br>
     	 }
     }
 ?>
+
 
 </body>
 </html>
