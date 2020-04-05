@@ -5,8 +5,7 @@ $message="";
 
 if(count($_POST)>0){
 	
-
-	
+	$rating = $_POST['rating'];
 	$avg = $_POST['rank'];
 	$numRatings = $POST['numRatings'];
 	
