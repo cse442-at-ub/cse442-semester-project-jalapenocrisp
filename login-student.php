@@ -10,7 +10,7 @@ if(count($_POST)>0) {
         $row = mysqli_fetch_array($result);
         $message = "You are successfully authenticated!";
         $var1=$row['user_id'];
-        header('Location: ./studentprof.php?user_id=' .$var1);
+        header('Location: ./student-appts.php?user_id=' .$var1);
 	}
 }
 ?>
@@ -46,9 +46,7 @@ if(count($_POST)>0) {
     <br>
     <hr class="hr-navbar">
     <br>
-    <button class="selectButton" onclick="window.location.href = './create-account.html';">Not Registered? Sign Up
-
-        Here.</button>
+    <button class="selectButton" onclick="window.location.href = './create-account.html';">Not Registered? Sign Up Here.</button>
 
     <h1 class="welcome-page-title">Student Log In</h1>
 

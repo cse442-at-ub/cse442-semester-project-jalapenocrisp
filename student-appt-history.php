@@ -29,9 +29,9 @@ $result2 = mysqli_query($conn,"SELECT * FROM appointments WHERE student_id='" . 
 
                 <!-- the line of code commented below is important when we upload the work on a server. for now, i'm using an alternative below -->
                 <!-- <li><a href="javascript:loadPage('./login.php')">login</a> </li> -->
-                <li><a class="navlink" href="./studentprof.php?user_id=<?php echo $row['user_id']; ?>">profile</a> </li>
                 <li><a class="navlink" href="./student-appts.php?user_id=<?php echo $row['user_id']; ?>">my appointments</a> </li>
-                <li><a class="navlink" href="./search.php">find a tutor</a> </li>
+                <li><a class="navlink" href="./search.php?user_id=<?php echo $row['user_id']; ?>">find a tutor</a> </li>
+                <li><a class="navlink" href="./studentprof.php?user_id=<?php echo $row['user_id']; ?>">profile</a> </li>
                 <li><a class="navlink" href="./index.html">logout</a> </li>
 
             </ul>

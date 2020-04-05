@@ -3,7 +3,7 @@ include_once "access-db.php";
 $result = mysqli_query($conn,"SELECT * FROM appointments WHERE appt_id='" . $_GET["appt_id"] . "'");
 $row = mysqli_fetch_array($result);
 $tid=$row['tutor_id'];
-$tutorRes= mysqli_query($conn,"SELECT * FROM tutors WHERE user_id=$tid");
+$tutorRes= mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $tid ."'");
 $tutarray = mysqli_fetch_array($tutorRes);
 ?>
 
@@ -32,6 +32,8 @@ $tutarray = mysqli_fetch_array($tutorRes);
     <hr class="hr-navbar">
 
     <h1 class="welcome-page-title">Are you sure you want to delete this appointment? </h1>
+
+    <br><br>
 
     <table class="infoAppt">
     <tr>
@@ -66,8 +68,6 @@ $tutarray = mysqli_fetch_array($tutorRes);
 
 </html>
 
-
-
     <?php
         if (isset($_POST["yes"])){
             $status="cancelled";
@@ -78,7 +78,22 @@ $tutarray = mysqli_fetch_array($tutorRes);
             $stmt->bind_param("si", $status, $id);
             $stmt->execute();
             $stmt->close();
+
+            $to=$tutarray['email'];
+            $subject="Notification of student cancellation";
+            $message="Dear " . $tutarray['fname'] . " " . $tutarray['lname'] .":\r\nWe are writing to notify you that your appointment at " . $row['time'] . ":00 on " . $row['day'] . " has been cancelled by the student. No further action is necesary by you.\r\n\r\nUBtutoring\r\n\r\nPlease do not reply to this email.";
+            $from="no-reply@buffalo.com";
+            $headers  = "MIME-Version: 1.0" . "\r\n";
+            $headers .= "Content-type: text/plain; charset=iso-8859-1" . "\r\n";
+            $headers .= "From: ". $from. "\r\n";
+            $headers .= "Reply-To: ". $from. "\r\n";
+            $headers .= "X-Mailer: PHP/" . phpversion();
+            $headers .= "X-Priority: 1" . "\r\n";
+            mail($to, $subject, $message, $headers);
+
             header('Location: ./student-appts.php?user_id=' . $userid);
+
         }
+
     ?>
 
