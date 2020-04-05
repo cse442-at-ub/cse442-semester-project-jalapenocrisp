@@ -62,11 +62,12 @@ $tutarray = mysqli_fetch_array($tutorRes);
     function deleteappt(){
         <?php
         if (isset($_POST["yes"])){
+            $status="canceled";
             $userid=$_GET['user_id'];
             $id=$_GET["appt_id"];
-            $sql  =  "DELETE FROM appointments WHERE appt_id=?";
+            $sql  =  "UPDATE appointments SET status=? WHERE appt_id=?";
             $stmt= $conn->prepare($sql);
-            $stmt->bind_param("i", $id);
+            $stmt->bind_param("si", $id);
             $stmt->execute();
             $stmt->close();
             header('Location: ./student-appts.php?user_id=' . $userid);
