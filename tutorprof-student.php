@@ -63,7 +63,7 @@ $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['use
     
     </table>
     
-    <form method= "post" action"">
+    <form method="POST" action"">
     <input type="hidden" name="user_id" class="input1" value="<?php echo $row['user_id']; ?>">
     
     <input id='rateTutor' type='submit' value = 'Rate this Tutor'>
@@ -71,9 +71,11 @@ $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['use
 
     <?php
     if($_POST['submit']){
-	$var1 = $_POST['rating'];
-    
-	if($var1 != 1 && $var1 != 2 && $var1 != 3 && $var1 != 4 && $var1 != 5){
+	$rating = $_POST['rating'];
+
+	if(empty($rating)){
+		$message="Please enter a value (1-5)";
+	}else if($rating != 1 && $rating != 2 && $rating != 3 && $rating != 4 && $rating != 5){
 		 $message="Please enter a number from 1-5";
     	}else{
 		 mysqli_query($conn,"UPDATE tutors SET rank='" . $_POST['rating'] . "' WHERE user_id='" . $_POST['user_id'] . "'");
