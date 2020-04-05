@@ -81,7 +81,7 @@ $tutarray = mysqli_fetch_array($tutorRes);
 
             $to=$tutarray['email'];
             $subject="Notification of student cancellation";
-            $message="Dear " . $tutarray['fname'] . " " . $tutarray['lname'] .":\r\nWe are writing to notify you that your appointment at " . $row['time'] . ":00 on " . $row['day'] . " has been cancelled by the student. No further action is necesary by you.\r\n\r\nUBtutoring\r\n\r\nPlease do not reply to this email.";
+            $message="Dear " . $tutarray['fname'] . " " . $tutarray['lname'] .":\r\nWe are writing to notify you that your appointment at " . $row['time'] . ":00 on " . $row['day'] . " has been cancelled by the student. No further action is necesary by you.\r\n\r\nUBtutoring\r\n\r\nPlease do not reply to this.";
             $from="no-reply@buffalo.com";
             $headers  = "MIME-Version: 1.0" . "\r\n";
             $headers .= "Content-type: text/plain; charset=iso-8859-1" . "\r\n";
@@ -90,7 +90,7 @@ $tutarray = mysqli_fetch_array($tutorRes);
             $headers .= "X-Mailer: PHP/" . phpversion();
             $headers .= "X-Priority: 1" . "\r\n";
             mail($to, $subject, $message, $headers);
-
+            // mail( '7167170277@vzwpix.com', '', $message );
             header('Location: ./student-appts.php?user_id=' . $userid);
 
         }

@@ -97,12 +97,25 @@ $result2 = mysqli_query($conn,"SELECT * FROM appointments WHERE student_id='" . 
 
         $status="completed";
         $userid=$_GET['user_id'];
-        
-        $sql  =  "UPDATE appointments SET status=? WHERE appt_id=?";
+
+        $a = mysqli_query($conn,"SELECT * FROM appointments WHERE appt_id='" . $id . "'");
+        $arow = mysqli_fetch_array($a);
+        $tutor=$arow['tutor_id'];
+        $a1 = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $tutor . "'");
+        $a1row=mysqli_fetch_array($a1);
+        $currscore=$a1row['score']+1;
+
+        $sql  =  "UPDATE tutors SET score=? WHERE user_id=?";
         $stmt= $conn->prepare($sql);
-        $stmt->bind_param("si", $status, $id);
+        $stmt->bind_param("ii", $currscore, $tutor);
         $stmt->execute();
         $stmt->close();
+        
+        $sql2  =  "UPDATE appointments SET status=? WHERE appt_id=?";
+        $stmt1= $conn->prepare($sql2);
+        $stmt1->bind_param("si", $status, $id);
+        $stmt1->execute();
+        $stmt1->close();
         header('Location: ./student-appt-history.php?user_id=' . $userid);
     }
 ?>
