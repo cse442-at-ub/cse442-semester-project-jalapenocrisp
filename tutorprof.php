@@ -64,12 +64,17 @@ $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['use
                     </div>
                 </div>
             </div>
+            <div class="photo__options hide">
+                <div class="photo__zoom">
+                    <input type="range" class="zoom-handler">
+                </div><a href="javascript:;" class="remove"><i class="fa fa-trash"></i></a>
+            </div>
 
         </div>
     </div>
 
-    <!-- <button type="button" id="previewBtn">Preview</button>
-    <button type="button" id="uploadBtn">Upload Example</button> -->
+    <!-- <button type="button" id="previewBtn">Preview</button> -->
+    <button type="button" id="uploadBtn">Upload Example</button>
 
     
     <h1 class="welcome-page-title"></h1>
