@@ -1,10 +1,11 @@
 <?php
 include_once "access-db.php";
 
+$message=""; 
 
-if(count(&_POST)>0){
+if(count($_POST)>0){
 	$rank=$_POST['rank'];
-	$score=$_POST['score'] +1;
+	$score=$_POST['score'];
 
 	if(empty($rank)){
 		$message="Please enter a value.";
@@ -65,7 +66,7 @@ $row = mysqli_fetch_array($result);
 </div>
 
 $var = 1+ <?php echo $row['numRatings']; ?> ;
-
+<input type= "hidden" name="user_id" value="<?php echo $row['user_id']; ?>
 <input type="hidden" name="numRatings" class="txtField" value="<?php echo $row['numRatings']; ?>
 
 Rating for Tutor: <?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?> <br>
