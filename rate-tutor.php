@@ -9,16 +9,16 @@ if(count($_POST)>0){
 	
 	$avg = $_POST['rank'];
 		
-	$numRatings = $row['numRatings'];
+	$numberOfRatings = $_POST['numRatings'];
 	$oldNumRatings = $_POST['numRatings'];
-	$numRatings = $numRatings + 1; 
+	$numberOfRatings = $numberOfRatings + 1; 
 	
 	
-	$base = $oldNumRatings/$numRatings;
+	$base = $oldNumRatings/$numberOfRatings;
 
 	$avg = $avg * $base;
 
-	$avgModifier = $rating/$numRatings; 
+	$avgModifier = $rating/$numberOfRatings; 
 
 	$avg = $avg + $avgModifier;
 	
@@ -27,7 +27,7 @@ if(count($_POST)>0){
 	}else if($rating != 1 && $rating != 2 && $rating != 3 && $rating != 4 && $rating != 5){
 		 $message="Please enter a number from 1-5";
     	}else{
-		 mysqli_query($conn,"UPDATE tutors SET rank='" . $avg . "', numRatings='" . $numRatings . "' WHERE user_id='" . $_POST['user_id'] . "'");
+		 mysqli_query($conn,"UPDATE tutors SET rank='" . $avg . "', numRatings='" . $numberOfRatings . "' WHERE user_id='" . $_POST['user_id'] . "'");
 		 $message = "Rating submitted successfully";	
     	 }
         
