@@ -61,7 +61,7 @@ $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['use
     
     </table>
     
-    <form method "post">
+    <form method= "post" action"">
     <input type="hidden" name="user_id" class="input1" value="<?php echo $row['user_id']; ?>">
     
     <input id='rateTutor' type='submit' value = 'Rate this Tutor'>
