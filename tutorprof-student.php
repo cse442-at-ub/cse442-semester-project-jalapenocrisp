@@ -68,7 +68,7 @@ $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['use
     <input id='rating' type="text" value = 'A number 1-5'>
 
     <?php
-    if(isset($_POST['submit'])){
+    if($_POST['submit']){
 	$var1 = $_POST['rating'];
     
 	if($var1 != 1 && $var1 != 2 && $var1 != 3 && $var1 != 4 && $var1 != 5){
