@@ -1,22 +1,6 @@
 <?php
 include_once "access-db.php";
 
-if(count(&_POST)>0){
-	$rank=$_POST['rank'];
-	$score=$_POST['score'] +1;
-
-	if(empty($rank)){
-		$message="Please enter a value.";
-	}else if($rank == 1 || $rank == 2 || $rank == 3 || $rank == 4 || $rank == 5){
-		mysqli_query($conn,"UPDATE tutors SET score='" . $_POST['score'] . "', rank='" . $_POST['rank'] . "' WHERE user_id'" . $_POST['user_id']. "'");
-		
-		$message = "Rating Recorded Successfully";
-	}else{
-		$message="Enter a number from 1 to 5 (inclusive).";
-	}	
-	  
-}
-
 $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['user_id'] . "'");
 $row= mysqi_fetch_array($result); 
 ?>
@@ -77,7 +61,8 @@ $row= mysqi_fetch_array($result);
     
     </table>
     <br></br>
-    
+    <button class = "calendarView" onclick="window.location.href = './rate-tutor.php?user_id=<?php echo $row['user_id']; ?.';">Rate this Tutor</button>
+    <br><br><br>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="index.js"></script>
