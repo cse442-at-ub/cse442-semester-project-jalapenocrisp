@@ -28,7 +28,7 @@ if(count($_POST)>0){
 	}else if($rating != 1 && $rating != 2 && $rating != 3 && $rating != 4 && $rating != 5){
 		 $message="Please enter a number from 1-5";
     	}else{
-		 mysqli_query($conn,"UPDATE tutors SET rank='" . $avg . "', numRatings='" . $numRatings . "' WHERE user_id='" . $_POST['user_id'] . "'");
+		 mysqli_query($conn,"UPDATE tutors SET rank='" . $avg . "', numRatings='" . ++$numRatings . "' WHERE user_id='" . $_POST['user_id'] . "'");
 		 $message = "Rating submitted successfully";	
     	 }
         
