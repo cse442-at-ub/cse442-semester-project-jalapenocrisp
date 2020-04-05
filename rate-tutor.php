@@ -61,20 +61,6 @@ Rating for Tutor: <?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?> <br>
 <input type="submit" id="submit" value="Submit" class="button">
 </form>
 
-<?php
-    if($_POST['submit']){
-	$rating = $_POST['rating'];
-
-	if(empty($rating)){
-		$message="Please enter a value (1-5)";
-	}else if($rating != 1 && $rating != 2 && $rating != 3 && $rating != 4 && $rating != 5){
-		 $message="Please enter a number from 1-5";
-    	}else{
-		 mysqli_query($conn,"UPDATE tutors SET rank='" . $_POST['rating'] . "' WHERE user_id='" . $_POST['user_id'] . "'");
-		 $message = "Rating submitted successfully";	
-    	 }
-    }
-?>
 
 </body>
 </html>
