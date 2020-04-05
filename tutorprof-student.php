@@ -62,14 +62,15 @@ $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['use
     </table>
     
     <form>
-    <input id='rateTutor' name='rate' value = 'Rate this Tutor'>
+    <input id='rateTutor' name="rate" value = 'Rate this Tutor'>
 
-    if(isset($_POST['submit'])){
+    <?php
+    if(isset($_POST['rate'])){
 
-    //  To redirect form on a particular page
     $var2 = $row['user_id'];
     header('Location: ./rate-tutor.php?user_id=' .$var2);
     }
+    ?>
     
     </form>
     <br><br><br>
