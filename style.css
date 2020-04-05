@@ -439,6 +439,7 @@ input[type="submit"]:hover {
     position: relative;
     padding-left: 22px;
     padding-right: 22px;
+    margin-left: 820px;
     /**
       * Zoom
       */
@@ -662,6 +663,7 @@ input[type="submit"]:hover {
     width: 20%;
     text-align: center;
     vertical-align: middle;
+    margin-left: 1040px;
 }
 
 .photo__options .remove:hover {
