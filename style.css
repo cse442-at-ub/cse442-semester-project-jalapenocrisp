@@ -683,6 +683,7 @@ input[type="submit"]:hover {
     display: inline-block;
     width: 160px;
     height: 160px;
+    margin-left: 600px;
 }
 
 .photo__frame img,
