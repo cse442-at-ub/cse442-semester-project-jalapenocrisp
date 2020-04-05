@@ -38,14 +38,47 @@ $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['use
     </div>
     <hr class="hr-navbar">
 
-    <button class="calendarView" onclick="window.location.href = './tutorCalendarView.html';">Calendar View</button>
+    <div class="profile">
+        <div class="photo">
+            <input type="file" accept="image/*">
+            <div class="photo__helper">
+                <div class="photo__frame photo__frame--circle">
+                    <canvas class="photo__canvas"></canvas>
+                    <div class="message is-empty">
+                        <p class="message--desktop">Drop your photo here or browse your computer.</p>
+                        <p class="message--mobile">Tap here to select your picture.</p>
+                    </div>
+                    <div class="message is-loading">
+                        <i class="fa fa-2x fa-spin fa-spinner"></i>
+                    </div>
+                    <div class="message is-dragover">
+                        <i class="fa fa-2x fa-cloud-upload"></i>
+                        <p>Drop your photo</p>
+                    </div>
+                    <div class="message is-wrong-file-type">
+                        <p>Only images allowed.</p>
+                        <p class="message--desktop">Drop your photo here or browse your computer.</p>
+                        <p class="message--mobile">Tap here to select your picture.</p>
+                    </div>
+                    <div class="message is-wrong-image-size">
+                        <p>Your photo must be larger than 350px.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="photo__options hide">
+                <div class="photo__zoom">
+                    <input type="range" class="zoom-handler">
+                </div><a href="javascript:;" class="remove"><i class="fa fa-trash"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <button type="button" id="previewBtn">Preview</button>
+    <button type="button" id="uploadBtn">Upload Example</button>
+
     
-    <input type="file"  accept="image/gif, image/jpeg, image/png" name="image" id="file" style="display: none;">
-    <p><label for="file" style="cursor: pointer;">Upload Image</label></p>
-
-    <img id="output" width="200" />	
-    <input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;">
-
     <h1 class="welcome-page-title"></h1>
     <table class="info">
 
@@ -68,12 +101,6 @@ $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['use
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="index.js"></script>
     <script>
-
-    var loadFile = function(event) {
-        var image = document.getElementById('output');
-        image.src = URL.createObjectURL(event.target.files[0]);
-    };
-
         
     </script>
 

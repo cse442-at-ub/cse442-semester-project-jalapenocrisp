@@ -17,12 +17,13 @@ body {
     margin: auto;
     padding-top: 80px;
 }
-hr.hr-navbar{
+
+hr.hr-navbar {
     border-top: .5px solid black;
 }
 
 .welcome-page-buttons {
-    width:25%;
+    width: 25%;
     background-color: white;
     border: none;
     border-radius: 8px;
@@ -41,24 +42,26 @@ hr.hr-navbar{
     justify-content: center;
     margin-top: 200px;
 }
-.welcome-page-buttons:hover{
+
+.welcome-page-buttons:hover {
     background-color: rgb(0, 0, 131);
     color: white;
-
 }
-.navlink:hover{
-    color:blue;
 
+.navlink:hover {
+    color: blue;
 }
 
 .logo a {
-    color:black;
+    color: black;
     font-family: sans-serif;
     text-decoration: none;
 }
-.logo a:hover{
-    color:blue;
+
+.logo a:hover {
+    color: blue;
 }
+
 .header {
     padding-left: 10px;
 }
@@ -85,7 +88,8 @@ ul li a:hover {
 
 /*-------------------- styling for the tutor signup page */
 
-.log_in_input, .sign_up_input {
+.log_in_input,
+.sign_up_input {
     width: 100%;
     padding: 12px;
     margin: 8px 0;
@@ -101,7 +105,7 @@ ul li a:hover {
 
 input[type="submit"]:hover {
     background-color: blue;
-    color:white;
+    color: white;
 }
 
 #tutor_signup_div {
@@ -111,7 +115,8 @@ input[type="submit"]:hover {
     margin-right: 20%;
 }
 
-#tutor_signup_submit, #log_in_button{
+#tutor_signup_submit,
+#log_in_button {
     display: inline-block;
     border: 0px solid #ccc;
     margin-top: 10px;
@@ -121,27 +126,27 @@ input[type="submit"]:hover {
     padding: 12px;
 }
 
-#tutor_signup_submit:hover, #log_in_button:hover{
-    background-color:rgb(0, 0, 131);
-
+#tutor_signup_submit:hover,
+#log_in_button:hover {
+    background-color: rgb(0, 0, 131);
 }
 
-#forgot_link_id{
-    color:black;
+#forgot_link_id {
+    color: black;
     font-weight: bold;
 }
-.message{
-    color:red;
+
+.message {
+    color: red;
     font-size: larger;
 }
 
 
 /* search style */
 
-
-.selectButton{
+.selectButton {
     width: 15%;
-    margin-top:2%;
+    margin-top: 2%;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -153,14 +158,16 @@ input[type="submit"]:hover {
     border: none;
     color: black;
 }
-.selectButton:hover, .calendarView:hover{
-    background-color:rgb(0, 0, 131);
+
+.selectButton:hover,
+.calendarView:hover {
+    background-color: rgb(0, 0, 131);
     color: white;
 }
 
-.delButton{
+.delButton {
     width: 15%;
-    margin-top:2%;
+    margin-top: 2%;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -170,40 +177,45 @@ input[type="submit"]:hover {
     background-color: rgb(214, 3, 3);
     cursor: pointer;
     border: none;
-    color:white;
+    color: white;
 }
-.delButton:hover{
+
+.delButton:hover {
     background-color: rgb(134, 4, 4);
 }
-.info{
+
+.info {
     font-size: larger;
     width: 960px;
-    margin-left: auto;    
-    margin-right: auto; 
-    text-align: center;   
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
-.info td{
-    height:50px;
+
+.info td {
+    height: 50px;
 }
-.info1{
+
+.info1 {
     font-size: larger;
     width: 50%;
-    margin-left: 25%;    
-    margin-right: 25%; 
-    text-align: center;   
+    margin-left: 25%;
+    margin-right: 25%;
+    text-align: center;
     margin-top: 140px;
 }
-.center{
+
+.center {
     margin-top: 2%;
     display: block;
     margin-left: auto;
     margin-right: auto;
     border-radius: 8px;
- 
 }
-.calendarView{
+
+.calendarView {
     width: 15%;
-    margin-top:2%;
+    margin-top: 2%;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -215,8 +227,9 @@ input[type="submit"]:hover {
     border: none;
     color: black;
 }
-.change{
-    margin-top:2%;
+
+.change {
+    margin-top: 2%;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -226,10 +239,12 @@ input[type="submit"]:hover {
     cursor: pointer;
     border: none;
 }
-.dd{
+
+.dd {
     text-align: center;
 }
-.input1{
+
+.input1 {
     width: 50%;
     padding: 12px;
     margin: 8px 0;
@@ -242,82 +257,81 @@ input[type="submit"]:hover {
 
 /* ~~~~~~~~~~~~~~~~~~~~Tutor Calendar View style ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
-#calendar_tutor{
-    font-family:sans-serif;
+#calendar_tutor {
+    font-family: sans-serif;
     width: 85%;
     margin: auto;
     border-spacing: 0;
     border-collapse: separate;
     table-layout: fixed;
     margin-bottom: 50px;
-    	  
 }
-#calendar_tutor td{
+
+#calendar_tutor td {
     text-align: center;
 }
 
-.day_container{
-    position : absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	text-align:center;
+.day_container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
 }
 
-.day_container h1{
+.day_container h1 {
     color: #fff;
-	font-size : 36px;
-	margin-bottom: 40px;
+    font-size: 36px;
+    margin-bottom: 40px;
 }
 
-
-.add-or-edit-button{
+.add-or-edit-button {
     /* b9b739 */
     background: #fff;
-	padding: 10px, 15px;
-	color : #b9b739;
-	font-weight: bolder;
-	/* text-transform: uppercase; */
-	font-size: 18px;
-	border-radius: 5px;
-	box-shadow: 6px, 6px, 29px, -4px rgba(0,0,0,0.75);
-	margin-top:25 px;
-	text-decoration: none;
-	transition: 0.4s;
+    padding: 10px, 15px;
+    color: #b9b739;
+    font-weight: bolder;
+    /* text-transform: uppercase; */
+    font-size: 18px;
+    border-radius: 5px;
+    box-shadow: 6px, 6px, 29px, -4px rgba(0, 0, 0, 0.75);
+    margin-top: 25 px;
+    text-decoration: none;
+    transition: 0.4s;
 }
 
-.add-or-edit-button:hover{
+.add-or-edit-button:hover {
     background-color: #f7ea33;
     color: black;
 }
 
-.day_popup{
-	background: rgba(0,0,0,0.6);
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	top: 0;
-	display: none;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
+.day_popup {
+    background: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
-.day_popup_content{
-	height: 700px;
-	width: 500px;
-	background: #fff;
+.day_popup_content {
+    height: 700px;
+    width: 500px;
+    background: #fff;
     padding: 40px;
-	border-radius: 5px;
-	position: relative;
+    border-radius: 5px;
+    position: relative;
 }
 
-.day_popup_content label{
+.day_popup_content label {
     padding: 0;
     color: darkgreen;
 }
 
-.day_popup_content input{
+.day_popup_content input {
     margin: 10px auto;
     display: block;
     width: 80%;
@@ -325,56 +339,543 @@ input[type="submit"]:hover {
     border: 1px solid gray;
 }
 
-#day_popout_button{
+#day_popout_button {
     margin: 20px auto;
-	display: block;
-	width: 50%;
-	padding: 8px;
+    display: block;
+    width: 50%;
+    padding: 8px;
     border: 1px solid gray;
 }
 
-.day_close{
-	position: absolute;
-	top: -15px;
-	right: -15px;
-	background: #fff;
-	height: 20px;
-	width: 20px;
-	border-radius: 50%;
-	box-shadow: 6px, 6px, 29px, -4px rgba(0,0,0,0.75);
-	cursor: pointer;
+.day_close {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background: #fff;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    box-shadow: 6px, 6px, 29px, -4px rgba(0, 0, 0, 0.75);
+    cursor: pointer;
 }
+
+
 /* 
 
 
 
 */
 
+
 /* ~~~~~~~~~~~~~~~~~~~end of Tutor Calendar View style~~~~~~~~~~~~~~~~~~~~~~ */
 
-/* styling for the button on tutor view of the tutor calendar page */ 
 
+/* styling for the button on tutor view of the tutor calendar page */
 
-#calender_tutor{
+#calender_tutor {
     margin-left: 15%;
     margin-right: 15%;
-    
 }
+
 
 /* styling for tutor page schedule */
 
 .studentViewCalendar {
     height: 650px;
     width: 650px;
-
 }
 
 .title-studentView-calendar {
     text-align: center;
 }
 
+
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ profile styling ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-.score:hover{
+.score:hover {
     color: blue;
+}
+
+
+/* styling for the upload prof picture icon */
+
+.alert {
+    font-family: sans-serif;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.alert-success {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+}
+
+
+/*DEMO*/
+
+.preview {
+    margin: 10px;
+    display: none;
+}
+
+.preview--rounded {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+}
+
+
+/* IMMUTABLE */
+
+.hide {
+    display: none !important;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.photo__zoom {
+    position: relative;
+    padding-left: 22px;
+    padding-right: 22px;
+    /**
+      * Zoom
+      */
+    /**
+      * Zoom handler
+      */
+    /**
+      * FOCUS
+      */
+    /**
+      * Zoom track
+      */
+    /**
+      * ICONS
+      */
+}
+
+.photo__zoom input[type=range] {
+    -webkit-appearance: none;
+    width: 100%;
+    background: transparent;
+    height: 18px;
+}
+
+.photo__zoom input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+}
+
+.photo__zoom input[type=range]:focus {
+    outline: none;
+}
+
+.photo__zoom input[type=range]::-ms-track {
+    width: 100%;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
+
+.photo__zoom input[type=range]:focus::-ms-thumb {
+    border-color: #268eff;
+    box-shadow: 0 0 1px 0px #268eff;
+}
+
+.photo__zoom input[type=range]:focus::-moz-range-thumb {
+    border-color: #268eff;
+    box-shadow: 0 0 1px 0px #268eff;
+}
+
+.photo__zoom input[type=range]:focus::-webkit-slider-thumb {
+    border-color: #268eff;
+    box-shadow: 0 0 1px 0px #268eff;
+}
+
+.photo__zoom input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    margin-top: -9px;
+    box-sizing: border-box;
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+    display: block;
+    border-radius: 50%;
+    background: #eee;
+    border: 1px solid #ddd;
+}
+
+.photo__zoom input[type=range]::-webkit-slider-thumb:hover {
+    border-color: #c1c1c1;
+}
+
+.photo__zoom input[type=range]::-ms-thumb {
+    margin-top: 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+    display: block;
+    border-radius: 50%;
+    background: #eee;
+    border: 1px solid #ddd;
+}
+
+.photo__zoom input[type=range]::-ms-thumb:hover {
+    border-color: #c1c1c1;
+}
+
+.photo__zoom input[type=range]::-moz-range-thumb {
+    margin-top: 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+    display: block;
+    border-radius: 50%;
+    background: #eee;
+    border: 1px solid #ddd;
+}
+
+.photo__zoom input[type=range]::-moz-range-thumb:hover {
+    border-color: #c1c1c1;
+}
+
+.photo__zoom input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 1px;
+    cursor: pointer;
+    background: #eee;
+    border: 0;
+}
+
+.photo__zoom input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 1px;
+    cursor: pointer;
+    background: #eee;
+    border: 0;
+}
+
+.photo__zoom input[type=range]::-ms-track {
+    width: 100%;
+    height: 1px;
+    cursor: pointer;
+    background: #eee;
+    border: 0;
+}
+
+.photo__zoom input[type=range].zoom--minValue::before,
+.photo__zoom input[type=range].zoom--maxValue::after {
+    color: #f8f8f8;
+}
+
+.photo__zoom input[type=range]::before,
+.photo__zoom input[type=range]::after {
+    position: absolute;
+    content: "\f03e";
+    display: block;
+    font-family: 'FontAwesome';
+    color: #aaa;
+    transition: color 0.3s ease;
+}
+
+.photo__zoom input[type=range]::after {
+    font-size: 18px;
+    right: -2px;
+    top: 2px;
+}
+
+.photo__zoom input[type=range]::before {
+    font-size: 14px;
+    left: 4px;
+    top: 4px;
+}
+
+
+/**
+  * FRAME STYLE
+  */
+
+.photo__frame--circle {
+    border: 1px solid #e2e2e2;
+    border-radius: 50%;
+}
+
+.photo__helper {
+    position: relative;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    padding: 15px 0;
+}
+
+.photo__helper .canvas--helper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.photo__frame img,
+.photo__helper {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.profile {
+    position: relative;
+    font-family: 'HelveticaNeueLTPro-Roman', sans-serif;
+    font-size: 85%;
+    width: 300px;
+}
+
+.photo {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.photo input[type=file] {
+    display: none;
+}
+
+.photo__options {
+    margin-top: 15px;
+    position: relative;
+    text-align: left;
+}
+
+.photo__options .remove {
+    padding: 0;
+    padding: 0;
+    display: inline-block;
+    text-decoration: none;
+    color: #ddd;
+    font-size: 18px;
+    width: 20%;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.photo__options .remove:hover {
+    color: #000;
+}
+
+.photo__zoom {
+    vertical-align: middle;
+    width: 80%;
+    display: inline-block;
+}
+
+.photo__frame {
+    cursor: move;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    width: 160px;
+    height: 160px;
+}
+
+.photo__frame img,
+.photo__helper img {
+    position: relative;
+}
+
+.photo__frame .message {
+    position: absolute;
+    left: 5px;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-block;
+    color: #268eff;
+    z-index: 3;
+}
+
+.photo__frame .is-dragover {
+    display: none;
+}
+
+.message p {
+    font-size: 0.9em;
+}
+
+.photo__options {
+    list-style: none;
+}
+
+.photo__options li {
+    display: inline-block;
+    text-align: center;
+    width: 50%;
+}
+
+.photo--empty .photo__frame {
+    cursor: pointer;
+}
+
+
+/**
+  * IMG states
+  */
+
+.profile.is-dragover .photo__frame img,
+.photo--empty img,
+.photo--error img,
+.photo--error--file-type img,
+.photo--error--image-size img,
+.photo--loading img {
+    display: none;
+}
+
+
+/**
+  * States
+  */
+
+
+/** SELECT PHOTO MESSAGE */
+
+.message--desktop,
+.message--mobile {
+    display: none;
+}
+
+
+/* MOBILE */
+
+.is-mobile .message--mobile {
+    display: inline-block;
+}
+
+.is-mobile .message--desktop {
+    display: none;
+}
+
+
+/* DESKTOP */
+
+.is-desktop .message--desktop {
+    display: inline-block;
+}
+
+.is-desktop .message--mobile {
+    display: none;
+}
+
+
+/* DEFAULT */
+
+.message.is-empty,
+.message.is-loading,
+.message.is-wrong-file-type,
+.message.is-wrong-image-size,
+.message.is-something-wrong,
+.message.is-dragover {
+    display: none;
+}
+
+
+/* EMPTY */
+
+.photo--empty .photo__options {
+    display: none;
+}
+
+.photo--empty .message.is-empty {
+    display: inline-block;
+}
+
+.photo--empty .photo__frame:hover {
+    background: #268eff;
+}
+
+.photo--empty .photo__frame:hover .message {
+    color: #fff;
+}
+
+
+/* LOADING */
+
+.photo--loading .message.is-loading {
+    display: inline-block;
+}
+
+.photo--loading .message.is-empty,
+.photo--loading .message.is-wrong-file-type,
+.photo--loading .message.is-dragover,
+.photo--loading .message.is-wrong-image-size,
+.photo--loading .photo__options {
+    display: none;
+}
+
+
+/* ERROR */
+
+
+/* UNKNOWN */
+
+.photo--error .message.is-empty,
+.photo--error .message.is-loading,
+.photo--error .message.is-dragover,
+.photo--error .message.is-wrong-image-size,
+.photo--error .photo__options {
+    display: none;
+}
+
+.photo--error .message.is-something-wrong {
+    display: inline-block;
+}
+
+
+/* FILE TYPE*/
+
+.photo--error--file-type .message.is-empty,
+.photo--error--file-type .message.is-loading,
+.photo--error--file-type .message.is-dragover,
+.photo--error--file-type .message.is-wrong-image-size,
+.photo--error--file-type .photo__options {
+    display: none;
+}
+
+.photo--error--file-type .message.is-wrong-file-type {
+    display: inline-block;
+}
+
+
+/* IMAGE SIZE */
+
+.photo--error--image-size .message.is-empty,
+.photo--error--image-size .message.is-loading,
+.photo--error--image-size .message.is-dragover,
+.photo--error--image-size .message.is-wrong-file-type,
+.photo--error--image-size .photo__options {
+    display: none;
+}
+
+.photo--error--image-size .message.is-wrong-image-size {
+    display: inline-block;
+}
+
+
+/* DRAGOVER */
+
+.profile.is-dragover .photo__frame .is-dragover {
+    display: inline-block;
+}
+
+.profile.is-dragover .message.is-empty,
+.profile.is-dragover .message.is-loading,
+.profile.is-dragover .message.is-wrong-file-type,
+.profile.is-dragover .message.is-wrong-image-size {
+    display: none;
 }
