@@ -59,24 +59,26 @@ $tutarray = mysqli_fetch_array($tutorRes);
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="index.js"></script>
     <script>
-    function deleteappt(){
-        <?php
-        if (isset($_POST["yes"])){
-            $status="canceled";
-            $userid=$_GET['user_id'];
-            $id=$_GET["appt_id"];
-            $sql  =  "UPDATE appointments SET status=? WHERE appt_id=?";
-            $stmt= $conn->prepare($sql);
-            $stmt->bind_param("si", $id);
-            $stmt->execute();
-            $stmt->close();
-            header('Location: ./student-appts.php?user_id=' . $userid);
-        }
-        ?>
-    }
+   
     </script>
 
 </body>
 
 </html>
+
+
+
+    <?php
+        if (isset($_POST["yes"])){
+            $status="cancelled";
+            $userid=$_GET['user_id'];
+            $id=$_GET["appt_id"];
+            $sql  =  "UPDATE appointments SET status=? WHERE appt_id=?";
+            $stmt= $conn->prepare($sql);
+            $stmt->bind_param("si", $status, $id);
+            $stmt->execute();
+            $stmt->close();
+            header('Location: ./student-appts.php?user_id=' . $userid);
+        }
+    ?>
 

@@ -49,9 +49,11 @@ $result2 = mysqli_query($conn,"SELECT * FROM appointments WHERE student_id='" . 
     <tr>
     <th width="15%">Date</th>
     <th width="15%">Time</th>
-    <th width="40%">Tutor</th>
+    <th width="30%">Tutor</th>
     <th width="20%">Class</th>
     <th width="10%"></th>
+    <th width="10%"></th>
+
     </tr>
 
     <?php
@@ -67,8 +69,8 @@ $result2 = mysqli_query($conn,"SELECT * FROM appointments WHERE student_id='" . 
         <td><?php echo $appt["time"]; ?>:00</td>
         <td><?php echo $tutarray["fname"]; ?> <?php echo $tutarray["lname"]; ?></td>
         <td><?php echo $tutarray["courses"]; ?></td>
-        <td><button class="cancel" onclick="window.location.href ='./cancel-appt.php?user_id=<?php echo $row['user_id']; ?>&appt_id=<?php echo $appt['appt_id']; ?>';">cancel</button><td>
-
+        <td><button class="rate" onclick="window.location.href ='./cancel-appt.php?user_id=<?php echo $row['user_id']; ?>&appt_id=<?php echo $appt['appt_id']; ?>';">cancel</button><td>
+        <td><form method="post"><input type="hidden" name="apptid" class="input1" value="<?php echo $appt['appt_id']; ?>"><input type="submit" class="rate" name="yes" value="complete"></form>
     </tr>
 
     <?php
@@ -87,3 +89,17 @@ $result2 = mysqli_query($conn,"SELECT * FROM appointments WHERE student_id='" . 
 </body>
 
 </html>
+
+<?php
+    if (isset($_POST["yes"])){
+        $status="completed";
+        $userid=$_GET['user_id'];
+        $id=$_POST['apptid'];
+        $sql  =  "UPDATE appointments SET status=? WHERE appt_id=?";
+        $stmt= $conn->prepare($sql);
+        $stmt->bind_param("si", $status, $id);
+        $stmt->execute();
+        $stmt->close();
+        header('Location: ./student-appt-history.php?user_id=' . $userid);
+    }
+?>
