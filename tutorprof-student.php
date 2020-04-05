@@ -76,7 +76,7 @@ $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['use
     }
     
     $var2 = $row['user_id'];
-    header('Location: ./rate-tutor.php?user_id=' .$var2);
+    header('Location: ./tutorprof-student.php?user_id=' .$var2);
     }
     ?>
     
