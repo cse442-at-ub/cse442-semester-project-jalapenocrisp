@@ -48,6 +48,7 @@ $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['use
     <?php
     $row = mysqli_fetch_array($result);
     ?>
+    
     <tr><td>Name: </td><td><?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?></td></tr>
     <tr><td>Phone Number: </td><td><?php echo $row["phone"]; ?></td></tr>
     <tr><td>Title: </td><td><?php echo $row["title"]; ?></td></tr>
@@ -60,6 +61,16 @@ $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['use
     
     </table>
     <br></br>
+<?php
+
+if(count($_POST)>0){
+    $result = $_POST['tutor'];
+    $row = mysqli_fetch_array($result);
+    $var2=$row['user_id'];
+    <button class = "calendarView" onclick="window.location.href = './rate-tutor.php?user_id='.$var2">Rate this Tutor</button>
+
+}
+?>
     
     <br><br><br>
 
