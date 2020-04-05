@@ -3,7 +3,7 @@ include_once "access-db.php";
 
 $message=""; 
 
-if($_POST['submit']){
+if(count($_POST)>0){
 	$rating = $_POST['rating'];
 
 	if(empty($rating)){
@@ -57,15 +57,18 @@ $row = mysqli_fetch_array($result);
 ?>
 
 
-<form method="post" action="">
+<form class = "info1" method="post" action="">
+
 <div><?php if(isset($message)) { echo $message; } ?>
 </div>
 <div style="padding-bottom:5px;">
 </div>
 
 
-<input type= "hidden" name="user_id" value="<?php echo $row['user_id']; ?>
-<input type="hidden" name="numRatings" class="txtField" value="<?php echo $row['numRatings']; ?>
+<input type= "hidden" name="user_id" value="<?php echo $row['user_id']; ?>">
+<input type="hidden" name="fname" class="input1" value="<?php echo $row['fname']; ?>">
+<input type="hidden" name="lname" class="input1" value="<?php echo $row['lname']; ?>">
+<input type="hidden" name="numRatings" class="txtField" value="<?php echo $row['numRatings']; ?>">
 
 <label>Rating for Tutor: <?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?> </label>
 
