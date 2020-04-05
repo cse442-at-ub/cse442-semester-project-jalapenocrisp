@@ -4,21 +4,11 @@ include_once "access-db.php";
 $message=""; 
 
 if(count($_POST)>0){
-	$avg = <?php echo $row['rank']; ?>;
-	$newRating = $_POST['rating'];
 	
+
+	
+	$avg = $_POST['rank'];
 	$numRatings = $POST['numRatings'];
-	$oldNumRatings = $_POST['numRatings'];
-	++$numRatings; 
-
-	$base = $oldNumRatings / $numRatings;
-
-	$avg = $avg * $base;
-
-	$avgModifier = $rating / $numRatings; 
-
-	$avg = $avg + $avgModifier;
-	
 	
 	if(empty($rating)){
 		$message="Please enter a value (1-5)";
@@ -83,6 +73,7 @@ $row = mysqli_fetch_array($result);
 <input type="hidden" name="fname" class="input1" value="<?php echo $row['fname']; ?>">
 <input type="hidden" name="lname" class="input1" value="<?php echo $row['lname']; ?>">
 <input type="hidden" name="numRatings" id='numRatings' class="txtField" value="<?php echo $row['numRatings']; ?>">
+<input type="hidden" name="rank" id='rank' class="input1" value="<?php echo $row['rank']; ?>">
 
 <label>Rating for Tutor: <?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?> </label>
 
