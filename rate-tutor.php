@@ -72,8 +72,7 @@ $row = mysqli_fetch_array($result);
 
 <label>Rating for Tutor: <?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?> </label>
 
-
-<input type='text' id='rating' value="Enter a value from 1 - 5">
+<input type='text' name="rating" id='rating' value="Enter a value from 1 - 5">
 <br>
 
 <br>
@@ -81,23 +80,7 @@ $row = mysqli_fetch_array($result);
 
 <input type="submit" id="submit" value="Submit" class="button">
 </form>
-
-<?php
-    if(isset($_POST['submit'])){
-	$rating = $_POST['rating'];
-	$numRatings = $_POST['numRatings']; 
-	
-	if(empty($rating)){
-		$message="2Please enter a value (1-5)";
-	}else if($rating != 1 && $rating != 2 && $rating != 3 && $rating != 4 && $rating != 5){
-		 $message="2Please enter a number from 1-5";
-    	}else{
-		 mysqli_query($conn,"UPDATE tutors SET rank='" . $_POST['rating'] . "' WHERE user_id='" . $_POST['user_id'] . "'");
-		 $message = "Rating submitted successfully";	
-    	 }
-    }
-?>
-
+<button class = "calendarView" onclick="window.location.href = './tutorprof-student.php?user_id=<?php echo $row['user_id']; ?>';"> Return to profile</button>
 
 </body>
 </html>
