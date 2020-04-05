@@ -8,11 +8,10 @@ if(count($_POST)>0){
 	$rating = $_POST['rating'];
 	
 	$avg = $_POST['rank'];
-	
-	
+		
 	$numRatings = $row['numRatings'];
 	$oldNumRatings = $_POST['numRatings'];
-	++$numRatings; 
+	$numRatings = $numRatings + 1; 
 	
 	
 	$base = $oldNumRatings/$numRatings;
