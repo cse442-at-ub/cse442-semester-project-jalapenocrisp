@@ -6,8 +6,16 @@ $message="";
 if(count($_POST)>0){
 	
 	$rating = $_POST['rating'];
+	$newRating = $_POST['rating'];
+	
 	$avg = $_POST['rank'];
+	
 	$numRatings = $POST['numRatings'];
+	$oldNumRatings = $_POST['numRatings'];
+	++$numRatings; 
+	
+	
+	
 	
 	if(empty($rating)){
 		$message="Please enter a value (1-5)";
