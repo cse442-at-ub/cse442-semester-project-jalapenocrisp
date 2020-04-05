@@ -3,9 +3,24 @@ include_once "access-db.php";
 
 $message=""; 
 
+if(count($_POST)>0){
+	$rank=$_POST['rank'];
+	$score=$_POST['score'];
+
+	if(empty($rank)){
+		$message="Please enter a value.";
+	}else if($rank == 1 || $rank == 2 || $rank == 3 || $rank == 4 || $rank == 5){
+		mysqli_query($conn,"UPDATE tutors SET score='" . $_POST['score'] . "', rank='" . $_POST['rank'] . "' WHERE user_id'" . $_POST['user_id']. "'");
+		
+		$message = "Rating Recorded Successfully";
+	}else{
+		$message="Enter a number from 1 to 5 (inclusive).";
+	}	
+	  
+}
 
 $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['user_id'] . "'");
-
+$row= mysqi_fetch_array($result);
 
 ?>
 
@@ -49,17 +64,33 @@ $row = mysqli_fetch_array($result);
 <div style="padding-bottom:5px;">
 </div>
 
-$var = <?php echo $row['numRatings']; ?> ;
+
 <input type= "hidden" name="user_id" value="<?php echo $row['user_id']; ?>
 <input type="hidden" name="numRatings" class="txtField" value="<?php echo $row['numRatings']; ?>
 
+
 Rating for Tutor: <?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?> <br>
-<input type="text" name="rank" class="txtField" value="Enter a value from 1 - 5">
+<input type="text" id="rating" class="txtField" value="Enter a value from 1 - 5">
 <br>
 <br>
 
-<input type="submit" name="submit" value="Submit" class="button">
+<input type="submit" id="submit" value="Submit" class="button">
 </form>
+
+<?php
+    if($_POST['submit']){
+	$rating = $_POST['rating'];
+
+	if(empty($rating)){
+		$message="Please enter a value (1-5)";
+	}else if($rating != 1 && $rating != 2 && $rating != 3 && $rating != 4 && $rating != 5){
+		 $message="Please enter a number from 1-5";
+    	}else{
+		 mysqli_query($conn,"UPDATE tutors SET rank='" . $_POST['rating'] . "' WHERE user_id='" . $_POST['user_id'] . "'");
+		 $message = "Rating submitted successfully";	
+    	 }
+    }
+?>
 
 </body>
 </html>
