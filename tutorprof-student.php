@@ -62,29 +62,11 @@ $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['use
     <tr><td>Score: </td><td><?php echo $row["score"]; ?></td></tr>
     
     </table>
-    
-    <form method="POST" action"">
-    <input type="hidden" name="user_id" class="input1" value="<?php echo $row['user_id']; ?>">
-    
-    <input id='rateTutor' type='submit' value = 'Rate this Tutor'>
-    <input id='rating' type="text" value = 'A number 1-5'>
 
-    <?php
-    if($_POST['submit']){
-	$rating = $_POST['rating'];
-
-	if(empty($rating)){
-		$message="Please enter a value (1-5)";
-	}else if($rating != 1 && $rating != 2 && $rating != 3 && $rating != 4 && $rating != 5){
-		 $message="Please enter a number from 1-5";
-    	}else{
-		 mysqli_query($conn,"UPDATE tutors SET rank='" . $_POST['rating'] . "' WHERE user_id='" . $_POST['user_id'] . "'");
-		 $message = "Rating submitted successfully";	
-    	 }
+    
+    <button class = "calendarView" onclick="window.location.href = './rate-tutor.php?user_id=<?php echo $row['user_id']; ?>';"> Rate this tutor</button>
+    
         
-    }
-    ?>
-    
     </form>
     <br><br><br>
 
