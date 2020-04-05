@@ -57,7 +57,7 @@ $row = mysqli_fetch_array($result);
 ?>
 
 
-<form class = "info1" method="post" action="">
+<form method="post" action="">
 <div><?php if(isset($message)) { echo $message; } ?>
 </div>
 <div style="padding-bottom:5px;">
