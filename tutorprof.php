@@ -50,7 +50,8 @@ $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['use
     <tr><td>Email: </td><td><?php echo $row["email"]; ?></td></tr>
     <tr><td>Course: </td><td><?php echo $row["courses"]; ?></td></tr>
     
-    <tr><td>Ratings: </td><td><?php echo $row["rank"]; ?></td></tr>
+    <tr><td>Average Ratings: </td><td><?php echo $row["rank"]; ?></td></tr>
+    <tr><td>Number of Ratings: </td><td><?php echo $row["numRatings"]; ?></td></tr>
     <tr><td>Score: </td><td><?php echo $row["numRatings"]; ?></td></tr>
     
     <tr><td><a href="update-tutor-profile.php?user_id=<?php echo $row["user_id"]; ?>">Edit Information</a></td></tr>    
