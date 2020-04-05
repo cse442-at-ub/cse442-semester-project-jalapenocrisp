@@ -15,15 +15,15 @@ if(count($_POST)>0){
 	++$numRatings; 
 	
 	
-	$base = $oldNumRatings / $numRatings;
+	$base = $oldNumRatings/$numRatings;
 
 	$avg = $avg * $base;
 
-	$avgModifier = $rating / $numRatings; 
+	$avgModifier = $rating/$numRatings; 
 
 	$avg = $avg + $avgModifier;
 	
-	
+	++$numRatings;
 	if(empty($rating)){
 		$message="Please enter a value (1-5)";
 	}else if($rating != 1 && $rating != 2 && $rating != 3 && $rating != 4 && $rating != 5){
