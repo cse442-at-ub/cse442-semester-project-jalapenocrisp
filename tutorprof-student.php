@@ -60,18 +60,10 @@ $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['use
     <tr><td>Score: </td><td><?php echo $row["score"]; ?></td></tr>
     
     </table>
-    <br></br>
-<?php
-
-if(count($_POST)>0){
-    $result = $_POST['tutor'];
-    $row = mysqli_fetch_array($result);
-    $var2=$row['user_id'];
-    <button class = "calendarView" onclick="window.location.href = './rate-tutor.php?user_id='.$var2">Rate this Tutor</button>
-
-}
-?>
     
+    $var2=$row['user_id'];
+    <button class = "calendarView" onclick="window.location.href = './rate-tutor.php?user_id='.$var2">Rate This Tutor</button>
+   
     <br><br><br>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
