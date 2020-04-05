@@ -84,7 +84,7 @@ $result2 = mysqli_query($conn,"SELECT * FROM appointments WHERE student_id='" . 
         <td><?php echo $tutarray["fname"]; ?> <?php echo $tutarray["lname"]; ?></td>
         <td><?php echo $tutarray["courses"]; ?></td>
         <td><div class="popup"> <button class="cancel" onclick="completecancel()">cancel</button>
-            <span class="popuptext" id="myPopup">Are you sure? <button onclick="cancelAppt()"class="cancel">yes</button></span>
+            <span class="popuptext" id="myPopup">Are you sure? <button onclick="cancelAppt(<?php echo $appt['appt_id']; ?>)"class="cancel">yes</button></span>
         </div></td>
 
     </tr>
@@ -103,7 +103,16 @@ function completecancel() {
   var popup = document.getElementById("myPopup");
   popup.classList.toggle("show");
 }
-function cancelAppt(){
+function cancelAppt(apptID){
+    createCookie("id",apptID, 365);
+    <?php
+        $id=$_COOKIE['id'];
+        $sql  =  "DELETE FROM appointments WHERE appt_id=?";
+        $stmt= $conn->prepare($sql);
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $stmt->close();
+    ?>
     location.reload(true);
 }
 </script>
