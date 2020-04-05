@@ -72,6 +72,7 @@ $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['use
 	$message="Please enter a number from 1-5";
     }else{
 	mysqli_query($conn,"UPDATE tutors SET rank='" . $_POST['rating'] . "' WHERE user_id='" . $_POST['user_id'] . "'");
+	$message = "Rating submitted successfully";
     }
     
     $var2 = $row['user_id'];
