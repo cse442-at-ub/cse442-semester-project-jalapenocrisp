@@ -15,6 +15,13 @@ if(count($_POST)>0){
 	++$numRatings; 
 	
 	
+	$base = $oldNumRatings / $numRatings;
+
+	$avg = $avg * $base;
+
+	$avgModifier = $rating / $numRatings; 
+
+	$avg = $avg + $avgModifier;
 	
 	
 	if(empty($rating)){
