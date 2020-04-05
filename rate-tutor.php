@@ -3,20 +3,6 @@ include_once "access-db.php";
 
 $message=""; 
 
-if($_POST['submit']){
-	$rating = $_POST['rating'];
-
-	if(empty($rating)){
-		$message="Please enter a value (1-5)";
-	}else if($rating != 1 && $rating != 2 && $rating != 3 && $rating != 4 && $rating != 5){
-		 $message="Please enter a number from 1-5";
-    	}else{
-		 mysqli_query($conn,"UPDATE tutors SET rank='" . $_POST['rating'] . "' WHERE user_id='" . $_POST['user_id'] . "'");
-		 $message = "Rating submitted successfully";	
-    	 }
-        
-    }
-
 $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['user_id'] . "'");
 $row= mysqi_fetch_array($result);
 
