@@ -1,8 +1,7 @@
 <?php
 include_once "access-db.php";
 
-$result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['user_id'] . "'");
-$row= mysqi_fetch_array($result); 
+$result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['user_id'] . "'"); 
 ?>
 
 <!DOCTYPE html>
@@ -61,7 +60,7 @@ $row= mysqi_fetch_array($result);
     
     </table>
     <br></br>
-    <button class = "calendarView" onclick="window.location.href = './rate-tutor.php?user_id=<?php echo $row['user_id']; ?.';">Rate this Tutor</button>
+    
     <br><br><br>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
