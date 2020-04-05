@@ -617,6 +617,7 @@ input[type="submit"]:hover {
     left: 0;
     right: 0;
     bottom: 0;
+    margin-left: 800px;
 }
 
 .photo__frame img,
@@ -680,6 +681,7 @@ input[type="submit"]:hover {
     display: inline-block;
     width: 160px;
     height: 160px;
+    margin-left: 870px;
 }
 
 .photo__frame img,
