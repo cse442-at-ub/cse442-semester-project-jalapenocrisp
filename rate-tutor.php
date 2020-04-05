@@ -4,7 +4,7 @@ include_once "access-db.php";
 $message=""; 
 
 $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['user_id'] . "'");
-$row= mysqi_fetch_array($result);
+
 
 ?>
 
