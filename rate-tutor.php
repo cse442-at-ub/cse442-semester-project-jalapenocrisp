@@ -59,13 +59,13 @@ $row= mysqi_fetch_array($result);
 $row = mysqli_fetch_array($result);
 ?>
     
-<form class = "info1" name="frmUser" method="post" action="">
+<form class = "info1" method="post" action="">
 <div><?php if(isset($message)) { echo $message; } ?>
 </div>
 <div style="padding-bottom:5px;">
 </div>
 
-$var = 1+ <?php echo $row['numRatings']; ?> ;
+$var = <?php echo $row['numRatings']; ?> ;
 <input type= "hidden" name="user_id" value="<?php echo $row['user_id']; ?>
 <input type="hidden" name="numRatings" class="txtField" value="<?php echo $row['numRatings']; ?>
 
