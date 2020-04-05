@@ -4,16 +4,28 @@ include_once "access-db.php";
 $message=""; 
 
 if(count($_POST)>0){
-	$rating = $_POST['rating'];
+	$avg = <?php echo $row['rank']; ?>;
+	$newRating = $_POST['rating'];
+	
 	$numRatings = $POST['numRatings'];
+	$oldNumRatings = $_POST['numRatings'];
 	++$numRatings; 
+
+	$base = $oldNumRatings / $numRatings;
+
+	$avg = $avg * $base;
+
+	$avgModifier = $rating / $numRatings; 
+
+	$avg = $avg + $avgModifier;
+	
 	
 	if(empty($rating)){
 		$message="Please enter a value (1-5)";
 	}else if($rating != 1 && $rating != 2 && $rating != 3 && $rating != 4 && $rating != 5){
 		 $message="Please enter a number from 1-5";
     	}else{
-		 mysqli_query($conn,"UPDATE tutors SET rank='" . $_POST['rating'] . "', numRatings='" . $numRatings . "' WHERE user_id='" . $_POST['user_id'] . "'");
+		 mysqli_query($conn,"UPDATE tutors SET rank='" . $avg . "', numRatings='" . $numRatings . "' WHERE user_id='" . $_POST['user_id'] . "'");
 		 $message = "Rating submitted successfully";	
     	 }
         
@@ -70,7 +82,7 @@ $row = mysqli_fetch_array($result);
 <input type= "hidden" name="user_id" value="<?php echo $row['user_id']; ?>">
 <input type="hidden" name="fname" class="input1" value="<?php echo $row['fname']; ?>">
 <input type="hidden" name="lname" class="input1" value="<?php echo $row['lname']; ?>">
-<input type="hidden" name="numRatings" class="txtField" value="<?php echo $row['numRatings']; ?>">
+<input type="hidden" name="numRatings" id='numRatings' class="txtField" value="<?php echo $row['numRatings']; ?>">
 
 <label>Rating for Tutor: <?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?> </label>
 
