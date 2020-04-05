@@ -1,4 +1,3 @@
-  
 <?php
 include_once "access-db.php";
 $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['user_id'] . "'");
@@ -43,7 +42,7 @@ $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['use
             <input type="file" accept="image/*">
             <div class="photo__helper">
                 <div class="photo__frame photo__frame--circle">
-                    <!-- <canvas class="photo__canvas"></canvas> -->
+                    <canvas class="photo__canvas"></canvas>
                     <div class="message is-empty">
                         <p class="message--desktop">Drop your photo here or browse your computer.</p>
                         <p class="message--mobile">Tap here to select your picture.</p>
@@ -66,10 +65,15 @@ $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['use
                 </div>
             </div>
 
-           
+            <div class="photo__options hide">
+                <div class="photo__zoom">
+                    <input type="range" class="zoom-handler">
+                </div><a href="javascript:;" class="remove"><i class="fa fa-trash"></i></a>
+            </div>
         </div>
     </div>
 
+    <hr>
     <button type="button" id="previewBtn">Preview</button>
     <button type="button" id="uploadBtn">Upload Example</button>
 
