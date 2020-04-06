@@ -153,9 +153,23 @@ input[type="submit"]:hover {
     border: none;
     color: black;
 }
-.selectButton:hover, .calendarView:hover{
+.selectButton:hover, .calendarView:hover, .selectButton2:hover{
     background-color:rgb(0, 0, 131);
     color: white;
+}
+.selectButton2{
+    width: 20%;
+    margin-top:2%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    padding: 5px;
+    font-size: 16px;
+    background-color: white;
+    cursor: pointer;
+    border: none;
+    color: black;
 }
 
 .delButton{
@@ -377,9 +391,9 @@ input[type="submit"]:hover {
 .infoAppt{
     padding-top: 100px;
     font-size: larger;
-    width: 50%;
-    margin-left: 25%;    
-    margin-right: 25%; 
+    width: 70%;
+    margin-left: 15%;    
+    margin-right: 15%; 
     text-align: center;   
 }
 .infoAppt td{
@@ -393,11 +407,29 @@ input[type="submit"]:hover {
     border-radius: 4px;
     padding: 2px;
     font-size: 11px;
-    background-color: rgb(70, 68, 68);
+    background-color: rgb(112, 109, 109);
     cursor: pointer;
     border: none;
     color: white;
 }
+.center{
+    margin: 0 auto;
+    text-align: center;
+}
+.rate{
+    width: 80px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    padding: 2px;
+    font-size: 13px;
+    background-color: rgb(233, 247, 112);
+    cursor: pointer;
+    border: none;
+    color: black;
+}
+
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ profile styling ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 .score:hover{

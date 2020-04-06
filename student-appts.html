@@ -3,8 +3,7 @@ include_once "access-db.php";
 $result = mysqli_query($conn,"SELECT * FROM students WHERE user_id='" . $_GET['user_id'] . "'");
 $row = mysqli_fetch_array($result);
 
-$result2 = mysqli_query($conn,"SELECT * FROM appointments WHERE student_id='" . $_GET['user_id'] . "' and status = 'upcoming'");
-
+$result2 = mysqli_query($conn,"SELECT * FROM appointments WHERE student_id='" . $_GET['user_id'] . "'");
 ?>
 
 <!DOCTYPE html>
@@ -29,8 +28,8 @@ $result2 = mysqli_query($conn,"SELECT * FROM appointments WHERE student_id='" . 
 
                 <!-- the line of code commented below is important when we upload the work on a server. for now, i'm using an alternative below -->
                 <!-- <li><a href="javascript:loadPage('./login.php')">login</a> </li> -->
-                <li><a class="navlink" href="./search.php?user_id=<?php echo $row['user_id']; ?>">find a tutor</a> </li>
                 <li><a class="navlink" href="./studentprof.php?user_id=<?php echo $row['user_id']; ?>">profile</a> </li>
+                <li><a class="navlink" href="./search.php">find a tutor</a> </li>
                 <li><a class="navlink" href="./index.html">logout</a> </li>
 
             </ul>
@@ -43,21 +42,36 @@ $result2 = mysqli_query($conn,"SELECT * FROM appointments WHERE student_id='" . 
     </div>
     <hr class="hr-navbar">
 
-    <h1 class="welcome-page-title">Your Appointments</h1><br>
-    <a class="center" href="./student-appt-history.php?user_id=<?php echo $row['user_id']; ?>">appointment history</a>
+    <h1 class="welcome-page-title"><?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?>'s Appointments</h1>
     <table class="infoAppt">
     <tr>
     <th width="15%">Date</th>
     <th width="15%">Time</th>
-    <th width="30%">Tutor</th>
+    <th width="40%">Tutor</th>
     <th width="20%">Class</th>
     <th width="10%"></th>
-    <th width="10%"></th>
-
     </tr>
 
     <?php
     while($appt = mysqli_fetch_array($result2)){
+//find date and time
+    $day="";
+    $dayCode=$appt["day"];
+    if ($dayCode==0){
+        $day="Monday";
+    }elseif($dayCode==1){
+        $day="Tuesday";
+    }elseif($dayCode==2){
+        $day="Wednesday";
+    }elseif($dayCode==3){
+        $day="Thursday";
+    }elseif($dayCode==4){
+        $day="Friday";
+    }elseif($dayCode==5){
+        $day="Saturday";
+    }elseif($dayCode==6){
+        $day="Sunday";
+    }
     //find tutor name
     $tid=$appt['tutor_id'];
     $tutorRes= mysqli_query($conn,"SELECT * FROM tutors WHERE user_id=$tid");
@@ -65,12 +79,13 @@ $result2 = mysqli_query($conn,"SELECT * FROM appointments WHERE student_id='" . 
     ?>
 
  
-    <tr><td><?php echo $appt["day"]; ?></td>
+    <tr><td><?php echo $day; ?></td>
         <td><?php echo $appt["time"]; ?>:00</td>
         <td><?php echo $tutarray["fname"]; ?> <?php echo $tutarray["lname"]; ?></td>
         <td><?php echo $tutarray["courses"]; ?></td>
-        <td><form method="post"><input type="hidden" name="apptid" class="input1" value="<?php echo $appt['appt_id']; ?>"><input type="submit" class="rate" name="yes" value="complete"></form>
-        <td><a href="./cancel-appt.php?user_id=<?php echo $_GET['user_id']; ?>&appt_id=<?php echo $appt['appt_id']; ?>">cancel</a><td>
+        <td><div class="popup"> <button class="cancel" onclick="completecancel()">cancel</button>
+            <span class="popuptext" id="myPopup">Are you sure? <button onclick="cancelAppt()"class="cancel">yes</button></span>
+        </div></td>
 
     </tr>
 
@@ -82,40 +97,17 @@ $result2 = mysqli_query($conn,"SELECT * FROM appointments WHERE student_id='" . 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="index.js"></script>
-
 <script>
-
+// When the user clicks on <div>, open the popup
+function completecancel() {
+  var popup = document.getElementById("myPopup");
+  popup.classList.toggle("show");
+}
+function cancelAppt(){
+    location.reload(true);
+}
 </script>
 
 </body>
 
 </html>
-
-<?php
-    if (isset($_POST["yes"])){
-        $id=$_POST['apptid'];      
-
-        $status="completed";
-        $userid=$_GET['user_id'];
-
-        $a = mysqli_query($conn,"SELECT * FROM appointments WHERE appt_id='" . $id . "'");
-        $arow = mysqli_fetch_array($a);
-        $tutor=$arow['tutor_id'];
-        $a1 = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $tutor . "'");
-        $a1row=mysqli_fetch_array($a1);
-        $currscore=$a1row['score']+1;
-
-        $sql  =  "UPDATE tutors SET score=? WHERE user_id=?";
-        $stmt= $conn->prepare($sql);
-        $stmt->bind_param("ii", $currscore, $tutor);
-        $stmt->execute();
-        $stmt->close();
-        
-        $sql2  =  "UPDATE appointments SET status=? WHERE appt_id=?";
-        $stmt1= $conn->prepare($sql2);
-        $stmt1->bind_param("si", $status, $id);
-        $stmt1->execute();
-        $stmt1->close();
-        header('Location: ./student-appt-history.php?user_id=' . $userid);
-    }
-?>
