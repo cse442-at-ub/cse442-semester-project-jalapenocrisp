@@ -373,6 +373,31 @@ input[type="submit"]:hover {
     text-align: center;
 }
 
+/* styling for student appt page */
+.infoAppt{
+    padding-top: 100px;
+    font-size: larger;
+    width: 50%;
+    margin-left: 25%;    
+    margin-right: 25%; 
+    text-align: center;   
+}
+.infoAppt td{
+    height:50px;
+}
+.cancel{
+    width: 50px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 4px;
+    padding: 2px;
+    font-size: 11px;
+    background-color: rgb(70, 68, 68);
+    cursor: pointer;
+    border: none;
+    color: white;
+}
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ profile styling ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 .score:hover{
