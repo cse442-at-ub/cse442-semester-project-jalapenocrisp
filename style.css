@@ -227,22 +227,24 @@ input[type="submit"]:hover {
 }
 
 
-.add-or-edit-button{
-    /* b9b739 */
+#popup_open{
+    position: fixed;
+    bottom: 10%;
+    right: 45%;
+    text-align: center;
     background: #fff;
 	padding: 10px, 15px;
 	color : #b9b739;
 	font-weight: bolder;
-	/* text-transform: uppercase; */
 	font-size: 18px;
 	border-radius: 5px;
 	box-shadow: 6px, 6px, 29px, -4px rgba(0,0,0,0.75);
-	margin-top:25 px;
 	text-decoration: none;
-	transition: 0.4s;
+    transition: 0.4s;
+    cursor: pointer;
 }
 
-.add-or-edit-button:hover{
+#popup_open:hover{
     background-color: #f7ea33;
     color: black;
 }
