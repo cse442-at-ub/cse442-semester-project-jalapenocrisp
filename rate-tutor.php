@@ -88,7 +88,7 @@ $row = mysqli_fetch_array($result);
 <input type="hidden" name="rank" id='rank' class="input1" value="<?php echo $row['rank']; ?>">
 
 <label>Rating for Tutor: <?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?> </label>
-
+<br>
 <input type='text' name="rating" id='rating' value="Enter a value from 1 - 5">
 <br>
 
