@@ -33,7 +33,7 @@
     </div>
     <h1 class = "welcome-page-title">Tutor Calendar View<br><br></h1>
 
-    <table id=calendar_tutor rules="all">
+    <table id="calendar_tutor" rules="all">
         <thead>
             <tr>
                 <th>
