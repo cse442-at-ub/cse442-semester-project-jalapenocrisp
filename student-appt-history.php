@@ -72,7 +72,7 @@ $result2 = mysqli_query($conn,"SELECT * FROM appointments WHERE student_id='" . 
     <?php
     if ($appt['status']=="completed"){
         ?>
-        <td><button onclick="window.location.href = './rate-tutor.php?tutor_id=<?php echo $tutarray['user_id']; ?>user_id=<?php echo $_GET['user_id'];?>';" class="rate">rate tutor</button><td>
+        <td><button onclick="window.location.href = './rate-tutor.php?tutor_id=<?php echo $tutarray['user_id']; ?>&user_id=<?php echo $_GET['user_id'];?>';" class="rate">rate tutor</button><td>
     <?php
     }
     ?>
