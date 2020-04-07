@@ -45,6 +45,12 @@ $result2 = mysqli_query($conn,"SELECT * FROM appointments WHERE student_id='" . 
 
     <h1 class="welcome-page-title">Your Appointments</h1><br>
     <a class="center" href="./student-appt-history.php?user_id=<?php echo $row['user_id']; ?>">appointment history</a>
+
+    <?php 
+    if (mysqli_num_rows($result2)<1){
+        echo "<br><br><br><br><h2 class='center'>No appointments scheduled.</h2>";
+    }else{
+    ?>
     <table class="infoAppt">
     <tr>
     <th width="15%">Date</th>
@@ -77,8 +83,11 @@ $result2 = mysqli_query($conn,"SELECT * FROM appointments WHERE student_id='" . 
     <?php
     }
     ?>
-    
+   
     </table>
+    <?php 
+    }
+    ?>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="index.js"></script>
