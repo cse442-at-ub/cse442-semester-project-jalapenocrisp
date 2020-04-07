@@ -396,6 +396,6 @@ input[type="submit"]:hover {
     color: blue;
 }
 
-.profilePicture img {
+.profilePicture {
     border-radius: 50%;
 }
