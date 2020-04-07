@@ -4,8 +4,13 @@ include_once "access-db.php";
 $message=""; 
 
 if(count($_POST)>0){
-	
+	$teachRating = $_POST['teachRating'];
+	$knowRating = $_POST['knowRating'];
+	$timeRating = $_POST['timeRating'];
 	$rating = $_POST['rating'];
+	
+	$rateAvg = ($rating + $timeRating + $knowRating + $teachRating)/4; 	
+	
 	
 	$avg = $_POST['rank'];
 		
@@ -18,19 +23,19 @@ if(count($_POST)>0){
 
 	$avg = $avg * $base;
 
-	$avgModifier = $rating/$numberOfRatings; 
+	$avgModifier = $rateAvg/$numberOfRatings; 
 
 	$avg = $avg + $avgModifier;
 
 	$avg = round($avg, 2);
 	
-	if(empty($rating)){
-		$message="Please enter a value (1-5)";
-	}else if($rating != 1 && $rating != 2 && $rating != 3 && $rating != 4 && $rating != 5){
-		 $message="Please enter a number from 1-5";
+	if(empty($rating) || empty($teachRating) || empty($knowRating) || empty($timeRating)){
+		$message="Please enter values for all fields! (Values from 1-5)";
+	}else if($rating != 1 && $rating != 2 && $rating != 3 && $rating != 4 && $rating != 5 || $teachRating != 1 && $teachRating != 2 && $teachRating != 3 && $teachRating != 4 && $teachRating != 5 ||$knowRating != 1 && $knowRating != 2 && $knowRating != 3 && $knowRating != 4 && $knowRating != 5 ||$timeRating != 1 && $timeRating != 2 && $timeRating != 3 && $timeRating != 4 && $timeRating != 5){
+		 $message="Please enter a number from 1-5 for all fields!";
     	}else{
 		 mysqli_query($conn,"UPDATE tutors SET rank='" . $avg . "', numRatings='" . $numberOfRatings . "' WHERE user_id='" . $_POST['user_id'] . "'");
-		 $message = "Rating submitted successfully";
+		 $message = "Rating submitted successfully!";
 		 header('Location: ./student-appt-history.php?user_id=' . $_GET['user_id']);
 
     	 }
@@ -97,6 +102,16 @@ $row = mysqli_fetch_array($result);
 
 <h1 class="wecome-page-title">Rating for Tutor: <?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?> </h1>
 <br><br>
+<label>Rate Tutor on Teaching Skills</label>
+<input type='text' name="teachRating" id='teachRating' placeholder="Enter a value from 1 - 5">
+
+<label>Rate Tutor for Course Knowledge:</label>
+<input type='text' name="knowRating" id='knowRating' placeholder="Enter a value from 1 - 5">
+
+<label>Rate Tutor for Timeliness:</label>
+<input type='text' name="timeRating" id='timeRating' placeholder="Enter a value from 1 - 5">
+
+<label>Rate Tutor for Communication:</label>
 <input type='text' name="rating" id='rating' placeholder="Enter a value from 1 - 5">
 <br>
 
