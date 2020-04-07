@@ -16,7 +16,9 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "<br> imagename: ". $row["imagename"]. " - pic: ". $row["imagetmp"]. "<br>";
+        echo '<img src="data:image/jpeg;base64,'.base64_encode( $row['imagetmp'] ).'"/>';
+    
+       // echo "<br> imagename: ". $row["imagename"]. " - pic: ". $row["imagetmp"]. "<br>";
     }
 } else {
     echo "0 results";
