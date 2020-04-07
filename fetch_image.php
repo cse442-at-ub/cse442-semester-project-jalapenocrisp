@@ -5,6 +5,7 @@ echo "this file is being called";
 
 $name=$_GET['name'];
 
+echo $name;
 $select_image="select imagetmp from image_table where imagename='$name'";
 
 $var=mysql_query($select_image);
