@@ -1,4 +1,23 @@
+<?php
+include_once 'access-db.php';
 
+$imagename=$_FILES["myimage"]["name"]; 
+
+//Get the content of the image and then add slashes to it 
+$imagetmp=addslashes (file_get_contents($_FILES['myimage']['tmp_name']));
+
+//Insert the image name and image content in image_table
+$insert_image="INSERT INTO image_table (imagetmp, imagename) VALUES('$imagetmp','$imagename')";
+
+if ($conn->query($insert_image) === TRUE) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $insert_image . "<br>" . $conn->error;
+}
+
+$conn->close();
+
+?>
 <html>
 <head>
 
@@ -15,9 +34,9 @@
 3. move this code to the tutor prof page and re-design the prof. pic part to be a circle and this image showing in the circle
 4. you only need the getdata php code and the display image code in the tutor prof oage with the tags ** look into how to implement this part anyway!-->
 		
-<form method="GET" action="display_image.php" >
- <input type="file" name="your_imagename">
- <input type="submit" name="display_image" value="Display">
+<form method="POST" action="display_image.php" enctype="multipart/form-data">
+ <input type="file" name="myimage">
+ <input type="submit" name="submit_image" value="Upload">
 </form>
 
 <?php
