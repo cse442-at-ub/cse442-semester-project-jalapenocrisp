@@ -10,7 +10,7 @@ $imagetmp=addslashes (file_get_contents($_FILES['myimage']['tmp_name']));
 $insert_image="INSERT INTO image_table (imagetmp, imagename) VALUES('$imagetmp','$imagename')";
 
 if ($conn->query($insert_image) === TRUE) {
-    echo "New record created successfully";
+    echo "New record created successfully. Naviagate back to see your image";
 } else {
     echo "Error: " . $insert_image . "<br>" . $conn->error;
 }

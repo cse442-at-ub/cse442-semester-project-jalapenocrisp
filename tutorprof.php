@@ -38,6 +38,32 @@ $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['use
     </div>
     <hr class="hr-navbar">
 
+    <form method="POST" action="getdata.php" enctype="multipart/form-data">
+        <input type="file" name="myimage">
+        <input type="submit" name="submit_image" value="Upload">
+    </form>
+
+    <?php
+    include_once 'access-db.php';
+
+    $sql = "SELECT imagetmp FROM image_table";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+            echo '<img class="profilePicture" src="data:image/jpeg;base64,'.base64_encode( $row['imagetmp'] ).'"/>';
+        
+        // echo "<br> imagename: ". $row["imagename"]. " - pic: ". $row["imagetmp"]. "<br>";
+        }
+    } else {
+        echo "0 results";
+    }
+
+    $conn->close();
+    ?>
+
+
     <button class="calendarView" onclick="window.location.href = './tutorCalendarView.html';">Calendar View</button>
 
     <h1 class="welcome-page-title"></h1>
