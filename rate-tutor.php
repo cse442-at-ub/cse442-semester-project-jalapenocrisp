@@ -22,7 +22,7 @@ if(count($_POST)>0){
 
 	$avg = $avg + $avgModifier;
 
-	
+	$avg = round($avg, 2);
 	
 	if(empty($rating)){
 		$message="Please enter a value (1-5)";
