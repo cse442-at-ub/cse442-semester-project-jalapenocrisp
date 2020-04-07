@@ -34,11 +34,7 @@
         
     </div>
     <hr class="hr-navbar">
-<<<<<<< HEAD:tutorCalendarView.php
-=======
 
-    <h1 class = "welcome-page-title">Tutor Calendar View<br><br></h1>
->>>>>>> develop:tutorCalendarView.html
 
     <h1 class = "welcome-page-title">Your Availability</h1>
 
