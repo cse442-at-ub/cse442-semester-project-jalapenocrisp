@@ -29,7 +29,7 @@ if(count($_POST)>0){
     	}else{
 		 mysqli_query($conn,"UPDATE tutors SET rank='" . $avg . "', numRatings='" . $numberOfRatings . "' WHERE user_id='" . $_POST['user_id'] . "'");
 		 $message = "Rating submitted successfully";
-		 header('Location: ./student-appt-history.php?user_id=' . $GET['user_id']);
+		 header('Location: ./student-appt-history.php?user_id=' . $_GET['user_id']);
 
     	 }
         
