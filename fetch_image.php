@@ -1,6 +1,8 @@
 <?php
 include_once 'access-db.php';
 
+echo "this file is being called";
+
 $name=$_GET['name'];
 
 $select_image="select imagetmp from image_table where imagename='$name'";
