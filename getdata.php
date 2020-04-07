@@ -1,10 +1,5 @@
 <?php
-$servername = "tethys.cse.buffalo.edu";
-$username = "jenniech";
-$password = "50041501";
-$db = "cse442_542_2020_spring_teami_db";
-// Create connection
-$conn = new mysqli($servername, $username, $password, $db);
+include_once 'access-db.php';
 
 $imagename=$_FILES["myimage"]["name"]; 
 
