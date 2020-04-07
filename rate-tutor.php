@@ -95,13 +95,13 @@ $row = mysqli_fetch_array($result);
 
 <h1 class="wecome-page-title">Rating for Tutor: <?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?> </h1>
 <br><br>
-<input type='text' name="rating" id='rating' value="Enter a value from 1 - 5">
+<input type='text' name="rating" id='rating' placeholder="Enter a value from 1 - 5">
 <br>
 
 <br>
 <br>
 
-<input type="submit" id="submit" value="Submit" class="button">
+<input type="submit" id="submit" value="Submit" class="selectButton">
 </form>
 
 </body>
