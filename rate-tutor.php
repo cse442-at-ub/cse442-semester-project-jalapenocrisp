@@ -103,18 +103,24 @@ $row = mysqli_fetch_array($result);
 <h1 class="wecome-page-title">Rating for Tutor: <?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?> </h1>
 <br><br>
 <label>Rate Tutor on Teaching Skills</label>
+<br>
 <input type='text' name="teachRating" id='teachRating' placeholder="Enter a value from 1 - 5">
+<br><br>
 
 <label>Rate Tutor for Course Knowledge:</label>
+<br>
 <input type='text' name="knowRating" id='knowRating' placeholder="Enter a value from 1 - 5">
+<br><br>
 
 <label>Rate Tutor for Timeliness:</label>
+<br>
 <input type='text' name="timeRating" id='timeRating' placeholder="Enter a value from 1 - 5">
+<br><br>
 
 <label>Rate Tutor for Communication:</label>
+<br>
 <input type='text' name="rating" id='rating' placeholder="Enter a value from 1 - 5">
 <br>
-
 <br>
 <br>
 
