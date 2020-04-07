@@ -13,6 +13,11 @@ if($row=mysql_fetch_array($var))
 {
  $image_name=$row["imagename"];
  $image_content=$row["imagetmp"];
+
+ echo $select_image;
 }
-echo "$select_image";
+else {
+    echo "did not find the image match";
+}
+
 ?>
