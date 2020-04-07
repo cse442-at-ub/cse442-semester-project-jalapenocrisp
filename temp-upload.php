@@ -1,5 +1,5 @@
 <?php
-$target_dir = "uploads/";
+$target_dir = "/web/CSE442-542/2020-spring/cse-442i/upload/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
