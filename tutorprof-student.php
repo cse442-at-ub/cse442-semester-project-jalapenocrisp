@@ -63,16 +63,10 @@ $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['tut
     <tr><td>Email: </td><td><?php echo $row["email"]; ?></td></tr>
     <tr><td>Course: </td><td><?php echo $row["courses"]; ?></td></tr>
     <tr><td class="score" title="The number of tutoring hours this tutor has completed.">Score: </td><td><?php echo $row["score"]; ?></td></tr>
-    
     <tr><td>Average Rating: </td><td><?php echo $row["rank"]; ?></td></tr>
     <tr><td>Number of Ratings: </td><td><?php echo $row["numRatings"]; ?></td></tr>
-    <tr><td>Score: </td><td><?php echo $row["score"]; ?></td></tr>
     
-    </table>
-
-    
-    <button class = "calendarView" onclick="window.location.href = './rate-tutor.php?user_id=<?php echo $row['user_id']; ?>';"> Rate this tutor</button>
-    
+    </table>    
         
     </form>
     <br><br><br>
