@@ -1,11 +1,4 @@
 
-<?php
-
-$getname = $_GET[' your_imagename '];
-
-echo "< img src = fetch_image.php?name=".$getname." width=200 height=200 >";
-
-?>
 <html>
 <body>
 		
@@ -13,6 +6,24 @@ echo "< img src = fetch_image.php?name=".$getname." width=200 height=200 >";
  <input type="file" name="your_imagename">
  <input type="submit" name="display_image" value="Display">
 </form>
+
+<?php
+include_once 'access-db.php';
+
+$sql = "SELECT imagetmp FROM image_table";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "<br> imagename: ". $row["imagename"]. " - pic: ". $row["imagetmp"]. "<br>";
+    }
+} else {
+    echo "0 results";
+}
+
+$conn->close();
+?>
 
 </body>
 </html>
