@@ -2,7 +2,11 @@
 include_once "access-db.php";
 $result = mysqli_query($conn,"SELECT * FROM students WHERE user_id='" . $_GET['user_id'] . "'");
 $row = mysqli_fetch_array($result);
+
+$result2 = mysqli_query($conn,"SELECT * FROM appointments WHERE student_id='" . $_GET['user_id'] . "' and status != 'upcoming'");
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,11 +28,10 @@ $row = mysqli_fetch_array($result);
             <ul>
 
                 <!-- the line of code commented below is important when we upload the work on a server. for now, i'm using an alternative below -->
-                <!-- <li><a href="javascript:loadPage('./login.html')">login</a> </li> -->
+                <!-- <li><a href="javascript:loadPage('./login.php')">login</a> </li> -->
                 <li><a class="navlink" href="./student-appts.php?user_id=<?php echo $row['user_id']; ?>">my appointments</a> </li>
-
                 <li><a class="navlink" href="./search.php?user_id=<?php echo $row['user_id']; ?>">find a tutor</a> </li>
-
+                <li><a class="navlink" href="./studentprof.php?user_id=<?php echo $row['user_id']; ?>">profile</a> </li>
                 <li><a class="navlink" href="./index.html">logout</a> </li>
 
             </ul>
@@ -41,32 +44,52 @@ $row = mysqli_fetch_array($result);
     </div>
     <hr class="hr-navbar">
 
-    <h1 class="welcome-page-title"></h1>
-
-    <br><br><br>
-    
-    <table class="info">
-
-    
+    <h1 class="welcome-page-title">Your Past Appointments</h1>
+    <table class="infoAppt">
     <tr>
-    <th width="50%"></th>
-    <th width="50%"></th>
+    <th width="15%">Date</th>
+    <th width="15%">Time</th>
+    <th width="30%">Tutor</th>
+    <th width="20%">Class</th>
+    <th width="10%">Status</th>
+    <th width="10%"></th>
     </tr>
-    <tr><td>Name: </td><td><?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?></td></tr>
-    <tr><td>Email: </td><td><?php echo $row["email"]; ?></td></tr>
-    
+
+    <?php
+    while($appt = mysqli_fetch_array($result2)){
+    //find tutor name
+    $tid=$appt['tutor_id'];
+    $tutorRes= mysqli_query($conn,"SELECT * FROM tutors WHERE user_id=$tid");
+    $tutarray = mysqli_fetch_array($tutorRes);
+    ?>
+
+ 
+    <tr><td><?php echo $appt["day"]; ?></td>
+        <td><?php echo $appt["time"]; ?>:00</td>
+        <td><?php echo $tutarray["fname"]; ?> <?php echo $tutarray["lname"]; ?></td>
+        <td><?php echo $tutarray["courses"]; ?></td>
+        <td><?php echo $appt["status"]; ?></td>
+    <?php
+    if ($appt['status']=="completed"){
+        ?>
+        <td><button class="rate">rate tutor</button><td>
+    <?php
+    }
+    ?>
+
+    </tr>  
+    <?php
+    }
+    ?>
+
     </table>
-    <br><br><br>
-    <button class="selectButton" onclick="window.location.href ='./update-student-profile.php?user_id=<?php echo $row['user_id']; ?>';">Edit Information</button>  
-    
-    <button class="delButton" onclick="window.location.href ='./delete-profile-student.php?user_id=<?php echo $row['user_id']; ?>';">Delete Profile</button> 
-    <br><br><br>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="index.js"></script>
-    <script>
-        
-    </script>
+
+<script>
+
+</script>
 
 </body>
 

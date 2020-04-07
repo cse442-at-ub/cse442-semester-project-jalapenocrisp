@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,6 +21,8 @@
 
                 <!-- the line of code commented below is important when we upload the work on a server. for now, i'm using an alternative below -->
                 <!-- <li><a href="javascript:loadPage('./login.php')">login</a> </li> -->
+                <li><a class="navlink" href="./search.php?user_id=<?php echo $_GET['user_id']; ?>">find a tutor</a> </li>
+                <li><a class="navlink" href="./studentprof.php?user_id=<?php echo $_GET['user_id']; ?>">profile</a> </li>
                 <li><a class="navlink" href="./index.html">logout</a> </li>
 
             </ul>
@@ -34,15 +34,10 @@
         
     </div>
     <hr class="hr-navbar">
-<<<<<<< HEAD:tutorCalendarView.php
-=======
 
-    <h1 class = "welcome-page-title">Tutor Calendar View<br><br></h1>
->>>>>>> develop:tutorCalendarView.html
-
-    <h1 class = "welcome-page-title">Your Availability</h1>
-
-    <table id="calendar_tutor" rules="all">
+    <h1 class = "welcome-page-title">Appointment Slots<br><br></h1>
+    <a class="center" href="./tutorprof-student.php?user_id=<?php echo $_GET['user_id'];?>&tutor_id=<?php echo $_GET['tutor_id'];?>">back to profile</a>
+    <table id=calendar_tutor rules="all">
         <thead>
             <tr>
                 <th>
@@ -69,7 +64,7 @@
             </tr>
         </thead>
 
-        <tbody id=calender_tutor_body>
+        <tbody>
             <br>
             <br>
             <tr>
@@ -84,34 +79,8 @@
                 <td id="calendar_saturday_data"></td>
                 <td id="calendar_sunday_data"></td>
             </tr>
-            <?php
-                include_once "access-db.php";
-                $result = mysqli_query($conn,"SELECT * FROM calendar WHERE user_id=22");
-                $count  = mysqli_num_rows($result);
-                if($count==0) {
-                    echo"failed";
-                } else {
-                    $items = mysqli_fetch_array($result);
-                    //echo $items;
-                    for($i = 1; $i < 14; $i++){
-                        echo "<tr>";
-                        for($j= 0; $j < 7; $j++){
-                            $k = ($j * 13) + $i ;
-                            $color = "green";
-                            if($items[$k] == 1){
-                                $color = "red";
-                            }
-                            echo "<td bgcolor=\"$color\"><input type=submit style=\"width:100%; height:100%; background: transparent; border: none;\" value=\"\"></td>";
-                        }
-                        echo "</tr>";
-                    }
-                    
-                }
-            ?>
         </tbody>
     </table>
-
-    
     
     <div id= "day_popup" class= "day_popup">
         <div class = "day_popup_content">
@@ -142,13 +111,14 @@
     
 
     
-    <form style="width: 100%; text-align: center; ">
-        <button id="popup_open" class="add-or-edit-button" type="submit"> Add or Edit </button>
-    </form>
-    
-    
+    <div><p><br><br><br><br><br><br><br></p>
+    </div>
 
     <script src="index.js"></script>
+    <script>
+        document.getElementById("day_close").addEventListener("click", calenderTutorPopupClose);
+        document.getElementById("popup_open").addEventListener("click", calenderTutorPopupOpen);
+    </script>
   
 </body>
 
