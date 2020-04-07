@@ -29,10 +29,10 @@ while($row=mysqli_fetch_array($result)){
 
         <div class="menu_welcomePage">
             <ul>
-                <li><a href="./login.php">login</a> </li>
                 <li>
-                    <a href="./index.html">home</a> </li>
-                <li>create account</li>
+                    <li><a class="navlink" href="./student-appts.php?user_id=<?php echo $_GET['user_id']; ?>">my appointments</a> </li>
+                    <li><a class="navlink" href="./studentprof.php?user_id=<?php echo $_GET['user_id']; ?>">profile</a> </li>
+                    <li><a class="navlink" href="./index.html">logout</a> </li>
 
             </ul>
         </div>
@@ -42,6 +42,7 @@ while($row=mysqli_fetch_array($result)){
         </div>
 
     </div>
+    <hr class="hr-navbar">
 
     <h1 class="welcome-page-title">Find Your Class: </h1>
     <div class="dd">
@@ -49,7 +50,7 @@ while($row=mysqli_fetch_array($result)){
 
       <div class="options">
 
-        <select id ="first-choice">
+        <select class="input1" id ="first-choice">
             <option selected="selected">Pick a class</option>
             <?php    
                 foreach($courseArray as $item){
@@ -64,17 +65,17 @@ while($row=mysqli_fetch_array($result)){
 
         <br>
 
-        <select id="second-choice" name="tutor">
+        <select class="input1" id="second-choice" name="tutor">
             <option selected="selected">Please choose from above</option>
         </select>
         <br>
         <br>
-        <input type="submit" value="Submit">
+        <input class="selectButton" type="submit" value="Go">
       </div>
-
     </form>
     <?php
     if(count($_POST)>0) {
+        $userid=$_GET['user_id'];
         $result = $_POST['tutor'];
         $name=Array();
         $name=explode(" ", $result);
@@ -83,7 +84,7 @@ while($row=mysqli_fetch_array($result)){
         $result = mysqli_query($conn,"SELECT * FROM tutors WHERE fname='$fname' and lname = '$lname'");
         $row = mysqli_fetch_array($result);
         $var1=$row['user_id'];
-        header('Location: ./tutorprof-student.php?user_id=' .$var1);
+        header('Location: ./tutorprof-student.php?user_id=' . $userid. '&tutor_id=' .$var1);
 
         
     }

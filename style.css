@@ -261,13 +261,17 @@ input[type="submit"]:hover {
     width: 85%;
     margin: auto;
     border-spacing: 0;
-    border-collapse: separate;
+    /* border-collapse: separate; */
     table-layout: fixed;
     margin-bottom: 50px;
     	  
 }
 #calendar_tutor td{
+    height:30px;
     text-align: center;
+}
+#calendar_tutor tr{
+    height: 30px; 
 }
 
 .day_container{
