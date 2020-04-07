@@ -58,6 +58,9 @@ $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['tut
             <ul>
                 <!-- the line of code commented below is important when we upload the work on a server. for now, i'm using an alternative below -->
                 <!-- <li><a href="javascript:loadPage('./login.php')">login</a> </li> -->
+		<li><a class="navlink" href="./student-appts.php?user_id=<?php echo $_GET['user_id']; ?>">my appointments</a> </li>
+                <li><a class="navlink" href="./search.php?user_id=<?php echo $_GET['user_id']; ?>">find a tutor</a> </li>
+                <li><a class="navlink" href="./studentprof.php?user_id=<?php echo $_GET['user_id']; ?>">profile</a> </li>
                 <li>
                     <a href="./index.html">logout</a> </li>
 
@@ -68,6 +71,7 @@ $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['tut
             <h2 class="logo"> <a href="./index.html">UBtutoring</a> </h2>
         </div>
     </div>
+    <hr class="hr-navbar">
 
 
 <?php
@@ -89,8 +93,8 @@ $row = mysqli_fetch_array($result);
 <input type="hidden" name="numRatings" id='numRatings' class="input1" value="<?php echo $row['numRatings']; ?>">
 <input type="hidden" name="rank" id='rank' class="input1" value="<?php echo $row['rank']; ?>">
 
-<label>Rating for Tutor: <?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?> </label>
-<br>
+<h1 class="wecome-page-title">Rating for Tutor: <?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?> </h1>
+<br><br>
 <input type='text' name="rating" id='rating' value="Enter a value from 1 - 5">
 <br>
 
