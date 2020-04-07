@@ -28,12 +28,14 @@ if(count($_POST)>0){
 		 $message="Please enter a number from 1-5";
     	}else{
 		 mysqli_query($conn,"UPDATE tutors SET rank='" . $avg . "', numRatings='" . $numberOfRatings . "' WHERE user_id='" . $_POST['user_id'] . "'");
-		 $message = "Rating submitted successfully";	
+		 $message = "Rating submitted successfully";
+		 header('Location: ./student-appt-history.php?user_id=' . $GET['user_id']);
+
     	 }
         
     }
 
-$result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['user_id'] . "'");
+$result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['tutor_id'] . "'");
 
 
 ?>
@@ -97,7 +99,6 @@ $row = mysqli_fetch_array($result);
 
 <input type="submit" id="submit" value="Submit" class="button">
 </form>
-<button class = "calendarView" onclick="window.location.href = './tutorprof-student.php?user_id=<?php echo $row['user_id']; ?>';"> Return to profile</button>
 
 </body>
 </html>
