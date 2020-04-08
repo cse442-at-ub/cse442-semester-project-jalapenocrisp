@@ -1,7 +1,10 @@
 <?php
 include_once "access-db.php";
+
 $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['tutor_id'] . "'");
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,9 +44,11 @@ $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['tut
         </div>
 
     </div>
+
     <hr class="hr-navbar">
 
     <button class="calendarView" onclick="window.location.href = './tutor-calendar-view-student.php?user_id=<?php echo $_GET['user_id']; ?>&tutor_id=<?php echo $_GET['tutor_id']; ?>'">Make an Appointment</button>
+
 
     <h1 class="welcome-page-title"></h1>
     <table class="info">
@@ -51,14 +56,19 @@ $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['tut
     <?php
     $row = mysqli_fetch_array($result);
     ?>
+    
     <tr><td>Name: </td><td><?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?></td></tr>
     <tr><td>Phone Number: </td><td><?php echo $row["phone"]; ?></td></tr>
     <tr><td>Title: </td><td><?php echo $row["title"]; ?></td></tr>
     <tr><td>Email: </td><td><?php echo $row["email"]; ?></td></tr>
     <tr><td>Course: </td><td><?php echo $row["courses"]; ?></td></tr>
     <tr><td class="score" title="The number of tutoring hours this tutor has completed.">Score: </td><td><?php echo $row["score"]; ?></td></tr>
+    <tr><td>Average Rating: </td><td><?php echo $row["rank"]; ?></td></tr>
+    <tr><td>Number of Ratings: </td><td><?php echo $row["numRatings"]; ?></td></tr>
     
-    </table>
+    </table>    
+        
+    </form>
     <br><br><br>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

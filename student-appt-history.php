@@ -88,7 +88,7 @@ if (isset($_POST['submit'])){
     <?php
     if ($appt['status']=="completed"){
         ?>
-        <td><button class="rate">rate tutor</button><td>
+        <td><button onclick="window.location.href = './rate-tutor.php?tutor_id=<?php echo $tutarray['user_id']; ?>&user_id=<?php echo $_GET['user_id'];?>';" class="rate">rate tutor</button><td>
     <?php
     }
     ?>
