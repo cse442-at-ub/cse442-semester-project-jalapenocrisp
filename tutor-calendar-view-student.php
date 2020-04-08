@@ -38,6 +38,31 @@ if (isset($_POST['submit'])){
     $stmt2->execute();
     $stmt2->close();
 
+    $tutorRes= mysqli_query($conn,"SELECT * FROM tutors WHERE user_id=$tut");
+    $tutarray = mysqli_fetch_array($tutorRes);
+    $tutorEmail=$tutarray['email'];
+
+    $studRes= mysqli_query($conn,"SELECT * FROM students WHERE user_id=$stu");
+    $stuarray = mysqli_fetch_array($tutorRes);
+    $stuEmail=$stuarray['email'];
+
+    $tos=$stuEmail;
+    $to=$tutorEmail;
+    $subject="Notification of new appointment";
+    $message="Dear " . $tutarray['fname'] . " " . $tutarray['lname'] .":\r\nWe are writing to notify that a new appointment at " . $time . ":00 on " . $day . " has been scheduled. No further action is necesary by you.\r\n\r\nUBtutoring\r\n\r\nPlease do not reply to this.";
+    $messageS="Dear " . $stuarray['fname'] . " " . $stuarray['lname'] .":\r\nWe are writing to notify that a new appointment at " . $time . ":00 on " . $day . " has been scheduled. No further action is necesary by you.\r\n\r\nUBtutoring\r\n\r\nPlease do not reply to this.";
+
+    $from="no-reply@buffalo.com";
+    $headers  = "MIME-Version: 1.0" . "\r\n";
+    $headers .= "Content-type: text/plain; charset=iso-8859-1" . "\r\n";
+    $headers .= "From: ". $from. "\r\n";
+    $headers .= "Reply-To: ". $from. "\r\n";
+    $headers .= "X-Mailer: PHP/" . phpversion();
+    $headers .= "X-Priority: 1" . "\r\n";
+    mail($to, $subject, $message, $headers);
+    mail($tos, $subject, $messageS, $headers);
+
+
     header('Location: student-appts.php?user_id=' . $stu);
 
 }
