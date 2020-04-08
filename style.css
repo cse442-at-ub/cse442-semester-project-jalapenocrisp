@@ -17,12 +17,13 @@ body {
     margin: auto;
     padding-top: 80px;
 }
-hr.hr-navbar{
+
+hr.hr-navbar {
     border-top: .5px solid black;
 }
 
 .welcome-page-buttons {
-    width:25%;
+    width: 25%;
     background-color: white;
     border: none;
     border-radius: 8px;
@@ -41,24 +42,26 @@ hr.hr-navbar{
     justify-content: center;
     margin-top: 200px;
 }
-.welcome-page-buttons:hover{
+
+.welcome-page-buttons:hover {
     background-color: rgb(0, 0, 131);
     color: white;
-
 }
-.navlink:hover{
-    color:blue;
 
+.navlink:hover {
+    color: blue;
 }
 
 .logo a {
-    color:black;
+    color: black;
     font-family: sans-serif;
     text-decoration: none;
 }
-.logo a:hover{
-    color:blue;
+
+.logo a:hover {
+    color: blue;
 }
+
 .header {
     padding-left: 10px;
 }
@@ -85,7 +88,8 @@ ul li a:hover {
 
 /*-------------------- styling for the tutor signup page */
 
-.log_in_input, .sign_up_input {
+.log_in_input,
+.sign_up_input {
     width: 100%;
     padding: 12px;
     margin: 8px 0;
@@ -101,7 +105,7 @@ ul li a:hover {
 
 input[type="submit"]:hover {
     background-color: blue;
-    color:white;
+    color: white;
 }
 
 #tutor_signup_div {
@@ -111,7 +115,8 @@ input[type="submit"]:hover {
     margin-right: 20%;
 }
 
-#tutor_signup_submit, #log_in_button{
+#tutor_signup_submit,
+#log_in_button {
     display: inline-block;
     border: 0px solid #ccc;
     margin-top: 10px;
@@ -121,27 +126,34 @@ input[type="submit"]:hover {
     padding: 12px;
 }
 
-#tutor_signup_submit:hover, #log_in_button:hover{
-    background-color:rgb(0, 0, 131);
-
+#tutor_signup_submit:hover,
+#log_in_button:hover {
+    background-color: rgb(0, 0, 131);
 }
 
-#forgot_link_id{
-    color:black;
+#forgot_link_id {
+    color: black;
     font-weight: bold;
 }
-.message{
-    color:red;
+
+.message {
+    color: red;
     font-size: larger;
 }
 
 
 /* search style */
 
+<<<<<<< HEAD
 
 .selectButton{
     width: 15%;
     margin-top:2%;
+=======
+.selectButton {
+    width: 20%;
+    margin-top: 2%;
+>>>>>>> origin/issue#76-notify-tutor-via-email
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -153,8 +165,15 @@ input[type="submit"]:hover {
     border: none;
     color: black;
 }
+<<<<<<< HEAD
 .selectButton:hover, .calendarView:hover, .selectButton2:hover{
     background-color:rgb(0, 0, 131);
+=======
+
+.selectButton:hover,
+.calendarView:hover {
+    background-color: rgb(0, 0, 131);
+>>>>>>> origin/issue#76-notify-tutor-via-email
     color: white;
 }
 .selectButton2{
@@ -172,9 +191,15 @@ input[type="submit"]:hover {
     color: black;
 }
 
+<<<<<<< HEAD
 .delButton{
     width: 15%;
     margin-top:2%;
+=======
+.delButton {
+    width: 20%;
+    margin-top: 2%;
+>>>>>>> origin/issue#76-notify-tutor-via-email
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -184,40 +209,58 @@ input[type="submit"]:hover {
     background-color: rgb(214, 3, 3);
     cursor: pointer;
     border: none;
-    color:white;
+    color: white;
 }
-.delButton:hover{
+
+.delButton:hover {
     background-color: rgb(134, 4, 4);
 }
-.info{
+
+.info {
     font-size: larger;
+<<<<<<< HEAD
     width: 960px;
     margin-left: auto;    
     margin-right: auto; 
     text-align: center;   
+=======
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+    text-align: center;
+>>>>>>> origin/issue#76-notify-tutor-via-email
 }
-.info td{
-    height:50px;
+
+.info td {
+    height: 50px;
 }
-.info1{
+
+.info1 {
     font-size: larger;
     width: 50%;
-    margin-left: 25%;    
-    margin-right: 25%; 
-    text-align: center;   
+    margin-left: 25%;
+    margin-right: 25%;
+    text-align: center;
     margin-top: 140px;
 }
-.center{
+
+.center {
     margin-top: 2%;
     display: block;
     margin-left: auto;
     margin-right: auto;
     border-radius: 8px;
- 
 }
+<<<<<<< HEAD
 .calendarView{
     width: 15%;
     margin-top:2%;
+=======
+
+.calendarView {
+    width: 20%;
+    margin-top: 2%;
+>>>>>>> origin/issue#76-notify-tutor-via-email
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -229,8 +272,9 @@ input[type="submit"]:hover {
     border: none;
     color: black;
 }
-.change{
-    margin-top:2%;
+
+.change {
+    margin-top: 2%;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -240,10 +284,12 @@ input[type="submit"]:hover {
     cursor: pointer;
     border: none;
 }
-.dd{
+
+.dd {
     text-align: center;
 }
-.input1{
+
+.input1 {
     width: 50%;
     padding: 12px;
     margin: 8px 0;
@@ -256,38 +302,43 @@ input[type="submit"]:hover {
 
 /* ~~~~~~~~~~~~~~~~~~~~Tutor Calendar View style ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
-#calendar_tutor{
-    font-family:sans-serif;
+#calendar_tutor {
+    font-family: sans-serif;
     width: 85%;
     margin: auto;
     border-spacing: 0;
     /* border-collapse: separate; */
     table-layout: fixed;
     margin-bottom: 50px;
-    	  
 }
+<<<<<<< HEAD
 #calendar_tutor td{
     height:30px;
+=======
+
+#calendar_tutor td {
+>>>>>>> origin/issue#76-notify-tutor-via-email
     text-align: center;
 }
 #calendar_tutor tr{
     height: 30px; 
 }
 
-.day_container{
-    position : absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	text-align:center;
+.day_container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
 }
 
-.day_container h1{
+.day_container h1 {
     color: #fff;
-	font-size : 36px;
-	margin-bottom: 40px;
+    font-size: 36px;
+    margin-bottom: 40px;
 }
 
+<<<<<<< HEAD
 
 #popup_open{
     position: fixed;
@@ -307,37 +358,55 @@ input[type="submit"]:hover {
 }
 
 #popup_open:hover{
+=======
+.add-or-edit-button {
+    /* b9b739 */
+    background: #fff;
+    padding: 10px, 15px;
+    color: #b9b739;
+    font-weight: bolder;
+    /* text-transform: uppercase; */
+    font-size: 18px;
+    border-radius: 5px;
+    box-shadow: 6px, 6px, 29px, -4px rgba(0, 0, 0, 0.75);
+    margin-top: 25 px;
+    text-decoration: none;
+    transition: 0.4s;
+}
+
+.add-or-edit-button:hover {
+>>>>>>> origin/issue#76-notify-tutor-via-email
     background-color: #f7ea33;
     color: black;
 }
 
-.day_popup{
-	background: rgba(0,0,0,0.6);
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	top: 0;
-	display: none;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
+.day_popup {
+    background: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
-.day_popup_content{
-	height: 700px;
-	width: 500px;
-	background: #fff;
+.day_popup_content {
+    height: 700px;
+    width: 500px;
+    background: #fff;
     padding: 40px;
-	border-radius: 5px;
-	position: relative;
+    border-radius: 5px;
+    position: relative;
 }
 
-.day_popup_content label{
+.day_popup_content label {
     padding: 0;
     color: darkgreen;
 }
 
-.day_popup_content input{
+.day_popup_content input {
     margin: 10px auto;
     display: block;
     width: 80%;
@@ -345,48 +414,50 @@ input[type="submit"]:hover {
     border: 1px solid gray;
 }
 
-#day_popout_button{
+#day_popout_button {
     margin: 20px auto;
-	display: block;
-	width: 50%;
-	padding: 8px;
+    display: block;
+    width: 50%;
+    padding: 8px;
     border: 1px solid gray;
 }
 
-.day_close{
-	position: absolute;
-	top: -15px;
-	right: -15px;
-	background: #fff;
-	height: 20px;
-	width: 20px;
-	border-radius: 50%;
-	box-shadow: 6px, 6px, 29px, -4px rgba(0,0,0,0.75);
-	cursor: pointer;
+.day_close {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background: #fff;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    box-shadow: 6px, 6px, 29px, -4px rgba(0, 0, 0, 0.75);
+    cursor: pointer;
 }
+
+
 /* 
 
 
 
 */
 
+
 /* ~~~~~~~~~~~~~~~~~~~end of Tutor Calendar View style~~~~~~~~~~~~~~~~~~~~~~ */
 
-/* styling for the button on tutor view of the tutor calendar page */ 
 
+/* styling for the button on tutor view of the tutor calendar page */
 
-#calender_tutor{
+#calender_tutor {
     margin-left: 15%;
     margin-right: 15%;
-    
 }
+
 
 /* styling for tutor page schedule */
 
 .studentViewCalendar {
     height: 650px;
     width: 650px;
-
 }
 
 .title-studentView-calendar {
@@ -440,4 +511,19 @@ input[type="submit"]:hover {
 
 .score:hover{
     color: blue;
+}
+.contact-tutor-btn:link,
+.contact-tutor-btn:visited {
+    background-color: black;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-left: 130px;
+}
+
+.contact-tutor-btn:hover,
+.contact-tutor-btn:active {
+    background-color: gray;
 }
