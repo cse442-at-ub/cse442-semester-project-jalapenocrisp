@@ -311,13 +311,8 @@ input[type="submit"]:hover {
     table-layout: fixed;
     margin-bottom: 50px;
 }
-<<<<<<< HEAD
 #calendar_tutor td{
     height:30px;
-=======
-
-#calendar_tutor td {
->>>>>>> origin/issue#76-notify-tutor-via-email
     text-align: center;
 }
 #calendar_tutor tr{
