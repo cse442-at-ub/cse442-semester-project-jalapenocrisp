@@ -244,7 +244,7 @@ if (isset($_POST['submit'])){
                 <td><?php if ($r['sat20']==1){ echo "<form method='post'><input class='cancel' type='hidden' name='date' value='sat20'><input class='cancel' type='submit' name='submit' value='claim'></form>";}?></td>
                 <td><?php if ($r['sun20']==1){ echo "<form method='post'><input class='cancel' type='hidden' name='date' value='sun20'><input class='cancel' type='submit' name='submit' value='claim'></form>";}?></td>
             </tr>            
-            <tr style="height: 40px"><td>21:00PM</td>
+            <tr style="height: 40px"><td>9:00PM</td>
                 <td><?php if ($r['mon21']==1){ echo "<form method='post'><input class='cancel' type='hidden' name='date' value='mon21'><input class='cancel' type='submit' name='submit' value='claim'></form>";}?></td>
                 <td><?php if ($r['tue21']==1){ echo "<form method='post'><input class='cancel' type='hidden' name='date' value='tue21'><input class='cancel' type='submit' name='submit' value='claim'></form>";}?></td>
                 <td><?php if ($r['wed21']==1){ echo "<form method='post'><input class='cancel' type='hidden' name='date' value='wed21'><input class='cancel' type='submit' name='submit' value='claim'></form>";}?></td>
