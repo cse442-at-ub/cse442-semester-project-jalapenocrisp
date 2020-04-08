@@ -5,6 +5,15 @@ $row = mysqli_fetch_array($result);
 
 $result2 = mysqli_query($conn,"SELECT * FROM appointments WHERE student_id='" . $_GET['user_id'] . "' and status != 'upcoming'");
 
+if (isset($_POST['submit'])){
+    $apptid=$_POST['id'];
+    $sql = "DELETE FROM appointments WHERE appt_id=?";
+    $stmt= $conn->prepare($sql);
+    $stmt->bind_param("i", $apptid);
+    $stmt->execute();
+    $stmt->close();
+    header("Refresh:0");
+}
 ?>
 
 <!DOCTYPE html>
@@ -45,11 +54,17 @@ $result2 = mysqli_query($conn,"SELECT * FROM appointments WHERE student_id='" . 
     <hr class="hr-navbar">
 
     <h1 class="welcome-page-title">Your Past Appointments</h1>
+    <?php 
+    if (mysqli_num_rows($result2)<1){
+        echo "<br><br><br><br><h2 class='center'>No past appointments.</h2>";
+    }else{
+    ?>
     <table class="infoAppt">
     <tr>
+    <th width="10%"></th>
     <th width="15%">Date</th>
     <th width="15%">Time</th>
-    <th width="30%">Tutor</th>
+    <th width="20%">Tutor</th>
     <th width="20%">Class</th>
     <th width="10%">Status</th>
     <th width="10%"></th>
@@ -64,7 +79,8 @@ $result2 = mysqli_query($conn,"SELECT * FROM appointments WHERE student_id='" . 
     ?>
 
  
-    <tr><td><?php echo $appt["day"]; ?></td>
+    <tr><td><form method="post"><input type="hidden" name="id" value=<?php echo $appt['appt_id'];?>><input class="cancel" type="submit" name="submit" value="remove"></form></td>
+        <td><?php echo $appt["day"]; ?></td>
         <td><?php echo $appt["time"]; ?>:00</td>
         <td><?php echo $tutarray["fname"]; ?> <?php echo $tutarray["lname"]; ?></td>
         <td><?php echo $tutarray["courses"]; ?></td>
@@ -79,6 +95,7 @@ $result2 = mysqli_query($conn,"SELECT * FROM appointments WHERE student_id='" . 
 
     </tr>  
     <?php
+        }
     }
     ?>
 
@@ -87,10 +104,6 @@ $result2 = mysqli_query($conn,"SELECT * FROM appointments WHERE student_id='" . 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="index.js"></script>
 
-<script>
-
-</script>
-
-</body>
+    </body>
 
 </html>

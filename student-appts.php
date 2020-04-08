@@ -125,6 +125,7 @@ $result2 = mysqli_query($conn,"SELECT * FROM appointments WHERE student_id='" . 
         $stmt1->bind_param("si", $status, $id);
         $stmt1->execute();
         $stmt1->close();
+        
         header('Location: ./student-appt-history.php?user_id=' . $userid);
     }
 ?>
