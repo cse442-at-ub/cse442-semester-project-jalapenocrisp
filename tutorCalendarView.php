@@ -1,6 +1,16 @@
 <?php
     include_once "access-db.php";
     $tutorID = $_GET['user_id'];
+    $post_change = array();
+    foreach($_POST as $key => $value){
+        $v = 0;
+        $val = "-";
+        if(strcmp( $value , "-") == 0){
+            $v = 1;
+        }
+        $query1 = "UPDATE calendar SET $key = $v WHERE user_id=$tutorID ;";
+        mysqli_query($conn, $query1);
+    }
     $result = mysqli_query($conn,"SELECT * FROM calendar WHERE user_id='" . $_GET['user_id'] . "'");
     
 ?>
