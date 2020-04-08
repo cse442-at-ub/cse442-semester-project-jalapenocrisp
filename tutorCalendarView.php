@@ -91,7 +91,7 @@
                         for($j= 0; $j < 7; $j++){
                             $k = ($j * 13) + $i ;
                             $color = "green";
-                            if($items[$k] == 1){
+                            if($items[$k] == 0){
                                 $color = "red";
                             }
                             echo "<td bgcolor=\"$color\"><input type=submit style=\"width:100%; height:100%; background: transparent; border: none;\" value=\"\"></td>";
