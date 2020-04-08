@@ -73,7 +73,7 @@ $result2 = mysqli_query($conn,"SELECT * FROM appointments WHERE student_id='" . 
  
     <tr><td><?php echo $appt["day"]; ?></td>
         <td><?php echo $appt["time"]; ?>:00</td>
-        <td><?php echo $tutarray["fname"]; ?> <?php echo $tutarray["lname"]; ?></td>
+        <td><a class="navlink" style="text-decoration: none" href="./tutorprof-student.php?user_id=<?php echo $_GET['user_id']; ?>&tutor_id=<?php echo $tid;?>"><?php echo $tutarray["fname"]; ?> <?php echo $tutarray["lname"]; ?></td>
         <td><?php echo $tutarray["courses"]; ?></td>
         <td><form method="post"><input type="hidden" name="apptid" class="input1" value="<?php echo $appt['appt_id']; ?>"><input type="submit" class="rate" name="yes" value="complete"></form>
         <td><a href="./cancel-appt.php?user_id=<?php echo $_GET['user_id']; ?>&appt_id=<?php echo $appt['appt_id']; ?>">cancel</a><td>
@@ -125,7 +125,7 @@ $result2 = mysqli_query($conn,"SELECT * FROM appointments WHERE student_id='" . 
         $stmt1->bind_param("si", $status, $id);
         $stmt1->execute();
         $stmt1->close();
-        
+
         header('Location: ./student-appt-history.php?user_id=' . $userid);
     }
 ?>

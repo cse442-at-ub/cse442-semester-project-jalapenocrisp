@@ -82,7 +82,7 @@ if (isset($_POST['submit'])){
     <tr><td><form method="post"><input type="hidden" name="id" value=<?php echo $appt['appt_id'];?>><input class="cancel" type="submit" name="submit" value="remove"></form></td>
         <td><?php echo $appt["day"]; ?></td>
         <td><?php echo $appt["time"]; ?>:00</td>
-        <td><?php echo $tutarray["fname"]; ?> <?php echo $tutarray["lname"]; ?></td>
+        <td><a style="text-decoration: none" class="navlink" href="./tutorprof-student.php?user_id=<?php echo $_GET['user_id']; ?>&tutor_id=<?php echo $tid;?>"><?php echo $tutarray["fname"]; ?> <?php echo $tutarray["lname"]; ?></td>
         <td><?php echo $tutarray["courses"]; ?></td>
         <td><?php echo $appt["status"]; ?></td>
     <?php
