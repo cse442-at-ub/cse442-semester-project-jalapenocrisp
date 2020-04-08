@@ -69,9 +69,6 @@
             <br>
             <br>
             <tr>
-                <br>
-            </tr>
-            <tr>
                 <td id="calendar_monday_data"></td>
                 <td id="calendar_tuesday_data"></td>
                 <td id="calendar_wednesday_data"></td>
@@ -106,36 +103,6 @@
             ?>
         </tbody>
     </table>
-
-    
-    
-    <div id= "day_popup" class= "day_popup">
-        <div class = "day_popup_content">
-            <img src="close.png" alt="X" class="day_close" id="day_close"/>
-            <label for="monday_data">Monday:</label>
-            <input id="monday_data" type="text" placeholder= "ex. 10:30 - 13:30">
-           
-            <label for="tuesday_data">Tuesday:</label>
-            <input id="tuesday_data" type="text" placeholder= "ex. 10:30 - 13:30">
-            
-            <label for="wednesday_data">Wednesday:</label>
-            <input id="wednesday_data" type="text" placeholder= "ex. 10:30 - 13:30">
-            
-            <label for="thursday_data">Thursday:</label>
-            <input id="thursday_data" type="text" placeholder= "ex. 10:30 - 13:30">
-            
-            <label for="friday_data">Friday:</label>
-            <input id="friday_data" type="text" placeholder= "ex. 10:30 - 13:30">
-            
-            <label for="saturday_data">Saturday:</label>
-            <input id="saturday_data" type="text" placeholder= "ex. 10:30 - 13:30">
-            
-            <label for="sunday_data">Sunday:</label>
-            <input id="sunday_data" type="text" placeholder= "ex. 10:30 - 13:30">
-            <button id="day_popout_button" onclick="addAvailability()"> Submit </button>
-        </div>
-    </div>
-    
 
     
     <form style="width: 100%; text-align: center; ">
