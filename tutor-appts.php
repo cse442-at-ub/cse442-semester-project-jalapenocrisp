@@ -74,7 +74,7 @@ $result2 = mysqli_query($conn,"SELECT * FROM appointments WHERE tutor_id='" . $_
     <tr><td><?php echo $appt["day"]; ?></td>
         <td><?php echo $appt["time"]; ?>:00</td>
         <td><?php echo $tutarray["fname"]; ?> <?php echo $tutarray["lname"]; ?></td>
-        <td><?php echo $tutarray["courses"]; ?></td>
+        <td><?php echo $row["courses"]; ?></td>
         <td><form method="post"><input type="hidden" name="apptid" class="input1" value="<?php echo $appt['appt_id']; ?>"><input type="submit" class="rate" name="yes" value="complete"></form>
         <td><a href="./cancel-appt-tutor-side.php?user_id=<?php echo $_GET['user_id']; ?>&appt_id=<?php echo $appt['appt_id']; ?>">cancel</a><td>
 

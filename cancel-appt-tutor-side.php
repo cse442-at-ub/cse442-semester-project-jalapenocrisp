@@ -40,13 +40,11 @@ $tutarray = mysqli_fetch_array($tutorRes);
     <th width="15%"></th>
     <th width="15%"></th>
     <th width="40%"></th>
-    <th width="20%"></th>
-    <th width="10%"></th>
+    <th width="30%"></th>
     </tr>
     <tr><td><?php echo $row["day"]; ?></td>
         <td><?php echo $row["time"]; ?>:00</td>
         <td><?php echo $tutarray["fname"]; ?> <?php echo $tutarray["lname"]; ?></td>
-        <td><?php echo $tutarray["courses"]; ?></td>
     </tr>
 
 

@@ -82,7 +82,7 @@ if (isset($_POST['submit'])){
         <td><?php echo $appt["day"]; ?></td>
         <td><?php echo $appt["time"]; ?>:00</td>
         <td><?php echo $tutarray["fname"]; ?> <?php echo $tutarray["lname"]; ?></td>
-        <td><?php echo $tutarray["courses"]; ?></td>
+        <td><?php echo $row["courses"]; ?></td>
         <td><?php echo $appt["status"]; ?></td>
     <?php
     if ($appt['status']=="completed"){
