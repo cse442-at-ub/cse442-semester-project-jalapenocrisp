@@ -108,6 +108,9 @@ if (isset($_POST['submit'])){
 
     <h1 class = "welcome-page-title">Appointment Slots</h1>
     <a class="center" href="./tutorprof-student.php?user_id=<?php echo $_GET['user_id'];?>&tutor_id=<?php echo $_GET['tutor_id'];?>">back to profile</a>
+    <a class="contact-tutor-btn" href = "mailto:<?php echo $tutarray['email'];?>?subject = Feedback&body = Message">
+     Contact Tutor
+    </a>
     <br><br>
     <table id=calendar_tutor rules="all">
             <tr style="height: 40px">
