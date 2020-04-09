@@ -1,4 +1,20 @@
-
+<?php
+    include_once "access-db.php";
+    $tutorID = $_GET['user_id'];
+    $post_change = array();
+    
+    foreach($_POST as $key => $value){
+        $v = 0;
+        $val = "-";
+        if(strcmp( $value , "-") == 0){
+            $v = 1;
+        }
+        $query1 = "UPDATE calendar SET $key = $v WHERE user_id=$tutorID ;";
+        mysqli_query($conn, $query1);
+    }
+    $result = mysqli_query($conn,"SELECT * FROM calendar WHERE user_id='" . $_GET['user_id'] . "'");
+    
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +33,7 @@
 <body>
 
     <div class="header">
-
+        
         <div class="menu_welcomePage">
             <ul>
 
@@ -37,82 +53,96 @@
 
 
     <h1 class = "welcome-page-title">Your Availability</h1>
+    <form method="post">
+        <table id="calendar_tutor" rules="all">
+            <thead>
+                <tr>
+                    <th>
+                        <span>------</span>
+                    </th>
+                    <th>
+                        <span id="calendar_monday">Monday</span>
+                    </th>
+                    <th>
+                        <span id="calendar_tuesday">Tuesday</span>
+                    </th>
+                    <th>
+                        <span id="calendar_wednesday">Wednesday</span>
+                    </th>
+                    <th>
+                        <span id="calendar_thursday">Thursday</span>
+                    </th>
+                    <th>
+                        <span id="calendar_friday">Friday</span>
+                    </th>
+                    <th>
+                        <span id="calendar_saturday">Saturday</span>
+                    </th>
+                    <th>
+                        <span id="calendar_sunday">Sunday</span>
+                    </th>
+                </tr>
+            </thead>
 
-    <table id="calendar_tutor" rules="all">
-        <thead>
-            <tr>
-                <th>
-                    <span id="calendar_monday">Monday</span>
-                </th>
-                <th>
-                    <span id="calendar_tuesday">Tuesday</span>
-                </th>
-                <th>
-                    <span id="calendar_wednesday">Wednesday</span>
-                </th>
-                <th>
-                    <span id="calendar_thursday">Thursday</span>
-                </th>
-                <th>
-                    <span id="calendar_friday">Friday</span>
-                </th>
-                <th>
-                    <span id="calendar_saturday">Saturday</span>
-                </th>
-                <th>
-                    <span id="calendar_sunday">Sunday</span>
-                </th>
-            </tr>
-        </thead>
+            <tbody id=calender_tutor_body>
+                <?php
+                
+                    $items = array();
+                    $columns = array();
+                    $calendar = array();
+                    $count  = mysqli_num_rows($result);
 
-        <tbody id=calender_tutor_body>
-            <br>
-            <br>
-            <tr>
-                <td id="calendar_monday_data"></td>
-                <td id="calendar_tuesday_data"></td>
-                <td id="calendar_wednesday_data"></td>
-                <td id="calendar_thursday_data"></td>
-                <td id="calendar_friday_data"></td>
-                <td id="calendar_saturday_data"></td>
-                <td id="calendar_sunday_data"></td>
-            </tr>
-            <?php
-                include_once "access-db.php";
-                $result = mysqli_query($conn,"SELECT * FROM calendar WHERE user_id=22");
-                $count  = mysqli_num_rows($result);
-                if($count==0) {
-                    echo"failed";
-                } else {
-                    $items = mysqli_fetch_array($result);
-                    //echo $items;
-                    for($i = 1; $i < 14; $i++){
-                        echo "<tr>";
-                        for($j= 0; $j < 7; $j++){
-                            $k = ($j * 13) + $i ;
-                            $color = "green";
-                            if($items[$k] == 0){
-                                $color = "red";
-                            }
-                            echo "<td bgcolor=\"$color\"><input type=submit style=\"width:100%; height:100%; background: transparent; border: none;\" value=\"\"></td>";
+                    function getUpdateQuery($cal){
+                        $update_query = "UPDATE calendar SET ";
+                        foreach($cal as $key => $val){
+                            $update_query  .= "{$key} = '{$value}', ";
                         }
-                        echo "</tr>";
+                        $update_query .= "WHERE user_id=$tutorID ;";
+                        return $update_query;
+                    }
+
+                    if($count==0) {
+                        echo"failed";
+                    } else {
+                        $items = mysqli_fetch_row($result);
+                        $res = mysqli_query($conn, "SHOW COLUMNS FROM cse442_542_2020_spring_teami_db.calendar");
+                        
+                        while($row = mysqli_fetch_assoc($res)){ // iterate over the result-set object to get all data
+                            array_push($columns , $row["Field"]);
+                        }
+                        $calendar = array_combine($columns, $items);
+
+                        $time = 9;
+                        
+                        for($i = 1; $i < 14; $i++){
+                            echo "<tr> <td>$time</td>";
+                            $time++;
+                            for($j= 0; $j < 7; $j++){
+                                $k = ($j * 13) + $i + 1; 
+                                $color = "transparent";
+                                $v = "-";
+                                if($items[$k] == 1){
+                                    $color = "#00334d";
+                                    $v = "--";
+                                }
+                                echo "<td style=\" background-color: $color;\"><input type=submit name=$columns[$k] style=\"width:100%; height:100%; background: transparent; border: none;\" value=\"$v\"></td>";
+                            }
+                            echo "</tr>";
+                        }
+                        
                     }
                     
-                }
-            ?>
-        </tbody>
-    </table>
 
-    
-    <form style="width: 100%; text-align: center; ">
-        <button id="popup_open" class="add-or-edit-button" type="submit"> Add or Edit </button>
+                ?>
+            </tbody>
+        </table>
     </form>
     
-    
-
+    <form style="width: 100%; text-align: center; ">
+        <button id="popup_open" class="add-or-edit-button" type="submit"> My Appointments </button>
+    </form>
     <script src="index.js"></script>
-  
+    
 </body>
 
 </html>
