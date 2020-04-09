@@ -144,16 +144,10 @@ input[type="submit"]:hover {
 
 /* search style */
 
-<<<<<<< HEAD
 
 .selectButton{
     width: 15%;
     margin-top:2%;
-=======
-.selectButton {
-    width: 20%;
-    margin-top: 2%;
->>>>>>> origin/issue#76-notify-tutor-via-email
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -165,15 +159,8 @@ input[type="submit"]:hover {
     border: none;
     color: black;
 }
-<<<<<<< HEAD
 .selectButton:hover, .calendarView:hover, .selectButton2:hover{
     background-color:rgb(0, 0, 131);
-=======
-
-.selectButton:hover,
-.calendarView:hover {
-    background-color: rgb(0, 0, 131);
->>>>>>> origin/issue#76-notify-tutor-via-email
     color: white;
 }
 .selectButton2{
@@ -191,15 +178,9 @@ input[type="submit"]:hover {
     color: black;
 }
 
-<<<<<<< HEAD
 .delButton{
     width: 15%;
     margin-top:2%;
-=======
-.delButton {
-    width: 20%;
-    margin-top: 2%;
->>>>>>> origin/issue#76-notify-tutor-via-email
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -218,17 +199,10 @@ input[type="submit"]:hover {
 
 .info {
     font-size: larger;
-<<<<<<< HEAD
     width: 960px;
     margin-left: auto;    
     margin-right: auto; 
     text-align: center;   
-=======
-    width: 50%;
-    margin-left: 25%;
-    margin-right: 25%;
-    text-align: center;
->>>>>>> origin/issue#76-notify-tutor-via-email
 }
 
 .info td {
@@ -251,16 +225,9 @@ input[type="submit"]:hover {
     margin-right: auto;
     border-radius: 8px;
 }
-<<<<<<< HEAD
 .calendarView{
     width: 15%;
     margin-top:2%;
-=======
-
-.calendarView {
-    width: 20%;
-    margin-top: 2%;
->>>>>>> origin/issue#76-notify-tutor-via-email
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -333,7 +300,6 @@ input[type="submit"]:hover {
     margin-bottom: 40px;
 }
 
-<<<<<<< HEAD
 
 #popup_open{
     position: fixed;
@@ -353,24 +319,6 @@ input[type="submit"]:hover {
 }
 
 #popup_open:hover{
-=======
-.add-or-edit-button {
-    /* b9b739 */
-    background: #fff;
-    padding: 10px, 15px;
-    color: #b9b739;
-    font-weight: bolder;
-    /* text-transform: uppercase; */
-    font-size: 18px;
-    border-radius: 5px;
-    box-shadow: 6px, 6px, 29px, -4px rgba(0, 0, 0, 0.75);
-    margin-top: 25 px;
-    text-decoration: none;
-    transition: 0.4s;
-}
-
-.add-or-edit-button:hover {
->>>>>>> origin/issue#76-notify-tutor-via-email
     background-color: #f7ea33;
     color: black;
 }
