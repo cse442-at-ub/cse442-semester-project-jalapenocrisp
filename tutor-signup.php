@@ -30,6 +30,15 @@
             $stmt= $conn->prepare($sql);
             $stmt->bind_param("sssssss", $fname, $lname, $email, $phone, $title, $courses, $pass);
             $stmt->execute();
+
+            $result1 = mysqli_query($conn,"SELECT * FROM tutors WHERE email='" . $_POST["email"] . "'");
+            $row=mysqli_fetch_array($result);
+            $userid=$row['user_id'];
+
+            $sql1 = "INSERT INTO calendar (user_id) VALUES (?)";
+            $stmt1= $conn->prepare($sql1);
+            $stmt1->bind_param("i", $userid);
+            $stmt1->execute();
             header('Location: ./login.php');
         }
     }
