@@ -124,6 +124,7 @@
                                     $v = "--";
                                 }
                                 echo "<td style=\" background-color: $color;\"><input type=submit name=$columns[$k] style=\"width:100%; height:100%; background: transparent; border: none;\" value=\"$v\"></td>";
+
                             }
                             echo "</tr>";
                         }

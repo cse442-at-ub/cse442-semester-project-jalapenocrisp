@@ -37,7 +37,10 @@ $row = mysqli_fetch_array($result);
         </div>
 
     </div>
+
     <button class="calendarView" onclick="window.location.href = './tutorCalendarView.php?user_id=<?php echo $row['user_id']; ?>';">Calendar View</button>
+
+    <hr class="hr-navbar">
 
     <h1 class="welcome-page-title"></h1>
     <table class="info">
@@ -47,6 +50,10 @@ $row = mysqli_fetch_array($result);
     <tr><td>Title: </td><td><?php echo $row["title"]; ?></td></tr>
     <tr><td>Email: </td><td><?php echo $row["email"]; ?></td></tr>
     <tr><td>Course: </td><td><?php echo $row["courses"]; ?></td></tr>
+
+    <tr><td>Average Ratings: </td><td><?php echo $row["rank"]; ?></td></tr>
+    <tr><td>Number of Ratings: </td><td><?php echo $row["numRatings"]; ?></td></tr>
+    
     <tr><td class="score" title="The number of tutoring hours this tutor has completed.">Score: </td><td><?php echo $row["score"]; ?></td></tr>
     
     </table>
