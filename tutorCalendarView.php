@@ -54,7 +54,7 @@
 
 
     <h1 class = "welcome-page-title">Your Availability</h1>
-    <a class="center">* A dark box indicates that you are available at that time. *</a>
+    <a class="center">* A dark box indicates that you are available at that time *</a>
     <br><br>
 
     <form method="post">
@@ -118,7 +118,7 @@
                         
                         for($i = 1; $i < 14; $i++){
                             if ($time>12){
-                                $time=$time=12;
+                                $time=$time-12;
                                 echo "<tr style='height: 40px'> <td>$time:00</td>";
                                 $time++;
                                 for($j= 0; $j < 7; $j++){
