@@ -2,7 +2,6 @@
     include_once "access-db.php";
     $tutorID = $_GET['user_id'];
     $post_change = array();
-    
     foreach($_POST as $key => $value){
         $v = 0;
         $val = "-";
@@ -39,8 +38,6 @@
 
                 <!-- the line of code commented below is important when we upload the work on a server. for now, i'm using an alternative below -->
                 <!-- <li><a href="javascript:loadPage('./login.php')">login</a> </li> -->
-                <li><a class="navlink" href="./tutor-appts.php?user_id=<?php echo $_GET['user_id']; ?>">appointments</a> </li>
-                <li><a class="navlink" href="./tutorprof.php?user_id=<?php echo $_GET['user_id']; ?>">profile</a> </li>
                 <li><a class="navlink" href="./index.html">logout</a> </li>
 
             </ul>
@@ -88,7 +85,6 @@
 
             <tbody id=calender_tutor_body>
                 <?php
-                
                     $items = array();
                     $columns = array();
                     $calendar = array();
@@ -128,6 +124,7 @@
                                     $v = "--";
                                 }
                                 echo "<td style=\" background-color: $color;\"><input type=submit name=$columns[$k] style=\"width:100%; height:100%; background: transparent; border: none;\" value=\"$v\"></td>";
+
                             }
                             echo "</tr>";
                         }
