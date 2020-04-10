@@ -116,6 +116,7 @@
                         $time = 9;
                         
                         for($i = 1; $i < 14; $i++){
+                            if ($time>12){$time=$time-12;}
                             echo "<tr style='height: 40px'> <td>$time:00</td>";
                             $time++;
                             for($j= 0; $j < 7; $j++){
