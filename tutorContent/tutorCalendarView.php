@@ -23,7 +23,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
     <title>UB Tutoring Service</title>
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="../style.css" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <!-- <script type="text/javascript" src="js/modernizr.custom.86080.js"></script> -->
 </head>
@@ -40,13 +40,13 @@
                 <!-- <li><a href="javascript:loadPage('./login.php')">login</a> </li> -->
                 <li><a class="navlink" href="./tutor-appts.php?user_id=<?php echo $_GET['user_id']; ?>">appointments</a> </li>
                 <li><a class="navlink" href="./tutorprof.php?user_id=<?php echo $_GET['user_id']; ?>">profile</a> </li>
-                <li><a class="navlink" href="./index.html">logout</a> </li>
+                <li><a class="navlink" href="../index.html">logout</a> </li>
 
             </ul>
         </div>
            
         <div class="logo">
-            <h2 class="logo"> <a href="./index.html">UBtutoring</a> </h2>
+            <h2 class="logo"> <a href="../index.html">UBtutoring</a> </h2>
         </div>
         
     </div>
@@ -141,7 +141,7 @@
         </table>
     </form>
     
-    <script src="index.js"></script>
+    <script src="../index.js"></script>
     
 </body>
 

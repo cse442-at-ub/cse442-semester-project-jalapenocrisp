@@ -32,13 +32,13 @@ while($row=mysqli_fetch_array($result)){
                 <li>
                     <li><a class="navlink" href="./student-appts.php?user_id=<?php echo $_GET['user_id']; ?>">my appointments</a> </li>
                     <li><a class="navlink" href="./studentprof.php?user_id=<?php echo $_GET['user_id']; ?>">profile</a> </li>
-                    <li><a class="navlink" href="./index.html">logout</a> </li>
+                    <li><a class="navlink" href="../index.html">logout</a> </li>
 
             </ul>
         </div>
 
         <div class="logo">
-            <h2 class="logo"> <a href="./index.html">UBtutoring</a> </h2>
+            <h2 class="logo"> <a href="../index.html">UBtutoring</a> </h2>
         </div>
 
     </div>
@@ -92,7 +92,7 @@ while($row=mysqli_fetch_array($result)){
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="index.js"></script>
+    <script src="../index.js"></script>
     <script>
         $("#first-choice").change(function(){
             $("#second-choice").load("getter.php?choice=" + $("#first-choice").val());
