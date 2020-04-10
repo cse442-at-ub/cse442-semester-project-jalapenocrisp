@@ -54,12 +54,14 @@
 
 
     <h1 class = "welcome-page-title">Your Availability</h1>
+    <a class="center">* A dark box indicates that you are available at that time. *</a>
+    <br><br>
+
     <form method="post">
         <table id="calendar_tutor" rules="all">
             <thead>
-                <tr>
+                <tr style="height: 40px">
                     <th>
-                        <span>------</span>
                     </th>
                     <th>
                         <span id="calendar_monday">Monday</span>
@@ -115,21 +117,24 @@
                         $time = 9;
                         
                         for($i = 1; $i < 14; $i++){
-                            echo "<tr> <td>$time</td>";
-                            $time++;
-                            for($j= 0; $j < 7; $j++){
-                                $k = ($j * 13) + $i + 1; 
-                                $color = "transparent";
-                                $v = "-";
-                                if($items[$k] == 1){
-                                    $color = "#00334d";
-                                    $v = "--";
-                                }
+                            if ($time>12){
+                                $time=$time=12;
+                                echo "<tr style='height: 40px'> <td>$time:00</td>";
+                                $time++;
+                                for($j= 0; $j < 7; $j++){
+                                    $k = ($j * 13) + $i + 1; 
+                                    $color = "transparent";
+                                    $v = "----";
+                                    if($items[$k] == 1){
+                                        $color = "#00334d";
+                                        $v = "";
+                                    }
                                 echo "<td style=\" background-color: $color;\"><input type=submit name=$columns[$k] style=\"width:100%; height:100%; background: transparent; border: none;\" value=\"$v\"></td>";
 
                             }
                             echo "</tr>";
                         }
+                    }
                         
                     }
                     
