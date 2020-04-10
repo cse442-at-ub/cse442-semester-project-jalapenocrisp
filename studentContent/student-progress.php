@@ -3,7 +3,7 @@ include_once "access-db.php";
 $result = mysqli_query($conn,"SELECT * FROM students WHERE user_id='" . $_GET['user_id'] . "'");
 $row = mysqli_fetch_array($result);
 
-$prog=mysqli_query($conn,"SELECT * FROM progres WHERE student_id='" . $_GET['user_id'] . "'");
+$prog=mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GET['user_id'] . "'");
 $classCount=mysqli_num_rows($prog);
 
 ?>
