@@ -318,11 +318,6 @@ input[type="submit"]:hover {
     cursor: pointer;
 }
 
-#popup_open:hover{
-    background-color: #f7ea33;
-    color: black;
-}
-
 .day_popup {
     background: rgba(0, 0, 0, 0.6);
     width: 100%;

@@ -10,7 +10,7 @@ if(count($_POST)>0) {
         $row = mysqli_fetch_array($result);
         $message = "You are successfully authenticated!";
         $var1=$row['user_id'];
-        header('Location: ./tutorprof.php?user_id=' .$var1);
+        header('Location: ./tutor-appts.php?user_id=' .$var1);
 	}
 }
 ?>
