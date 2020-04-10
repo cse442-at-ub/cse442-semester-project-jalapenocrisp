@@ -3,7 +3,8 @@ include_once "access-db.php";
 $result = mysqli_query($conn,"SELECT * FROM students WHERE user_id='" . $_GET['user_id'] . "'");
 $row = mysqli_fetch_array($result);
 
-$result2 = mysqli_query($conn,"SELECT * FROM appointments WHERE student_id='" . $_GET['user_id'] . "' and status = 'upcoming'");
+$prog=mysqli_query($conn,"SELECT * FROM progres WHERE student_id='" . $_GET['user_id'] . "'");
+$classCount=mysqli_num_rows($prog);
 
 ?>
 
@@ -29,9 +30,9 @@ $result2 = mysqli_query($conn,"SELECT * FROM appointments WHERE student_id='" . 
 
                 <!-- the line of code commented below is important when we upload the work on a server. for now, i'm using an alternative below -->
                 <!-- <li><a href="javascript:loadPage('./login.php')">login</a> </li> -->
-                <li><a class="navlink" href="./search.php?user_id=<?php echo $row['user_id']; ?>">find a tutor</a> </li>
-                <li><a class="navlink" href="./student-progress.php?user_id=<?php echo $row['user_id']; ?>">my progress</a> </li>
-                <li><a class="navlink" href="./studentprof.php?user_id=<?php echo $row['user_id']; ?>">profile</a> </li>
+                <li><a class="navlink" href="./student-appts.php?user_id=<?php echo $_GET['user_id']; ?>">my appointments</a> </li>
+                <li><a class="navlink" href="./search.php?user_id=<?php echo $_GET['user_id']; ?>">find a tutor</a> </li>
+                <li><a class="navlink" href="./studentprof.php?user_id=<?php echo $_GET['user_id']; ?>">profile</a> </li>
                 <li><a class="navlink" href="../index.html">logout</a> </li>
 
             </ul>
@@ -44,51 +45,25 @@ $result2 = mysqli_query($conn,"SELECT * FROM appointments WHERE student_id='" . 
     </div>
     <hr class="hr-navbar">
 
-    <h1 class="welcome-page-title">Your Appointments</h1><br>
-    <a class="center" href="./student-appt-history.php?user_id=<?php echo $row['user_id']; ?>">appointment history</a>
+    <h1 class="welcome-page-title">Your Progress</h1><br>
+    <a class="center">Class Count: <?php echo $classCount; ?></a>
+    <?php
 
-    <?php 
-    if (mysqli_num_rows($result2)<1){
-        echo "<br><br><br><br><h2 class='center'>No appointments scheduled.</h2>";
-    }else{
+    while($class = mysqli_fetch_array($prog)){
+        $course=$class['course'];
+        $grades=$class['grades'];
+        $gradeArray=explode(",", $grades);
+        for ($i=0; $i<count($gradeArray); $i++){
+            echo $gradeArray[$i];
+        }        
     ?>
-    <table class="infoAppt">
-    <tr>
-    <th width="15%">Date</th>
-    <th width="15%">Time</th>
-    <th width="30%">Tutor</th>
-    <th width="20%">Class</th>
-    <th width="10%"></th>
-    <th width="10%"></th>
-
-    </tr>
+    <a class="center"><?php echo $course;?></a>
+    <a class="center"><?php echo $gradeArray;?></a>
 
     <?php
-    while($appt = mysqli_fetch_array($result2)){
-    //find tutor name
-    $tid=$appt['tutor_id'];
-    $tutorRes= mysqli_query($conn,"SELECT * FROM tutors WHERE user_id=$tid");
-    $tutarray = mysqli_fetch_array($tutorRes);
+    }
     ?>
-
  
-    <tr><td><?php echo $appt["day"]; ?></td>
-        <td><?php echo $appt["time"]; ?>:00</td>
-        <td><a class="navlink" style="text-decoration: none" href="./tutorprof-student.php?user_id=<?php echo $_GET['user_id']; ?>&tutor_id=<?php echo $tid;?>"><?php echo $tutarray["fname"]; ?> <?php echo $tutarray["lname"]; ?></td>
-        <td><?php echo $tutarray["courses"]; ?></td>
-        <td><form method="post"><input type="hidden" name="apptid" class="input1" value="<?php echo $appt['appt_id']; ?>"><input type="submit" class="rate" name="yes" value="complete"></form>
-        <td><a href="./cancel-appt.php?user_id=<?php echo $_GET['user_id']; ?>&appt_id=<?php echo $appt['appt_id']; ?>">cancel</a><td>
-
-    </tr>
-
-    <?php
-    }
-    ?>
-   
-    </table>
-    <?php 
-    }
-    ?>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="../index.js"></script>

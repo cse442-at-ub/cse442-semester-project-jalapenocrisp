@@ -31,6 +31,7 @@ while($row=mysqli_fetch_array($result)){
             <ul>
                 <li>
                     <li><a class="navlink" href="./student-appts.php?user_id=<?php echo $_GET['user_id']; ?>">my appointments</a> </li>
+                    <li><a class="navlink" href="./student-progress.php?user_id=<?php echo $_GET['user_id']; ?>">my progress</a> </li>
                     <li><a class="navlink" href="./studentprof.php?user_id=<?php echo $_GET['user_id']; ?>">profile</a> </li>
                     <li><a class="navlink" href="../index.html">logout</a> </li>
 
