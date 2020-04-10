@@ -5,6 +5,10 @@ $stu=$_GET['user_id'];
 $res = mysqli_query($conn,"SELECT * FROM calendar WHERE user_id='" . $_GET['tutor_id'] . "'");
 $r=mysqli_fetch_array($res);
 
+$tutorRes= mysqli_query($conn,"SELECT * FROM tutors WHERE user_id=$tut");
+$tutarray = mysqli_fetch_array($tutorRes);
+$tutorEmail=$tutarray['email'];
+
 if (isset($_POST['submit'])){
 
     $dayTime= $_POST['date'];
@@ -37,10 +41,6 @@ if (isset($_POST['submit'])){
     $stmt2->bind_param("i",$tut);
     $stmt2->execute();
     $stmt2->close();
-
-    $tutorRes= mysqli_query($conn,"SELECT * FROM tutors WHERE user_id=$tut");
-    $tutarray = mysqli_fetch_array($tutorRes);
-    $tutorEmail=$tutarray['email'];
 
     $studRes= mysqli_query($conn,"SELECT * FROM students WHERE user_id=$stu");
     $stuarray = mysqli_fetch_array($tutorRes);
@@ -108,6 +108,9 @@ if (isset($_POST['submit'])){
 
     <h1 class = "welcome-page-title">Appointment Slots</h1>
     <a class="center" href="./tutorprof-student.php?user_id=<?php echo $_GET['user_id'];?>&tutor_id=<?php echo $_GET['tutor_id'];?>">back to profile</a>
+    <a class="contact-tutor-btn" href = "mailto:<?php echo $tutarray['email'];?>?subject = Feedback&body = Message">
+     Contact Tutor
+    </a>
     <br><br>
     <table id=calendar_tutor rules="all">
             <tr style="height: 40px">
