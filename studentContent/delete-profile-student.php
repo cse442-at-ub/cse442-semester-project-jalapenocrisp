@@ -4,20 +4,19 @@ $message="";
 
 if(count($_POST)>0) {
     $pass=$_POST['pass'];
-    $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET["user_id"] . "'");
+    $result = mysqli_query($conn,"SELECT * FROM students WHERE user_id='" . $_GET["user_id"] . "'");
     $row = mysqli_fetch_array($result);
     $pwd=$row['paswd'];
     if ($pwd!=$pass){
         $message = "Passwords do not match";
     }else{
         $uid=$_GET['user_id'];
-        $sql  =  "DELETE FROM tutors WHERE user_id=?";
+        $sql  =  "DELETE FROM students WHERE user_id=?";
         $stmt= $conn->prepare($sql);
         $stmt->bind_param("i", $uid);
         $stmt->execute();
         $stmt->close();
         header('Location: ./');
-        echo "Profile deleted successfully, we are sad to see you go!";
     }
 
 }
@@ -30,7 +29,7 @@ if(count($_POST)>0) {
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>UB Tutoring</title>
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="../style.css" />
     <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <title>UB Tutoring Service</title>
@@ -41,7 +40,7 @@ if(count($_POST)>0) {
     <div class="header">
 
         <div class="logo">
-            <h2 class="logo"> <a href="./index.html">UBtutoring</a> </h2>
+            <h2 class="logo"> <a href="../index.html">UBtutoring</a> </h2>
         </div>
 
     </div>
@@ -59,7 +58,7 @@ if(count($_POST)>0) {
     <br>
         Password:<br>
         <input type="password" name="pass" class="input1"><br>
-        <input type="submit" name="submit" value="delete forever" class="selectButton2">
+        <input class="selectButton2" type="submit" name="submit" value="delete forever">
 
 
 

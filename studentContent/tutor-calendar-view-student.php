@@ -76,7 +76,7 @@ if (isset($_POST['submit'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
     <title>UB Tutoring Service</title>
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="../style.css" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <!-- <script class='cancel' type="text/javascript" src="js/modernizr.custom.86080.js"></script> -->
 </head>
@@ -94,13 +94,13 @@ if (isset($_POST['submit'])){
                 <li><a class="navlink" href="./student-appts.php?user_id=<?php echo $_GET['user_id']; ?>">my appointments</a> </li>
                 <li><a class="navlink" href="./search.php?user_id=<?php echo $_GET['user_id']; ?>">find a tutor</a> </li>
                 <li><a class="navlink" href="./studentprof.php?user_id=<?php echo $_GET['user_id']; ?>">profile</a> </li>
-                <li><a class="navlink" href="./index.html">logout</a> </li>
+                <li><a class="navlink" href="../index.html">logout</a> </li>
 
             </ul>
         </div>
            
         <div class="logo">
-            <h2 class="logo"> <a href="./index.html">UBtutoring</a> </h2>
+            <h2 class="logo"> <a href="../index.html">UBtutoring</a> </h2>
         </div>
         
     </div>
@@ -257,7 +257,7 @@ if (isset($_POST['submit'])){
                 <td><?php if ($r['sun21']==1){ echo "<form method='post'><input class='cancel' type='hidden' name='date' value='sun21'><input class='cancel' type='submit' name='submit' value='claim'></form>";}?></td>
             </tr>
 
-    <script src="index.js"></script>
+    <script src="../index.js"></script>
     <script>
     </script>
   

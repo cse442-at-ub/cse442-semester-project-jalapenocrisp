@@ -50,7 +50,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="../style.css" />
     <title>UB Tutoring Tutor Sign Up</title>
 </head>
 <body>
@@ -64,13 +64,13 @@
                 <!-- <li><a href="javascript:loadPage('./login.html')">login</a> </li> -->
                 <li><a class="navlink" href="./login.php">tutor login</a> </li>
                 <li>
-                    <a class="navlink" href="./index.html">home</a> </li>
+                    <a class="navlink" href="../index.html">home</a> </li>
 
             </ul>
         </div>
 
         <div class="logo">
-            <h2 class="logo"> <a href="./index.html">UBtutoring</a> </h2>
+            <h2 class="logo"> <a href="../index.html">UBtutoring</a> </h2>
         </div>
 
     </div>
@@ -176,7 +176,7 @@
 
             <!-- <button class="selectButton" onclick="window.location.href = './tutorprofile.html';">Submit</button> -->
     </div>
-    <script src="index.js"></script>
+    <script src="../index.js"></script>
 
     </body>
     </html>
