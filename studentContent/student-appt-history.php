@@ -5,6 +5,8 @@ $row = mysqli_fetch_array($result);
 
 $result2 = mysqli_query($conn,"SELECT * FROM appointments WHERE student_id='" . $_GET['user_id'] . "' and status != 'upcoming'");
 
+$progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GET['user_id'] . "'");
+
 if (isset($_POST['submit'])){
     $apptid=$_POST['id'];
     $sql = "DELETE FROM appointments WHERE appt_id=?";
@@ -40,8 +42,18 @@ if (isset($_POST['submit'])){
                 <!-- <li><a href="javascript:loadPage('./login.php')">login</a> </li> -->
                 <li><a class="navlink" href="./student-appts.php?user_id=<?php echo $_GET['user_id']; ?>">my appointments</a> </li>
                 <li><a class="navlink" href="./search.php?user_id=<?php echo $row['user_id']; ?>">find a tutor</a> </li>
-                <li><a class="navlink" href="./student-progress.php?user_id=<?php echo $_GET['user_id']; ?>">my progress</a> </li>
-                <li><a class="navlink" href="./studentprof.php?user_id=<?php echo $row['user_id']; ?>">profile</a> </li>
+                <div class="dropdown">
+                        <li><a class="dropbtn">my progress</a>
+                            <div class="dropdown-content">
+                                <?php 
+                                while ($progressInfo = mysqli_fetch_array($progress)){ 
+                                    $linkname=$progressInfo['course'];
+                                    $link="./student-progress.php?user_id=" . $_GET['user_id'] . "&cid=" . $linkname ; 
+                                    echo "<a href=".$link.">".$linkname."</a>";}
+                                ?>
+                            </div>
+                        </li>
+                    </div>                <li><a class="navlink" href="./studentprof.php?user_id=<?php echo $row['user_id']; ?>">profile</a> </li>
                 <li><a class="navlink" href="../index.html">logout</a> </li>
 
             </ul>

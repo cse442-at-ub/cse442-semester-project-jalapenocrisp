@@ -3,6 +3,9 @@ include_once "access-db.php";
 
 $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['tutor_id'] . "'");
 
+$progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GET['user_id'] . "'");
+
+
 ?>
 
 <!DOCTYPE html>
@@ -29,8 +32,18 @@ $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['tut
                 <!-- <li><a href="javascript:loadPage('./login.html')">login</a> </li> -->
                 <li><a class="navlink" href="./student-appts.php?user_id=<?php echo $_GET['user_id']; ?>">my appointments</a> </li>
                 <li><a class="navlink" href="./search.php">find a tutor</a> </li>
-                <li><a class="navlink" href="./student-progress.php?user_id=<?php echo $_GET['user_id']; ?>">my progress</a> </li>
-                <li><a class="navlink" href="./studentprof.php?user_id=<?php echo $_GET['user_id']; ?>">profile</a> </li>
+                <div class="dropdown">
+                        <li><a class="dropbtn">my progress</a>
+                            <div class="dropdown-content">
+                                <?php 
+                                while ($progressInfo = mysqli_fetch_array($progress)){ 
+                                    $linkname=$progressInfo['course'];
+                                    $link="./student-progress.php?user_id=" . $_GET['user_id'] . "&cid=" . $linkname ; 
+                                    echo "<a href=".$link.">".$linkname."</a>";}
+                                ?>
+                            </div>
+                        </li>
+                    </div>                <li><a class="navlink" href="./studentprof.php?user_id=<?php echo $_GET['user_id']; ?>">profile</a> </li>
                 <li><a class="navlink" href="../index.html">logout</a> </li>
 
             </ul>
