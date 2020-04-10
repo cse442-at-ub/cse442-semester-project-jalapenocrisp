@@ -1,13 +1,21 @@
 <?php
+ 
+$dataPoints = array();
+//Best practice is to create a separate file for handling connection to database
+
 include_once "access-db.php";
-$result = mysqli_query($conn,"SELECT * FROM students WHERE user_id='" . $_GET['user_id'] . "'");
-$row = mysqli_fetch_array($result);
+$result = mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GET['user_id'] . "'");
+$class = mysqli_fetch_array($result);
+$course=$class['course'];
+$grades=$class['grades'];
+$gradeArray=explode(",", $grades);  
+for($i=0; $i<count($gradeArray); $i++){
+    array_push($dataPoints, array("x"=> $i, "y"=> $gradeArray[$i]));
+}
 
-$prog=mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GET['user_id'] . "'");
-$classCount=mysqli_num_rows($prog);
 
+	
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,64 +52,40 @@ $classCount=mysqli_num_rows($prog);
 
     </div>
     <hr class="hr-navbar">
-
-    <h1 class="welcome-page-title">Your Progress</h1><br>
-    <a class="center">Class Count: <?php echo $classCount; ?></a>
-    <?php
-
-    while($class = mysqli_fetch_array($prog)){
-        $course=$class['course'];
-        $grades=$class['grades'];
-        $gradeArray=explode(",", $grades);
-        for ($i=0; $i<count($gradeArray); $i++){
-            echo $gradeArray[$i];
-        }        
-    ?>
-    <a class="center"><?php echo $course;?></a>
-    <a class="center"><?php echo $gradeArray;?></a>
-
-    <?php
-    }
-    ?>
- 
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="../index.js"></script>
-
 <script>
+window.onload = function () {
+ 
+var chart = new CanvasJS.Chart("chartContainer", {
+    // backgroundColor: "#000083",
+	animationEnabled: true,
+	exportEnabled: true,
+	 theme: "dark1", // "light1", "light2", "dark1", "dark2"
+	title:{
+        fontFamily:"tahoma",
+		text: "<?php echo $course; ?> progress over Time"
+	},
+	data: [{
+		type: "line", //change type to bar, line, area, pie, etc  
+        showInLegend: true, 
+        legendText: "<?php echo $course; ?>",
+		dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+	}],
+    axisX: [{
+        title: "time"
+    }],
+    axisY: [{
+        title: "grade"
+    }]
+});
+
+chart.render();
+
+}
 
 </script>
-
+</head>
+<body>
+<div id="chartContainer" style="margin-left: auto; margin-right: auto; height: 370px; width: 960px;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </body>
-
-</html>
-
-<?php
-    if (isset($_POST["yes"])){
-        $id=$_POST['apptid'];      
-
-        $status="completed";
-        $userid=$_GET['user_id'];
-
-        $a = mysqli_query($conn,"SELECT * FROM appointments WHERE appt_id='" . $id . "'");
-        $arow = mysqli_fetch_array($a);
-        $tutor=$arow['tutor_id'];
-        $a1 = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $tutor . "'");
-        $a1row=mysqli_fetch_array($a1);
-        $currscore=$a1row['score']+1;
-
-        $sql  =  "UPDATE tutors SET score=? WHERE user_id=?";
-        $stmt= $conn->prepare($sql);
-        $stmt->bind_param("ii", $currscore, $tutor);
-        $stmt->execute();
-        $stmt->close();
-        
-        $sql2  =  "UPDATE appointments SET status=? WHERE appt_id=?";
-        $stmt1= $conn->prepare($sql2);
-        $stmt1->bind_param("si", $status, $id);
-        $stmt1->execute();
-        $stmt1->close();
-
-        header('Location: ./student-appt-history.php?user_id=' . $userid);
-    }
-?>
+</html>         
