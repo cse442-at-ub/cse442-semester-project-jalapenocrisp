@@ -78,6 +78,7 @@ var chart = new CanvasJS.Chart("chartContainer", {
 		text: "<?php echo $course; ?> progress over Time"
 	},
 	data: [{
+		lineColor: "red",
 		type: "line", //change type to bar, line, area, pie, etc  
         showInLegend: true, 
         legendText: "<?php echo $course; ?>",
