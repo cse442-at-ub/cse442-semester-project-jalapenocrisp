@@ -2,6 +2,10 @@
 <?php
 include_once "access-db.php";
 $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['user_id'] . "'");
+$sql = "SELECT user_id FROM tutors WHERE user_id='" . $_GET['user_id'] . "'";
+    $result = $conn->query($sql);
+    $row->result->fetch_assoc();
+    $myVariable = $row['user_id']; 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,13 +41,7 @@ $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['use
 
     </div>
     <hr class="hr-navbar">
-    <?php 
-    $sql = "SELECT user_id FROM tutors WHERE user_id='" . $_GET['user_id'] . "'";
-    $result = $conn->query($sql);
-    $row->result->fetch_assoc();
-    $myVariable = $row['user_id']; 
-    $conn->close();
-    ?>
+    
     <form method="POST" action="getdata.php" enctype="multipart/form-data">
     <input type="hidden" name="user_id" value="<?php echo $myVariable; ?>">
         <input type="file" name="myimage">
