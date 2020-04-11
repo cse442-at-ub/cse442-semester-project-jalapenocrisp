@@ -1,13 +1,22 @@
 <?php
-include_once "access-db.php";
+ 
+$dataPoints = array();
+//Best practice is to create a separate file for handling connection to database
 
-$result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['tutor_id'] . "'");
+include_once "access-db.php";
+$result = mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GET['user_id'] . "' and course='" . $_GET['cid']. "'");
+$class = mysqli_fetch_array($result);
+$course=$class['course'];
+$grades=$class['grades'];
+$gradeArray=explode(",", $grades);  
+for($i=0; $i<count($gradeArray); $i++){
+    array_push($dataPoints, array("x"=> $i+1, "y"=> $gradeArray[$i]));
+}
 
 $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GET['user_id'] . "'");
 
-
+	
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,9 +38,8 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
             <ul>
 
                 <!-- the line of code commented below is important when we upload the work on a server. for now, i'm using an alternative below -->
-                <!-- <li><a href="javascript:loadPage('./login.html')">login</a> </li> -->
+                <!-- <li><a href="javascript:loadPage('./login.php')">login</a> </li> -->
                 <li><a class="navlink" href="./student-appts.php?user_id=<?php echo $_GET['user_id']; ?>">my appointments</a> </li>
-                <li><a class="navlink" href="./search.php">find a tutor</a> </li>
                 <div class="dropdown">
                         <li><a class="dropbtn">my progress</a>
                             <div class="dropdown-content">
@@ -43,7 +51,9 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
                                 ?>
                             </div>
                         </li>
-                    </div>                <li><a class="navlink" href="./studentprof.php?user_id=<?php echo $_GET['user_id']; ?>">profile</a> </li>
+                    </div>
+                <li><a class="navlink" href="./search.php?user_id=<?php echo $_GET['user_id']; ?>">find a tutor</a> </li>
+                <li><a class="navlink" href="./studentprof.php?user_id=<?php echo $_GET['user_id']; ?>">profile</a> </li>
                 <li><a class="navlink" href="../index.html">logout</a> </li>
 
             </ul>
@@ -54,38 +64,43 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
         </div>
 
     </div>
-
     <hr class="hr-navbar">
+<script>
+window.onload = function () {
+ 
+var chart = new CanvasJS.Chart("chartContainer", {
+    // backgroundColor: "#000083",
+	animationEnabled: true,
+	exportEnabled: true,
+	 theme: "dark1", // "light1", "light2", "dark1", "dark2"
+	title:{
+        fontFamily:"tahoma",
+		text: "<?php echo $course; ?> progress over Time"
+	},
+	data: [{
+		lineColor: "red",
+		type: "line", //change type to bar, line, area, pie, etc  
+        showInLegend: true, 
+        legendText: "<?php echo $course; ?>",
+		dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+	}],
+    axisX: [{
+        title: "time"
+    }],
+    axisY: [{
+        title: "grade"
+    }]
+});
 
-    <button class="calendarView" onclick="window.location.href = './tutor-calendar-view-student.php?user_id=<?php echo $_GET['user_id']; ?>&tutor_id=<?php echo $_GET['tutor_id']; ?>'">Make an Appointment</button>
+chart.render();
 
+}
 
-    <h1 class="welcome-page-title"></h1>
-    <table class="info">
-
-    <?php
-    $row = mysqli_fetch_array($result);
-    ?>
-    
-    <tr><td>Name: </td><td><?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?></td></tr>
-    <tr><td>Phone Number: </td><td><?php echo $row["phone"]; ?></td></tr>
-    <tr><td>Title: </td><td><?php echo $row["title"]; ?></td></tr>
-    <tr><td>Email: </td><td><?php echo $row["email"]; ?></td></tr>
-    <tr><td>Course: </td><td><?php echo $row["courses"]; ?></td></tr>
-    <tr><td>Rating: </td><td><?php echo $row["rank"]; ?></td></tr>
-    <tr><td class="score" title="The number of tutoring hours this tutor has completed.">Score: </td><td><?php echo $row["score"]; ?></td></tr>
-
-    </table>    
-        
-    </form>
+</script>
+</head>
+<body>
     <br><br><br>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="../index.js"></script>
-    <script>
-        
-    </script>
-
+<div id="chartContainer" style="margin-left: auto; margin-right: auto; height: 500px; width: 960px;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </body>
-
-</html>
+</html>         
