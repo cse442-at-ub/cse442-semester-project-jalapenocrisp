@@ -75,8 +75,6 @@ $row = mysqli_fetch_array($result);
 </html>
 
 <?php
-include_once 'access-db.php';
-
 if(count($_POST)>0) {
     $userid=$_GET['user_id'];
     //$userid=1;
@@ -98,7 +96,5 @@ if(count($_POST)>0) {
     } else {
         echo "Error: " . $insert_image . "<br>" . $conn->error;
     }
-
-    $conn->close();
 }
 ?>
