@@ -1,8 +1,7 @@
 <?php
 include_once "access-db.php";
-$result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['user_id'] . "'");
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -67,6 +66,7 @@ $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['use
     <table class="info">
 
     <?php
+        $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['user_id'] . "'");
         $row = mysqli_fetch_array($result);
     ?>
     <tr><td>Name: </td><td><?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?></td></tr>
