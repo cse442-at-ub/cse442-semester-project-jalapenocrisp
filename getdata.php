@@ -11,7 +11,7 @@ if(count($_POST)>0) {
     //Insert the image name and image content in image_table
     //$insert_image="INSERT INTO tutors (user_image, img_name) VALUES('$imagetmp','$imagename')";
 
-    $insert_image = "UPDATE tutors SET user_image='$imagetmp', img_name='$imagename' WHERE user_id= '$userid' " ;
+    $insert_image = "UPDATE tutors SET user_image='$imagetmp', img_name='$imagename' WHERE user_id=1 " ;
 
     if ($conn->query($insert_image) === TRUE) {
         echo "this is the " .$userid.".";
