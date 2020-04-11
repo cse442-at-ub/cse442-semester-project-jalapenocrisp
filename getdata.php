@@ -9,7 +9,7 @@ $imagename=$_FILES["myimage"]["name"];
 //Get the content of the image and then add slashes to it 
 $imagetmp=addslashes (file_get_contents($_FILES['myimage']['tmp_name']));
 
-$userid = $_POST['user_id'];
+$userid = $_POST["user_id"];
 //Insert the image name and image content in image_table
 //$insert_image="INSERT INTO tutors (user_image, img_name) VALUES('$imagetmp','$imagename')";
 
