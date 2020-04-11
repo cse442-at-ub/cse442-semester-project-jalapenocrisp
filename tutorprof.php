@@ -84,17 +84,19 @@ if(count($_POST)>0) {
 
     //Insert the image name and image content in image_table
     //$insert_image="INSERT INTO tutors (user_image, img_name) VALUES('$imagetmp','$imagename')";
+    mysqli_query($conn,"UPDATE tutors SET user_image='" . $imagetmp . "', img_name='" . $imagename . "' WHERE user_id='" . $_GET['user_id'] . "'"); 
+    //$message = "Record Modified Successfully";
+    //header('Location: ./tutorprof.php?user_id=' .$uid);
+    //$insert_image = "UPDATE tutors SET user_image='$imagetmp', img_name='$imagename' WHERE user_id='" . $_GET['user_id'] . "'" ;
 
-    $insert_image = "UPDATE tutors SET user_image='$imagetmp', img_name='$imagename' WHERE user_id='" . $_GET['user_id'] . "'" ;
-
-    if ($conn->query($insert_image) === TRUE) {
-        echo "this is the " .$userid.".";
-        echo "new";
-        echo "New record created successfully. Naviagate back to see your image";
-        echo "";
-        echo '<p><a href="tutorprof.php">Back to tutorprof.php</a>';
-    } else {
-        echo "Error: " . $insert_image . "<br>" . $conn->error;
-    }
+    //if ($conn->query($insert_image) === TRUE) {
+    //    echo "this is the " .$userid.".";
+    //    echo "new";
+    //    echo "New record created successfully. Naviagate back to see your image";
+    //    echo "";
+    //    echo '<p><a href="tutorprof.php">Back to tutorprof.php</a>';
+    //} else {
+    //    echo "Error: " . $insert_image . "<br>" . $conn->error;
+    //}
 }
 ?>
