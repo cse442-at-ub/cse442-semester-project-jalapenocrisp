@@ -84,10 +84,10 @@ if(count($_POST)>0) {
 
     //Insert the image name and image content in image_table
     //$insert_image="INSERT INTO tutors (user_image, img_name) VALUES('$imagetmp','$imagename')";
-    mysqli_query($conn,"UPDATE tutors SET user_image='" . $imagetmp . "', img_name='" . $imagename . "' WHERE user_id='" . $_GET['user_id'] . "'"); 
+    mysqli_query($conn,"UPDATE tutors SET user_image='" . $imagetmp . "', img_name='" . $imagename . "' WHERE user_id='" . $userid . "'"); 
     //$message = "Record Modified Successfully";
     //header('Location: ./tutorprof.php?user_id=' .$uid);
-    //$insert_image = "UPDATE tutors SET user_image='$imagetmp', img_name='$imagename' WHERE user_id='" . $_GET['user_id'] . "'" ;
+    //$insert_image = "UPDATE tutors SET user_image='$imagetmp', img_name='$imagename' WHERE user_id='" . $userid . "'" ;
 
     //if ($conn->query($insert_image) === TRUE) {
     //    echo "this is the " .$userid.".";
@@ -98,5 +98,6 @@ if(count($_POST)>0) {
     //} else {
     //    echo "Error: " . $insert_image . "<br>" . $conn->error;
     //}
+    echo "updated user" . $user_id;
 }
 ?>
