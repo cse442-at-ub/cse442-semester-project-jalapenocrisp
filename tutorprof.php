@@ -45,23 +45,20 @@ $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['use
     </form>
 
     <?php
-    include_once 'access-db.php';
 
     //$sql = "SELECT user_image FROM tutors";
-    $sql = "SELECT user_image FROM tutors WHERE user_id=".$_GET['user_id'];
-    $result = $conn->query($sql);
+    $result1 = mysqli_query($conn,"SELECT user_image FROM tutors WHERE user_id='" . $_GET['user_id'] . "'");
 
-    if ($result->num_rows > 0) {
+    if ($result1->num_rows > 0) {
         // output data of each row
-        while($row=$result->fetch_assoc()) {
-            echo '<img class="profilePicture" src="data:image/jpeg;base64,'.base64_encode( $row['user_image'] ).'"/>';
+        while($row1=$result->fetch_assoc()) {
+            echo '<img class="profilePicture" src="data:image/jpeg;base64,'.base64_encode( $row1['user_image'] ).'"/>';
 
         }
     } else {
         echo "0 results";
     }
 
-    $conn->close();
     ?>
 
 
