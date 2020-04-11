@@ -48,7 +48,7 @@ $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['use
     include_once 'access-db.php';
 
     //$sql = "SELECT user_image FROM tutors";
-    $sql = "SELECT user_image FROM tutors WHERE user_id=1";
+    $sql = "SELECT user_image FROM tutors WHERE user_id=".$_GET['user_id'];
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
