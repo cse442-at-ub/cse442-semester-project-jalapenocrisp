@@ -52,9 +52,7 @@ $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['use
     if ($result->num_rows > 0) {
         // output data of each row
         while($row = $result->fetch_assoc()) {
-            echo '<img class="profilePicture" src="data:image/jpeg;base64,'.base64_encode( $row['imagetmp'] ).'"/>';
-        
-        // echo "<br> imagename: ". $row["imagename"]. " - pic: ". $row["imagetmp"]. "<br>";
+            echo '<img class="profilePicture" src="data:image/jpeg;base64,'.base64_encode( $row['user_image'] ).'"/>';
         }
     } else {
         echo "0 results";
