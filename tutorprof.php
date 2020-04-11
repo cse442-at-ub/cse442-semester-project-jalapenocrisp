@@ -2,12 +2,7 @@
 <?php
 include_once "access-db.php";
 $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['user_id'] . "'");
-// $sql = "SELECT user_id FROM tutors WHERE user_id='" . $_GET['user_id'] . "'";
-//     $result = $conn->query($sql);
-//     $row->result->fetch_assoc();
-//     $myVariable = $row['user_id']; 
-session_start();
-$_SESSION['user_id'] = $useridval;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,7 +40,6 @@ $_SESSION['user_id'] = $useridval;
     <hr class="hr-navbar">
 
     <form method="POST" action="getdata.php" enctype="multipart/form-data">
-    <input type="text" name="user_id" value="">
         <input type="file" name="myimage">
         <input type="submit" name="submit_image" value="Upload">
     </form>
