@@ -2,8 +2,8 @@
 include_once 'access-db.php';
 
 if(count($_POST)>0) {
-    $userid=$_POST['user_id'];
-
+    //$userid=$_POST['user_id'];
+    $userid=1;
     $imagename=$_FILES["myimage"]["name"]; 
     //Get the content of the image and then add slashes to it 
     $imagetmp=addslashes (file_get_contents($_FILES['myimage']['tmp_name']));
