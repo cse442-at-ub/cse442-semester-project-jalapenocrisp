@@ -18,7 +18,7 @@ $userid = $_POST["user_id"];
 $insert_image = "UPDATE tutors SET user_image='$imagetmp', img_name='$imagename' WHERE user_id= '$userid' " ;
 
 if ($conn->query($insert_image) === TRUE) {
-    echo "this is the ", $userid;
+    echo "this is the " .$userid.".";
     echo "New record created successfully. Naviagate back to see your image";
     
 } else {
