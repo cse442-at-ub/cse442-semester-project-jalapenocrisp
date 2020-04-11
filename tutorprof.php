@@ -34,17 +34,14 @@ $row = mysqli_fetch_array($result);
     </div>
     <hr class="hr-navbar">
 
-    <form method="POST" action=" " enctype="multipart/form-data">
-        <input type="file" name="myimage">
-        <input type="submit" name="submit_image" value="Upload">
-    </form>
-
     <?php
-     echo '<img class="profilePicture" src="data:image/jpeg;base64,'.base64_encode( $row['user_image'] ).'"/>';
+    if ($row['user_image']){
+     echo '<img class="profilePicture" src="data:image/jpeg;base64,'. $row['user_image'] .'"/>';
+    }
+    ?>    
+    
 
-
-    ?>
-
+    <button class="calendarView" onclick="window.location.href = './change-photo.php?user_id=<?php echo $row['user_id']; ?>';">Add/Edit Photo</button>
 
     <button class="calendarView" onclick="window.location.href = './tutorCalendarView.html';">Calendar View</button>
 
@@ -74,30 +71,3 @@ $row = mysqli_fetch_array($result);
 
 </html>
 
-<?php
-if(count($_POST)>0) {
-    $userid=$_GET['user_id'];
-    //$userid=1;
-    $imagename=$_FILES["myimage"]["name"]; 
-    //Get the content of the image and then add slashes to it 
-    $imagetmp=addslashes (_POSTfile_get_contents($_FILES['myimage']['tmp_name']));
-
-    //Insert the image name and image content in image_table
-    //$insert_image="INSERT INTO tutors (user_image, img_name) VALUES('$imagetmp','$imagename')";
-    mysqli_query($conn,"UPDATE tutors SET user_image='" . $imagetmp . "', img_name='" . $imagename . "' WHERE user_id='" . $userid . "'"); 
-    //$message = "Record Modified Successfully";
-    //header('Location: ./tutorprof.php?user_id=' .$uid);
-    //$insert_image = "UPDATE tutors SET user_image='$imagetmp', img_name='$imagename' WHERE user_id='" . $userid . "'" ;
-
-    //if ($conn->query($insert_image) === TRUE) {
-    //    echo "this is the " .$userid.".";
-    //    echo "new";
-    //    echo "New record created successfully. Naviagate back to see your image";
-    //    echo "";
-    //    echo '<p><a href="tutorprof.php">Back to tutorprof.php</a>';
-    //} else {
-    //    echo "Error: " . $insert_image . "<br>" . $conn->error;
-    //}
-    echo "updated user" . $user_id;
-}
-?>
