@@ -48,12 +48,12 @@ $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['use
     include_once 'access-db.php';
 
     //$sql = "SELECT user_image FROM tutors";
-    $sql = "SELECT user_image FROM tutors WHERE user_id='" . $_GET['user_id'] . "'";
+    $sql = "SELECT user_image FROM tutors WHERE user_id=1";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
         // output data of each row
-        while($row = $result->fetch_assoc()) {
+        while($row=$result->fetch_assoc()) {
             echo '<img class="profilePicture" src="data:image/jpeg;base64,'.base64_encode( $row['user_image'] ).'"/>';
 
         }
