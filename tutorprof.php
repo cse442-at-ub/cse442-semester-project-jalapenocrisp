@@ -1,5 +1,7 @@
 <?php
 include_once "access-db.php";
+$result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['user_id'] . "'");
+$row = mysqli_fetch_array($result);
 ?>
 
 <!DOCTYPE html>
@@ -65,10 +67,6 @@ include_once "access-db.php";
     <h1 class="welcome-page-title"></h1>
     <table class="info">
 
-    <?php
-        $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['user_id'] . "'");
-        $row = mysqli_fetch_array($result);
-    ?>
     <tr><td>Name: </td><td><?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?></td></tr>
     <tr><td>Phone Number: </td><td><?php echo $row["phone"]; ?></td></tr>
     <tr><td>Title: </td><td><?php echo $row["title"]; ?></td></tr>
