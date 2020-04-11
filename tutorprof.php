@@ -6,6 +6,8 @@ $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['use
 //     $result = $conn->query($sql);
 //     $row->result->fetch_assoc();
 //     $myVariable = $row['user_id']; 
+session_start();
+$_SESSION['user_id'] = $useridval;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,7 +45,7 @@ $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['use
     <hr class="hr-navbar">
 
     <form method="POST" action="getdata.php" enctype="multipart/form-data">
-    <input type="hidden" name="user_id" value="<?php echo $myVariable; ?>">
+    <input type="text" name="user_id" value="">
         <input type="file" name="myimage">
         <input type="submit" name="submit_image" value="Upload">
     </form>
