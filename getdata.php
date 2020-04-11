@@ -15,7 +15,7 @@ if(count($_POST)>0) {
 
     if ($conn->query($insert_image) === TRUE) {
         echo "this is the " .$userid.".";
-        echo "";
+        echo "new";
         echo "New record created successfully. Naviagate back to see your image";
         echo "";
         echo '<p><a href="tutorprof.php">Back to tutorprof.php</a>';
