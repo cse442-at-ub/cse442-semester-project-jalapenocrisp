@@ -11,7 +11,6 @@ $imagetmp=addslashes (file_get_contents($_FILES['myimage']['tmp_name']));
 
 $insert_image = "UPDATE tutors SET user_image='$imagetmp', img_name='$imagename' WHERE user_id = 1";
 
-
 // $sql = "UPDATE tutors SET user_image=?, img_name=?, WHERE account_id=?";
 
 // $stmt = $db_usag->prepare($sql);
