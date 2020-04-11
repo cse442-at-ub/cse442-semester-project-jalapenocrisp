@@ -2,6 +2,31 @@
 include_once "access-db.php";
 $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['user_id'] . "'");
 $row = mysqli_fetch_array($result);
+
+if(count($_POST)>0) {
+    $userid=$_GET['user_id'];
+    //$userid=1;
+    $imagename=$_FILES["myimage"]["name"]; 
+    //Get the content of the image and then add slashes to it 
+    $imagetmp=addslashes (_POSTfile_get_contents($_FILES['myimage']['tmp_name']));
+
+    //Insert the image name and image content in image_table
+    //$insert_image="INSERT INTO tutors (user_image, img_name) VALUES('$imagetmp','$imagename')";
+
+    $insert_image = "UPDATE tutors SET user_image='$imagetmp', img_name='$imagename' WHERE user_id='" . $_GET['user_id'] . "'" ;
+
+    if ($conn->query($insert_image) === TRUE) {
+        echo "this is the " .$userid.".";
+        echo "new";
+        echo "New record created successfully. Naviagate back to see your image";
+        echo "";
+        echo '<p><a href="tutorprof.php">Back to tutorprof.php</a>';
+    } else {
+        echo "Error: " . $insert_image . "<br>" . $conn->error;
+    }
+
+    $conn->close();
+}
 ?>
 
 <!DOCTYPE html>
@@ -22,10 +47,6 @@ $row = mysqli_fetch_array($result);
 
         <div class="menu_welcomePage">
             <ul>
-
-                <!-- the line of code commented below is important when we upload the work on a server. for now, i'm using an alternative below -->
-                <!-- <li><a href="javascript:loadPage('./login.html')">login</a> </li> -->
-
                 <li><a class="navlink" href="./index.html">logout</a> </li>
 
             </ul>
@@ -44,19 +65,7 @@ $row = mysqli_fetch_array($result);
     </form>
 
     <?php
-
-    //$sql = "SELECT user_image FROM tutors";
-    //$result1 = mysqli_query($conn,"SELECT user_image FROM tutors WHERE user_id='" . $_GET['user_id'] . "'");
-
-    //if ($result1->num_rows > 0) {
-        // output data of each row
-        //while($row1=$result->fetch_assoc()) {
      echo '<img class="profilePicture" src="data:image/jpeg;base64,'.base64_encode( $row['user_image'] ).'"/>';
-
-        //}
-    //} else {
-        //echo "0 results";
-    //}
 
     ?>
 
@@ -88,32 +97,3 @@ $row = mysqli_fetch_array($result);
 </body>
 
 </html>
-
-<?php
-include_once 'access-db.php';
-
-if(count($_POST)>0) {
-    $userid=$_GET['user_id'];
-    //$userid=1;
-    $imagename=$_FILES["myimage"]["name"]; 
-    //Get the content of the image and then add slashes to it 
-    $imagetmp=addslashes (_POSTfile_get_contents($_FILES['myimage']['tmp_name']));
-
-    //Insert the image name and image content in image_table
-    //$insert_image="INSERT INTO tutors (user_image, img_name) VALUES('$imagetmp','$imagename')";
-
-    $insert_image = "UPDATE tutors SET user_image='$imagetmp', img_name='$imagename' WHERE user_id='" . $_GET['user_id'] . "'" ;
-
-    if ($conn->query($insert_image) === TRUE) {
-        echo "this is the " .$userid.".";
-        echo "new";
-        echo "New record created successfully. Naviagate back to see your image";
-        echo "";
-        echo '<p><a href="tutorprof.php">Back to tutorprof.php</a>';
-    } else {
-        echo "Error: " . $insert_image . "<br>" . $conn->error;
-    }
-
-    $conn->close();
-}
-?>
