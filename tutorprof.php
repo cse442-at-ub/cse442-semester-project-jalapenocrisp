@@ -47,17 +47,17 @@ $row = mysqli_fetch_array($result);
     <?php
 
     //$sql = "SELECT user_image FROM tutors";
-    $result1 = mysqli_query($conn,"SELECT user_image FROM tutors WHERE user_id='" . $_GET['user_id'] . "'");
+    //$result1 = mysqli_query($conn,"SELECT user_image FROM tutors WHERE user_id='" . $_GET['user_id'] . "'");
 
-    if ($result1->num_rows > 0) {
+    //if ($result1->num_rows > 0) {
         // output data of each row
-        while($row1=$result->fetch_assoc()) {
-            echo '<img class="profilePicture" src="data:image/jpeg;base64,'.base64_encode( $row1['user_image'] ).'"/>';
+        //while($row1=$result->fetch_assoc()) {
+     echo '<img class="profilePicture" src="data:image/jpeg;base64,'.base64_encode( $row['user_image'] ).'"/>';
 
-        }
-    } else {
-        echo "0 results";
-    }
+        //}
+    //} else {
+        //echo "0 results";
+    //}
 
     ?>
 
