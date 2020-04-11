@@ -1,6 +1,8 @@
 <?php
 include_once 'access-db.php';
 
+session_start();
+
 // $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['user_id'] . "'");
 // $sql = "SELECT user_image FROM tutors WHERE user_id='" . $_GET['user_id'] . "'";
 // $result
@@ -19,8 +21,10 @@ $insert_image = "UPDATE tutors SET user_image='$imagetmp', img_name='$imagename'
 
 if ($conn->query($insert_image) === TRUE) {
     echo "this is the " .$userid.".";
+    echo "";
     echo "New record created successfully. Naviagate back to see your image";
-    
+    echo "";
+    echo '<p><a href="tutorprof.php">Back to tutorprof.php</a>';
 } else {
     echo "Error: " . $insert_image . "<br>" . $conn->error;
 }
@@ -28,6 +32,11 @@ if ($conn->query($insert_image) === TRUE) {
 $conn->close();
 
 ?>
+<html>
+<body>
+<p><a href="tutorprof.php">Back to tutorprof.php</a>
+</body>
+</html>
 
 
 
