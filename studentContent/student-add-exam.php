@@ -13,16 +13,18 @@
         $grade_entered = $_POST["grade_for_course"];
         $choosen_class = $_POST["student_choosen_class"];
         $prev_grades = "";
+        $result = mysqli_query($conn,"SELECT * FROM progress WHERE student_id=$student_id;");
         while($row = mysqli_fetch_array($result)){
             $course_name = $row["course"];
-            if(strcmp($course_name, $choosen_class)){
+            echo $course_name . " and " .$choosen_class;
+            if(strcmp($course_name, $choosen_class)== 0){
                 $prev_grades = $row["grades"];
             }
         }
         if(strlen($prev_grades) < 2){
             $prev_grades = $grade_entered;
         }else{
-            $prev_grades .= ",".$prev_grades;
+            $prev_grades .= ",".$grade_entered;
         }
         
         mysqli_query($conn, "UPDATE progress SET grades=\"$prev_grades\" WHERE student_id=$student_id AND course=\"$choosen_class\" ;");
@@ -49,8 +51,8 @@
         <div class="menu_welcomePage">
             <ul>
 
-                <li><a class="navlink" href="./search.php?user_id=<?php echo $row['user_id']; ?>">find a tutor</a> </li>
-                <li><a class="navlink" href="./studentprof.php?user_id=<?php echo $row['user_id']; ?>">profile</a> </li>
+                <li><a class="navlink" href="./search.php?user_id=<?php echo $student_id; ?>">find a tutor</a> </li>
+                <li><a class="navlink" href="./studentprof.php?user_id=<?php echo $student_id; ?>">profile</a> </li>
                 <li><a class="navlink" href="../index.html">logout</a> </li>
 
             </ul>
