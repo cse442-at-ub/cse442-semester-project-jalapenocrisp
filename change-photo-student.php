@@ -11,7 +11,7 @@ if (isset($_POST['submit'])) {
         mysqli_query($conn, "UPDATE students SET img_name='" . $name . "', user_image='" . $image . "' WHERE user_id='" . $userid . "'");
 
     }
-    header('Location: ./tutorprof.php?user_id=' .$userid);
+    header('Location: ./studentprof.php?user_id=' .$userid);
 }
 
 
