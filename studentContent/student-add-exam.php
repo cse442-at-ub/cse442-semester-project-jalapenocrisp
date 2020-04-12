@@ -16,7 +16,7 @@
         $result = mysqli_query($conn,"SELECT * FROM progress WHERE student_id=$student_id;");
         while($row = mysqli_fetch_array($result)){
             $course_name = $row["course"];
-            echo $course_name . " and " .$choosen_class;
+           
             if(strcmp($course_name, $choosen_class)== 0){
                 $prev_grades = $row["grades"];
             }
