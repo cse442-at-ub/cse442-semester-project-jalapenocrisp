@@ -63,8 +63,8 @@
                     }
                 ?>
             </select>
-            <input type="text" onkeypress="validate(event)", name="grade_for_course">
-            <input class="exam_student_input" type="submit" name="submit">
+            <input class="exam_student_input" type="text" onkeypress="validate(event)", name="grade_for_course">
+            <input id="student_appt_submit" type="submit" name="submit">
 
         </form>
     </div>
