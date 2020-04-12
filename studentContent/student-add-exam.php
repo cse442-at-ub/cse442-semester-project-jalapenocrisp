@@ -8,6 +8,25 @@
         $course_name = $row["course"];
         array_push($all_courses, $course_name);
     }
+
+    if(count($_POST) > 0){
+        $grade_entered = $_POST["grade_for_course"];
+        $choosen_class = $_POST["student_choosen_class"];
+        $prev_grades = "";
+        while($row = mysqli_fetch_array($result)){
+            $course_name = $row["course"];
+            if(strcmp($course_name, $choosen_class)){
+                $prev_grades = $row["grades"];
+            }
+        }
+        if(strlen($prev_grades) < 2){
+            $prev_grades = $grade_entered;
+        }else{
+            $prev_grades .= ",".$prev_grades;
+        }
+        
+        mysqli_query($conn, "UPDATE progress SET grades=\"$prev_grades\" WHERE student_id=$student_id AND course=\"$choosen_class\" ;");
+    }
 ?>
 
 <!DOCTYPE html>
@@ -57,7 +76,7 @@
         <form method="post">
         
         <label id="student_appointment_label" for="nextExam"> Choose a Course </label>
-            <select name id="num_of_exams">
+            <select name="student_choosen_class" id="num_of_exams">
                 
                 <?php
                     foreach($all_courses as $key => $value){
