@@ -114,3 +114,37 @@ function verifyInfo(fname, lname, emailEntered, inputtxt){
         } 
     }
 }
+
+
+function addClasses(val){
+    console.log(val);
+    document.getElementById("all_classes_input").innerHTML += val;
+}
+
+$("#num_of_exams").change(function() {
+    var htmlString = "";
+    var len = document.getElementById("num_of_exams").value;
+    for (var i = 0; i < len; i++) {
+      htmlString += "<input type=\"text\" onkeypress=\"validate(event)\", name=\"_" + i + "\">";
+    }
+    addClasses(htmlString);
+  }
+)
+
+function validate(evt) {
+    var theEvent = evt || window.event;
+  
+    // Handle paste
+    if (theEvent.type === 'paste') {
+        key = event.clipboardData.getData('text/plain');
+    } else {
+    // Handle key press
+        var key = theEvent.keyCode || theEvent.which;
+        key = String.fromCharCode(key);
+    }
+    var regex = /[0-9]|\./;
+    if( !regex.test(key) ) {
+      theEvent.returnValue = false;
+      if(theEvent.preventDefault) theEvent.preventDefault();
+    }
+  }
