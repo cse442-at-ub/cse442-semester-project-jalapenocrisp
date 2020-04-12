@@ -47,10 +47,7 @@ $row = mysqli_fetch_array($result);
 
     <p>small changes </p>
 
-    <button class="calendarView" onclick="window.location.href = './change-photo.php?user_id=<?php echo $row['user_id']; ?>';">Add/Edit Photo</button>
-
-    <button class="calendarView" onclick="window.location.href = './tutorCalendarView.html';">Calendar View</button>
-
+    <button class="calendarView" onclick="window.location.href = './change-photo-student.php?user_id=<?php echo $row['user_id']; ?>';">Add/Edit Photo</button>
 
     <h1 class="welcome-page-title"></h1>
     <button class="calendarView" onclick="window.location.href = './search.php';">Search for a tutor</button>
