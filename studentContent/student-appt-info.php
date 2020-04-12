@@ -9,7 +9,7 @@
     if(count($_POST) > 0){
 
         $allClasses = "";
-        $nextExam= $_POST["nextExam_month"] . "," . $_POST["nextExam_date"] . "," . $_POST["nextExam_year"];
+        $nextExam= $_POST["nextExam_year"] . "-" . $_POST["nextExam_month"] . "-" . $_POST["nextExam_date"] . " 00:00:00";
         unset($_POST["nextExam_month"]);
         unset($_POST["nextExam_year"]);
         unset($_POST["nextExam_date"]);
@@ -50,9 +50,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../style.css" >
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    
-
-    <title>Document</title>
+    <title>UB Tutoring Service</title>
 </head>
 <body>
     <p align="center" id="student_appt_info_header">Tell us about your previous exams you haven't entered previously for <?php echo $course;?></p>
