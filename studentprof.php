@@ -45,8 +45,6 @@ $row = mysqli_fetch_array($result);
     }
     ?>    
 
-    <p>small changes </p>
-
     <button class="calendarView" onclick="window.location.href = './change-photo-student.php?user_id=<?php echo $row['user_id']; ?>';">Add/Edit Photo</button>
 
     <h1 class="welcome-page-title"></h1>
@@ -54,9 +52,7 @@ $row = mysqli_fetch_array($result);
     <br><br><br>
     <table class="info">
 
-    <?php
-    $row = mysqli_fetch_array($result);
-    ?>
+    
     <tr>
     <th width="50%"></th>
     <th width="50%"></th>
