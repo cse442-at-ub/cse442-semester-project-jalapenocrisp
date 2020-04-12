@@ -1,8 +1,13 @@
 <?php
     include_once "access-db.php";
-    $result = mysqli_query($conn,"SELECT course FROM progress WHERE student_id='" . $_GET['user_id'] . "'");
-    $row = mysqli_fetch_array($result);
-    $all_courses = $row["course"];
+    $student_id = $_GET['user_id'];
+    $result = mysqli_query($conn,"SELECT * FROM progress WHERE student_id=$student_id;");
+    
+    $all_courses = array();
+    while($row = mysqli_fetch_array($result)){
+        $course_name = $row["course"];
+        array_push($all_courses, $course_name);
+    }
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +47,7 @@
 
 
     <?php
-        $num_classes = mysqli_num_rows($result);
+        $num_classes = count($all_courses);
         if( $num_classes > 0){
     ?>
     
@@ -57,7 +62,7 @@
                 <?php
                     foreach($all_courses as $key => $value){
                 ?>
-                <option value=<?php  echo "\"$value\""  ?>>1</option>
+                <option value=<?php  echo "\"$value\";"?>><?php  echo $value; ?></option>
                 
                 <?php
                     }
