@@ -25,8 +25,6 @@ $row = mysqli_fetch_array($result);
         <div class="menu_welcomePage">
             <ul>
 
-                <!-- the line of code commented below is important when we upload the work on a server. for now, i'm using an alternative below -->
-                <!-- <li><a href="javascript:loadPage('./login.php')">login</a> </li> -->
                 <li><a class="navlink" href="./search.php?user_id=<?php echo $row['user_id']; ?>">find a tutor</a> </li>
                 <li><a class="navlink" href="./studentprof.php?user_id=<?php echo $row['user_id']; ?>">profile</a> </li>
                 <li><a class="navlink" href="../index.html">logout</a> </li>
@@ -42,7 +40,33 @@ $row = mysqli_fetch_array($result);
     <hr class="hr-navbar">
 
     <h1 class="welcome-page-title">Your Classes</h1><br>
-    <a class="center" href="./student-appt-history.php?user_id=<?php echo $row['user_id']; ?>">appointment history</a>
+
+    
+
+
+    <div id="student_appointment_div">
+        <form method="post">
+
+        <label id="student_appointment_label" for="nextExam">Enter the date of your next exam </label>
+            <select name id="num_of_exams">
+                
+            </select>
+            <div id="all_classes_input">
+
+            </div>
+
+            <label id="student_appointment_label" for="nextExam">Enter the date of your next exam </label>
+   
+
+            <input id="student_appt_submit" type="submit" name="submit">
+
+        </form>
+    </div>
+
+
+
+
+
 
     
 
