@@ -467,6 +467,15 @@ input[type="submit"]:hover {
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~student appt styling ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+#student_appt_info_header{
+    text-align: center;
+    font-family: 'Open Sans';
+    font-size:160%;
+    margin: auto;
+    padding-top: 20px;
+}
+
 #student_appointment_div{
     background-color: #f2f2f2;
     width: 50%;
@@ -509,6 +518,21 @@ input[type="submit"]:hover {
 
 #student_appt_submit:hover {
     background-color: #005eac;
+}
+
+#student_appointment_label{
+    text-align: left;
+    font-family: 'Open Sans';
+    font-size: 14px;
+    display: block;
+    margin-top: 20px;
+}
+
+#student_appointment_div2{
+    width: 100%;
+    margin-top: 30px;
+    display: inline-block;
+    
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ end student appt styling ~~~~~~~~~~~~~~~~~~~~~~~~ */
