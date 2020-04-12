@@ -63,7 +63,8 @@ if (isset($_POST['submit'])){
     mail($tos, $subject, $messageS, $headers);
 
 
-    header('Location: student-appts.php?user_id=' . $stu);
+    //header('Location: student-appts.php?user_id=' . $stu);
+    header('Location: student-appt-info.php?user_id=' . $stu .'&tutor=' . $tut);
 
 }
 ?>

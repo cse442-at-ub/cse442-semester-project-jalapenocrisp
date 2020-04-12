@@ -475,9 +475,18 @@ input[type="submit"]:hover {
     margin-top: 30px;
 }
 
+.exam_student_input{
+    width: 100%;
+    text-align: left;
+    font-family: 'Open Sans';
+    font-size: 14px;
+    display: block;
+    height: 20px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
 
-
-#student_appointment_div select, input{
+#num_of_exams{
     width: 100%;
     text-align: left;
     font-family: 'Open Sans';
@@ -485,21 +494,20 @@ input[type="submit"]:hover {
     display: block;
     height: 20px;
 }
-#student_appointment_div input{
-    margin-bottom: 5px;
-    margin-top: 5px;
-}
 
-#student_appointment_div input[type = submit]{
+#student_appt_submit{
+    width: 100%;
+    font-family: 'Open Sans';
+    font-size: 16px;
     text-align: center;
     background-color: rgb(0, 63, 99);
     color: white;
     height: 30px;
-    width: 100%;
-    font-size: 16px;
+    margin-top: 5px;
+    display: block;
 }
 
-#student_appointment_div input[type=submit]:hover {
+#student_appt_submit:hover {
     background-color: #005eac;
 }
 

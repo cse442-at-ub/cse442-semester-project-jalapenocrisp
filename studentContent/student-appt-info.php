@@ -1,7 +1,37 @@
 <?php
     include_once "access-db.php";
     $student_id=$_GET['user_id'];
-?>
+    $tutor_id = $_GET['tutor'];
+    $course_arr = mysqli_fetch_array(mysqli_query($conn,"SELECT courses FROM tutors WHERE user_id=$tutor_id"));
+    $course = $course_arr['courses'];
+    foreach($_POST as $key => $value){
+        $v = 0;
+        $val = "-";
+        if(strcmp( $value , "-") == 0){
+            $v = 1;
+        }
+        $query1 = "UPDATE calendar SET $key = $v WHERE user_id=$tutorID ;";
+        mysqli_query($conn, $query1);
+    }
+    if(count($_POST) > 0){
+        $allClasses = "";
+        foreach($_POST as $key => $value){
+            if($value <=100 && $value >= 0){
+                $allClasses .= $value .",";
+            }
+        }
+        if(strlen($allClasses) > 7){
+            for($i = 0; $i < 8; $i++){
+                $allClasses = substr_replace($allClasses ,"",-1);
+            }
+        }
+       
+
+        $sql_query = "INSERT INTO progress (id, student_id, course, grades) VALUES (?, $student_id, $course, $allClasses)";
+        mysqli_query($conn, $sql_query);
+        header('Location: student-appts.php?user_id=' . $student_id);
+    }
+?> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
