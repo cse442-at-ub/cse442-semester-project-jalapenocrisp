@@ -125,7 +125,7 @@ $("#num_of_exams").change(function() {
     var htmlString = "";
     var len = document.getElementById("num_of_exams").value;
     for (var i = 0; i < len; i++) {
-      htmlString += "<input type=\"text\" onkeypress=\"validate(event)\", name=\"_" + i + "\">";
+      htmlString += "<input type=\"text\" class=\"exam_student_input\" onkeypress=\"validate(event)\", name=\"_" + i + "\">";
     }
     addClasses(htmlString);
   }

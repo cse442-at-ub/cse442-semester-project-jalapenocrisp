@@ -1,8 +1,8 @@
 <?php
-include_once "access-db.php";
-$result = mysqli_query($conn,"SELECT * FROM students WHERE user_id='" . $_GET['user_id'] . "'");
-$row = mysqli_fetch_array($result);
-
+    include_once "access-db.php";
+    $result = mysqli_query($conn,"SELECT course FROM progress WHERE student_id='" . $_GET['user_id'] . "'");
+    $row = mysqli_fetch_array($result);
+    $all_courses = $row["course"];
 ?>
 
 <!DOCTYPE html>
@@ -39,33 +39,43 @@ $row = mysqli_fetch_array($result);
     </div>
     <hr class="hr-navbar">
 
-    <h1 class="welcome-page-title">Your Classes</h1><br>
 
+
+    <?php
+        $num_classes = mysqli_num_rows($result);
+        if( $num_classes > 0){
+    ?>
     
-
+    <h1 class="welcome-page-title">Your Classes</h1><br>
 
     <div id="student_appointment_div">
         <form method="post">
-
-        <label id="student_appointment_label" for="nextExam">Enter the date of your next exam </label>
+        
+        <label id="student_appointment_label" for="nextExam"> Choose a Course </label>
             <select name id="num_of_exams">
                 
+                <?php
+                    foreach($all_courses as $key => $value){
+                ?>
+                <option value=<?php  echo "\"$value\""  ?>>1</option>
+                
+                <?php
+                    }
+                ?>
             </select>
-            <div id="all_classes_input">
-
-            </div>
-
-            <label id="student_appointment_label" for="nextExam">Enter the date of your next exam </label>
-   
-
-            <input id="student_appt_submit" type="submit" name="submit">
+            <input type="text" onkeypress="validate(event)", name="grade_for_course">
+            <input class="exam_student_input" type="submit" name="submit">
 
         </form>
     </div>
 
-
-
-
+    <?php
+        }else{
+    ?>
+    <h1 class="welcome-page-title">YOU HAVE NO COURSES OR APPOINTMENTS</h1><br>
+    <?php
+        }
+    ?>
 
 
     
