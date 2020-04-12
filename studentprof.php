@@ -1,6 +1,6 @@
 <?php
 include_once "access-db.php";
-$result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['user_id'] . "'");
+$result = mysqli_query($conn,"SELECT * FROM students WHERE user_id='" . $_GET['user_id'] . "'");
 $row = mysqli_fetch_array($result);
 ?>
 <!DOCTYPE html>
