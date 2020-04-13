@@ -7,9 +7,21 @@ if(count($_POST)>0) {
 	if($count==0) {
 		$message = "Invalid email or password!";
 	} else {
+
         $row = mysqli_fetch_array($result);
         $message = "You are successfully authenticated!";
         $var1=$row['user_id'];
+
+        // KEEP FOLLOWING COMMENTS.. IT WILL BE USED ON SPRINT 4  -syed
+
+        // $results = mysqli_query($conn, "SELECT * FROM progress WHERE student_id=$var1;");
+        // $count = mysqli_num_rows($results);
+        // for($i= 0; $i< count; $i++){
+
+        // }
+        // date_default_timezone_set('America/New_York');
+        // $timezone = date_default_timezone_get();
+
         header('Location: ./student-appts.php?user_id=' .$var1);
 	}
 }

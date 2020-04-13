@@ -488,58 +488,73 @@ input[type="submit"]:hover {
 }
 
 
-/* style for my progress dropdowns */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~student appt styling ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
+#student_appt_info_header{
+    text-align: center;
+    font-family: 'Open Sans';
+    font-size:160%;
+    margin: auto;
+    padding-top: 20px;
+}
 
-/* Dropdown Content (Hidden by Default) */
+#student_appointment_div{
+    background-color: #f2f2f2;
+    width: 50%;
+    padding: 20px;
+    margin: auto;
+    margin-top: 30px;
+}
 
-.dropbtn {
-    color: black;
-    padding: 0px;
+.exam_student_input{
+    width: 100%;
+    text-align: left;
+    font-family: 'Open Sans';
+    font-size: 14px;
+    display: block;
+    height: 20px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+#num_of_exams{
+    width: 100%;
+    text-align: left;
+    font-family: 'Open Sans';
+    font-size: 14px;
+    display: block;
+    height: 20px;
+}
+
+#student_appt_submit{
+    width: 100%;
+    font-family: 'Open Sans';
     font-size: 16px;
-    cursor: pointer;
+    text-align: center;
+    background-color: rgb(0, 63, 99);
+    color: #b1cdd0;
+    height: 30px;
+    margin-top: 5px;
+    display: block;
 }
 
+#student_appt_submit:hover {
+    background-color: #005eac;
+}
 
-/* The container <div> - needed to position the dropdown content */
+#student_appointment_label{
+    text-align: left;
+    font-family: 'Open Sans';
+    font-size: 14px;
+    display: block;
+    margin-top: 20px;
+}
 
-.dropdown {
-    position: relative;
+#student_appointment_div2{
+    width: 100%;
+    margin-top: 30px;
     display: inline-block;
+    
 }
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-}
-
-
-/* Links inside the dropdown */
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-
-/* Change color of dropdown links on hover */
-
-.dropdown-content a:hover {
-    background-color: #f1f1f1
-}
-
-
-/* Show the dropdown menu on hover */
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-
-/* Change the background color of the dropdown button when the dropdown content is shown */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ end student appt styling ~~~~~~~~~~~~~~~~~~~~~~~~ */

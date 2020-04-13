@@ -66,7 +66,8 @@ if (isset($_POST['submit'])){
     mail($tos, $subject, $messageS, $headers);
 
 
-    header('Location: student-appts.php?user_id=' . $stu);
+    //header('Location: student-appts.php?user_id=' . $stu);
+    header('Location: student-appt-info.php?user_id=' . $stu .'&tutor=' . $tut);
 
 }
 ?>
@@ -87,7 +88,7 @@ if (isset($_POST['submit'])){
 
 <body>
 
-    <div class="header">
+    <div id="student_appointment_div" class="header">
 
         <div class="menu_welcomePage">
             <ul>
