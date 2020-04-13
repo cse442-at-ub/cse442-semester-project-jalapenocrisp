@@ -2,6 +2,8 @@
 include_once "access-db.php";
 $result = mysqli_query($conn,"SELECT * FROM students WHERE user_id='" . $_GET['user_id'] . "'");
 $row = mysqli_fetch_array($result);
+$progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GET['user_id'] . "'");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
