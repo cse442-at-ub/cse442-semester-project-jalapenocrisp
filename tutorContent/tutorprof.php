@@ -55,6 +55,7 @@ $row = mysqli_fetch_array($result);
     <tr><td>Title: </td><td><?php echo $row["title"]; ?></td></tr>
     <tr><td>Email: </td><td><?php echo $row["email"]; ?></td></tr>
     <tr><td>Course: </td><td><?php echo $row["courses"]; ?></td></tr>
+    <tr><td>Rating: </td><td><?php echo $row["rank"]; ?></td></tr>
     <tr><td class="score" title="The number of tutoring hours this tutor has completed.">Score: </td><td><?php echo $row["score"]; ?></td></tr>
     
     </table>
