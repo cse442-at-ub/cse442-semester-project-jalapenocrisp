@@ -35,13 +35,13 @@ if (isset($_POST['submit'])) {
 
         <div class="menu_welcomePage">
             <ul>
-                <li><a class="navlink" href="./index.html">logout</a> </li>
+                <li><a class="navlink" href="../index.html">logout</a> </li>
 
             </ul>
         </div>
 
         <div class="logo">
-            <h2 class="logo"> <a href="./index.html">UBtutoring</a> </h2>
+            <h2 class="logo"> <a href="../index.html">UBtutoring</a> </h2>
         </div>
 
     </div>
