@@ -2,7 +2,7 @@
     include_once "access-db.php";
     $student_id = $_GET['user_id'];
     $result = mysqli_query($conn,"SELECT * FROM progress WHERE student_id=$student_id;");
-    
+    $msg_error = "";
     $all_courses = array();
     while($row = mysqli_fetch_array($result)){
         $course_name = $row["course"];
@@ -12,23 +12,30 @@
     if(count($_POST) > 0){
         $grade_entered = $_POST["grade_for_course"];
         $choosen_class = $_POST["student_choosen_class"];
-        $prev_grades = "";
-        $result = mysqli_query($conn,"SELECT * FROM progress WHERE student_id=$student_id;");
-        while($row = mysqli_fetch_array($result)){
-            $course_name = $row["course"];
-           
-            if(strcmp($course_name, $choosen_class)== 0){
-                $prev_grades = $row["grades"];
+
+        if($grade_entered < 150 && $grade_entered >0){
+            
+            $prev_grades = "";
+            $result = mysqli_query($conn,"SELECT * FROM progress WHERE student_id=$student_id;");
+            while($row = mysqli_fetch_array($result)){
+                $course_name = $row["course"];
+            
+                if(strcmp($course_name, $choosen_class)== 0){
+                    $prev_grades = $row["grades"];
+                }
             }
-        }
-        if(strlen($prev_grades) < 2){
-            $prev_grades = $grade_entered;
+            if(strlen($prev_grades) < 2){
+                $prev_grades = $grade_entered;
+            }else{
+                $prev_grades .= ",".$grade_entered;
+            }
+            
+            mysqli_query($conn, "UPDATE progress SET grades=\"$prev_grades\" WHERE student_id=$student_id AND course=\"$choosen_class\" ;");
         }else{
-            $prev_grades .= ",".$grade_entered;
+            $msg_error = "Enter a valid grade";
         }
-        
-        mysqli_query($conn, "UPDATE progress SET grades=\"$prev_grades\" WHERE student_id=$student_id AND course=\"$choosen_class\" ;");
     }
+        
 ?>
 
 <!DOCTYPE html>
@@ -68,6 +75,9 @@
 
 
     <?php
+        if(strcmp($msg_error, "")!= 0){
+            echo "<h2 class=\"welcome-page-title\">***ENTER A VALID GRADE (between 0 - 150)***</h1><br>";
+        }
         $num_classes = count($all_courses);
         if( $num_classes > 0){
     ?>
