@@ -7,7 +7,7 @@
 
     
     if(count($_POST) > 0){
-        
+
         $allClasses = "";
         $nextExam= $_POST["nextExam_year"] . "-" . $_POST["nextExam_month"] . "-" . $_POST["nextExam_date"] . " 00:00:00";
         unset($_POST["nextExam_month"]);
@@ -19,10 +19,8 @@
                 $allClasses .= $value .",";
             }
         }
-        if(strlen($allClasses) > 7){
-            for($i = 0; $i < 8; $i++){
-                $allClasses = substr_replace($allClasses ,"",-1);
-            }
+        if(substr($allClasses, -1) == ","){
+            $allClasses = substr_replace($allClasses ,"",-1);
         }
         
         $results = mysqli_query($conn, "SELECT * FROM progress WHERE student_id=$student_id AND course=\"$course\";");
