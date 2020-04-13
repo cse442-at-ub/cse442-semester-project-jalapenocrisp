@@ -45,7 +45,6 @@ $row = mysqli_fetch_array($result);
 
     <button class="calendarView" onclick="window.location.href = './change-photo.php?user_id=<?php echo $row['user_id']; ?>';">Add/Edit Photo</button>
 
-    <button class="calendarView" onclick="window.location.href = './tutorCalendarView.html';">Calendar View</button>
 
     <h1 class="welcome-page-title"></h1>
     <table class="info">
