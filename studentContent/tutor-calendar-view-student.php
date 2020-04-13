@@ -88,7 +88,7 @@ if (isset($_POST['submit'])){
 
 <body>
 
-    <div id="student_appointment_div" class="header">
+    <div class="header">
 
         <div class="menu_welcomePage">
             <ul>
