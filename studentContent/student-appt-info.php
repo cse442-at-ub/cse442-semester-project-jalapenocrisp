@@ -45,6 +45,9 @@
         mysqli_query($conn, $sql_query);
         header('Location: student-appts.php?user_id=' . $student_id);
     }
+
+$progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GET['user_id'] . "'");
+
 ?> 
 <!DOCTYPE html>
 <html lang="en">
