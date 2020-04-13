@@ -1,9 +1,9 @@
-  
 <?php
 include_once "access-db.php";
 $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['user_id'] . "'");
 $row = mysqli_fetch_array($result);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,18 +16,12 @@ $row = mysqli_fetch_array($result);
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <title>UB Tutoring Service</title>
 </head>
-
 <body class="main-container">
 
     <div class="header">
 
         <div class="menu_welcomePage">
             <ul>
-
-                <!-- the line of code commented below is important when we upload the work on a server. for now, i'm using an alternative below -->
-                <!-- <li><a href="javascript:loadPage('./login.html')">login</a> </li> -->
-                <li><a class="navlink" href="./tutorCalendarView.php?user_id=<?php echo $_GET['user_id']; ?>">set availability</a> </li>
-                <li><a class="navlink" href="./tutor-appts.php?user_id=<?php echo $_GET['user_id']; ?>">appointments</a> </li>
                 <li><a class="navlink" href="../index.html">logout</a> </li>
 
             </ul>
@@ -40,7 +34,16 @@ $row = mysqli_fetch_array($result);
     </div>
     <hr class="hr-navbar">
 
-    <button class="calendarView" onclick="window.location.href = './tutorCalendarView.php?user_id=<?php echo $_GET['user_id'];?>'">Calendar View</button>
+    <?php
+    if ($row['user_image']){
+     echo '<img class="profilePicture" src="data:image/jpeg;base64,'. $row['user_image'] .'"/>';
+    }
+    ?>    
+    
+
+    <button class="calendarView" onclick="window.location.href = './change-photo.php?user_id=<?php echo $row['user_id']; ?>';">Add/Edit Photo</button>
+
+    <button class="calendarView" onclick="window.location.href = './tutorCalendarView.html';">Calendar View</button>
 
     <h1 class="welcome-page-title"></h1>
     <table class="info">
@@ -50,9 +53,6 @@ $row = mysqli_fetch_array($result);
     <tr><td>Title: </td><td><?php echo $row["title"]; ?></td></tr>
     <tr><td>Email: </td><td><?php echo $row["email"]; ?></td></tr>
     <tr><td>Course: </td><td><?php echo $row["courses"]; ?></td></tr>
-
-    <tr><td>Rating: </td><td><?php echo $row["rank"]; ?></td></tr>
-    
     <tr><td class="score" title="The number of tutoring hours this tutor has completed.">Score: </td><td><?php echo $row["score"]; ?></td></tr>
     
     </table>
@@ -62,7 +62,7 @@ $row = mysqli_fetch_array($result);
     <br><br><br>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="../index.js"></script>
+    <script src="index.js"></script>
     <script>
         
     </script>
@@ -70,3 +70,4 @@ $row = mysqli_fetch_array($result);
 </body>
 
 </html>
+

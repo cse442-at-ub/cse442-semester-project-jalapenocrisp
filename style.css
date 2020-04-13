@@ -48,7 +48,8 @@ hr.hr-navbar {
     color: white;
 }
 
-.navlink:hover {
+.navlink:hover,
+.dropbtn:hover {
     color: blue;
 }
 
@@ -144,10 +145,9 @@ input[type="submit"]:hover {
 
 /* search style */
 
-
-.selectButton{
+.selectButton {
     width: 15%;
-    margin-top:2%;
+    margin-top: 2%;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -159,13 +159,17 @@ input[type="submit"]:hover {
     border: none;
     color: black;
 }
-.selectButton:hover, .calendarView:hover, .selectButton2:hover{
-    background-color:rgb(0, 0, 131);
+
+.selectButton:hover,
+.calendarView:hover,
+.selectButton2:hover {
+    background-color: rgb(0, 0, 131);
     color: white;
 }
-.selectButton2{
+
+.selectButton2 {
     width: 20%;
-    margin-top:2%;
+    margin-top: 2%;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -178,9 +182,9 @@ input[type="submit"]:hover {
     color: black;
 }
 
-.delButton{
+.delButton {
     width: 15%;
-    margin-top:2%;
+    margin-top: 2%;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -200,9 +204,9 @@ input[type="submit"]:hover {
 .info {
     font-size: larger;
     width: 960px;
-    margin-left: auto;    
-    margin-right: auto; 
-    text-align: center;   
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
 
 .info td {
@@ -225,9 +229,10 @@ input[type="submit"]:hover {
     margin-right: auto;
     border-radius: 8px;
 }
-.calendarView{
+
+.calendarView {
     width: 15%;
-    margin-top:2%;
+    margin-top: 2%;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -278,12 +283,14 @@ input[type="submit"]:hover {
     table-layout: fixed;
     margin-bottom: 50px;
 }
-#calendar_tutor td{
-    height:30px;
+
+#calendar_tutor td {
+    height: 30px;
     text-align: center;
 }
-#calendar_tutor tr{
-    height: 30px; 
+
+#calendar_tutor tr {
+    height: 30px;
 }
 
 .day_container {
@@ -300,20 +307,19 @@ input[type="submit"]:hover {
     margin-bottom: 40px;
 }
 
-
-#popup_open{
+#popup_open {
     position: fixed;
     bottom: 10%;
     right: 45%;
     text-align: center;
     background: #fff;
-	padding: 10px, 15px;
-	color : #b9b739;
-	font-weight: bolder;
-	font-size: 18px;
-	border-radius: 5px;
-	box-shadow: 6px, 6px, 29px, -4px rgba(0,0,0,0.75);
-	text-decoration: none;
+    padding: 10px, 15px;
+    color: #b9b739;
+    font-weight: bolder;
+    font-size: 18px;
+    border-radius: 5px;
+    box-shadow: 6px, 6px, 29px, -4px rgba(0, 0, 0, 0.75);
+    text-decoration: none;
     transition: 0.4s;
     cursor: pointer;
 }
@@ -402,19 +408,23 @@ input[type="submit"]:hover {
     text-align: center;
 }
 
+
 /* styling for student appt page */
-.infoAppt{
+
+.infoAppt {
     padding-top: 100px;
     font-size: larger;
     width: 70%;
-    margin-left: 15%;    
-    margin-right: 15%; 
-    text-align: center;   
+    margin-left: 15%;
+    margin-right: 15%;
+    text-align: center;
 }
-.infoAppt td{
-    height:50px;
+
+.infoAppt td {
+    height: 50px;
 }
-.cancel{
+
+.cancel {
     width: 50px;
     display: block;
     margin-left: auto;
@@ -427,11 +437,13 @@ input[type="submit"]:hover {
     border: none;
     color: white;
 }
-.center{
+
+.center {
     margin: 0 auto;
     text-align: center;
 }
-.rate{
+
+.rate {
     width: 80px;
     display: block;
     margin-left: auto;
@@ -445,11 +457,20 @@ input[type="submit"]:hover {
     color: black;
 }
 
+
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ profile styling ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-.score:hover{
+.score:hover {
     color: blue;
 }
+
+.profilePicture {
+    border-radius: 50%;
+    width: 10%;
+    height: 20%;
+    margin-left: 45%;
+}
+
 .contact-tutor-btn:link,
 .contact-tutor-btn:visited {
     background-color: black;
@@ -465,6 +486,7 @@ input[type="submit"]:hover {
 .contact-tutor-btn:active {
     background-color: gray;
 }
+
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~student appt styling ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
