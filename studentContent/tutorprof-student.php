@@ -59,6 +59,9 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
 
     <button class="calendarView" onclick="window.location.href = './tutor-calendar-view-student.php?user_id=<?php echo $_GET['user_id']; ?>&tutor_id=<?php echo $_GET['tutor_id']; ?>'">Make an Appointment</button>
     <?php
+    
+    $row = mysqli_fetch_array($result);
+
     if ($row['user_image']){
      echo '<img class="profilePicture" src="data:image/jpeg;base64,'. $row['user_image'] .'"/>';
     }
@@ -66,10 +69,6 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
 
     <h1 class="welcome-page-title"></h1>
     <table class="info">
-
-    <?php
-    $row = mysqli_fetch_array($result);
-    ?>
     
     <tr><td>Name: </td><td><?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?></td></tr>
     <tr><td>Phone Number: </td><td><?php echo $row["phone"]; ?></td></tr>
