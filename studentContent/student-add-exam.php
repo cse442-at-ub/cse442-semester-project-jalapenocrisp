@@ -10,10 +10,10 @@
     }
 
     if(count($_POST) > 0){
-        $grade_entered = (double)$_POST["grade_for_course"];
+        $grade_entered = $_POST["grade_for_course"];
         $choosen_class = $_POST["student_choosen_class"];
 
-        if($grade_entered < 150 && $grade_entered >0){
+        if( floatval($grade_entered) < 150.0 && floatval($grade_entered) > 0.0){
             
             $prev_grades = "";
             $result = mysqli_query($conn,"SELECT * FROM progress WHERE student_id=$student_id;");
