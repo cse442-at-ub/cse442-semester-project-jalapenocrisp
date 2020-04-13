@@ -87,6 +87,7 @@
 
     </div>
     <hr class="hr-navbar">
+    <br>
     <p align="center" id="student_appt_info_header">Tell us about any exams you haven't entered previously for <?php echo $course;?></p>
     <div id="student_appointment_div">
         <form method="post">
