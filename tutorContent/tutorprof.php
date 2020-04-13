@@ -11,7 +11,7 @@ $row = mysqli_fetch_array($result);
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>UB Tutoring</title>
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="../style.css" />
     <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <title>UB Tutoring Service</title>
@@ -22,28 +22,28 @@ $row = mysqli_fetch_array($result);
 
         <div class="menu_welcomePage">
             <ul>
+<<<<<<< HEAD:tutorprof.php
                 <li><a class="navlink" href="./index.html">logout</a> </li>
+=======
+
+                <!-- the line of code commented below is important when we upload the work on a server. for now, i'm using an alternative below -->
+                <!-- <li><a href="javascript:loadPage('./login.html')">login</a> </li> -->
+                <li><a class="navlink" href="./tutorCalendarView.php?user_id=<?php echo $_GET['user_id']; ?>">set availability</a> </li>
+                <li><a class="navlink" href="./tutor-appts.php?user_id=<?php echo $_GET['user_id']; ?>">appointments</a> </li>
+                <li><a class="navlink" href="../index.html">logout</a> </li>
+>>>>>>> 696ce8e060e1230a512f26ae66a03037475eb7d3:tutorContent/tutorprof.php
 
             </ul>
         </div>
 
         <div class="logo">
-            <h2 class="logo"> <a href="./index.html">UBtutoring</a> </h2>
+            <h2 class="logo"> <a href="../index.html">UBtutoring</a> </h2>
         </div>
 
     </div>
     <hr class="hr-navbar">
 
-    <?php
-    if ($row['user_image']){
-     echo '<img class="profilePicture" src="data:image/jpeg;base64,'. $row['user_image'] .'"/>';
-    }
-    ?>    
-    
-
-    <button class="calendarView" onclick="window.location.href = './change-photo.php?user_id=<?php echo $row['user_id']; ?>';">Add/Edit Photo</button>
-
-    <button class="calendarView" onclick="window.location.href = './tutorCalendarView.html';">Calendar View</button>
+    <button class="calendarView" onclick="window.location.href = './tutorCalendarView.php?user_id=<?php echo $_GET['user_id'];?>'">Calendar View</button>
 
     <h1 class="welcome-page-title"></h1>
     <table class="info">
@@ -53,6 +53,9 @@ $row = mysqli_fetch_array($result);
     <tr><td>Title: </td><td><?php echo $row["title"]; ?></td></tr>
     <tr><td>Email: </td><td><?php echo $row["email"]; ?></td></tr>
     <tr><td>Course: </td><td><?php echo $row["courses"]; ?></td></tr>
+
+    <tr><td>Rating: </td><td><?php echo $row["rank"]; ?></td></tr>
+    
     <tr><td class="score" title="The number of tutoring hours this tutor has completed.">Score: </td><td><?php echo $row["score"]; ?></td></tr>
     
     </table>
@@ -62,7 +65,7 @@ $row = mysqli_fetch_array($result);
     <br><br><br>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="index.js"></script>
+    <script src="../index.js"></script>
     <script>
         
     </script>

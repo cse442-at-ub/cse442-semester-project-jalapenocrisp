@@ -8,6 +8,8 @@ while($row=mysqli_fetch_array($result)){
 
     }
 }
+$progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GET['user_id'] . "'");
+
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +19,7 @@ while($row=mysqli_fetch_array($result)){
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>UB Tutoring</title>
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="../style.css" />
     <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <title>UB Tutoring Service</title>
@@ -30,13 +32,27 @@ while($row=mysqli_fetch_array($result)){
         <div class="menu_welcomePage">
             <ul>
                 <li>
-                    <a class="navlink" href="./index.html">home</a> </li>
+                    <li><a class="navlink" href="./student-appts.php?user_id=<?php echo $_GET['user_id']; ?>">my appointments</a> </li>
+                    <div class="dropdown">
+                        <li><a class="dropbtn">my progress</a>
+                            <div class="dropdown-content">
+                                <?php 
+                                while ($progressInfo = mysqli_fetch_array($progress)){ 
+                                    $linkname=$progressInfo['course'];
+                                    $link="./student-progress.php?user_id=" . $_GET['user_id'] . "&cid=" . $linkname ; 
+                                    echo "<a href=".$link.">".$linkname."</a>";}
+                                ?>
+                            </div>
+                        </li>
+                    </div>
+                    <li><a class="navlink" href="./studentprof.php?user_id=<?php echo $_GET['user_id']; ?>">profile</a> </li>
+                    <li><a class="navlink" href="../index.html">logout</a> </li>
 
             </ul>
         </div>
 
         <div class="logo">
-            <h2 class="logo"> <a href="./index.html">UBtutoring</a> </h2>
+            <h2 class="logo"> <a href="../index.html">UBtutoring</a> </h2>
         </div>
 
     </div>
@@ -73,6 +89,7 @@ while($row=mysqli_fetch_array($result)){
     </form>
     <?php
     if(count($_POST)>0) {
+        $userid=$_GET['user_id'];
         $result = $_POST['tutor'];
         $name=Array();
         $name=explode(" ", $result);
@@ -81,7 +98,7 @@ while($row=mysqli_fetch_array($result)){
         $result = mysqli_query($conn,"SELECT * FROM tutors WHERE fname='$fname' and lname = '$lname'");
         $row = mysqli_fetch_array($result);
         $var1=$row['user_id'];
-        header('Location: ./tutorprof-student.php?user_id=' .$var1);
+        header('Location: ./tutorprof-student.php?user_id=' . $userid. '&tutor_id=' .$var1);
 
         
     }
@@ -89,7 +106,7 @@ while($row=mysqli_fetch_array($result)){
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="index.js"></script>
+    <script src="../index.js"></script>
     <script>
         $("#first-choice").change(function(){
             $("#second-choice").load("getter.php?choice=" + $("#first-choice").val());

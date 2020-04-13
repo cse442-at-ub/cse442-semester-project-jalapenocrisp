@@ -10,7 +10,7 @@ if(count($_POST)>0) {
         $row = mysqli_fetch_array($result);
         $message = "You are successfully authenticated!";
         $var1=$row['user_id'];
-        header('Location: ./studentprof.php?user_id=' .$var1);
+        header('Location: ./student-appts.php?user_id=' .$var1);
 	}
 }
 ?>
@@ -20,7 +20,7 @@ if(count($_POST)>0) {
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="../style.css" />
     <title>UB Tutoring Login</title>
 </head>
 
@@ -31,9 +31,9 @@ if(count($_POST)>0) {
                 <!-- the line of code commented below is important when we upload the work on a server. for now, i'm using an alternative below -->
                 <!-- <li><a href="javascript:loadPage('./login.php')">login</a> </li> -->
                 <li>
-                    <a class="navlink" href="./create-account.html">create account</a> </li>
+                    <a class="navlink" href="../create-account.html">create account</a> </li>
                 <li>
-                    <a class="navlink" href="./index.html">home</a> </li>
+                    <a class="navlink" href="../index.html">home</a> </li>
 
 
             </ul>
@@ -46,9 +46,7 @@ if(count($_POST)>0) {
     <br>
     <hr class="hr-navbar">
     <br>
-    <button class="selectButton" onclick="window.location.href = './create-account.html';">Not Registered? Sign Up
-
-        Here.</button>
+    <button class="selectButton" onclick="window.location.href = '../create-account.html';">Not Registered? Sign Up Here.</button>
 
     <h1 class="welcome-page-title">Student Log In</h1>
 
@@ -77,7 +75,7 @@ if(count($_POST)>0) {
         </form>
     </div>
 
-    <script src="index.js"></script>
+    <script src="../index.js"></script>
     
 </body>
 

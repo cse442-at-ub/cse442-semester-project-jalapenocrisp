@@ -48,7 +48,8 @@ hr.hr-navbar {
     color: white;
 }
 
-.navlink:hover {
+.navlink:hover,
+.dropbtn:hover {
     color: blue;
 }
 
@@ -160,9 +161,25 @@ input[type="submit"]:hover {
 }
 
 .selectButton:hover,
-.calendarView:hover {
+.calendarView:hover,
+.selectButton2:hover {
     background-color: rgb(0, 0, 131);
     color: white;
+}
+
+.selectButton2 {
+    width: 20%;
+    margin-top: 2%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    padding: 5px;
+    font-size: 16px;
+    background-color: white;
+    cursor: pointer;
+    border: none;
+    color: black;
 }
 
 .delButton {
@@ -262,13 +279,18 @@ input[type="submit"]:hover {
     width: 85%;
     margin: auto;
     border-spacing: 0;
-    border-collapse: separate;
+    /* border-collapse: separate; */
     table-layout: fixed;
     margin-bottom: 50px;
 }
 
 #calendar_tutor td {
+    height: 30px;
     text-align: center;
+}
+
+#calendar_tutor tr {
+    height: 30px;
 }
 
 .day_container {
@@ -285,24 +307,21 @@ input[type="submit"]:hover {
     margin-bottom: 40px;
 }
 
-.add-or-edit-button {
-    /* b9b739 */
+#popup_open {
+    position: fixed;
+    bottom: 10%;
+    right: 45%;
+    text-align: center;
     background: #fff;
     padding: 10px, 15px;
     color: #b9b739;
     font-weight: bolder;
-    /* text-transform: uppercase; */
     font-size: 18px;
     border-radius: 5px;
     box-shadow: 6px, 6px, 29px, -4px rgba(0, 0, 0, 0.75);
-    margin-top: 25 px;
     text-decoration: none;
     transition: 0.4s;
-}
-
-.add-or-edit-button:hover {
-    background-color: #f7ea33;
-    color: black;
+    cursor: pointer;
 }
 
 .day_popup {
@@ -390,6 +409,55 @@ input[type="submit"]:hover {
 }
 
 
+/* styling for student appt page */
+
+.infoAppt {
+    padding-top: 100px;
+    font-size: larger;
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+    text-align: center;
+}
+
+.infoAppt td {
+    height: 50px;
+}
+
+.cancel {
+    width: 50px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 4px;
+    padding: 2px;
+    font-size: 11px;
+    background-color: rgb(112, 109, 109);
+    cursor: pointer;
+    border: none;
+    color: white;
+}
+
+.center {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.rate {
+    width: 80px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    padding: 2px;
+    font-size: 13px;
+    background-color: rgb(233, 247, 112);
+    cursor: pointer;
+    border: none;
+    color: black;
+}
+
+
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ profile styling ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 .score:hover {
@@ -402,3 +470,76 @@ input[type="submit"]:hover {
     height: 20%;
     margin-left: 45%;
 }
+
+.contact-tutor-btn:link,
+.contact-tutor-btn:visited {
+    background-color: black;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-left: 130px;
+}
+
+.contact-tutor-btn:hover,
+.contact-tutor-btn:active {
+    background-color: gray;
+}
+
+
+/* style for my progress dropdowns */
+
+
+/* Dropdown Content (Hidden by Default) */
+
+.dropbtn {
+    color: black;
+    padding: 0px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+/* The container <div> - needed to position the dropdown content */
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+
+/* Links inside the dropdown */
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+
+/* Change color of dropdown links on hover */
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1
+}
+
+
+/* Show the dropdown menu on hover */
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+/* Change the background color of the dropdown button when the dropdown content is shown */

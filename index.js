@@ -22,14 +22,14 @@ function loadPage(suburl, data, callback, postcallback) {
 
 
 function goToLogIn(){
-    window.open("login.php", "_self");
+    window.open("tutorContent/login.php", "_self");
 }
 
 function forgot_password(){
-    window.open("login.php", "_self");
+    window.open("tutorContent/login.php", "_self");
 }
 function forgot_password_student(){
-    window.open("login-student.php", "_self");
+    window.open("studentContent/login-student.php", "_self");
 }
 
 function calenderTutorPopupClose(){
@@ -105,7 +105,7 @@ function verifyInfo(fname, lname, emailEntered, inputtxt){
                 var decimal=  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
                 if(inputtxt.value.match(decimal)){ 
                     alert('All information is valid')
-                    window.open("login.php");
+                    window.open("tutorContent/login.php");
                 }
                 else{ 
                     alert('Password must be 8 to 15 characters long and have at least 1 uppercase and lowercase letter, 1 number, and 1 special character.' )
