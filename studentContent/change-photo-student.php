@@ -35,13 +35,27 @@ if (isset($_POST['submit'])) {
 
         <div class="menu_welcomePage">
             <ul>
-                <li><a class="navlink" href="./index.html">logout</a> </li>
+                    <li><a class="navlink" href="./student-appts.php?user_id=<?php echo $_GET['user_id']; ?>">my appointments</a> </li>
+                    <div class="dropdown">
+                        <li><a class="dropbtn">my progress</a>
+                            <div class="dropdown-content">
+                                <?php 
+                                while ($progressInfo = mysqli_fetch_array($progress)){ 
+                                    $linkname=$progressInfo['course'];
+                                    $link="./student-progress.php?user_id=" . $_GET['user_id'] . "&cid=" . $linkname ; 
+                                    echo "<a href=".$link.">".$linkname."</a>";}
+                                ?>
+                            </div>
+                        </li>
+                    </div>
+                    <li><a class="navlink" href="./studentprof.php?user_id=<?php echo $_GET['user_id']; ?>">profile</a> </li>
+                <li><a class="navlink" href="../index.html">logout</a> </li>
 
             </ul>
         </div>
 
         <div class="logo">
-            <h2 class="logo"> <a href="./index.html">UBtutoring</a> </h2>
+            <h2 class="logo"> <a href="../index.html">UBtutoring</a> </h2>
         </div>
 
     </div>
