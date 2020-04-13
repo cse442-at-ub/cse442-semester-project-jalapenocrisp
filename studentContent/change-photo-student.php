@@ -14,6 +14,7 @@ if (isset($_POST['submit'])) {
     header('Location: ./studentprof.php?user_id=' .$userid);
 }
 
+$progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GET['user_id'] . "'");
 
 ?>
 
