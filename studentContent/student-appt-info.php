@@ -21,7 +21,7 @@
                 $flag = TRUE;
             }
         }
-        if($flag){
+        if($flag == TRUE){
             $allClasses = substr_replace($allClasses ,"",-1);
         }
         
@@ -33,7 +33,9 @@
         if($count > 0){
             $arr_results = mysqli_fetch_array($results);
             $prev = $arr_results['grades'];
-            $prev .= "," . $allClasses;
+            if($flag == TRUE){
+                $prev .= "," . $allClasses;
+            }           
             $sql_query = "UPDATE progress SET grades=\"$prev\", nextExam=\"$nextExam\" WHERE student_id=$student_id AND course=\"$course\" ;";
         }else{
             $sql_query = "INSERT INTO progress (student_id, course, grades, nextExam) VALUES ($student_id, \"$course\", \"$allClasses\", \"$nextExam\");";
