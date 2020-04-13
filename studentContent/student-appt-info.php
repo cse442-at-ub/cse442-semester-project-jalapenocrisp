@@ -7,14 +7,15 @@
 
     
     if(count($_POST) > 0){
-
+        
         $allClasses = "";
         $nextExam= $_POST["nextExam_year"] . "-" . $_POST["nextExam_month"] . "-" . $_POST["nextExam_date"] . " 00:00:00";
         unset($_POST["nextExam_month"]);
         unset($_POST["nextExam_year"]);
         unset($_POST["nextExam_date"]);
+        unset($_POST["submit"]);
         foreach($_POST as $key => $value){
-            if($value <=100 && $value >= 0){
+            if( strlen($value) > 0 && floatval($value) <=100 && floatval($value) >= 0){
                 $allClasses .= $value .",";
             }
         }

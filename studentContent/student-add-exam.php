@@ -14,7 +14,7 @@
         $choosen_class = $_POST["student_choosen_class"];
 
         if( floatval($grade_entered) < 150.0 && floatval($grade_entered) > 0.0){
-            
+            //echo "\"".floatval($grade_entered) . "\"\n";
             $prev_grades = "";
             $result = mysqli_query($conn,"SELECT * FROM progress WHERE student_id=$student_id;");
             while($row = mysqli_fetch_array($result)){
