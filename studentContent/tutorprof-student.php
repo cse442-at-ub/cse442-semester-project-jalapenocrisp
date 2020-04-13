@@ -58,6 +58,7 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
     <hr class="hr-navbar">
 
     <button class="calendarView" onclick="window.location.href = './tutor-calendar-view-student.php?user_id=<?php echo $_GET['user_id']; ?>&tutor_id=<?php echo $_GET['tutor_id']; ?>'">Make an Appointment</button>
+    <br><br>
     <?php
     
     $row = mysqli_fetch_array($result);
