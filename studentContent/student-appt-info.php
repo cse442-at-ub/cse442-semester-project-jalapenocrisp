@@ -14,12 +14,14 @@
         unset($_POST["nextExam_year"]);
         unset($_POST["nextExam_date"]);
         unset($_POST["submit"]);
+        $flag = FALSE;
         foreach($_POST as $key => $value){
             if( strlen($value) > 0 && floatval($value) <=100 && floatval($value) >= 0){
                 $allClasses .= $value .",";
+                $flag = TRUE;
             }
         }
-        if(substr($allClasses, -1) == ","){
+        if($flag){
             $allClasses = substr_replace($allClasses ,"",-1);
         }
         
