@@ -98,6 +98,7 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
         <form method="post">
             
             <select id="num_of_exams">
+                <option value="number" selected>number of classes to enter</option>
                 <option value="0">0</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
