@@ -9,7 +9,23 @@ body {
     color: black;
 }
 
-
+.aboutButton{
+    width: 50%;
+    margin-top: 2%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    padding: 5px;
+    font-size: 24px;
+    background-color: white;
+    cursor: pointer;        
+    border: none;
+    color: black;
+}
+.about{
+    padding-top: 50px;
+}
 /* styling for the welcome page */
 
 .welcome-page-title {
@@ -20,6 +36,10 @@ body {
 
 hr.hr-navbar {
     border-top: .5px solid black;
+}
+
+.bottompad{
+    padding-bottom: 100px;
 }
 
 .welcome-page-buttons {
@@ -43,7 +63,7 @@ hr.hr-navbar {
     margin-top: 200px;
 }
 
-.welcome-page-buttons:hover {
+.welcome-page-buttons:hover, .aboutButton:hover {
     background-color: rgb(0, 0, 131);
     color: white;
 }
@@ -51,6 +71,12 @@ hr.hr-navbar {
 .navlink:hover,
 .dropbtn:hover {
     color: blue;
+}
+.centerp{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;    
 }
 
 .logo a {
