@@ -22,11 +22,14 @@ function loadPage(suburl, data, callback, postcallback) {
 
 
 function goToLogIn(){
-    window.open("login.php", "_self");
+    window.open("tutorContent/login.php", "_self");
 }
 
 function forgot_password(){
-    window.open("login.php", "_self");
+    window.open("tutorContent/login.php", "_self");
+}
+function forgot_password_student(){
+    window.open("studentContent/login-student.php", "_self");
 }
 
 function calenderTutorPopupClose(){
@@ -102,7 +105,7 @@ function verifyInfo(fname, lname, emailEntered, inputtxt){
                 var decimal=  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
                 if(inputtxt.value.match(decimal)){ 
                     alert('All information is valid')
-                    window.open("login.php");
+                    window.open("tutorContent/login.php");
                 }
                 else{ 
                     alert('Password must be 8 to 15 characters long and have at least 1 uppercase and lowercase letter, 1 number, and 1 special character.' )
@@ -111,3 +114,37 @@ function verifyInfo(fname, lname, emailEntered, inputtxt){
         } 
     }
 }
+
+
+function addClasses(val){
+    console.log(val);
+    document.getElementById("all_classes_input").innerHTML += val;
+}
+
+$("#num_of_exams").change(function() {
+    var htmlString = "";
+    var len = document.getElementById("num_of_exams").value;
+    for (var i = 0; i < len; i++) {
+      htmlString += "<input type=\"text\" class=\"exam_student_input\" onkeypress=\"validate(event)\", name=\"_" + i + "\">";
+    }
+    addClasses(htmlString);
+  }
+)
+
+function validate(evt) {
+    var theEvent = evt || window.event;
+  
+    // Handle paste
+    if (theEvent.type === 'paste') {
+        key = event.clipboardData.getData('text/plain');
+    } else {
+    // Handle key press
+        var key = theEvent.keyCode || theEvent.which;
+        key = String.fromCharCode(key);
+    }
+    var regex = /[0-9]|\./;
+    if( !regex.test(key) ) {
+      theEvent.returnValue = false;
+      if(theEvent.preventDefault) theEvent.preventDefault();
+    }
+  }

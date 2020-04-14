@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
@@ -9,10 +8,11 @@
     <link rel="stylesheet" type="text/css" href="style.css" />
     <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-   <title>UB Tutoring Service</title>
+    <title>UB Tutoring Service</title>
 </head>
 
-<body>
+<body class="main-container">
+
     <div class="header">
 
         <div class="menu_welcomePage">
@@ -20,10 +20,9 @@
 
                 <!-- the line of code commented below is important when we upload the work on a server. for now, i'm using an alternative below -->
                 <!-- <li><a href="javascript:loadPage('./login.php')">login</a> </li> -->
-                <li><a href="./login.php">login</a> </li>
-                <li>
-                    <a href="./index.html">home</a> </li>
-                <li>create account</li>
+                <li><a class="navlink" href="./tutorContent/login.php">tutor login</a> </li>
+                <li><a class="navlink" href="./tutorContent/login-student.php">student login</a> </li>
+                <li><a class="navlink" href="./index.html">home</a></li>
 
             </ul>
         </div>
@@ -33,21 +32,19 @@
         </div>
 
     </div>
+    <hr class="hr-navbar">
 
+    <h1 class="welcome-page-title">Choose an option:</h1>
 
-    <br><br>
-    <h1 class="title-studentView-calendar">Calendar for the tutor you Selcted</h1>
-<br><br><br><br>
-    <img class="studentViewCalendar center" src="./calendarimage.jpg" alt="tutor calendar">
+    <div class="route-buttons">
+        <button onclick="window.location.href = './tutorContent/tutor-signup.php';" class="welcome-page-buttons tutor-button">new tutor account</button>
+        <button onclick="window.location.href = './studentContent/student-signup.php';" class="welcome-page-buttons student-button">new student account</button>
+    </div>
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="index.js"></script>
     <script>
-        $(document).ready(function() {
-
-
-
-        });
     </script>
 
 </body>

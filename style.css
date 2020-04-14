@@ -1,15 +1,31 @@
 :root {
-    --teal: #008080;
+    --teal: #b1cddd;
     --yellow: #cbcaa5;
     --black: #000000;
 }
 
 body {
     background-color: var(--teal);
-    color: white;
+    color: black;
 }
 
-
+.aboutButton{
+    width: 50%;
+    margin-top: 2%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    padding: 5px;
+    font-size: 24px;
+    background-color: white;
+    cursor: pointer;        
+    border: none;
+    color: black;
+}
+.about{
+    padding-top: 50px;
+}
 /* styling for the welcome page */
 
 .welcome-page-title {
@@ -18,16 +34,25 @@ body {
     padding-top: 80px;
 }
 
+hr.hr-navbar {
+    border-top: .5px solid black;
+}
+
+.bottompad{
+    padding-bottom: 100px;
+}
+
 .welcome-page-buttons {
-    background-color: var(--black);
+    width: 25%;
+    background-color: white;
     border: none;
     border-radius: 8px;
-    color: white;
-    padding: 32px;
+    color: black;
+    padding: 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 20px;
     margin: 4px 2px;
     cursor: pointer;
 }
@@ -38,13 +63,34 @@ body {
     margin-top: 200px;
 }
 
+.welcome-page-buttons:hover, .aboutButton:hover {
+    background-color: rgb(0, 0, 131);
+    color: white;
+}
+
+.navlink:hover,
+.dropbtn:hover {
+    color: blue;
+}
+.centerp{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;    
+}
+
 .logo a {
-    font-family: "Righteous", cursive;
+    color: black;
+    font-family: sans-serif;
     text-decoration: none;
 }
 
+.logo a:hover {
+    color: blue;
+}
+
 .header {
-    padding: 10px;
+    padding-left: 10px;
 }
 
 .menu_welcomePage {
@@ -54,10 +100,11 @@ body {
 
 ul li {
     display: inline;
-    padding: 50px;
+    padding: 30px;
 }
 
 ul li a {
+    color: black;
     text-decoration: none;
 }
 
@@ -66,9 +113,10 @@ ul li a:hover {
 }
 
 
-/*------------ syed-------- styling for the tutor signup page */
+/*-------------------- styling for the tutor signup page */
 
-.log_in_input, .sign_up_input {
+.log_in_input,
+.sign_up_input {
     width: 100%;
     padding: 12px;
     margin: 8px 0;
@@ -83,7 +131,8 @@ ul li a:hover {
 }
 
 input[type="submit"]:hover {
-    background-color: #45a049;
+    background-color: blue;
+    color: white;
 }
 
 #tutor_signup_div {
@@ -93,82 +142,137 @@ input[type="submit"]:hover {
     margin-right: 20%;
 }
 
-#tutor_signup_submit, #log_in_button{
+#tutor_signup_submit,
+#log_in_button {
     display: inline-block;
     border: 0px solid #ccc;
     margin-top: 10px;
-    background-color: #45a038;
+    background-color: blue;
+    color: white;
     width: 100%;
     padding: 12px;
 }
 
-#tutor_signup_submit:hover, #log_in_button:hover{
-    background-color: #52e93e;
+#tutor_signup_submit:hover,
+#log_in_button:hover {
+    background-color: rgb(0, 0, 131);
 }
 
-#forgot_link_id{
-    color: yellow;
+#forgot_link_id {
+    color: black;
     font-weight: bold;
+}
+
+.message {
+    color: red;
+    font-size: larger;
 }
 
 
 /* search style */
 
-
-.selectButton{
-    margin-top:2%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 8px;
-    padding: 10px;
-    font-size: 16px;
-    background-color: black;
-    cursor: pointer;
-    border: none;
-    color: white;
-}
-.info{
-    font-size: larger;
-    width: 50%;
-    margin-left: 25%;    
-    margin-right: 25%; 
-    text-align: center;   
-}
-.info td{
-    height:50px;
-}
-.info1{
-    font-size: larger;
-    width: 50%;
-    margin-left: 25%;    
-    margin-right: 25%; 
-    text-align: center;   
-    margin-top: 140px;
-}
-.center{
+.selectButton {
+    width: 15%;
     margin-top: 2%;
     display: block;
     margin-left: auto;
     margin-right: auto;
     border-radius: 8px;
- 
+    padding: 5px;
+    font-size: 16px;
+    background-color: white;
+    cursor: pointer;
+    border: none;
+    color: black;
 }
-.calendarView{
-    margin-top:2%;
+
+.selectButton:hover,
+.calendarView:hover,
+.selectButton2:hover {
+    background-color: rgb(0, 0, 131);
+    color: white;
+}
+
+.selectButton2 {
+    width: 20%;
+    margin-top: 2%;
     display: block;
     margin-left: auto;
     margin-right: auto;
     border-radius: 8px;
-    padding: 10px;
+    padding: 5px;
     font-size: 16px;
-    background-color: black;
+    background-color: white;
+    cursor: pointer;
+    border: none;
+    color: black;
+}
+
+.delButton {
+    width: 15%;
+    margin-top: 2%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    padding: 5px;
+    font-size: 16px;
+    background-color: rgb(214, 3, 3);
     cursor: pointer;
     border: none;
     color: white;
 }
-.change{
-    margin-top:2%;
+
+.delButton:hover {
+    background-color: rgb(134, 4, 4);
+}
+
+.info {
+    font-size: larger;
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.info td {
+    height: 50px;
+}
+
+.info1 {
+    font-size: larger;
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+    text-align: center;
+    margin-top: 140px;
+}
+
+.center {
+    margin-top: 2%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+}
+
+.calendarView {
+    width: 15%;
+    margin-top: 2%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    padding: 5px;
+    font-size: 16px;
+    background-color: white;
+    cursor: pointer;
+    border: none;
+    color: black;
+}
+
+.change {
+    margin-top: 2%;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -178,88 +282,101 @@ input[type="submit"]:hover {
     cursor: pointer;
     border: none;
 }
-.dd{
+
+.dd {
     text-align: center;
 }
+
+.input1 {
+    width: 50%;
+    padding: 12px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
 
 /* ~~~~~~~~~~~~~~~~~~~~Tutor Calendar View style ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
-#calendar_tutor{
-    font-family:sans-serif;
+#calendar_tutor {
+    font-family: sans-serif;
     width: 85%;
     margin: auto;
     border-spacing: 0;
-    border-collapse: separate;
+    /* border-collapse: separate; */
     table-layout: fixed;
     margin-bottom: 50px;
-    	  
 }
-#calendar_tutor td{
+
+#calendar_tutor td {
+    height: 30px;
     text-align: center;
 }
 
-.day_container{
-    position : absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	text-align:center;
+#calendar_tutor tr {
+    height: 30px;
 }
 
-.day_container h1{
+.day_container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.day_container h1 {
     color: #fff;
-	font-size : 36px;
-	margin-bottom: 40px;
+    font-size: 36px;
+    margin-bottom: 40px;
 }
 
-
-.add-or-edit-button{
-    /* b9b739 */
+#popup_open {
+    position: fixed;
+    bottom: 10%;
+    right: 45%;
+    text-align: center;
     background: #fff;
-	padding: 10px, 15px;
-	color : #b9b739;
-	font-weight: bolder;
-	/* text-transform: uppercase; */
-	font-size: 18px;
-	border-radius: 5px;
-	box-shadow: 6px, 6px, 29px, -4px rgba(0,0,0,0.75);
-	margin-top:25 px;
-	text-decoration: none;
-	transition: 0.4s;
+    padding: 10px, 15px;
+    color: #b9b739;
+    font-weight: bolder;
+    font-size: 18px;
+    border-radius: 5px;
+    box-shadow: 6px, 6px, 29px, -4px rgba(0, 0, 0, 0.75);
+    text-decoration: none;
+    transition: 0.4s;
+    cursor: pointer;
 }
 
-.add-or-edit-button:hover{
-    background-color: #f7ea33;
-    color: black;
+.day_popup {
+    background: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
-.day_popup{
-	background: rgba(0,0,0,0.6);
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	top: 0;
-	display: none;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-}
-
-.day_popup_content{
-	height: 700px;
-	width: 500px;
-	background: #fff;
+.day_popup_content {
+    height: 700px;
+    width: 500px;
+    background: #fff;
     padding: 40px;
-	border-radius: 5px;
-	position: relative;
+    border-radius: 5px;
+    position: relative;
 }
 
-.day_popup_content label{
+.day_popup_content label {
     padding: 0;
     color: darkgreen;
 }
 
-.day_popup_content input{
+.day_popup_content input {
     margin: 10px auto;
     display: block;
     width: 80%;
@@ -267,51 +384,243 @@ input[type="submit"]:hover {
     border: 1px solid gray;
 }
 
-#day_popout_button{
+#day_popout_button {
     margin: 20px auto;
-	display: block;
-	width: 50%;
-	padding: 8px;
+    display: block;
+    width: 50%;
+    padding: 8px;
     border: 1px solid gray;
 }
 
-.day_close{
-	position: absolute;
-	top: -15px;
-	right: -15px;
-	background: #fff;
-	height: 20px;
-	width: 20px;
-	border-radius: 50%;
-	box-shadow: 6px, 6px, 29px, -4px rgba(0,0,0,0.75);
-	cursor: pointer;
+.day_close {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background: #fff;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    box-shadow: 6px, 6px, 29px, -4px rgba(0, 0, 0, 0.75);
+    cursor: pointer;
 }
+
+
 /* 
 
 
 
 */
 
+
 /* ~~~~~~~~~~~~~~~~~~~end of Tutor Calendar View style~~~~~~~~~~~~~~~~~~~~~~ */
 
-/* styling for the button on tutor view of the tutor calendar page */ 
 
+/* styling for the button on tutor view of the tutor calendar page */
 
-#calender_tutor{
+#calender_tutor {
     margin-left: 15%;
     margin-right: 15%;
-    
 }
-/* end of tre's stylization */
+
 
 /* styling for tutor page schedule */
 
 .studentViewCalendar {
     height: 650px;
     width: 650px;
-
 }
 
 .title-studentView-calendar {
     text-align: center;
 }
+
+
+/* styling for student appt page */
+
+.infoAppt {
+    padding-top: 100px;
+    font-size: larger;
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+    text-align: center;
+}
+
+.infoAppt td {
+    height: 50px;
+}
+
+.cancel {
+    width: 50px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 4px;
+    padding: 2px;
+    font-size: 11px;
+    background-color: rgb(112, 109, 109);
+    cursor: pointer;
+    border: none;
+    color: white;
+}
+
+.center {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.rate {
+    width: 80px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    padding: 2px;
+    font-size: 13px;
+    background-color: rgb(233, 247, 112);
+    cursor: pointer;
+    border: none;
+    color: black;
+}
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ profile styling ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.score:hover {
+    color: blue;
+}
+
+.profilePicture {
+    border-radius: 50%;
+    width: 10%;
+    height: 20%;
+    margin-left: 45%;
+}
+
+.contact-tutor-btn:link,
+.contact-tutor-btn:visited {
+    background-color: black;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-left: 130px;
+}
+
+.contact-tutor-btn:hover,
+.contact-tutor-btn:active {
+    background-color: gray;
+}
+
+/* style for my progress dropdowns */
+/* Dropdown Content (Hidden by Default) */
+.dropbtn {
+    color: black;
+    padding: 0px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {background-color: #f1f1f1}
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~student appt styling ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+#student_appt_info_header{
+    text-align: center;
+    font-family: 'Open Sans';
+    font-size:160%;
+    margin: auto;
+    padding-top: 20px;
+}
+
+#student_appointment_div{
+    background-color: #f2f2f2;
+    width: 50%;
+    padding: 20px;
+    margin: auto;
+    margin-top: 30px;
+}
+
+.exam_student_input{
+    width: 100%;
+    text-align: left;
+    font-family: 'Open Sans';
+    font-size: 14px;
+    display: block;
+    height: 20px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+#num_of_exams{
+    width: 100%;
+    text-align: left;
+    font-family: 'Open Sans';
+    font-size: 14px;
+    display: block;
+    height: 20px;
+}
+
+#student_appt_submit{
+    width: 100%;
+    font-family: 'Open Sans';
+    font-size: 16px;
+    text-align: center;
+    background-color: rgb(0, 63, 99);
+    color: #b1cdd0;
+    height: 30px;
+    margin-top: 5px;
+    display: block;
+}
+
+#student_appt_submit:hover {
+    background-color: #005eac;
+}
+
+#student_appointment_label{
+    text-align: left;
+    font-family: 'Open Sans';
+    font-size: 14px;
+    display: block;
+    margin-top: 20px;
+}
+
+#student_appointment_div2{
+    width: 100%;
+    margin-top: 30px;
+    display: inline-block;
+    
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ end student appt styling ~~~~~~~~~~~~~~~~~~~~~~~~ */
