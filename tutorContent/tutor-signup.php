@@ -23,7 +23,7 @@
             $message="Email address is already in use.";
         }else if(!preg_match('(^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])\S*$)', $pass)){
             $message="Please enter a valid password.";
-	}else if ($courses=""){
+	}else if (!$courses){
 	    $message="Please choose a course.";
         }else if (strlen($phone)!=10){
             $message="Please input a 10 digit phone number.";
