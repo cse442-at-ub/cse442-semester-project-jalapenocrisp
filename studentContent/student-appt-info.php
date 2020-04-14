@@ -92,7 +92,8 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
     <br>
     <hr class="hr-navbar">
     <br>
-    <p align="center" id="student_appt_info_header">Tell us about any exams you haven't entered previously for <?php echo $course;?></p>
+    <p align="center" id="student_appt_info_header">Enter your most recent grades for <?php echo $course;?></p>
+    <p class="center"> * must be in number format *</p>
     <div id="student_appointment_div">
         <form method="post">
             
