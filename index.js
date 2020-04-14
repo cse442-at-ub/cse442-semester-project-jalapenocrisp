@@ -26,10 +26,10 @@ function goToLogIn(){
 }
 
 function forgot_password(){
-    window.open("tutorContent/login.php", "_self");
+    window.open("login.php", "_self");
 }
 function forgot_password_student(){
-    window.open("studentContent/login-student.php", "_self");
+    window.open("login-student.php", "_self");
 }
 
 function calenderTutorPopupClose(){
