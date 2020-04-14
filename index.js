@@ -117,6 +117,7 @@ function verifyInfo(fname, lname, emailEntered, inputtxt){
 
 
 function addClasses(val){
+    document.getElementById("all_classes_input").innerHTML = "";
     console.log(val);
     document.getElementById("all_classes_input").innerHTML += val;
 }
