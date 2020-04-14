@@ -34,25 +34,59 @@
     </div>
     <hr class="hr-navbar">
     <div class="about">
-        <button onclick="myFunction()" class="aboutButton">About Our Operation</button>
-        <p id="about"></p><br>
-        <button onclick="myFunction()" class="aboutButton">Become A Student</button>
-        <p id="student"></p><br>
-        <button onclick="myFunction()" class="aboutButton">Become a Tutor</button>
-        <p id="tutor"></p><br>
-        <button onclick="myFunction()" class="aboutButton">Benefits</button>
-        <p id="benefits"></p><br>
-        <button onclick="myFunction()" class="aboutButton">Contact Us</button>
-        <p id="contact"></p>
+        <button id="1" onclick="about()" class="aboutButton">About Our Operation</button><br>
+        <p class="centerp" id="about"></p><br>
+        <button id="2" onclick="student()" class="aboutButton">Become A Student</button><br>
+        <p class="centerp" id="student"></p><br>
+        <button id="3" onclick="tutor()" class="aboutButton">Become a Tutor</button><br>
+        <p class="centerp" id="tutor"></p><br>
+        <button id="4" onclick="benefits()" class="aboutButton">Benefits</button><br>
+        <p class="centerp" id="benefits"></p><br>
+        <button id="5" onclick="contact()" class="aboutButton">Contact Us</button><br>
+        <p class="centerp" id="contact"></p>
     </div>
+    <div class="bottompad"></div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="index.js"></script>
     <script>
-        $(document).ready(function() {
+    function about(){
+        if(document.getElementById("about").innerHTML == ""){
+            document.getElementById("about").innerHTML = "At UBtutoring, we know how challenging computer science courses can be (we are computer science students ourselves!), so we created a system to help student sand tutors find each other in a social setting. You are free to browse different courses for a tutor, view information about that tutor, and choose a tutor who's schedule aligns with yours.";
 
+        }else{
+            document.getElementById("about").innerHTML = "";
+        }
+    }
+    function student(){
+        if(document.getElementById("student").innerHTML == ""){
+            document.getElementById("student").innerHTML = "Any current student at UB can sign up to be a student, we just ask that you are currently in the class that you choose to be tutored in to make sure the students that need help with their grades are able to get it. Once you create an account, you can start browsing classes, adding to your profile, and making appointments with tutors. You will have the option to meet in a physical location with your tutor or meet virtually via zoom. Appointments are standard one hour time slots, however at this time, we are allowing students to book as many consecutive time slots with a tutor as they would like. Once a tutoring session is complete, it is your job to \"complete\" the session by clicking complete on your appointment page. After that you will be free to rate your tutor and then clear that appointment from your page or keep it for reference.You will also be able to track your progress in-app via the \"my progress\" tab. This requires you to manually enter grades for your courses you have been tutored in, and we strongly encourage you to track your progress!For any further questions, visit the contact tab at the bottom of the page. Happy learning!";
+        }else{
+            document.getElementById("student").innerHTML = "";
+        }    
+    }
+    function tutor(){
+        if(document.getElementById("tutor").innerHTML == ""){
+            document.getElementById("tutor").innerHTML = "Any student at UB, whether undergraduate, graduate, or post-graduate can sign up to be a tutor with UBtutoring as long as you have a valid UB email address. As of right now, our site only allows tutors to choose one class to teach, in the future we are hoping to expand those options! Once you choose a course an complete sign-up, it encouraged that you complete your profle and add a profile photo so students can identify you when they show up to appointments. After that, navigate to \"set availability\" and simply click on the slots that you want to be availabel for the week. Keep in mind that you can change this schedule at any time. If a student makes an appointment with you, you will receive an email and the appointment will be available on your appointment page. This page will allow you to see the date and time of the appointment as well as contact information for the student and the option to cancel if there is an emergency. If you have any further questions or concerns, navigate to the contact button at the bottom of this page.";
+        }else{
+            document.getElementById("tutor").innerHTML = "";
+        }
+    }
+    function benefits(){
+        if(document.getElementById("benefits").innerHTML == ""){
+            document.getElementById("benefits").innerHTML = "Being a tutor is fulfilling, looks great on a resume, and is easy to track the hours you put in with UBtutoring! On your tutor profile page, there is an element called \"tutor score\". This is updated every time a student completes a tutoring session with you. You can use this to track your time with us, as well as cite it on your resume. We are curently working with UB to allow a certain number of tutoring hours to count as credit hours so keep checking back!";
+        }else{
+            document.getElementById("benefits").innerHTML = "";
+        }
+    }
+    function contact(){
+        if(document.getElementById("contact").innerHTML == ""){
+            document.getElementById("contact").innerHTML = "For any questions/concerns contact us at info@ubtutoring.com";
+        }else{
+            document.getElementById("contact").innerHTML = "";
+        }
+    }
 
-        });
     </script>
 
 </body>

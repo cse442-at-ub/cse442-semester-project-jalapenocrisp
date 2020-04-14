@@ -24,7 +24,7 @@ body {
     color: black;
 }
 .about{
-    padding-top: 100px;
+    padding-top: 50px;
 }
 /* styling for the welcome page */
 
@@ -36,6 +36,10 @@ body {
 
 hr.hr-navbar {
     border-top: .5px solid black;
+}
+
+.bottompad{
+    padding-bottom: 100px;
 }
 
 .welcome-page-buttons {
@@ -67,6 +71,12 @@ hr.hr-navbar {
 .navlink:hover,
 .dropbtn:hover {
     color: blue;
+}
+.centerp{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;    
 }
 
 .logo a {
