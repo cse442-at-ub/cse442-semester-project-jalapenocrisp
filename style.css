@@ -555,6 +555,9 @@ input[type="submit"]:hover {
 /* style for my progress dropdowns */
 /* Dropdown Content (Hidden by Default) */
 .dropbtn {
+    background:none;
+    border:none;
+    margin:0;
     color: black;
     padding: 0px;
     font-size: 16px;
@@ -590,7 +593,7 @@ input[type="submit"]:hover {
   .dropdown:hover .dropdown-content {
     display: block;
   }
-
+  .show {display:block;}
 
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~student appt styling ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
@@ -617,7 +620,7 @@ input[type="submit"]:hover {
     font-family: 'Open Sans';
     font-size: 14px;
     display: block;
-    height: 20px;
+    height: 40px;
     margin-bottom: 5px;
     margin-top: 5px;
 }
@@ -628,7 +631,7 @@ input[type="submit"]:hover {
     font-family: 'Open Sans';
     font-size: 14px;
     display: block;
-    height: 20px;
+    height: 40px;
 }
 
 #student_appt_submit{

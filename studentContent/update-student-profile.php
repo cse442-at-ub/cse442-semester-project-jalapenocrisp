@@ -53,17 +53,22 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
                 <li><a class="navlink" href="./student-appts.php?user_id=<?php echo $_GET['user_id']; ?>">my appointments</a> </li>
                 <li><a class="navlink" href="./search.php?user_id=<?php echo $_GET['user_id']; ?>">find a tutor</a> </li>
                 <div class="dropdown">
-                        <li><a class="dropbtn">my progress</a>
-                            <div class="dropdown-content">
+                <li><button onclick="progressclick()" class="dropbtn">my progress</button>
+                            <div id="myDropdown" class="dropdown-content">
                                 <?php 
+                                if (mysqli_num_rows($progress)<1){
+                                    echo "<p class='center'>no progress yet</p>";
+                                }else{
                                 while ($progressInfo = mysqli_fetch_array($progress)){ 
                                     $linkname=$progressInfo['course'];
                                     $link="./student-progress.php?user_id=" . $_GET['user_id'] . "&cid=" . $linkname ; 
                                     echo "<a href=".$link.">".$linkname."</a>";}
+                                }
                                 ?>
                             </div>
                         </li>
-                    </div>                <li><a class="navlink" href="./studentprof.php?user_id=<?php echo $_GET['user_id']; ?>">profile</a> </li>
+                    </div>                
+                    <li><a class="navlink" href="./studentprof.php?user_id=<?php echo $_GET['user_id']; ?>">profile</a> </li>
                 <li><a class="navlink" href="../index.html">logout</a> </li>
 
             </ul>
