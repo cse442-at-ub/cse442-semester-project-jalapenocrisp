@@ -52,10 +52,13 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../style.css" >
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content ="width=device-width,initial-scale=1,user-scalable=yes" />
+    <title>UB Tutoring</title>
+    <link rel="stylesheet" type="text/css" href="../style.css" />
+    <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <title>UB Tutoring Service</title>
 </head>
 <body class="main-container">
@@ -89,7 +92,6 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
         </div>
 
     </div>
-    <br>
     <hr class="hr-navbar">
     <br>
     <h1 class="welcome-page-title">Enter your most recent grades for <?php echo $course;?></h1>

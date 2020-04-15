@@ -23,6 +23,7 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content ="width=device-width,initial-scale=1,user-scalable=yes" />
     <title>UB Tutoring</title>
     <link rel="stylesheet" type="text/css" href="../style.css" />
     <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
@@ -69,7 +70,6 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
 window.onload = function () {
  
 var chart = new CanvasJS.Chart("chartContainer", {
-    // backgroundColor: "#000083",
 	animationEnabled: true,
 	exportEnabled: true,
 	 theme: "dark1", // "light1", "light2", "dark1", "dark2"
@@ -100,7 +100,7 @@ chart.render();
 </head>
 <body>
     <br><br><br>
-<div id="chartContainer" style="margin-left: auto; margin-right: auto; height: 500px; width: 960px;"></div>
+<div id="chartContainer" style="margin-left: auto; margin-right: auto; height: 60%; width: 70%;"></div>
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </body>
 </html>         

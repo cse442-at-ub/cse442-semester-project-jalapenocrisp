@@ -14,6 +14,7 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content ="width=device-width,initial-scale=1,user-scalable=yes" />
     <title>UB Tutoring</title>
     <link rel="stylesheet" type="text/css" href="../style.css" />
     <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
@@ -88,8 +89,8 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
         <td><?php echo $appt["time"]; ?>:00</td>
         <td><a class="navlink" style="text-decoration: none" href="./tutorprof-student.php?user_id=<?php echo $_GET['user_id']; ?>&tutor_id=<?php echo $tid;?>"><?php echo $tutarray["fname"]; ?> <?php echo $tutarray["lname"]; ?></td>
         <td><?php echo $tutarray["courses"]; ?></td>
-        <td><form method="post"><input type="hidden" name="apptid" class="input1" value="<?php echo $appt['appt_id']; ?>"><input type="submit" class="rate" name="yes" value="complete"></form>
-        <td><a href="./cancel-appt.php?user_id=<?php echo $_GET['user_id']; ?>&appt_id=<?php echo $appt['appt_id']; ?>">cancel</a><td>
+        <td><form method="post"><input type="hidden" name="apptid" class="input1" value="<?php echo $appt['appt_id']; ?>"><input type="submit" class="rate" name="yes" value="done"></form>
+        <td><button class="cancel" onclick="window.location.href='./cancel-appt.php?user_id=<?php echo $_GET['user_id']; ?>&appt_id=<?php echo $appt['appt_id']; ?>'">X</a><td>
 
     </tr>
 

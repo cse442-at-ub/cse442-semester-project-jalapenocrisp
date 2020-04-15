@@ -31,9 +31,13 @@ if(count($_POST)>0) {
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content ="width=device-width,initial-scale=1,user-scalable=yes" />
+    <title>UB Tutoring</title>
     <link rel="stylesheet" type="text/css" href="../style.css" />
-    <title>UB Tutoring Login</title>
+    <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>UB Tutoring Service</title>
 </head>
 
 <body>
@@ -55,11 +59,12 @@ if(count($_POST)>0) {
             <h2 class="logo"> <a href="../index.html">UBtutoring</a> </h2>
         </div>
     </div>
-    <br>
     <hr class="hr-navbar">
-    <br>
-    <button class="selectButton" onclick="window.location.href = '../create-account.html';">Not Registered? Sign Up Here.</button>
 
+    <button class="selectButton" onclick="window.location.href = '../create-account.html';">Register</button>
+    <br>
+    <br>
+    <br>
     <h1 class="welcome-page-title">Student Log In</h1>
 
     <div id="tutor_signup_div">
