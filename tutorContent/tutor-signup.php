@@ -50,10 +50,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content ="width=device-width,initial-scale=1,user-scalable=yes" />
+    <title>UB Tutoring</title>
     <link rel="stylesheet" type="text/css" href="../style.css" />
-    <title>UB Tutoring Tutor Sign Up</title>
+    <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>UB Tutoring Service</title>
 </head>
 <body>
 
@@ -76,16 +80,16 @@
         </div>
 
     </div>
-    <br>
     <hr class="hr-navbar">
 
     <h1 class="welcome-page-title">Tutor Sign Up</h1>
+    <br>
 
     <div id="tutor_signup_div">
         <form method="post" action="">
             <label>Fields marked * must be filled in order to create an account.</label>
             <br>
-            <br>
+            
             <div class="message">
     
                 <?php 
@@ -94,8 +98,7 @@
         
                     } ?> 
             </div> 
-            <br>
-            <br>
+            
             <label for="fname">First Name *</label>
 
             <input class="sign_up_input" type="text"  id= "fname" name="fname" placeholder="First">

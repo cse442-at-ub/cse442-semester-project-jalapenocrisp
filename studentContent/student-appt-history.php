@@ -24,6 +24,7 @@ if (isset($_POST['submit'])){
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content ="width=device-width,initial-scale=1,user-scalable=yes" />
     <title>UB Tutoring</title>
     <link rel="stylesheet" type="text/css" href="../style.css" />
     <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
@@ -74,13 +75,13 @@ if (isset($_POST['submit'])){
     ?>
     <table class="infoAppt">
     <tr>
-    <th width="10%"></th>
+    <th width="5%"></th>
     <th width="15%">Date</th>
     <th width="15%">Time</th>
-    <th width="20%">Tutor</th>
+    <th width="30%">Tutor</th>
     <th width="20%">Class</th>
     <th width="10%">Status</th>
-    <th width="10%"></th>
+    <th width="5%"></th>
     </tr>
 
     <?php
@@ -92,7 +93,7 @@ if (isset($_POST['submit'])){
     ?>
 
  
-    <tr><td><form method="post"><input type="hidden" name="id" value=<?php echo $appt['appt_id'];?>><input class="cancel" type="submit" name="submit" value="remove"></form></td>
+    <tr><td><form method="post"><input type="hidden" name="id" value=<?php echo $appt['appt_id'];?>><input class="cancel" type="submit" name="submit" value="X"></form></td>
         <td><?php echo $appt["day"]; ?></td>
         <td><?php echo $appt["time"]; ?>:00</td>
         <td><a style="text-decoration: none" class="navlink" href="./tutorprof-student.php?user_id=<?php echo $_GET['user_id']; ?>&tutor_id=<?php echo $tid;?>"><?php echo $tutarray["fname"]; ?> <?php echo $tutarray["lname"]; ?></td>
@@ -101,7 +102,7 @@ if (isset($_POST['submit'])){
     <?php
     if ($appt['status']=="completed"){
         ?>
-        <td><button onclick="window.location.href = './rate-tutor.php?tutor_id=<?php echo $tutarray['user_id']; ?>&user_id=<?php echo $_GET['user_id'];?>';" class="rate">rate tutor</button><td>
+        <td><button onclick="window.location.href = './rate-tutor.php?tutor_id=<?php echo $tutarray['user_id']; ?>&user_id=<?php echo $_GET['user_id'];?>';" class="rate">rate</button><td>
     <?php
     }
     ?>
