@@ -80,8 +80,7 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
     <table class="info">
     
     <tr><td>Name: </td><td><?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?></td></tr>
-    <tr><td>Phone Number: </td><td><?php echo $row["phone"]; ?></td></tr>
-    <tr><td>Title: </td><td><?php echo $row["title"]; ?></td></tr>
+    <tr><td>Academic Level: </td><td><?php echo $row["title"]; ?></td></tr>
     <tr><td>Email: </td><td><?php echo $row["email"]; ?></td></tr>
     <tr><td>Course: </td><td><?php echo $row["courses"]; ?></td></tr>
     <tr><td>Rating: </td><td><?php echo $row["rank"]; ?></td></tr>
