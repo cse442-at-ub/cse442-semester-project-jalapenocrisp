@@ -2,15 +2,6 @@
     $message="";
     include_once "access-db.php";
 
-    if(count($_POST)>0) {
-        $enteredCode=$_POST["code"];
-        if ($code!=$enteredCode){
-            $mess="Code is incorrect";
-        }else{
-            header('Location: ./login.php');
-        }
-    }
-
     $result1 = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET["user_id"] . "'");
     $row=mysqli_fetch_array($result1);
     $phone=$row['phone'];
@@ -64,22 +55,38 @@
         $emaillink="vtext.com";           
     }      
         
-    $to=$phone;
-    $to.='@';
-    $to.=$emaillink;
-    $code= mt_rand(100000, 999999);
 
-    // $subject="Notification of student cancellation";
-    $message="Your verification code is ";
-    $message.=$code;
-    $from="no-reply@buffalo.com";
-    $headers  = "MIME-Version: 1.0" . "\r\n";
-    $headers .= "Content-type: text/plain; charset=iso-8859-1" . "\r\n";
-    $headers .= "From: ". $from. "\r\n";
-    $headers .= "Reply-To: ". $from. "\r\n";
-    $headers .= "X-Mailer: PHP/" . phpversion();
-    $headers .= "X-Priority: 1" . "\r\n";
-    mail( $to, '', $message );
+
+    if(isset($_POST['text'])) {
+        $to=$phone;
+        $to.='@';
+        $to.=$emaillink;
+        $code= strval(mt_rand(100000, 999999));
+        $message="Your verification code is ";
+        $message.=$code;
+        $from="no-reply@buffalo.com";
+        $headers  = "MIME-Version: 1.0" . "\r\n";
+        $headers .= "Content-type: text/plain; charset=iso-8859-1" . "\r\n";
+        $headers .= "From: ". $from. "\r\n";
+        $headers .= "Reply-To: ". $from. "\r\n";
+        $headers .= "X-Mailer: PHP/" . phpversion();
+        $headers .= "X-Priority: 1" . "\r\n";
+        mail( $to, '', $message );
+        mysqli_query($conn,"UPDATE tutors SET vcode='" . $code  . "' WHERE user_id='" . $_GET['user_id'] . "'"); 
+    }    
+        
+    if(isset($_POST['verify'])){
+        $enteredCode=$_POST["code"];
+        $result1 = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET["user_id"] . "'");
+        $row=mysqli_fetch_array($result1);
+        $code=$row['vcode'];
+        if ($code!=$enteredCode){
+            $mess="Code is incorrect";
+        }else{
+            header('Location: ./login.php');
+        }
+    }
+    
                       
 ?>
 
@@ -115,6 +122,7 @@
     <hr class="hr-navbar">
 
     <h1 class="welcome-page-title">Enter your verification code:</h1>
+    <p class="center">* code may take up to a minute to arrive *</p>
 <br>
     <div class="message">
     <?php 
@@ -126,8 +134,8 @@
     <div id="tutor_signup_div">
         <form method="post" action="">
             <input class="sign_up_input" type="text" id= "code" name="code">
-            <input type="submit" id="tutor_signup_submit" value= "Verify"> 
-            <input type="submit" id="tutor_signup_submit" value= "Resend Code"> 
+            <input type="submit" id="tutor_signup_submit" name="text" value= "Text me a code"> 
+            <input type="submit" id="tutor_signup_submit" name="verify" value= "Verify"> 
 
         <br><br><br>
         </form>
