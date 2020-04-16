@@ -47,7 +47,9 @@
             $stmt1= $conn->prepare($sql1);
             $stmt1->bind_param("i", $userid);
             $stmt1->execute();
-            header('Location: ./login.php');
+
+            header('Location: ./verify-text-tutor.php?user_id=' .$userid);
+
         }
     }
                       
