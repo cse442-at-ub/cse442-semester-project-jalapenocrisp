@@ -148,7 +148,9 @@ $tutarray = mysqli_fetch_array($tutorRes);
             $headers .= "X-Mailer: PHP/" . phpversion();
             $headers .= "X-Priority: 1" . "\r\n";
             mail($to, $subject, $message, $headers);
-            mail( $toText, '', $message );
+            if($tutarray['verified']){
+                mail( $toText, '', $message );
+            }
             header('Location: ./tutor-appts.php?user_id=' . $userid);
 
         }

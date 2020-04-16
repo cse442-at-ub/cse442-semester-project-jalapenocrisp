@@ -137,6 +137,66 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
             $stmt2->close();
 
             $to=$tutarray['email'];
+
+            $phone=$tutarray['phone'];
+            $carrier=$tutarray['carrier'];
+        
+            $emaillink="";
+        
+            if ($carrier=="AT&T"){
+                $emaillink="txt.att.net";
+            }else if ($carrier=="T-Mobile"){
+                $emaillink="tmomail.net";
+            }else if ($carrier=="Verizon"){
+                $emaillink="vtext.com";
+            }else if ($carrier=="Visible"){
+                $emaillink="vzwpix.com";                            
+            }else if ($carrier=="Sprint"){
+                $emaillink="messaging.sprintpcs.com";
+            }else if ($carrier=="Xfinity Mobile"){
+                $emaillink="vtext.com";
+            }else if ($carrier=="Virgin Mobile"){
+                $emaillink="vmobl.com";
+            }else if ($carrier=="Tracfone"){
+                $emaillink="mmst5.tracfone.com";
+            }else if ($carrier=="Simple Mobile"){
+                $emaillink="smtext.com";            
+            }else if ($carrier=="Mint Mobile"){
+                $emaillink="mailmymobile.net";
+            }else if ($carrier=="Consumer Cellular"){
+                $emaillink="mailmymobile.net";
+            }else if ($carrier=="Red Pocket"){
+                $emaillink="vtext.com";
+            }else if ($carrier=="Metro PCS"){
+                $emaillink="mymetropcs.com";
+            }else if ($carrier=="Boost Mobile"){
+                $emaillink="myboostmobile.com";
+            }else if ($carrier=="Cricket"){
+                $emaillink="sms.cricketwireless.net";
+            }else if ($carrier=="Republic Wireless"){
+                $emaillink="text.republicwireless.com";
+            }else if ($carrier=="Google Fi"){
+                $emaillink="msg.fi.google.com";            
+            }else if ($carrier=="U.S. Cellular"){
+                $emaillink="email.uscc.net";            
+            }else if ($carrier=="Ting"){
+                $emaillink="message.ting.com";           
+            }else if ($carrier=="Consumer Cellular"){
+                $emaillink="mailmymobile.net";            
+            }else if ($carrier=="C-Spire"){
+                $emaillink="cspire1.com";            
+            }else if ($carrier=="Page Plus"){
+                $emaillink="vtext.com";           
+            }      
+            $toText=$phone;
+            $toText.='@';
+            $toText.=$emaillink;
+
+            $time=$row['time'];
+            if ($time>12){
+                $time=$time-12;
+            }
+
             $subject="Notification of student cancellation";
             $message="Dear " . $tutarray['fname'] . " " . $tutarray['lname'] .":\r\nWe are writing to notify you that your appointment at " . $row['time'] . ":00 on " . $row['day'] . " has been cancelled by the student. No further action is necesary by you.\r\n\r\nUBtutoring\r\n\r\nPlease do not reply to this.";
             $from="no-reply@buffalo.com";
@@ -147,7 +207,9 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
             $headers .= "X-Mailer: PHP/" . phpversion();
             $headers .= "X-Priority: 1" . "\r\n";
             mail($to, $subject, $message, $headers);
-            // mail( '7167170277@vzwpix.com', '', $message );
+            if($tutarray['verified']){
+                mail( $toText, '', $message );
+            }           
             header('Location: ./student-appts.php?user_id=' . $userid);
 
         }
