@@ -83,6 +83,7 @@
         if ($code!=$enteredCode){
             $mess="Code is incorrect";
         }else{
+            mysqli_query($conn,"UPDATE students SET verified=1 WHERE user_id='" . $_GET['user_id'] . "'"); 
             header('Location: ./studentprof.php?user_id=' . $_GET["user_id"]);
         }
     }
@@ -108,7 +109,7 @@
 
         <div class="menu_welcomePage">
             <ul>
-                <li><a class="navlink" href="./login.php">tutor login</a> </li>
+                <li><a class="navlink" href="./login-student.php">student login</a> </li>
                 <li><a class="navlink" href="../index.html">home</a> </li>
 
             </ul>

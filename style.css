@@ -522,10 +522,14 @@ input[type="submit"]:hover {
 }
 .verify{
     padding-left: 10px;
+    color:red;
+    text-decoration: none;
 }
 .verify:hover{
-    color: blue;
+    color: rgb(131, 11, 11);
     cursor: pointer;
+    text-decoration: underline;
+
 }
 
 

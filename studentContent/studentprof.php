@@ -86,8 +86,8 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
             echo $row["phone"]; 
             echo "     ";
             if(!$row['verified']){ 
-                $link="./verify-text-tutor.php?user_id=" . $_GET['user_id']; 
-                echo "<a class='navlink' href=".$link.">verify for live updates</a>";
+                $link="./verify-text-student.php?user_id=" . $_GET['user_id']; 
+                echo "<a class='verify' href=".$link.">verify for live updates</a>";
             }
             ?></td></tr>
     <tr><td>Carrier: </td><td><?php echo $row["carrier"]; ?></td></tr>

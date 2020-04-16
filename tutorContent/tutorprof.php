@@ -62,7 +62,7 @@ $uid=$_GET['user_id'];
             echo "     ";
             if(!$row['verified']){ 
                 $link="./verify-text-tutor.php?user_id=" . $_GET['user_id']; 
-                echo "<a class='navlink' href=".$link.">verify for live updates</a>";
+                echo "<a class='verify' href=".$link.">verify for live updates</a>";
             }
             ?></td></tr>
     <tr><td>Carrier: </td><td><?php echo $row["carrier"]; ?></td></tr>

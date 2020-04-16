@@ -83,6 +83,7 @@
         if ($code!=$enteredCode){
             $mess="Code is incorrect";
         }else{
+            mysqli_query($conn,"UPDATE tutors SET verified=1 WHERE user_id='" . $_GET['user_id'] . "'"); 
             header('Location: ./tutorprof.php?user_id=' . $_GET["user_id"]);
         }
     }
