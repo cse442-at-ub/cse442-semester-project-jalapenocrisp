@@ -19,13 +19,14 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" /> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
-    <title>UB Tutoring Service</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content ="width=device-width,initial-scale=1,user-scalable=yes" />
+    <title>UB Tutoring</title>
     <link rel="stylesheet" type="text/css" href="../style.css" />
+    <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <!-- <script type="text/javascript" src="js/modernizr.custom.86080.js"></script> -->
+    <title>UB Tutoring Service</title>
 </head>
 
 
@@ -63,25 +64,25 @@
                     <th>
                     </th>
                     <th>
-                        <span id="calendar_monday">Monday</span>
+                        <span id="calendar_monday">Mon</span>
                     </th>
                     <th>
-                        <span id="calendar_tuesday">Tuesday</span>
+                        <span id="calendar_tuesday">Tue</span>
                     </th>
                     <th>
-                        <span id="calendar_wednesday">Wednesday</span>
+                        <span id="calendar_wednesday">Wed</span>
                     </th>
                     <th>
-                        <span id="calendar_thursday">Thursday</span>
+                        <span id="calendar_thursday">Thu</span>
                     </th>
                     <th>
-                        <span id="calendar_friday">Friday</span>
+                        <span id="calendar_friday">Fri</span>
                     </th>
                     <th>
-                        <span id="calendar_saturday">Saturday</span>
+                        <span id="calendar_saturday">Sat</span>
                     </th>
                     <th>
-                        <span id="calendar_sunday">Sunday</span>
+                        <span id="calendar_sunday">Sun</span>
                     </th>
                 </tr>
             </thead>

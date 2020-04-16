@@ -16,6 +16,7 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content ="width=device-width,initial-scale=1,user-scalable=yes" />
     <title>UB Tutoring</title>
     <link rel="stylesheet" type="text/css" href="../style.css" />
     <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
@@ -33,13 +34,17 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
 		<li><a class="navlink" href="./student-appts.php?user_id=<?php echo $_GET['user_id']; ?>">my appointments</a> </li>
                 <li><a class="navlink" href="./search.php?user_id=<?php echo $_GET['user_id']; ?>">find a tutor</a> </li>
                 <div class="dropdown">
-                        <li><a class="dropbtn">my progress</a>
-                            <div class="dropdown-content">
+                <li><button onclick="progressclick()" class="dropbtn">my progress</button>
+                            <div id="myDropdown" class="dropdown-content">
                                 <?php 
+                                if (mysqli_num_rows($progress)<1){
+                                    echo "<p class='center'>no progress yet</p>";
+                                }else{
                                 while ($progressInfo = mysqli_fetch_array($progress)){ 
                                     $linkname=$progressInfo['course'];
                                     $link="./student-progress.php?user_id=" . $_GET['user_id'] . "&cid=" . $linkname ; 
                                     echo "<a href=".$link.">".$linkname."</a>";}
+                                }
                                 ?>
                             </div>
                         </li>
@@ -68,7 +73,7 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
     <th width="10%"></th>
     </tr>
     <tr><td><?php echo $row["day"]; ?></td>
-        <td><?php echo $row["time"]; ?>:00</td>
+        <td><?php if($row["time"]>12){echo $row["time"]-12  . ":00 PM";}else{echo $row["time"]  . ":00 AM";} ?></td>
         <td><?php echo $tutarray["fname"]; ?> <?php echo $tutarray["lname"]; ?></td>
         <td><?php echo $tutarray["courses"]; ?></td>
     </tr>
@@ -102,6 +107,34 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
             $stmt->bind_param("si", $status, $id);
             $stmt->execute();
             $stmt->close();
+            $concat="";
+            $day=$row['day'];
+            if ($day=="Monday"){
+                $concat="mon";
+            }else if($day=="Tuesday"){
+                $concat="tue";
+            }else if($day=="Wednesday"){
+                $concat="wed";
+            }else if($day=="Thursday"){
+                $concat="thu";
+            }else if($day=="Friday"){
+                $concat="fri";
+            }else if($day=="Saturday"){
+                $concat="sat";
+            }else{
+                $concat="sun";
+            }
+            $time=$row['time'];
+            $concat=$concat . $time;
+
+
+            $sql2  =  "UPDATE calendar SET ";
+            $sql2 .= $concat;
+            $sql2 .= " =1  WHERE user_id=?";
+            $stmt2= $conn->prepare($sql2);
+            $stmt2->bind_param("i", $tid);
+            $stmt2->execute();
+            $stmt2->close();
 
             $to=$tutarray['email'];
             $subject="Notification of student cancellation";

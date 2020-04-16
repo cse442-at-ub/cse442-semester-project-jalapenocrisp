@@ -22,6 +22,7 @@ if (isset($_POST['submit'])){
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content ="width=device-width,initial-scale=1,user-scalable=yes" />
     <title>UB Tutoring</title>
     <link rel="stylesheet" type="text/css" href="../style.css" />
     <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
@@ -63,10 +64,9 @@ if (isset($_POST['submit'])){
     <th width="10%"></th>
     <th width="15%">Date</th>
     <th width="15%">Time</th>
-    <th width="20%">Student</th>
+    <th width="30%">Student</th>
     <th width="20%">Class</th>
     <th width="10%">Status</th>
-    <th width="10%"></th>
     </tr>
 
     <?php
@@ -78,9 +78,9 @@ if (isset($_POST['submit'])){
     ?>
 
  
-    <tr><td><form method="post"><input type="hidden" name="id" value=<?php echo $appt['appt_id'];?>><input class="cancel" type="submit" name="submit" value="remove"></form></td>
+    <tr><td><form method="post"><input type="hidden" name="id" value=<?php echo $appt['appt_id'];?>><input class="cancel" type="submit" name="submit" value="X"></form></td>
         <td><?php echo $appt["day"]; ?></td>
-        <td><?php echo $appt["time"]; ?>:00</td>
+        <td><?php if($appt["time"]>12){echo $appt["time"]-12  . ":00 PM";}else{echo $appt["time"]  . ":00 AM";}  ?></td>
         <td><?php echo $tutarray["fname"]; ?> <?php echo $tutarray["lname"]; ?></td>
         <td><?php echo $row["courses"]; ?></td>
         <td><?php echo $appt["status"]; ?></td>
