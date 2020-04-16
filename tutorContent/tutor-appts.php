@@ -73,7 +73,7 @@ $result2 = mysqli_query($conn,"SELECT * FROM appointments WHERE tutor_id='" . $_
 
  
     <tr><td><?php echo $appt["day"]; ?></td>
-        <td><?php echo $appt["time"]; ?>:00</td>
+        <td><?php if($appt["time"]>12){echo $appt["time"]-12  . ":00 PM";}else{echo $appt["time"]  . ":00 AM";}  ?></td>
         <td><?php echo $tutarray["fname"]; ?> <?php echo $tutarray["lname"]; ?></td>
         <td><?php echo $row["courses"]; ?></td>
         <td><form method="post"><input type="hidden" name="apptid" class="input1" value="<?php echo $appt['appt_id']; ?>"><input type="submit" class="rate" name="yes" value="done"></form>

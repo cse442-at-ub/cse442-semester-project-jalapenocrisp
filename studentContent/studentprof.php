@@ -22,7 +22,6 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
 <body class="main-container">
 
     <div class="header">
-
         <div class="menu_welcomePage">
             <ul>
 
@@ -46,6 +45,7 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
                             </div>
                         </li>
                     </div>                
+                    
                     <li><a class="navlink" href="../index.html">logout</a> </li>
 
             </ul>
@@ -92,7 +92,6 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="../index.js"></script>
     <script>
-        
     </script>
 
 </body>
