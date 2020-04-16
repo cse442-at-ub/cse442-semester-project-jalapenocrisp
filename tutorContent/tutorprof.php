@@ -2,6 +2,7 @@
 include_once "access-db.php";
 $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['user_id'] . "'");
 $row = mysqli_fetch_array($result);
+$uid=$_GET['user_id'];
 ?>
 
 <!DOCTYPE html>
@@ -51,14 +52,21 @@ $row = mysqli_fetch_array($result);
     
 
     <button class="calendarView" onclick="window.location.href = './change-photo.php?user_id=<?php echo $row['user_id']; ?>';">Edit Photo</button>
+    <br>
 
-
-    <h1 class="welcome-page-title"></h1>
     <table class="info">
 
-    <tr><td>Phone Number: </td><td><?php echo $row["phone"]; ?></td></tr>
+    <tr><td> Phone Number: </td>
+    <td><?php 
+            echo $row["phone"]; 
+            echo "     ";
+            if(!$row['verified']){ 
+                $link="./verify-text-tutor.php?user_id=" . $_GET['user_id']; 
+                echo "<a class='navlink' href=".$link.">verify for live updates</a>";
+            }
+            ?></td></tr>
     <tr><td>Carrier: </td><td><?php echo $row["carrier"]; ?></td></tr>
-    <tr><td>Title: </td><td><?php echo $row["title"]; ?></td></tr>
+    <tr><td>Academic Level: </td><td><?php echo $row["title"]; ?></td></tr>
     <tr><td>Email: </td><td><?php echo $row["email"]; ?></td></tr>
     <tr><td>Course: </td><td><?php echo $row["courses"]; ?></td></tr>
     <tr><td>Rating: </td><td><?php echo $row["rank"]; ?></td></tr>

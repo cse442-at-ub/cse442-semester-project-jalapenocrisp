@@ -23,10 +23,6 @@ if(count($_POST)>0) {
         $message="Please enter a valid password.";
     }else if($pass!=$pass2){
         $message="Passwords do not match!";
-    }else if (strlen($phone)!=12){
-        $message="Please input phone number as 555-555-5555.";
-    }else if(!$carrier){
-        $message="Please choose a carrier.";
     }else{
         mysqli_query($conn,"UPDATE tutors SET fname='" . $_POST['fname'] . "', lname='" . $_POST['lname'] . "', phone='" . $_POST['phone'] . "' ,title='" . $_POST['title'] . "' , email='" . $_POST['email'] . "', courses='" . $_POST['courses'] . "', paswd='" . $_POST['paswd'] . "' WHERE user_id='" . $_POST['user_id'] . "'"); 
         header('Location: ./tutorprof.php?user_id=' .$uid);
@@ -76,16 +72,12 @@ $row= mysqli_fetch_array($result);
 </div>
 <div style="padding-bottom:5px;">
 </div>
-<input type="hidden" name="user_id" class="input1" value="<?php echo $row['user_id']; ?>">
-<input type="hidden" name="fname" class="input1" value="<?php echo $row['fname']; ?>">
-<input type="hidden" name="lname" class="input1" value="<?php echo $row['lname']; ?>">
-
-Phone Number:<br>
-<input type="text" name="phone" class="input1" value="<?php echo $row['phone']; ?>">
+First Name:<br>
+<input type="text" name="fname" class="input1" value="<?php echo $row['fname']; ?>">
 <br>
 <br>
-Carrier:<br>
-<input type="text" name="carrier" class="input1" value="<?php echo $row['carrier']; ?>">
+Last Name:<br>
+<input type="text" name="lname" class="input1" value="<?php echo $row['lname']; ?>">
 <br>
 <br>
 Level:<br>
@@ -155,18 +147,14 @@ Course:<br>
 <br>
 <br>
 Password:<br>
-
 <input type="password" name="paswd" class="input1" value="<?php echo $row['paswd']; ?>">
-
 <br>
 <br>
 Confirm password:<br>
-
 <input type="password" name="paswd2" class="input1" value="<?php echo $row['paswd']; ?>">
-
 <br>
 <br>
-<input class="selectButton" type="submit" name="submit" value="Save" class="button">
+<input id="tutor_signup_submit" type="submit" name="submit" value="Save" class="button">
 </form>
 <br>
 <br>

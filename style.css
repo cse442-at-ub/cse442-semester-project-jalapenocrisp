@@ -520,6 +520,13 @@ input[type="submit"]:hover {
     border: none;
     color: black;
 }
+.verify{
+    padding-left: 10px;
+}
+.verify:hover{
+    color: blue;
+    cursor: pointer;
+}
 
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ profile styling ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

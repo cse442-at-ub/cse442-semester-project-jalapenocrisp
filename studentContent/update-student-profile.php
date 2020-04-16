@@ -88,22 +88,36 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
 </div>
 <div style="padding-bottom:5px;">
 </div>
-<input type="hidden" name="user_id" class="input1" value="<?php echo $row['user_id']; ?>">
-<input type="hidden" name="fname" class="input1" value="<?php echo $row['fname']; ?>">
-<input type="hidden" name="lname" class="input1" value="<?php echo $row['lname']; ?>">
-
+First Name:<br>
+<input type="text" name="fname" class="input1" value="<?php echo $row['fname']; ?>">
+<br>
+<br>
+Last Name:<br>
+<input type="text" name="lname" class="input1" value="<?php echo $row['lname']; ?>">
+<br>
+<br>
+Level:<br>
+<select class="input1" name="title" id= "title">
+    <option selected><?php echo $row['title']; ?></option>
+    <option value="Undergraduate">Undergraduate</option>
+    <option value="Graduate">Graduate</option>
+    <option value="Postgraduate">Postgraduate</option>
+</select>
+<br>
+<br>
 Email:<br>
 <input type="text" name="email" class="input1" value="<?php echo $row['email']; ?>">
 <br>
 <br>
-
 Password:<br>
-
 <input type="password" name="paswd" class="input1" value="<?php echo $row['paswd']; ?>">
-
 <br>
 <br>
-<input class="selectButton" type="submit" name="submit" value="Save" class="button">
+Confirm password:<br>
+<input type="password" name="paswd2" class="input1" value="<?php echo $row['paswd']; ?>">
+<br>
+<br>
+<input id="tutor_signup_submit" type="submit" name="submit" value="Save" class="button">
 </form>
 <br>
 <br>
