@@ -2,7 +2,7 @@
     $message="";
     include_once "access-db.php";
 
-    $result1 = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET["user_id"] . "'");
+    $result1 = mysqli_query($conn,"SELECT * FROM students WHERE user_id='" . $_GET["user_id"] . "'");
     $row=mysqli_fetch_array($result1);
     $phone=$row['phone'];
     $carrier=$row['carrier'];
@@ -72,18 +72,18 @@
         $headers .= "X-Mailer: PHP/" . phpversion();
         $headers .= "X-Priority: 1" . "\r\n";
         mail( $to, '', $message );
-        mysqli_query($conn,"UPDATE tutors SET vcode='" . $code  . "' WHERE user_id='" . $_GET['user_id'] . "'"); 
+        mysqli_query($conn,"UPDATE students SET vcode='" . $code  . "' WHERE user_id='" . $_GET['user_id'] . "'"); 
     }    
         
     if(isset($_POST['verify'])){
         $enteredCode=$_POST["code"];
-        $result1 = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET["user_id"] . "'");
+        $result1 = mysqli_query($conn,"SELECT * FROM students WHERE user_id='" . $_GET["user_id"] . "'");
         $row=mysqli_fetch_array($result1);
         $code=$row['vcode'];
         if ($code!=$enteredCode){
             $mess="Code is incorrect";
         }else{
-            header('Location: ./tutorprof.php?user_id=' . $_GET["user_id"]);
+            header('Location: ./studentprof.php?user_id=' . $_GET["user_id"]);
         }
     }
     

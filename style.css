@@ -242,8 +242,8 @@ input[type="submit"]:hover {
 }
 
 .info {
-    font-size: larger;
-    width: 70%;
+    font-size: medium;
+    width: 50%;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -254,7 +254,7 @@ input[type="submit"]:hover {
 }
 
 .info1 {
-    font-size: larger;
+    font-size: medium;
     width: 50%;
     margin-left: 25%;
     margin-right: 25%;

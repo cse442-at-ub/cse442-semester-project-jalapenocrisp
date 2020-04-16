@@ -66,7 +66,7 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
     }
     ?>    
 
-    <button class="calendarView" onclick="window.location.href = './change-photo-student.php?user_id=<?php echo $row['user_id']; ?>';">Add/Edit Photo</button>
+    <button class="calendarView" onclick="window.location.href = './change-photo-student.php?user_id=<?php echo $row['user_id']; ?>';">Edit Photo</button>
 
     <h1 class="welcome-page-title"></h1>
 

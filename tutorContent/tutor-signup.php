@@ -7,10 +7,10 @@
         $fname=$_POST['fname'];
         $lname=$_POST['lname'];
         $email=$_POST['email'];
-        $phone=$_POST['phone'];
-        $title=$_POST['title'];
         $courses=$_POST['courses'];                        
         $pass=$_POST['paswd'];
+        $title=$_POST['title'];
+        $phone=$_POST['phone'];
         $pass2=$_POST['paswd2'];
         $carrier=$_POST["carrier"];
 
@@ -27,6 +27,8 @@
             $message="Please enter a valid password.";
         }else if($pass!=$pass2){
             $message="Passwords do not match!";
+        }else if (!$title){
+            $message="Please choose an academic level.";    
 	    }else if (!$courses){
 	        $message="Please choose a course.";
         }else if (strlen($phone)!=10){
@@ -123,7 +125,7 @@
             <label for="password">Confirm Password *</label>
             <input class="sign_up_input" type="password" id= "paswd2" name="paswd2">
 
-            <label for="level">Current Educational Level</label>
+            <label for="level">Current Educational Level *</label>
             <select class="sign_up_input" name="title" id= "title">
                 <option selected="choose one"></option>
                 <option value="Undergraduate">Undergraduate</option>
@@ -205,9 +207,9 @@
                 <option value="Ting">Ting</option>
                 <option value="Tracfone">Tracfone</option>
 		        <option value="T-Mobile">T-Mobile</option>
+                <option value="U.S. Cellular">U.S. Cellular</option>
 		        <option value="Verizon">Verizon</option>
 		        <option value="Virgin Mobile">Virgin Mobile</option>
-                <option value="U.S. Cellular">U.S. Cellular</option>
 		        <option value="Visible">Visible</option>
 		        <option value="Xfinity Mobile">Xfinity Mobile</option>
 
@@ -216,7 +218,6 @@
             <br><br><br>
         </form>
 
-            <!-- <button class="selectButton" onclick="window.location.href = './tutorprofile.html';">Submit</button> -->
     </div>
     <script src="../index.js"></script>
 

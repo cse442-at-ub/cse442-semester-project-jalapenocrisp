@@ -38,6 +38,9 @@ $row = mysqli_fetch_array($result);
     </div>
     <hr class="hr-navbar">
 
+    <h1 class="welcome-page-title"><?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?></h1>
+    <br>
+
     <?php
     if ($row['user_image']){
      echo '<img class="profilePicture" src="data:image/jpeg;base64,'. $row['user_image'] .'"/>';
@@ -47,14 +50,14 @@ $row = mysqli_fetch_array($result);
     ?>    
     
 
-    <button class="calendarView" onclick="window.location.href = './change-photo.php?user_id=<?php echo $row['user_id']; ?>';">Add/Edit Photo</button>
+    <button class="calendarView" onclick="window.location.href = './change-photo.php?user_id=<?php echo $row['user_id']; ?>';">Edit Photo</button>
 
 
     <h1 class="welcome-page-title"></h1>
     <table class="info">
 
-    <tr><td>Name: </td><td><?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?></td></tr>
     <tr><td>Phone Number: </td><td><?php echo $row["phone"]; ?></td></tr>
+    <tr><td>Carrier: </td><td><?php echo $row["carrier"]; ?></td></tr>
     <tr><td>Title: </td><td><?php echo $row["title"]; ?></td></tr>
     <tr><td>Email: </td><td><?php echo $row["email"]; ?></td></tr>
     <tr><td>Course: </td><td><?php echo $row["courses"]; ?></td></tr>
