@@ -540,12 +540,14 @@ input[type="submit"]:hover {
 }
 
 .profilePicture {
-    border-radius: 50%;
-    width: 15%;
-    height: 15%;
+    width:250px;
+    height:250px;
+    object-fit:cover;
+    border-radius:50%;
+    display:block;
     margin-left: auto;
     margin-right: auto;
-    display: block;
+    border: 5px solid white;
 }
 
 .contact-tutor-btn:link,
