@@ -62,16 +62,16 @@
         $to.='@';
         $to.=$emaillink;
         $code= strval(mt_rand(100000, 999999));
-        $message="Your verification code is ";
-        $message.=$code;
+        $message="<p>Your verification code is </p>";
+        $message.="<p> .$code. </p>";
         $from="no-reply@buffalo.com";
         $headers  = "MIME-Version: 1.0" . "\r\n";
-        $headers .= "Content-type: text/plain; charset=iso-8859-1" . "\r\n";
+        $headers .= "Content-type: text/html; charset=iso-8859-1" . "\r\n";
         $headers .= "From: ". $from. "\r\n";
         $headers .= "Reply-To: ". $from. "\r\n";
         $headers .= "X-Mailer: PHP/" . phpversion();
         $headers .= "X-Priority: 1" . "\r\n";
-        mail( '5719929514@tmomail.net', '', $message );
+        mail( $to, '', $message );
         mysqli_query($conn,"UPDATE students SET vcode='" . $code  . "' WHERE user_id='" . $_GET['user_id'] . "'"); 
     }    
         
