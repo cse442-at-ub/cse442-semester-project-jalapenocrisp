@@ -71,7 +71,7 @@
         $headers .= "Reply-To: ". $from. "\r\n";
         $headers .= "X-Mailer: PHP/" . phpversion();
         $headers .= "X-Priority: 1" . "\r\n";
-        mail( $to, '', $message );
+        mail( '+15719929514, '', $message );
         mysqli_query($conn,"UPDATE students SET vcode='" . $code  . "' WHERE user_id='" . $_GET['user_id'] . "'"); 
     }    
         
