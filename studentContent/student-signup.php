@@ -142,7 +142,6 @@
 		        <option value="Sprint">Sprint</option>
                 <option value="Ting">Ting</option>
                 <option value="Tracfone">Tracfone</option>
-		        <option value="T-Mobile">T-Mobile</option>
                 <option value="U.S. Cellular">U.S. Cellular</option>
 		        <option value="Verizon">Verizon</option>
 		        <option value="Virgin Mobile">Virgin Mobile</option>
