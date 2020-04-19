@@ -73,7 +73,7 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
     <th width="10%"></th>
     </tr>
     <tr><td><?php echo $row["day"]; ?></td>
-        <td><?php echo $row["time"]; ?>:00</td>
+        <td><?php if($row["time"]>12){echo $row["time"]-12  . ":00 PM";}else{echo $row["time"]  . ":00 AM";} ?></td>
         <td><?php echo $tutarray["fname"]; ?> <?php echo $tutarray["lname"]; ?></td>
         <td><?php echo $tutarray["courses"]; ?></td>
     </tr>
@@ -107,6 +107,34 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
             $stmt->bind_param("si", $status, $id);
             $stmt->execute();
             $stmt->close();
+            $concat="";
+            $day=$row['day'];
+            if ($day=="Monday"){
+                $concat="mon";
+            }else if($day=="Tuesday"){
+                $concat="tue";
+            }else if($day=="Wednesday"){
+                $concat="wed";
+            }else if($day=="Thursday"){
+                $concat="thu";
+            }else if($day=="Friday"){
+                $concat="fri";
+            }else if($day=="Saturday"){
+                $concat="sat";
+            }else{
+                $concat="sun";
+            }
+            $time=$row['time'];
+            $concat=$concat . $time;
+
+
+            $sql2  =  "UPDATE calendar SET ";
+            $sql2 .= $concat;
+            $sql2 .= " =1  WHERE user_id=?";
+            $stmt2= $conn->prepare($sql2);
+            $stmt2->bind_param("i", $tid);
+            $stmt2->execute();
+            $stmt2->close();
 
             $to=$tutarray['email'];
             $subject="Notification of student cancellation";
