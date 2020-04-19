@@ -67,14 +67,13 @@
         //$from="no-reply@buffalo.com";
         $from="jechepenuk@gmail.com";
         $headers  = "MIME-Version: 1.0" . "\r\n";
-        $headers .= "Content-type: text/html; charset=iso-8859-1" . "\r\n";
+        $headers .= "Content-type: text/plain; charset=iso-8859-1" . "\r\n";
         $headers .= "From: ". $from. "\r\n";
         $headers .= "Reply-To: ". $from. "\r\n";
         $headers .= "X-Mailer: PHP/" . phpversion();
         $headers .= "X-Priority: 1" . "\r\n";
         mail( $to, '', $message );
         mysqli_query($conn,"UPDATE students SET vcode='" . $code  . "' WHERE user_id='" . $_GET['user_id'] . "'"); 
-        echo $to;
     }    
         
     if(isset($_POST['verify'])){
