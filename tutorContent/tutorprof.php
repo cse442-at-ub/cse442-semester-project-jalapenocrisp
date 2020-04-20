@@ -48,14 +48,7 @@ $row = mysqli_fetch_array($result);
     
     <button class="calendarView" onclick="window.location.href = './change-photo.php?user_id=<?php echo $row['user_id']; ?>';">Add/Edit Photo</button>
 
-    <?php
-    if($row['zoom_link'] != NULL){
-	
-	<button class="calendarView" onclick="window.location.href = './add-zoom.php?user_id=<?php echo $row['user_id']; ?>';">Edit Zoom Link</button>
-    }else{
-	<button class="calendarView" onclick="window.location.href = './add-zoom.php?user_id=<?php echo $row['user_id']; ?>';">Add Zoom Link</button>
-    }
-    ?>    
+    
 
 
     <h1 class="welcome-page-title"></h1>
