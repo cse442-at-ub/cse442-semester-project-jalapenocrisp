@@ -39,7 +39,7 @@ if(count($_POST)>0){
 
         <div class="menu_welcomePage">
             <ul>
-                <li><a class="navlink" href="./tutorprof.php">return to profile</a> </li>
+                <li><a class="navlink" href="./tutorprof.php?user_id=' . $_GET["user_id"]'">return to profile</a> </li>
                 <li><a class="navlink" href="../index.html">home</a> </li>
 
             </ul>
