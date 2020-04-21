@@ -33,6 +33,7 @@ if(count($_POST)>0){
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <title>UB Tutoring Service</title>
 </head>
+
 <body class="main-container">
 
     <div class="header">
@@ -52,7 +53,7 @@ if(count($_POST)>0){
     </div>
     <hr class="hr-navbar">
 
-
+    <h1 class="welcome-page-title">Zoom Meeting Link: <?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?> </h1>
     
     <input type="button" onclick="window.location='https://zoom.us/signin'" value="Go to Zoom Sign in"/>	 	 
     <br>
