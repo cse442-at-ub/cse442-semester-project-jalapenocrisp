@@ -79,11 +79,7 @@ $row = mysqli_fetch_array($result);
     ?>    
 
     
-     <?php
-    if($row['zoom_link'] != NULL){
-    echo '<button class="calendarView" onclick="window.open(' . $row['zoom_link'] . ','_blank')">Go to This Tutor's Zoom Meeting Room</button>';
-    }
-    ?>
+     
     
     <table class="info">
     <tr><td>Course: </td><td><?php echo $row["courses"]; ?></td></tr>
