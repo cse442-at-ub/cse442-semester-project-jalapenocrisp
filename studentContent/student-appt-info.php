@@ -25,7 +25,7 @@
         if($formatted_todays_date < $nextExam){
             echo "now = $formatted_todays_date recieved = $nextExam \n";
             echo "incorrect date \n";
-            $incorrect_date = FALSE;
+            $incorrect_date = TRUE;
         }else{
 
             $flag = FALSE;
@@ -118,7 +118,7 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
     <h1 class="welcome-page-title">Enter your most recent grades for <?php echo $course;?></h1>
     <p class="center"> * must be in number format *</p>
     
-    <?php if($incorrect_date){ ?>
+    <?php if($incorrect_date == TRUE){ ?>
         <p class="center"> * * * ENTER A FUTURE DATE (or today) * * *</p>
     <?php  }?>
 
