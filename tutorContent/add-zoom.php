@@ -18,6 +18,9 @@ if(count($_POST)>0){
     }
     
 }
+$result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['tutor_id'] . "'");
+$row = mysqli_fetch_array($result);
+
 ?>
 
 
