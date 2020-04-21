@@ -5,6 +5,7 @@
     $course_arr = mysqli_fetch_array(mysqli_query($conn,"SELECT courses FROM tutors WHERE user_id=$tutor_id;"));
     $course = $course_arr['courses'];
 
+    $incorrect_date = FALSE;
     
     if(count($_POST) > 0){
 
@@ -19,42 +20,48 @@
         $todays_date = new DateTime("now", new DateTimeZone('America/New_York') );
         $formatted_todays_date = $todays_date->format('Y-m-d');
 
-        echo "now = $formatted_todays_date recieved = $nextExam \n";
+        
 
         if($formatted_todays_date > $nextExam){
+            echo "now = $formatted_todays_date recieved = $nextExam \n";
             echo "incorrect date \n";
-        }
-        
-        $flag = FALSE;
-        foreach($_POST as $key => $value){
-            if( strlen($value) > 0 && floatval($value) <=100 && floatval($value) >= 0){
-                $allClasses .= $value .",";
-                $flag = TRUE;
-            }
-        }
-        if($flag == TRUE){
-            $allClasses = substr_replace($allClasses ,"",-1);
-        }
-        
-        $results = mysqli_query($conn, "SELECT * FROM progress WHERE student_id=$student_id AND course=\"$course\";");
-        $count = mysqli_num_rows($results);
-        
-        $sql_query = "";
-
-        if($count > 0){
-            $arr_results = mysqli_fetch_array($results);
-            $prev = $arr_results['grades'];
-            if($flag == TRUE){
-                $prev .= "," . $allClasses;
-            }           
-            $sql_query = "UPDATE progress SET grades=\"$prev\", nextExam=\"$nextExam\" WHERE student_id=$student_id AND course=\"$course\" ;";
+            $incorrect_date = FALSE;
         }else{
-            $sql_query = "INSERT INTO progress (student_id, course, grades, nextExam) VALUES ($student_id, \"$course\", \"$allClasses\", \"$nextExam\");";
-        }
 
+            $flag = FALSE;
+            foreach($_POST as $key => $value){
+                if( strlen($value) > 0 && floatval($value) <=100 && floatval($value) >= 0){
+                    $allClasses .= $value .",";
+                    $flag = TRUE;
+                }
+            }
+            if($flag == TRUE){
+                $allClasses = substr_replace($allClasses ,"",-1);
+            }
+            
+            $results = mysqli_query($conn, "SELECT * FROM progress WHERE student_id=$student_id AND course=\"$course\";");
+            $count = mysqli_num_rows($results);
+            
+            $sql_query = "";
+
+            if($count > 0){
+                $arr_results = mysqli_fetch_array($results);
+                $prev = $arr_results['grades'];
+                if($flag == TRUE){
+                    $prev .= "," . $allClasses;
+                }           
+                $sql_query = "UPDATE progress SET grades=\"$prev\", nextExam=\"$nextExam\" WHERE student_id=$student_id AND course=\"$course\" ;";
+            }else{
+                $sql_query = "INSERT INTO progress (student_id, course, grades, nextExam) VALUES ($student_id, \"$course\", \"$allClasses\", \"$nextExam\");";
+            }
+
+            
+            mysqli_query($conn, $sql_query);
+            header('Location: student-appts.php?user_id=' . $student_id);
+
+        }
         
-        mysqli_query($conn, $sql_query);
-        header('Location: student-appts.php?user_id=' . $student_id);
+        
     }
 
 $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GET['user_id'] . "'");
@@ -110,6 +117,11 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
     <br>
     <h1 class="welcome-page-title">Enter your most recent grades for <?php echo $course;?></h1>
     <p class="center"> * must be in number format *</p>
+    
+    <?php if($incorrect_date){ ?>
+        <p class="center"> * * * ENTER A FUTURE DATE (or today) * * *</p>
+    <?php  }?>
+
     <div id="student_appointment_div">
         <form method="post">
             
