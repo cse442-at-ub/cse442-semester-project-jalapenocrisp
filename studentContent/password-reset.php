@@ -135,7 +135,7 @@
     <div id="tutor_signup_div">
         <form method="post" action="">
             <input class="sign_up_input" type="text" id= "code" name="code">
-            <input type="submit" id="tutor_signup_submit" name="text" value= "Text me a code"> 
+            <input type="submit" id="tutor_signup_submit" name="text" value= "Resend Code"> 
             <input type="submit" id="tutor_signup_submit" name="verify" value= "Verify"> 
 
         <br><br><br>

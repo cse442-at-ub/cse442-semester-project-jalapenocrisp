@@ -4,63 +4,9 @@
 
     $result1 = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET["user_id"] . "'");
     $row=mysqli_fetch_array($result1);
-    $phone=$row['phone'];
-    $carrier=$row['carrier'];
-
-    $emaillink="";
-
-    if ($carrier=="AT&T"){
-        $emaillink="txt.att.net";
-    }else if ($carrier=="T-Mobile"){
-        $emaillink="tmomail.net";
-    }else if ($carrier=="Verizon"){
-        $emaillink="vtext.com";
-    }else if ($carrier=="Visible"){
-        $emaillink="vzwpix.com";                            
-    }else if ($carrier=="Sprint"){
-        $emaillink="messaging.sprintpcs.com";
-    }else if ($carrier=="Xfinity Mobile"){
-        $emaillink="vtext.com";
-    }else if ($carrier=="Virgin Mobile"){
-        $emaillink="vmobl.com";
-    }else if ($carrier=="Tracfone"){
-        $emaillink="mmst5.tracfone.com";
-    }else if ($carrier=="Simple Mobile"){
-        $emaillink="smtext.com";            
-    }else if ($carrier=="Mint Mobile"){
-        $emaillink="mailmymobile.net";
-    }else if ($carrier=="Consumer Cellular"){
-        $emaillink="mailmymobile.net";
-    }else if ($carrier=="Red Pocket"){
-        $emaillink="vtext.com";
-    }else if ($carrier=="Metro PCS"){
-        $emaillink="mymetropcs.com";
-    }else if ($carrier=="Boost Mobile"){
-        $emaillink="myboostmobile.com";
-    }else if ($carrier=="Cricket"){
-        $emaillink="sms.cricketwireless.net";
-    }else if ($carrier=="Republic Wireless"){
-        $emaillink="text.republicwireless.com";
-    }else if ($carrier=="Google Fi"){
-        $emaillink="msg.fi.google.com";            
-    }else if ($carrier=="U.S. Cellular"){
-        $emaillink="email.uscc.net";            
-    }else if ($carrier=="Ting"){
-        $emaillink="message.ting.com";           
-    }else if ($carrier=="Consumer Cellular"){
-        $emaillink="mailmymobile.net";            
-    }else if ($carrier=="C-Spire"){
-        $emaillink="cspire1.com";            
-    }else if ($carrier=="Page Plus"){
-        $emaillink="vtext.com";           
-    }      
-        
-
-
+ 
     if(isset($_POST['text'])) {
-        $to=$phone;
-        $to.='@';
-        $to.=$emaillink;
+        $to=$row['email'];
         $code= strval(mt_rand(100000, 999999));
         $message="Your verification code is ";
         $message.=$code;
@@ -84,7 +30,7 @@
             $mess="Code is incorrect";
         }else{
             mysqli_query($conn,"UPDATE tutors SET verified=1 WHERE user_id='" . $_GET['user_id'] . "'"); 
-            header('Location: ./tutorprof.php?user_id=' . $_GET["user_id"]);
+            header('Location: ./password-reset-tutor.php?user_id=' . $_GET["user_id"]);
         }
     }
     

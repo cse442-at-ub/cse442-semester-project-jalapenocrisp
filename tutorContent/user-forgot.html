@@ -37,17 +37,24 @@
 
     <!-- <button class="selectButton" onclick ="window.location.href = './tutor_signup.html';">Not Registered? Sign Up Here.</button> -->
 
-    <h1 class="welcome-page-title">Forgot User Name or Password</h1>
+    <h1 class="welcome-page-title">Forgot Password</h1>
     <br>
     <br>
     <br>
     <div id="tutor_signup_div">
         <form>
+        <div class="message">
+    
+        <?php if($message!="") { 
+            echo $message; 
+            
+            } ?> 
+        </div> 
             
             <label for="email">User Email</label>
-            <input class= "log_in_input" type="text" id="email" name="lastname" placeholder="Enter @buffalo.edu email...">
+            <input class= "log_in_input" type="text" id="email" name="email" placeholder="Enter @buffalo.edu email">
 
-            <input type="button" id="log_in_button" type="submit" value="Submit" onclick= "forgot_password()">
+            <input type="button" id="log_in_button" type="submit" value="Submit">
 
 
         </form>

@@ -2,7 +2,7 @@
     $message="";
     include_once "access-db.php";
 
-    $result1 = mysqli_query($conn,"SELECT * FROM students WHERE user_id='" . $_GET["user_id"] . "'");
+    $result1 = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET["user_id"] . "'");
     $row=mysqli_fetch_array($result1);
     $phone=$row['phone'];
     $carrier=$row['carrier'];
@@ -72,19 +72,19 @@
         $headers .= "X-Mailer: PHP/" . phpversion();
         $headers .= "X-Priority: 1" . "\r\n";
         mail( $to, '', $message );
-        mysqli_query($conn,"UPDATE students SET vcode='" . $code  . "' WHERE user_id='" . $_GET['user_id'] . "'"); 
+        mysqli_query($conn,"UPDATE tutors SET vcode='" . $code  . "' WHERE user_id='" . $_GET['user_id'] . "'"); 
     }    
         
     if(isset($_POST['verify'])){
         $enteredCode=$_POST["code"];
-        $result1 = mysqli_query($conn,"SELECT * FROM students WHERE user_id='" . $_GET["user_id"] . "'");
+        $result1 = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET["user_id"] . "'");
         $row=mysqli_fetch_array($result1);
         $code=$row['vcode'];
         if ($code!=$enteredCode){
             $mess="Code is incorrect";
         }else{
-            mysqli_query($conn,"UPDATE students SET verified=1 WHERE user_id='" . $_GET['user_id'] . "'"); 
-            header('Location: ./studentprof.php?user_id=' . $_GET["user_id"]);
+            mysqli_query($conn,"UPDATE tutors SET verified=1 WHERE user_id='" . $_GET['user_id'] . "'"); 
+            header('Location: ./password-reset-tutor.php?user_id=' . $_GET["user_id"]);
         }
     }
     
@@ -109,7 +109,7 @@
 
         <div class="menu_welcomePage">
             <ul>
-                <li><a class="navlink" href="./login-student.php">student login</a> </li>
+                <li><a class="navlink" href="./login.php">tutor login</a> </li>
                 <li><a class="navlink" href="../index.html">home</a> </li>
 
             </ul>
@@ -135,7 +135,7 @@
     <div id="tutor_signup_div">
         <form method="post" action="">
             <input class="sign_up_input" type="text" id= "code" name="code">
-            <input type="submit" id="tutor_signup_submit" name="text" value= "Text me a code"> 
+            <input type="submit" id="tutor_signup_submit" name="text" value= "Resend Code"> 
             <input type="submit" id="tutor_signup_submit" name="verify" value= "Verify"> 
 
         <br><br><br>

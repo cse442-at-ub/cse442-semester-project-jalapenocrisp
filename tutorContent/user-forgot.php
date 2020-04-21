@@ -1,16 +1,32 @@
 <?php
 $message="";
-if(count($_POST)>0) {
-	$conn = mysqli_connect("tethys.cse.buffalo.edu","nekesame","50278839","cse442_542_2020_spring_teami_db");
-	$result = mysqli_query($conn,"SELECT * FROM students WHERE email='" . $_POST["email"] . "' and paswd = '". $_POST["paswd"]."'");
+include_once "access-db.php";
+if(isset($_POST['email'])) {
+    $result = mysqli_query($conn,"SELECT * FROM tutors WHERE email='" . $_POST["email"] . "'");
 	$count  = mysqli_num_rows($result);
 	if($count==0) {
-		$message = "Invalid email or password!";
+		$message = "This email is not recognized in our system. Please try again.";
 	} else {
+        $row=mysqli_fetch_array($result);
+        $to=$_POST["email"];
+        $code= strval(mt_rand(100000, 999999));
+        $message="Your verification code is ";
+        $message.=$code;
+        $from="no-reply@buffalo.com";
+        $headers  = "MIME-Version: 1.0" . "\r\n";
+        $headers .= "Content-type: text/plain; charset=iso-8859-1" . "\r\n";
+        $headers .= "From: ". $from. "\r\n";
+        $headers .= "Reply-To: ". $from. "\r\n";
+        $headers .= "X-Mailer: PHP/" . phpversion();
+        $headers .= "X-Priority: 1" . "\r\n";
+        mail($to, $subject, $message, $headers);
+        mysqli_query($conn,"UPDATE tutors SET vcode='" . $code  . "' WHERE user_id='" . $row['user_id'] . "'"); 
+        header('Location: password-reset.php?user_id=' . $row['user_id']);
 
-        $row = mysqli_fetch_array($result);
-        $message = "You are successfully authenticated!";
-        $var1=$row['user_id'];
+    }  
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,7 +41,7 @@ if(count($_POST)>0) {
     <title>UB Tutoring Service</title>
 </head>
 
-<body>
+<body class="main-container">
 
     <div class="header">
 
@@ -54,12 +70,18 @@ if(count($_POST)>0) {
     <br>
     <br>
     <br>
-
     <div id="tutor_signup_div">
         <form>
+        <div class="message">
+    
+        <?php if($message!="") { 
+            echo $message; 
+            
+            } ?> 
+        </div> 
             
             <label for="email">User Email</label>
-            <input class= "log_in_input" type="text" id="email" name="lastname" placeholder="Enter @buffalo.edu email...">
+            <input class= "log_in_input" type="text" id="email" name="email" placeholder="Enter @buffalo.edu email">
 
             <input type="button" id="log_in_button" type="submit" value="Submit">
 
