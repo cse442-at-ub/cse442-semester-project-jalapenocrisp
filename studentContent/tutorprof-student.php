@@ -79,7 +79,7 @@ $row = mysqli_fetch_array($result);
     ?>    
 
     <?php if ($row['zoom_link'] != NULL) : ?>
-    <button name="zoomButtn" onclick="window.open('<?php echo $row['zoom_link']?>','_blank')" >
+    <button class="calendarView" name="zoomButtn" onclick="window.open('<?php echo $row['zoom_link']?>','_blank')" >
     <i aria-hidden="true"></i> 
     Go to This Tutors Zoom Meeting Room</button>
     <?php endif ?>
