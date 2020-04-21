@@ -14,7 +14,7 @@ if(count($_POST)>0){
     }else{    
      	      mysqli_query($conn,"UPDATE tutors SET zoom_link= $zoomLink WHERE user_id='" . $_GET['user_id'] . "'");
 	      $message = "Url added successfully!";
-     	      header('Location: ./studentprof.php?user_id=' . $_GET["user_id"]);     
+     	      header('Location: ./tutorprof.php?user_id=' . $_GET["user_id"]);     
     }
     
 }
@@ -39,7 +39,7 @@ if(count($_POST)>0){
 
         <div class="menu_welcomePage">
             <ul>
-                <li><a class="navlink" href="./login-student.php">student login</a> </li>
+                <li><a class="navlink" href="./tutorprof.php">return to profile</a> </li>
                 <li><a class="navlink" href="../index.html">home</a> </li>
 
             </ul>
