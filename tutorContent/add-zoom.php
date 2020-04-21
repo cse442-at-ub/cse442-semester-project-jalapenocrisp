@@ -61,7 +61,9 @@ $row = mysqli_fetch_array($result);
     
     <button class="calendarView" onclick="window.location='https://zoom.us/signin'">"Go to Zoom Sign in"</button>
     <br>
-    <?php if(isset($message)) { echo $message; } ?>
+    
+    
+
     <br>
     <button class="calendarView">
     <br>
@@ -71,7 +73,7 @@ $row = mysqli_fetch_array($result);
     <label>Return to this page and paste it in the textbox below.</label><br>
     <br>
 
-    
+    <?php if(isset($message)) { echo $message; } ?>
     
     <form method="post" class="info1" action="">
 	   <input type="hidden" id="fname" value=<?php echo $row['fname']?>>
