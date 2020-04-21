@@ -51,12 +51,15 @@ echo "$num_of_grades \n";
                 <!-- <li><a href="javascript:loadPage('./login.php')">login</a> </li> -->
 
 
-
-                <li><a class="navlink" href="./student-add-exam.php?user_id=<?php echo $row['user_id']; ?>">add grades<?php
+                <li><a> 
+                <?php
+                    echo "here";
                     if($num_of_grades > 0){
-                        echo "here";
+                        
                         echo "hi<span style=\"border-radius: 50%; background-color: red; color: white;\">$num_of_grades</span>";
-                    } ?></a> </li>
+                    } ?>
+                </a></li>
+                <li><a class="navlink" href="./student-add-exam.php?user_id=<?php echo $row['user_id']; ?>">add grades</a> </li>
                 
                 <li><a class="navlink" href="./search.php?user_id=<?php echo $row['user_id']; ?>">find a tutor</a> </li>
                 <div class="dropdown">
