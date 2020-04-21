@@ -10,7 +10,6 @@
 
         $allClasses = "";
         $nextExam= $_POST["nextExam_year"] . "-" . $_POST["nextExam_month"] . "-" . $_POST["nextExam_date"];
-        $formatted_nextExam = new DataTime("$nextExam");
         
         unset($_POST["nextExam_month"]);
         unset($_POST["nextExam_year"]);
@@ -19,7 +18,12 @@
 
         $todays_date = new DateTime("now", new DateTimeZone('America/New_York') );
         $formatted_todays_date = $todays_date->format('Y-m-d');
-        echo "now = $formatted_todays_date recieved = $formatted_nextExam";
+
+        echo "now = $formatted_todays_date recieved = $nextExam \n";
+
+        if($formatted_todays_date > $nextExam){
+            echo "incorrect date \n";
+        }
         
         $flag = FALSE;
         foreach($_POST as $key => $value){
