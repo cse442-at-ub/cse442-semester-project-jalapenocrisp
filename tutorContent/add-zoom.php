@@ -5,8 +5,6 @@ include_once "access-db.php";
     
 if(count($_POST)>0){
 
-    $zoomLink = $_POST['zoomLink'];
-
     
 
      $result1 = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET["user_id"] . "'");
