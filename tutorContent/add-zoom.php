@@ -60,8 +60,8 @@ $row = mysqli_fetch_array($result);
 
     <h1 class="welcome-page-title">Zoom Meeting Link: <?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?> </h1>
     
-    <button class="calendarView" onclick="window.location='https://zoom.us/signin'">Go to Zoom Sign in</button>
-   
+    
+    <button class="calendarView" onclick="window.open('https://zoom.us/signin','_blank')">Go to Zoom Sign in</button>
    
     <button class="calendarView">
     <br>
