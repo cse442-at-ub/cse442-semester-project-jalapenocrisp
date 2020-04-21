@@ -79,11 +79,11 @@ $row = mysqli_fetch_array($result);
     ?>    
 
     
-    <?php
+     <?php
     if($row['zoom_link'] != NULL){
-    ?>
-    	<button class="calendarView" onclick="window.open('<?php echo $row['zoom_link']?>','_blank')">Go to This Tutor's Zoom Meeting Room</button>
+    echo '<button class="calendarView" onclick="window.open(' . $row['zoom_link'] . ','_blank')">Go to This Tutor's Zoom Meeting Room</button>';
     }
+    ?>
     
     <table class="info">
     <tr><td>Course: </td><td><?php echo $row["courses"]; ?></td></tr>
