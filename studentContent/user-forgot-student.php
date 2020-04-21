@@ -1,7 +1,7 @@
 <?php
 $message="";
 include_once "access-db.php";
-if(count($_POST)>0) {
+if(isset($_POST['submit'])) {
     $result = mysqli_query($conn,"SELECT * FROM students WHERE email='" . $_POST["email"] . "'");
 	$count  = mysqli_num_rows($result);
 	if($count==0) {
@@ -62,7 +62,6 @@ if(count($_POST)>0) {
         </div>
 
     </div>
-    <br>
     <hr class="hr-navbar">
 
     <!-- <button class="selectButton" onclick ="window.location.href = './tutor_signup.html';">Not Registered? Sign Up Here.</button> -->
@@ -84,7 +83,7 @@ if(count($_POST)>0) {
             <label for="email">User Email</label>
             <input class= "log_in_input" type="text" id="email" name="email" placeholder="Enter @buffalo.edu email">
 
-            <input type="button" id="log_in_button" type="submit" value="Submit">
+            <input type="button" id="log_in_button" name="submit" type="submit" value="Submit">
 
 
         </form>
