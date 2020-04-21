@@ -7,8 +7,9 @@ if(count($_POST)>0){
 
     
 
-     $result1 = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET["user_id"] . "'");
+    $result1 = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET["user_id"] . "'");
     $row=mysqli_fetch_array($result1);
+    }
 ?>
 
 
