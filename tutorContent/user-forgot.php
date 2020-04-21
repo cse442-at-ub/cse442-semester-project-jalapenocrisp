@@ -70,7 +70,7 @@ if(isset($_POST['submit'])) {
     <br>
     <br>
     <div id="tutor_signup_div">
-        <form>
+        <form method="post" action="">
         <div class="message">
     
         <?php if($message!="") { 
