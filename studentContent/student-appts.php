@@ -6,6 +6,16 @@ $row = mysqli_fetch_array($result);
 $result2 = mysqli_query($conn,"SELECT * FROM appointments WHERE student_id='" . $_GET['user_id'] . "' and status = 'upcoming'");
 $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GET['user_id'] . "'");
 
+$next_exam_result = mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GET['user_id'] . "'");
+$num_of_grades = 0;
+$courses_need_grades = array();
+$next_exams = array();
+while($arr_exam_result = mysqli_fetch_array($next_exam_result)){
+    $num_of_grades++;
+    array_push($courses_need_grades, $arr_exam_result['course']);
+    array_push($next_exams, $arr_exam_result['nextExam']);
+};
+echo "$num_of_grades \n";
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +41,13 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
 
                 <!-- the line of code commented below is important when we upload the work on a server. for now, i'm using an alternative below -->
                 <!-- <li><a href="javascript:loadPage('./login.php')">login</a> </li> -->
-                <li><a class="navlink" href="./student-add-exam.php?user_id=<?php echo $row['user_id']; ?>">add grades</a> </li>
+
+
+
+                <li><a class="navlink" href="./student-add-exam.php?user_id=<?php echo $row['user_id']; ?>">add grades<?php
+                    
+                ?></a> </li>
+                
                 <li><a class="navlink" href="./search.php?user_id=<?php echo $row['user_id']; ?>">find a tutor</a> </li>
                 <div class="dropdown">
                         <li><button oncli1ck="progressclick()" class="dropbtn">my progress</button>
