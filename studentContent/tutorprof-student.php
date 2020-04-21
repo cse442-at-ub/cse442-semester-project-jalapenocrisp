@@ -77,7 +77,7 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
     ?>    
 
     
-    <button class="calendarView" onclick="window.location='<?php echo $row['zoom_link']?>'"> value="Go to This Tutor's Meeting Room"</button>
+    <button class="calendarView" onclick="window.location='<?php echo $row['zoom_link']?>'">Go to This Tutor's Meeting Room</button>
     
     
     <h1 class="welcome-page-title"></h1>
