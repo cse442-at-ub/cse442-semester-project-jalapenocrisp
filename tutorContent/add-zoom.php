@@ -74,7 +74,7 @@ $row = mysqli_fetch_array($result);
 	   <input type="hidden" id="lname" value=<?php echo $row['lname']?>>
 	   <input type="hidden" id="user_id" value=<?php echo $row['user_id']?>>
 	   
-	   <input class="sign_up_input" type="text" id="zoomLink" name="zoomLink" value=<?php echo $row['zoom-link']?>>
+	   <input type="text" id="zoomLink" name="zoomLink" value=<?php echo $row['zoom-link']?>>
            <input type="submit" id="tutor_zoom_submit" name="submit" value= "Save">
      </form>
 	
