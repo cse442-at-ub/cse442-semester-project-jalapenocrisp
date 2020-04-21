@@ -7,10 +7,11 @@ include_once "access-db.php";
 if(count($_POST)>0){
 
     $zoomLink = $_POST['zoomLink'];
+    $valid = "https://zoom.us/j/";
 
     if(empty($zoomLink)){
 	$message="Please enter your Zoom Link"; 
-    }else if(strpos($zoomLink, "https://zoom.us/j/") == false || strlen($zoomLink)!=28){
+    }else if(strpos($zoomLink, https://zoom.us/j/) == false || strlen($zoomLink)!=28){
     	$message="Please enter valid Zoom Meeting Room Url";
     }else{    
      	mysqli_query($conn,"UPDATE tutors SET zoom_link='" . $zoomLink . "' WHERE user_id='" . $_GET['user_id'] . "'");
