@@ -4,9 +4,26 @@
     $result = mysqli_query($conn,"SELECT * FROM progress WHERE student_id=$student_id;");
     $msg_error = "";
     $all_courses = array();
+    
+    $num_of_grades = 0;
+    $courses_need_grades = "";
+    $todays_date = new DateTime("now", new DateTimeZone('America/New_York') );
+    $formatted_todays_date = $todays_date->format('Y-m-d');
+    
     while($row = mysqli_fetch_array($result)){
+        $nextExam_string = $row['nextExam'];
+        $nextExam_date = strtotime($nextExam_string); 
+        $nextExam = date('Y-m-d', $nextExam_date); 
         $course_name = $row["course"];
         array_push($all_courses, $course_name);
+
+        if($formatted_todays_date >= $nextExam){
+            $courses_need_grades .= $course_name . ", ";
+            $num_of_grades++;
+        }
+    }
+    if($num_of_grades > 0){
+        $courses_need_grades = rtrim($courses_need_grades, ",");
     }
 
     if(count($_POST) > 0){
@@ -97,6 +114,10 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
         if(strcmp($msg_error, "")!= 0){
             echo "<h2 class=\"welcome-page-title\">***ENTER A VALID GRADE (between 0 - 150)***</h1><br>";
         }
+        if($num_of_grades > 0){ ?>
+            <p> class="center"<?php  echo $courses_need_grades; ?> </p>
+
+    <?php }
         $num_classes = count($all_courses);
         if( $num_classes > 0){
     ?>

@@ -23,7 +23,6 @@ while($arr_exam_result = mysqli_fetch_array($next_exam_result)){
         $num_of_grades++;
     }
 };
-echo "$num_of_grades \n";
 ?>
 
 <!DOCTYPE html>
