@@ -65,12 +65,14 @@ if(count($_POST)>0){
     
     <p>Return to this page and paste it in the textbox below.</p>
     
-     <br>
-     <form method="post" action="">
-	   
+    <br>
+    <form method="post" class="info1" action="">
+	   <input type="hidden" id="fname" value=<?php echo $row['fname']?>>
+	   <input type="hidden" id="lname" value=<?php echo $row['lname']?>>
+	   <input type="hidden" id="user_id" value=<?php echo $row['user_id']?>>
 	   <br>  
-	   <input class="sign_up_input" type="text" id= "zoomLink" name="zoomLink" value="echo $row['zoom-link']">
-           <input type="submit" id="tutor_zoom_submit" name="submit" value= "Submit">
+	   <input class="sign_up_input" type="text" id= "zoomLink" name="zoomLink" value=<?php echo $row['zoom-link']?>>
+           <input type="submit" id="tutor_zoom_submit" name="submit" value= "Save">
      </form>
 	
 	
