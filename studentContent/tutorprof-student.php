@@ -80,7 +80,7 @@ $row = mysqli_fetch_array($result);
 
     <?php
     if(is_null($row['zoom_link']) == false){
-    
+    echo '<button class="calendarView" onclick="window.open('echo $row['zoom_link']','_blank')">Go to This Tutors Zoom Meeting Room</button>';
     }
     ?>
      
