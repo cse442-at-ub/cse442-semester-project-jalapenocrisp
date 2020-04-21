@@ -21,7 +21,7 @@ if(isset($_POST['email'])) {
         $headers .= "X-Priority: 1" . "\r\n";
         mail($to, $subject, $message, $headers);
         mysqli_query($conn,"UPDATE students SET vcode='" . $code  . "' WHERE user_id='" . $row['user_id'] . "'"); 
-        header('Location: password-reset.php?user_id=' . $row['user_id']);
+        header('Location: verify-email-student.php?user_id=' . $row['user_id']);
 
     }  
 }
