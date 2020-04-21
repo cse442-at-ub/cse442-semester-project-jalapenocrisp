@@ -35,16 +35,35 @@ if(count($_POST)>0){
 </head>
 <body>
 
-	<input type="button" onclick="window.location='https://zoom.us/signin'" value="Go to Zoom Sign in"/>	 	 
-        <br>
-	 <p>Open the link above in a new tab.  \nThen, sign into your Zoom account and \ncopy your meeting link (found below you Personal Meeting ID). \nReturn to this page and paste it in the textbox below.</p>
-	 <br>
-	<form method="post" action="">
+    <div class="header">
+
+        <div class="menu_welcomePage">
+            <ul>
+                <li><a class="navlink" href="./login-student.php">student login</a> </li>
+                <li><a class="navlink" href="../index.html">home</a> </li>
+
+            </ul>
+        </div>
+
+        <div class="logo">
+            <h2 class="logo"> <a href="../index.html">UBtutoring</a> </h2>
+        </div>
+
+    </div>
+    <hr class="hr-navbar">
+
+
+    
+    <input type="button" onclick="window.location='https://zoom.us/signin'" value="Go to Zoom Sign in"/>	 	 
+    <br>
+    <p>Open the link above in a new tab.  \nThen, sign into your Zoom account and \ncopy your meeting link (found below you Personal Meeting ID). \nReturn to this page and paste it in the textbox below.</p>
+     <br>
+     <form method="post" action="">
 	   
-	    <br>  
-	    <input class="sign_up_input" type="text" id= "zoomLink" name="zoomLink" value="echo $row['zoom-link']">
-            <input type="submit" id="tutor_zoom_submit" name="submit" value= "Submit"> 
-	</form>
+	   <br>  
+	   <input class="sign_up_input" type="text" id= "zoomLink" name="zoomLink" value="echo $row['zoom-link']">
+           <input type="submit" id="tutor_zoom_submit" name="submit" value= "Submit">
+     </form>
 	
 	
 <script src="../index.js"></script>
