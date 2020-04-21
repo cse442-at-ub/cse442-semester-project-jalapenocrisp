@@ -10,7 +10,7 @@
 
         $allClasses = "";
         $nextExam= $_POST["nextExam_year"] . "-" . $_POST["nextExam_month"] . "-" . $_POST["nextExam_date"];
-        $formatted_nextExam = new DataTime($nextExam);
+        $formatted_nextExam = new DataTime("$nextExam");
         
         unset($_POST["nextExam_month"]);
         unset($_POST["nextExam_year"]);
