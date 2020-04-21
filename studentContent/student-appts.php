@@ -53,7 +53,9 @@ echo "$num_of_grades \n";
 
 
                 <li><a class="navlink" href="./student-add-exam.php?user_id=<?php echo $row['user_id']; ?>">add grades<?php
-                    
+                    if($num_of_grades > 0){
+                        echo"<span style=\"border-radius: 50%; background-color: red; color: white;\">$num_of_grades</span>";
+                    }
                 ?></a> </li>
                 
                 <li><a class="navlink" href="./search.php?user_id=<?php echo $row['user_id']; ?>">find a tutor</a> </li>
