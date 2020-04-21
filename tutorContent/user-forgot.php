@@ -1,7 +1,7 @@
 <?php
 $message="";
 include_once "access-db.php";
-if(isset($_POST['submit'])) {
+if(count($_POST)>0) {
     $result = mysqli_query($conn,"SELECT * FROM tutors WHERE email='" . $_POST["email"] . "'");
 	$count  = mysqli_num_rows($result);
 	if($count==0) {
@@ -82,7 +82,7 @@ if(isset($_POST['submit'])) {
             <label for="email">User Email</label>
             <input class= "log_in_input" type="text" id="email" name="email" placeholder="Enter @buffalo.edu email">
 
-            <input type="button" id="log_in_button" name="submit" type="submit" value="Submit">
+            <input type="submit" id="log_in_button" name="submit" type="submit" value="Submit">
 
 
         </form>

@@ -8,6 +8,7 @@ if(count($_POST)>0) {
     $email=$_POST['email'];                     
     $pass=$_POST['paswd'];
     $uid=$_GET['user_id'];
+    $pass2=$_GET['paswd2'];
 
     if(empty($fname) || empty($lname)){
         $message="Please enter a first and last name.";
@@ -15,6 +16,8 @@ if(count($_POST)>0) {
         $message="Please enter a valid UB email address.";
     }else if(!preg_match('(^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])\S*$)', $pass)){
         $message="Please enter a valid password.";
+    }else if ($pass!=$pass2){
+        $message="Passwords do not match";
     }else{
         mysqli_query($conn,"UPDATE students SET fname='" . $_POST['fname'] . "', lname='" . $_POST['lname'] . "', email='" . $_POST['email'] . "', paswd='" . $_POST['paswd'] . "' WHERE user_id='" . $_POST['user_id'] . "'"); 
         $message = "Record Modified Successfully";

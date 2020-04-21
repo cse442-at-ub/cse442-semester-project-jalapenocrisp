@@ -22,7 +22,7 @@ if(count($_POST)>0) {
     }else if(!preg_match('(^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])\S*$)', $pass)){
         $message="Please enter a valid password.";
     }else if($pass!=$pass2){
-        $message="Passwords do not match!";
+        $message="Passwords do not match.";
     }else{
         mysqli_query($conn,"UPDATE tutors SET fname='" . $_POST['fname'] . "', lname='" . $_POST['lname'] . "', phone='" . $_POST['phone'] . "' ,title='" . $_POST['title'] . "' , email='" . $_POST['email'] . "', courses='" . $_POST['courses'] . "', paswd='" . $_POST['paswd'] . "' WHERE user_id='" . $_POST['user_id'] . "'"); 
         header('Location: ./tutorprof.php?user_id=' .$uid);
@@ -68,7 +68,7 @@ $row= mysqli_fetch_array($result);
 <h1 class="welcome-page-title">Please Save Before Returning</h1>
 <form class = "info1" name="frmUser" method="post" action="">
 
-<div><?php if(isset($message)) { echo $message; } ?>
+<div class="message"><?php if(isset($message)) { echo $message; } ?>
 </div>
 <div style="padding-bottom:5px;">
 </div>
