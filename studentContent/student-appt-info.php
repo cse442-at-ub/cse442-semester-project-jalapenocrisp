@@ -9,11 +9,18 @@
     if(count($_POST) > 0){
 
         $allClasses = "";
-        $nextExam= $_POST["nextExam_year"] . "-" . $_POST["nextExam_month"] . "-" . $_POST["nextExam_date"] . " 00:00:00";
+        $nextExam= $_POST["nextExam_year"] . "-" . $_POST["nextExam_month"] . "-" . $_POST["nextExam_date"];
+        $formatted_nextExam = new DataTime($nextExam);
+        
         unset($_POST["nextExam_month"]);
         unset($_POST["nextExam_year"]);
         unset($_POST["nextExam_date"]);
         unset($_POST["submit"]);
+
+        $todays_date = new DateTime("now", new DateTimeZone('America/New_York') );
+        $formatted_todays_date = $todays_date->format('Y-m-d');
+        echo "now = $formatted_todays_date recieved = $formatted_nextExam";
+        
         $flag = FALSE;
         foreach($_POST as $key => $value){
             if( strlen($value) > 0 && floatval($value) <=100 && floatval($value) >= 0){
