@@ -13,11 +13,10 @@ if(count($_POST)>0){
     }else if(strlen($zoomLink)!=28 || strlen($zoomLink)!=28){
     	$message="Please enter valid Zoom Meeting Room Url";
     }else{    
-     	mysqli_query($conn,"UPDATE tutors SET zoom_link='" . $zoomLink . "' WHERE user_id='" . $_POST['user_id'] . "'");
+     	mysqli_query($conn,"UPDATE tutors SET zoom_link='" . $zoomLink . "' WHERE user_id='" . $_GET['user_id'] . "'");
 	$message = "Url added successfully!";
      	header('Location: ./tutorprof.php?user_id=' . $_GET["user_id"]);     
-    }
-    
+    }   
 }
 
 $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['user_id'] . "'");
@@ -73,7 +72,8 @@ $row = mysqli_fetch_array($result);
     <form method="post" class="info1" action="">
 	   <input type="hidden" id="fname" value=<?php echo $row['fname']?>>
 	   <input type="hidden" id="lname" value=<?php echo $row['lname']?>>
-	   <input type="hidden" id="user_id" value=<?php echo $row['user_id']?>>  
+	   <input type="hidden" id="user_id" value=<?php echo $row['user_id']?>>
+	   
 	   <input class="sign_up_input" type="text" id="zoomLink" name="zoomLink" value=<?php echo $row['zoom-link']?>>
            <input type="submit" id="tutor_zoom_submit" name="submit" value= "Save">
      </form>
