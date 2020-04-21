@@ -61,7 +61,7 @@ $row = mysqli_fetch_array($result);
     
     <button class="calendarView" onclick="window.location='https://zoom.us/signin'">"Go to Zoom Sign in"</button>
    
-    <br>
+   
     <button class="calendarView">
     <br>
     <label>Open the link above in a new tab.</label><br>
@@ -82,7 +82,7 @@ $row = mysqli_fetch_array($result);
      </form>
      <br>
      </button>	
-	
+     <br>	
 <script src="../index.js"></script>
 
 </body>
