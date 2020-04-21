@@ -79,6 +79,7 @@ $row = mysqli_fetch_array($result);
 	   <input class="sign_up_input" type="text" id="zoomLink" name="zoomLink" value=<?php echo $row['zoom-link']?>>
            <input type="submit" id="tutor_zoom_submit" name="submit" value= "Save">
      </form>
+     <br>
      </button>	
 	
 <script src="../index.js"></script>
