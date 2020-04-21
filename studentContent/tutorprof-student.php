@@ -78,7 +78,7 @@ $row = mysqli_fetch_array($result);
        }
     ?>    
 
-    <?php if ($row['zoom_link'] == NULL) : ?>
+    <?php if ($row['zoom_link'] != NULL) : ?>
     <button name="zoomButtn" onclick="window.open('<?php echo $row['zoom_link']?>','_blank')" download style="visibility: hidden">
     <i aria-hidden="true"></i> 
     Go to This Tutors Zoom Meeting Room</button>
