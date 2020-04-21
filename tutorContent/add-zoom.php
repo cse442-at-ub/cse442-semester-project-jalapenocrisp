@@ -12,7 +12,7 @@ if(count($_POST)>0){
     }else if(strlen($zoomLink)!=28 || strlen($zoomLink)!=28){
     	$message="Please enter valid Zoom Meeting Room Url";
     }else{    
-     	mysqli_query($conn,"UPDATE tutors SET zoom_link='" . $zoomLink . '"  WHERE user_id='" . $_POSTT['user_id'] . "'");
+     	mysqli_query($conn,"UPDATE tutors SET zoom_link='" . $zoomLink . '"  WHERE user_id='" . $_POST['user_id'] . "'");
 	$message = "Url added successfully!";
      	header('Location: ./tutorprof.php?user_id=' . $_GET["user_id"]);     
     }
