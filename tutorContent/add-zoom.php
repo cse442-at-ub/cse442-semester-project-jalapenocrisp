@@ -61,14 +61,12 @@ if(count($_POST)>0){
     <label>Then, sign into your Zoom account and</label><br>
     <label>copy your meeting link (found below you Personal Meeting ID).</label><br>
     <label>Return to this page and paste it in the textbox below.</label><br>
-    
     <br>
     <form method="post" class="info1" action="">
 	   <input type="hidden" id="fname" value=<?php echo $row['fname']?>>
 	   <input type="hidden" id="lname" value=<?php echo $row['lname']?>>
-	   <input type="hidden" id="user_id" value=<?php echo $row['user_id']?>>
-	   <br>  
-	   <input class="sign_up_input" type="text" id= "zoomLink" name="zoomLink" value=<?php echo $row['zoom-link']?>>
+	   <input type="hidden" id="user_id" value=<?php echo $row['user_id']?>>  
+	   <input class="sign_up_input" type="text" id="zoomLink" name="zoomLink" value=<?php echo $row['zoom-link']?>>
            <input type="submit" id="tutor_zoom_submit" name="submit" value= "Save">
      </form>
 	
