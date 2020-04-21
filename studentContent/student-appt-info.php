@@ -10,7 +10,11 @@
     if(count($_POST) > 0){
 
         $allClasses = "";
-        $nextExam= $_POST["nextExam_year"] . "-" . $_POST["nextExam_month"] . "-" . $_POST["nextExam_date"];
+        $nextExam_string= $_POST["nextExam_year"] . "-" . $_POST["nextExam_month"] . "-" . $_POST["nextExam_date"];
+
+
+        $nextExam_date = strtotime($nextExam_string); 
+        $nextExam = date('Y-m-d', $nextExam_date); 
         
         unset($_POST["nextExam_month"]);
         unset($_POST["nextExam_year"]);
