@@ -10,11 +10,11 @@ if(count($_POST)>0){
     if(empty($zoomLink)){
 	$message="Please enter your Zoom Link"; 
     }else if(strlen($zoomLink)!=22 || strlen($zoomLink)!=23){
-    	  $message="PLease enter valid Zoom Meeting Room Url";
+    	$message="Please enter valid Zoom Meeting Room Url";
     }else{    
-     	      mysqli_query($conn,"UPDATE tutors SET zoom_link= $zoomLink WHERE user_id='" . $_GET['user_id'] . "'");
-	      $message = "Url added successfully!";
-     	      header('Location: ./tutorprof.php?user_id=' . $_GET["user_id"]);     
+     	mysqli_query($conn,"UPDATE tutors SET zoom_link= $zoomLink WHERE user_id='" . $_GET['user_id'] . "'");
+	$message = "Url added successfully!";
+     	header('Location: ./tutorprof.php?user_id=' . $_GET["user_id"]);     
     }
     
 }
@@ -62,6 +62,9 @@ if(count($_POST)>0){
     <label>copy your meeting link (found below you Personal Meeting ID).</label><br>
     <label>Return to this page and paste it in the textbox below.</label><br>
     <br>
+
+    <?php if(isset($message)) { echo $message; } ?>
+    
     <form method="post" class="info1" action="">
 	   <input type="hidden" id="fname" value=<?php echo $row['fname']?>>
 	   <input type="hidden" id="lname" value=<?php echo $row['lname']?>>
