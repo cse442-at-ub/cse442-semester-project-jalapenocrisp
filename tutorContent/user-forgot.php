@@ -1,7 +1,7 @@
 <?php
 $message="";
 include_once "access-db.php";
-if(isset($_POST['email'])) {
+if(count($_POST)>0) {
     $result = mysqli_query($conn,"SELECT * FROM tutors WHERE email='" . $_POST["email"] . "'");
 	$count  = mysqli_num_rows($result);
 	if($count==0) {
