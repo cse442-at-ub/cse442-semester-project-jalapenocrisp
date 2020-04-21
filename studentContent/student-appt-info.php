@@ -26,7 +26,7 @@
 
         
 
-        if($formatted_todays_date < $nextExam){
+        if($formatted_todays_date > $nextExam){
             echo "now = $formatted_todays_date recieved = $nextExam \n";
             echo "incorrect date \n";
             $incorrect_date = TRUE;
