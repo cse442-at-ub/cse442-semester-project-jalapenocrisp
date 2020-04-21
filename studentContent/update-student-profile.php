@@ -54,21 +54,21 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
                 <li><a class="navlink" href="./search.php?user_id=<?php echo $_GET['user_id']; ?>">find a tutor</a> </li>
                 <div class="dropdown">
                 <li><button onclick="progressclick()" class="dropbtn">my progress</button>
-                            <div id="myDropdown" class="dropdown-content">
-                                <?php 
-                                if (mysqli_num_rows($progress)<1){
-                                    echo "<p class='center'>no progress yet</p>";
-                                }else{
-                                while ($progressInfo = mysqli_fetch_array($progress)){ 
-                                    $linkname=$progressInfo['course'];
-                                    $link="./student-progress.php?user_id=" . $_GET['user_id'] . "&cid=" . $linkname ; 
-                                    echo "<a href=".$link.">".$linkname."</a>";}
-                                }
-                                ?>
-                            </div>
-                        </li>
-                    </div>                
-                    <li><a class="navlink" href="./studentprof.php?user_id=<?php echo $_GET['user_id']; ?>">profile</a> </li>
+                    <div id="myDropdown" class="dropdown-content">
+                        <?php 
+                            if (mysqli_num_rows($progress)<1){
+                                echo "<p class='center'>no progress yet</p>";
+                            }else{
+                            while ($progressInfo = mysqli_fetch_array($progress)){ 
+                                $linkname=$progressInfo['course'];
+                                $link="./student-progress.php?user_id=" . $_GET['user_id'] . "&cid=" . $linkname ; 
+                                echo "<a href=".$link.">".$linkname."</a>";}
+                            }
+                            ?>
+                    </div>
+                </li>
+                </div>                
+                <li><a class="navlink" href="./studentprof.php?user_id=<?php echo $_GET['user_id']; ?>">profile</a> </li>
                 <li><a class="navlink" href="../index.html">logout</a> </li>
 
             </ul>
@@ -88,22 +88,36 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
 </div>
 <div style="padding-bottom:5px;">
 </div>
-<input type="hidden" name="user_id" class="input1" value="<?php echo $row['user_id']; ?>">
-<input type="hidden" name="fname" class="input1" value="<?php echo $row['fname']; ?>">
-<input type="hidden" name="lname" class="input1" value="<?php echo $row['lname']; ?>">
-
+First Name:<br>
+<input type="text" name="fname" class="input1" value="<?php echo $row['fname']; ?>">
+<br>
+<br>
+Last Name:<br>
+<input type="text" name="lname" class="input1" value="<?php echo $row['lname']; ?>">
+<br>
+<br>
+Level:<br>
+<select class="input1" name="title" id= "title">
+    <option selected><?php echo $row['title']; ?></option>
+    <option value="Undergraduate">Undergraduate</option>
+    <option value="Graduate">Graduate</option>
+    <option value="Postgraduate">Postgraduate</option>
+</select>
+<br>
+<br>
 Email:<br>
 <input type="text" name="email" class="input1" value="<?php echo $row['email']; ?>">
 <br>
 <br>
-
 Password:<br>
-
 <input type="password" name="paswd" class="input1" value="<?php echo $row['paswd']; ?>">
-
 <br>
 <br>
-<input class="selectButton" type="submit" name="submit" value="Save" class="button">
+Confirm password:<br>
+<input type="password" name="paswd2" class="input1" value="<?php echo $row['paswd']; ?>">
+<br>
+<br>
+<input id="tutor_signup_submit" type="submit" name="submit" value="Save" class="button">
 </form>
 <br>
 <br>

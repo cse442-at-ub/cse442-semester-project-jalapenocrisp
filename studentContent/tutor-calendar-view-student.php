@@ -46,11 +46,125 @@ if (isset($_POST['submit'])){
     $stmt2->close();
 
     $studRes= mysqli_query($conn,"SELECT * FROM students WHERE user_id=$stu");
-    $stuarray = mysqli_fetch_array($tutorRes);
+    $stuarray = mysqli_fetch_array($studRes);
     $stuEmail=$stuarray['email'];
 
     $tos=$stuEmail;
     $to=$tutorEmail;
+
+    $phone=$tutarray['phone'];
+    $phoneStu=$stuarray['phone'];
+    $carrier=$tutarray['carrier'];
+    $carrierStu=$stuarray['carrier'];
+
+
+    $emaillink="";
+
+    if ($carrier=="AT&T"){
+        $emaillink="txt.att.net";
+    }else if ($carrier=="T-Mobile"){
+        $emaillink="tmomail.net";
+    }else if ($carrier=="Verizon"){
+        $emaillink="vtext.com";
+    }else if ($carrier=="Visible"){
+        $emaillink="vzwpix.com";                            
+    }else if ($carrier=="Sprint"){
+        $emaillink="messaging.sprintpcs.com";
+    }else if ($carrier=="Xfinity Mobile"){
+        $emaillink="vtext.com";
+    }else if ($carrier=="Virgin Mobile"){
+        $emaillink="vmobl.com";
+    }else if ($carrier=="Tracfone"){
+        $emaillink="mmst5.tracfone.com";
+    }else if ($carrier=="Simple Mobile"){
+        $emaillink="smtext.com";            
+    }else if ($carrier=="Mint Mobile"){
+        $emaillink="mailmymobile.net";
+    }else if ($carrier=="Consumer Cellular"){
+        $emaillink="mailmymobile.net";
+    }else if ($carrier=="Red Pocket"){
+        $emaillink="vtext.com";
+    }else if ($carrier=="Metro PCS"){
+        $emaillink="mymetropcs.com";
+    }else if ($carrier=="Boost Mobile"){
+        $emaillink="myboostmobile.com";
+    }else if ($carrier=="Cricket"){
+        $emaillink="sms.cricketwireless.net";
+    }else if ($carrier=="Republic Wireless"){
+        $emaillink="text.republicwireless.com";
+    }else if ($carrier=="Google Fi"){
+        $emaillink="msg.fi.google.com";            
+    }else if ($carrier=="U.S. Cellular"){
+        $emaillink="email.uscc.net";            
+    }else if ($carrier=="Ting"){
+        $emaillink="message.ting.com";           
+    }else if ($carrier=="Consumer Cellular"){
+        $emaillink="mailmymobile.net";            
+    }else if ($carrier=="C-Spire"){
+        $emaillink="cspire1.com";            
+    }else if ($carrier=="Page Plus"){
+        $emaillink="vtext.com";           
+    }      
+
+    $emaillinkStu="";
+
+    if ($carrierStu=="AT&T"){
+        $emaillinkStu="txt.att.net";
+    }else if ($carrierStu=="T-Mobile"){
+        $emaillinkStu="tmomail.net";
+    }else if ($carrierStu=="Verizon"){
+        $emaillinkStu="vtext.com";
+    }else if ($carrierStu=="Visible"){
+        $emaillinkStu="vzwpix.com";                            
+    }else if ($carrierStu=="Sprint"){
+        $emaillinkStu="messaging.sprintpcs.com";
+    }else if ($carrierStu=="Xfinity Mobile"){
+        $emaillinkStu="vtext.com";
+    }else if ($carrierStu=="Virgin Mobile"){
+        $emaillinkStu="vmobl.com";
+    }else if ($carrierStu=="Tracfone"){
+        $emaillinkStu="mmst5.tracfone.com";
+    }else if ($carrierStu=="Simple Mobile"){
+        $emaillinkStu="smtext.com";            
+    }else if ($carrierStu=="Mint Mobile"){
+        $emaillinkStu="mailmymobile.net";
+    }else if ($carrierStu=="Consumer Cellular"){
+        $emaillinkStu="mailmymobile.net";
+    }else if ($carrierStu=="Red Pocket"){
+        $emaillinkStu="vtext.com";
+    }else if ($carrierStu=="Metro PCS"){
+        $emaillinkStu="mymetropcs.com";
+    }else if ($carrierStu=="Boost Mobile"){
+        $emaillinkStu="myboostmobile.com";
+    }else if ($carrierStu=="Cricket"){
+        $emaillinkStu="sms.cricketwireless.net";
+    }else if ($carrierStu=="Republic Wireless"){
+        $emaillinkStu="text.republicwireless.com";
+    }else if ($carrierStu=="Google Fi"){
+        $emaillinkStu="msg.fi.google.com";            
+    }else if ($carrierStu=="U.S. Cellular"){
+        $emaillinkStu="email.uscc.net";            
+    }else if ($carrierStu=="Ting"){
+        $emaillinkStu="message.ting.com";           
+    }else if ($carrierStu=="Consumer Cellular"){
+        $emaillinkStu="mailmymobile.net";            
+    }else if ($carrierStu=="C-Spire"){
+        $emaillinkStu="cspire1.com";            
+    }else if ($carrierStu=="Page Plus"){
+        $emaillinkStu="vtext.com";           
+    }
+    $toText=$phone;
+    $toText.='@';
+    $toText.=$emaillink;
+
+    $toTextStu=$phoneStu;
+    $toTextStu.='@';
+    $toTextStu.=$emaillinkStu;
+
+    if ($time>12){
+        $time=$time-12;
+    }
+
     $subject="Notification of new appointment";
     $message="Dear " . $tutarray['fname'] . " " . $tutarray['lname'] .":\r\nWe are writing to notify that a new appointment at " . $time . ":00 on " . $day . " has been scheduled. No further action is necesary by you.\r\n\r\nUBtutoring\r\n\r\nPlease do not reply to this.";
     $messageS="Dear " . $stuarray['fname'] . " " . $stuarray['lname'] .":\r\nWe are writing to notify that a new appointment at " . $time . ":00 on " . $day . " has been scheduled. No further action is necesary by you.\r\n\r\nUBtutoring\r\n\r\nPlease do not reply to this.";
@@ -62,6 +176,13 @@ if (isset($_POST['submit'])){
     $headers .= "Reply-To: ". $from. "\r\n";
     $headers .= "X-Mailer: PHP/" . phpversion();
     $headers .= "X-Priority: 1" . "\r\n";
+
+    if($tutarray['verified']){
+        mail( $toText, '', $message );
+    }
+    if ($stuarray['verified']){
+        mail( $toTextStu, '', $message );
+    }
     mail($to, $subject, $message, $headers);
     mail($tos, $subject, $messageS, $headers);
 

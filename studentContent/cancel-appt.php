@@ -73,7 +73,7 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
     <th width="10%"></th>
     </tr>
     <tr><td><?php echo $row["day"]; ?></td>
-        <td><?php echo $row["time"]; ?>:00</td>
+        <td><?php if($row["time"]>12){echo $row["time"]-12  . ":00 PM";}else{echo $row["time"]  . ":00 AM";} ?></td>
         <td><?php echo $tutarray["fname"]; ?> <?php echo $tutarray["lname"]; ?></td>
         <td><?php echo $tutarray["courses"]; ?></td>
     </tr>
@@ -107,10 +107,98 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
             $stmt->bind_param("si", $status, $id);
             $stmt->execute();
             $stmt->close();
+            $concat="";
+            $day=$row['day'];
+            if ($day=="Monday"){
+                $concat="mon";
+            }else if($day=="Tuesday"){
+                $concat="tue";
+            }else if($day=="Wednesday"){
+                $concat="wed";
+            }else if($day=="Thursday"){
+                $concat="thu";
+            }else if($day=="Friday"){
+                $concat="fri";
+            }else if($day=="Saturday"){
+                $concat="sat";
+            }else{
+                $concat="sun";
+            }
+            $time=$row['time'];
+            $concat=$concat . $time;
+
+
+            $sql2  =  "UPDATE calendar SET ";
+            $sql2 .= $concat;
+            $sql2 .= " =1  WHERE user_id=?";
+            $stmt2= $conn->prepare($sql2);
+            $stmt2->bind_param("i", $tid);
+            $stmt2->execute();
+            $stmt2->close();
 
             $to=$tutarray['email'];
+
+            $phone=$tutarray['phone'];
+            $carrier=$tutarray['carrier'];
+        
+            $emaillink="";
+        
+            if ($carrier=="AT&T"){
+                $emaillink="txt.att.net";
+            }else if ($carrier=="T-Mobile"){
+                $emaillink="tmomail.net";
+            }else if ($carrier=="Verizon"){
+                $emaillink="vtext.com";
+            }else if ($carrier=="Visible"){
+                $emaillink="vzwpix.com";                            
+            }else if ($carrier=="Sprint"){
+                $emaillink="messaging.sprintpcs.com";
+            }else if ($carrier=="Xfinity Mobile"){
+                $emaillink="vtext.com";
+            }else if ($carrier=="Virgin Mobile"){
+                $emaillink="vmobl.com";
+            }else if ($carrier=="Tracfone"){
+                $emaillink="mmst5.tracfone.com";
+            }else if ($carrier=="Simple Mobile"){
+                $emaillink="smtext.com";            
+            }else if ($carrier=="Mint Mobile"){
+                $emaillink="mailmymobile.net";
+            }else if ($carrier=="Consumer Cellular"){
+                $emaillink="mailmymobile.net";
+            }else if ($carrier=="Red Pocket"){
+                $emaillink="vtext.com";
+            }else if ($carrier=="Metro PCS"){
+                $emaillink="mymetropcs.com";
+            }else if ($carrier=="Boost Mobile"){
+                $emaillink="myboostmobile.com";
+            }else if ($carrier=="Cricket"){
+                $emaillink="sms.cricketwireless.net";
+            }else if ($carrier=="Republic Wireless"){
+                $emaillink="text.republicwireless.com";
+            }else if ($carrier=="Google Fi"){
+                $emaillink="msg.fi.google.com";            
+            }else if ($carrier=="U.S. Cellular"){
+                $emaillink="email.uscc.net";            
+            }else if ($carrier=="Ting"){
+                $emaillink="message.ting.com";           
+            }else if ($carrier=="Consumer Cellular"){
+                $emaillink="mailmymobile.net";            
+            }else if ($carrier=="C-Spire"){
+                $emaillink="cspire1.com";            
+            }else if ($carrier=="Page Plus"){
+                $emaillink="vtext.com";           
+            }      
+            $toText=$phone;
+            $toText.='@';
+            $toText.=$emaillink;
+
+            $time=$row['time'];
+            if ($time>12){
+                $time=$time-12;
+            }
+
             $subject="Notification of student cancellation";
-            $message="Dear " . $tutarray['fname'] . " " . $tutarray['lname'] .":\r\nWe are writing to notify you that your appointment at " . $row['time'] . ":00 on " . $row['day'] . " has been cancelled by the student. No further action is necesary by you.\r\n\r\nUBtutoring\r\n\r\nPlease do not reply to this.";
+            $message="Dear " . $tutarray['fname'] . " " . $tutarray['lname'] .":\r\nWe are writing to notify you that your appointment at " . $time . ":00 on " . $row['day'] . " has been cancelled by the student. No further action is necesary by you.\r\n\r\nUBtutoring\r\n\r\nPlease do not reply to this.";
             $from="no-reply@buffalo.com";
             $headers  = "MIME-Version: 1.0" . "\r\n";
             $headers .= "Content-type: text/plain; charset=iso-8859-1" . "\r\n";
@@ -119,7 +207,9 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
             $headers .= "X-Mailer: PHP/" . phpversion();
             $headers .= "X-Priority: 1" . "\r\n";
             mail($to, $subject, $message, $headers);
-            // mail( '7167170277@vzwpix.com', '', $message );
+            if($tutarray['verified']){
+                mail( $toText, '', $message );
+            }           
             header('Location: ./student-appts.php?user_id=' . $userid);
 
         }
