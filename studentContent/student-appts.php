@@ -10,10 +10,18 @@ $next_exam_result = mysqli_query($conn,"SELECT * FROM progress WHERE student_id=
 $num_of_grades = 0;
 $courses_need_grades = array();
 $next_exams = array();
+$todays_date = new DateTime("now", new DateTimeZone('America/New_York') );
+$formatted_todays_date = $todays_date->format('Y-m-d');
+
 while($arr_exam_result = mysqli_fetch_array($next_exam_result)){
-    $num_of_grades++;
-    array_push($courses_need_grades, $arr_exam_result['course']);
-    array_push($next_exams, $arr_exam_result['nextExam']);
+    $nextExam_string = $arr_exam_result['nextExam'];
+    $nextExam_date = strtotime($nextExam_string); 
+    $nextExam = date('Y-m-d', $nextExam_date); 
+    
+    if($formatted_todays_date >= $nextExam){
+        array_push($courses_need_grades, $arr_exam_result['course']);
+        $num_of_grades++;
+    }
 };
 echo "$num_of_grades \n";
 ?>
