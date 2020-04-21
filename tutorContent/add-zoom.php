@@ -59,7 +59,9 @@ $row = mysqli_fetch_array($result);
 
     <h1 class="welcome-page-title">Zoom Meeting Link: <?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?> </h1>
     
-    <button class="calendarView" onclick="window.location='https://zoom.us/signin'">"Go to Zoom Sign in"</button>	 	 
+    <button class="calendarView" onclick="window.location='https://zoom.us/signin'">"Go to Zoom Sign in"</button>
+
+    <button class="calendarView">
     <br>
     <label>Open the link above in a new tab.</label><br>
     <label>Then, sign into your Zoom account and</label><br>
@@ -77,7 +79,7 @@ $row = mysqli_fetch_array($result);
 	   <input class="sign_up_input" type="text" id="zoomLink" name="zoomLink" value=<?php echo $row['zoom-link']?>>
            <input type="submit" id="tutor_zoom_submit" name="submit" value= "Save">
      </form>
-	
+     </button>	
 	
 <script src="../index.js"></script>
 
