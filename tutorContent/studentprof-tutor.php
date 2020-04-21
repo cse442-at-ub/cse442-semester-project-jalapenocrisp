@@ -64,7 +64,9 @@ $row = mysqli_fetch_array($result);
     </table>    
         
     <br><br>
-
+    <button class="selectButton" onclick="window.location.href = 'mailto:<?php echo $row['email'];?>?subject = Feedback&body = Message'">
+     Contact Student
+    </button>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="../index.js"></script>
     <script>
