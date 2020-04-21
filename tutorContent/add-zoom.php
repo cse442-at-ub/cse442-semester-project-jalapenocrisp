@@ -16,6 +16,8 @@ if(count($_POST)>0){
 	      $message = "Url added successfully!";
      	      header('Location: ./studentprof.php?user_id=' . $_GET["user_id"]);     
     }
+    
+}
 ?>
 
 
