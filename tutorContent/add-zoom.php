@@ -9,7 +9,7 @@ if(count($_POST)>0){
 
     if(empty($zoomLink)){
 	$message="Please enter your Zoom Link"; 
-    }else if(strlen($zoomLink)!=22 || strlen($zoomLink)!=23){
+    }else if(strlen($zoomLink)!=28 || strlen($zoomLink)!=28){
     	$message="Please enter valid Zoom Meeting Room Url";
     }else{    
      	mysqli_query($conn,"UPDATE tutors SET zoom_link= $zoomLink WHERE user_id='" . $_GET['user_id'] . "'");
