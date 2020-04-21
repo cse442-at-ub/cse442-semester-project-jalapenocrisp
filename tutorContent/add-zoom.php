@@ -2,7 +2,10 @@
 
 $message="";
 include_once "access-db.php";
-    
+
+$result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['tutor_id'] . "'");
+$row = mysqli_fetch_array($result);
+
 if(count($_POST)>0){
 
     $zoomLink = $_POST['zoomLink'];
@@ -18,8 +21,7 @@ if(count($_POST)>0){
     }
     
 }
-$result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['tutor_id'] . "'");
-$row = mysqli_fetch_array($result);
+
 
 ?>
 
