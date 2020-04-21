@@ -57,13 +57,13 @@ if(count($_POST)>0){
     <input type="button" onclick="window.location='https://zoom.us/signin'" value="Go to Zoom Sign in"/>	 	 
     <br>
     <p>Open the link above in a new tab.</p>
-    <br>
+    
     <p>Then, sign into your Zoom account and</p>
-    <br>
+    
     <p>copy your meeting link (found below you Personal Meeting ID).</p>
-    <br>
+    
     <p>Return to this page and paste it in the textbox below.</p>
-     <br>
+    
      <br>
      <form method="post" action="">
 	   
