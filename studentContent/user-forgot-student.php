@@ -2,33 +2,35 @@
 $message="";
 include_once "access-db.php";
 if(count($_POST)>0) {
-	$result = mysqli_query($conn,"SELECT * FROM students WHERE email='" . $_POST["email"] . "' and paswd = '". $_POST["paswd"]."'");
+    $result = mysqli_query($conn,"SELECT * FROM students WHERE email='" . $_POST["email"] . "'");
 	$count  = mysqli_num_rows($result);
 	if($count==0) {
-		$message = "Invalid email or password!";
+		$message = "This email is not recognized in our system. Please try again.";
 	} else {
+        $row=mysqli_fetch_array($result);
+        $to=$_POST["email"];
+        $code= strval(mt_rand(100000, 999999));
+        $message="Your verification code is ";
+        $message.=$code;
+        $from="no-reply@buffalo.com";
+        $headers  = "MIME-Version: 1.0" . "\r\n";
+        $headers .= "Content-type: text/plain; charset=iso-8859-1" . "\r\n";
+        $headers .= "From: ". $from. "\r\n";
+        $headers .= "Reply-To: ". $from. "\r\n";
+        $headers .= "X-Mailer: PHP/" . phpversion();
+        $headers .= "X-Priority: 1" . "\r\n";
+        mail($to, $subject, $message, $headers);
+        mysqli_query($conn,"UPDATE students SET vcode='" . $code  . "' WHERE user_id='" . $row['user_id'] . "'"); 
+        header('Location: verify-email-student.php?user_id=' . $row['user_id']);
 
-        $row = mysqli_fetch_array($result);
-        $message = "You are successfully authenticated!";
-        $var1=$row['user_id'];
-
-        // KEEP FOLLOWING COMMENTS.. IT WILL BE USED ON SPRINT 4  -syed
-
-        // $results = mysqli_query($conn, "SELECT * FROM progress WHERE student_id=$var1;");
-        // $count = mysqli_num_rows($results);
-        // for($i= 0; $i< count; $i++){
-
-        // }
-        // date_default_timezone_set('America/New_York');
-        // $timezone = date_default_timezone_get();
-
-        header('Location: ./student-appts.php?user_id=' .$var1);
-	}
+    }  
 }
-?>
-<!DOCTYPE html>
 
+?>
+
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -41,16 +43,16 @@ if(count($_POST)>0) {
 </head>
 
 <body>
+
     <div class="header">
+
         <div class="menu_welcomePage">
             <ul>
+
                 <!-- the line of code commented below is important when we upload the work on a server. for now, i'm using an alternative below -->
                 <!-- <li><a href="javascript:loadPage('./login.php')">login</a> </li> -->
                 <li>
-                    <a class="navlink" href="../create-account.html">create account</a> </li>
-                <li>
                     <a class="navlink" href="../index.html">home</a> </li>
-
 
             </ul>
         </div>
@@ -58,18 +60,19 @@ if(count($_POST)>0) {
         <div class="logo">
             <h2 class="logo"> <a href="../index.html">UBtutoring</a> </h2>
         </div>
+
     </div>
     <hr class="hr-navbar">
 
-    <button class="selectButton" onclick="window.location.href = '../create-account.html';">Register</button>
+    <!-- <button class="selectButton" onclick ="window.location.href = './tutor_signup.html';">Not Registered? Sign Up Here.</button> -->
+
+    <h1 class="welcome-page-title">Forgot Password</h1>
     <br>
     <br>
     <br>
-    <h1 class="welcome-page-title">Student Log In</h1>
 
     <div id="tutor_signup_div">
-        <form name="frmUser" method='post' action="">
-
+    <form method="post" action="">
         <div class="message">
     
         <?php if($message!="") { 
@@ -77,23 +80,17 @@ if(count($_POST)>0) {
             
             } ?> 
         </div> 
-
             <label for="email">User Email</label>
-            <input class="log_in_input" type="text" id="email" name="email" placeholder="Email">
+            <input class= "log_in_input" type="text" id="email" name="email" placeholder="Enter @buffalo.edu email">
 
-            <label for="password">Password</label>
-            <input class="log_in_input" type="password" id="password" name="paswd">
-            
-            <input id="log_in_button" name="submit" type="submit" value="Submit">
-            <br>
-            <br>
-            <br>
-            <a href="user-forgot-student.php" id="forgot_link_id"> forgot password? </a>
+            <input type="submit" id="log_in_button" name="submit" type="submit" value="Submit">
+
+
         </form>
+
+
+            <!-- <button class="selectButton" onclick ="window.location.href = './tutorprofile.html';">Submit</button> -->
     </div>
-
     <script src="../index.js"></script>
-    
 </body>
-
 </html>
