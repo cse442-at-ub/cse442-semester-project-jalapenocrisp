@@ -11,7 +11,6 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content ="width=device-width,initial-scale=1,user-scalable=yes" />
     <title>UB Tutoring</title>
     <link rel="stylesheet" type="text/css" href="../style.css" />
     <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
@@ -22,6 +21,7 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
 <body class="main-container">
 
     <div class="header">
+
         <div class="menu_welcomePage">
             <ul>
 
@@ -30,23 +30,17 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
                 <li><a class="navlink" href="./student-appts.php?user_id=<?php echo $row['user_id']; ?>">my appointments</a> </li>
                 <li><a class="navlink" href="./search.php?user_id=<?php echo $row['user_id']; ?>">find a tutor</a> </li>
                 <div class="dropdown">
-                <li><button onclick="progressclick()" class="dropbtn">my progress</button>
-                            <div id="myDropdown" class="dropdown-content">
+                        <li><a class="dropbtn">my progress</a>
+                            <div class="dropdown-content">
                                 <?php 
-                                if (mysqli_num_rows($progress)<1){
-                                    echo "<p class='center'>no progress yet</p>";
-                                }else{
                                 while ($progressInfo = mysqli_fetch_array($progress)){ 
                                     $linkname=$progressInfo['course'];
                                     $link="./student-progress.php?user_id=" . $_GET['user_id'] . "&cid=" . $linkname ; 
                                     echo "<a href=".$link.">".$linkname."</a>";}
-                                }
                                 ?>
                             </div>
                         </li>
-                    </div>                
-                    
-                    <li><a class="navlink" href="../index.html">logout</a> </li>
+                    </div>                <li><a class="navlink" href="../index.html">logout</a> </li>
 
             </ul>
         </div>
@@ -58,20 +52,17 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
     </div>
     <hr class="hr-navbar">
 
-    <h1 class="welcome-page-title"><?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?></h1>
-    <br>
-
     <?php
     if ($row['user_image']){
      echo '<img class="profilePicture" src="data:image/jpeg;base64,'. $row['user_image'] .'"/>';
-    }else{
-     echo '<img class="profilePicture" src="user-default.jpg" alt="you">';
     }
     ?>    
 
-    <button class="calendarView" onclick="window.location.href = './change-photo-student.php?user_id=<?php echo $row['user_id']; ?>';">Edit Photo</button>
+    <button class="calendarView" onclick="window.location.href = './change-photo-student.php?user_id=<?php echo $row['user_id']; ?>';">Add/Edit Photo</button>
 
-    <br>
+    <h1 class="welcome-page-title"></h1>
+
+    <br><br><br>
     
     <table class="info">
 
@@ -80,20 +71,11 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
     <th width="50%"></th>
     <th width="50%"></th>
     </tr>
+    <tr><td>Name: </td><td><?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?></td></tr>
     <tr><td>Email: </td><td><?php echo $row["email"]; ?></td></tr>
-    <tr><td> Phone Number: </td>
-    <td><?php 
-            echo $row["phone"]; 
-            echo "     ";
-            if(!$row['verified']){ 
-                $link="./verify-text-student.php?user_id=" . $_GET['user_id']; 
-                echo "<a class='verify' href=".$link.">verify for live updates</a>";
-            }
-            ?></td></tr>
-    <tr><td>Carrier: </td><td><?php echo $row["carrier"]; ?></td></tr>
-    <tr><td>Academic Level: </td><td><?php echo $row["title"]; ?></td></tr>
     
     </table>
+    <br><br><br>
     <button class="selectButton" onclick="window.location.href ='./update-student-profile.php?user_id=<?php echo $row['user_id']; ?>';">Edit Information</button>  
     
     <button class="delButton" onclick="window.location.href ='./delete-profile-student.php?user_id=<?php echo $row['user_id']; ?>';">Delete Profile</button> 
@@ -102,6 +84,7 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="../index.js"></script>
     <script>
+        
     </script>
 
 </body>

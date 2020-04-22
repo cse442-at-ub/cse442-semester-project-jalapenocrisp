@@ -7,12 +7,10 @@
         $fname=$_POST['fname'];
         $lname=$_POST['lname'];
         $email=$_POST['email'];
+        $phone=$_POST['phone'];
+        $title=$_POST['title'];
         $courses=$_POST['courses'];                        
         $pass=$_POST['paswd'];
-        $title=$_POST['title'];
-        $phone=$_POST['phone'];
-        $pass2=$_POST['paswd2'];
-        $carrier=$_POST["carrier"];
 
         $result = mysqli_query($conn,"SELECT * FROM tutors WHERE email='" . $_POST["email"] . "'");
         $count  = mysqli_num_rows($result);
@@ -25,20 +23,14 @@
             $message="Email address is already in use.";
         }else if(!preg_match('(^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])\S*$)', $pass)){
             $message="Please enter a valid password.";
-        }else if($pass!=$pass2){
-            $message="Passwords do not match!";
-        }else if (!$title){
-            $message="Please choose an academic level.";    
-	    }else if (!$courses){
-	        $message="Please choose a course.";
+	}else if (!$courses){
+	    $message="Please choose a course.";
         }else if (strlen($phone)!=10){
             $message="Please input a 10 digit phone number.";
-        }else if (!$carrier){
-            $message="Please choose a carrier.";
         }else{
-            $sql = "INSERT INTO tutors (fname, lname, email, phone, title, courses, paswd, carrier) VALUES (?,?,?,?,?,?,?,?)";
+            $sql = "INSERT INTO tutors (fname, lname, email, phone, title, courses, paswd) VALUES (?,?,?,?,?,?,?)";
             $stmt= $conn->prepare($sql);
-            $stmt->bind_param("ssssssss", $fname, $lname, $email, $phone, $title, $courses, $pass, $carrier);
+            $stmt->bind_param("sssssss", $fname, $lname, $email, $phone, $title, $courses, $pass);
             $stmt->execute();
 
             $result1 = mysqli_query($conn,"SELECT * FROM tutors WHERE email='" . $_POST["email"] . "'");
@@ -49,9 +41,7 @@
             $stmt1= $conn->prepare($sql1);
             $stmt1->bind_param("i", $userid);
             $stmt1->execute();
-
-            header('Location: ./verify-text-tutor.php?user_id=' .$userid);
-
+            header('Location: ./login.php');
         }
     }
                       
@@ -60,14 +50,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content ="width=device-width,initial-scale=1,user-scalable=yes" />
-    <title>UB Tutoring</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../style.css" />
-    <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <title>UB Tutoring Service</title>
+    <title>UB Tutoring Tutor Sign Up</title>
 </head>
 <body>
 
@@ -90,16 +76,16 @@
         </div>
 
     </div>
+    <br>
     <hr class="hr-navbar">
 
     <h1 class="welcome-page-title">Tutor Sign Up</h1>
-    <br>
 
     <div id="tutor_signup_div">
         <form method="post" action="">
             <label>Fields marked * must be filled in order to create an account.</label>
             <br>
-            
+            <br>
             <div class="message">
     
                 <?php 
@@ -108,7 +94,8 @@
         
                     } ?> 
             </div> 
-            
+            <br>
+            <br>
             <label for="fname">First Name *</label>
 
             <input class="sign_up_input" type="text"  id= "fname" name="fname" placeholder="First">
@@ -122,10 +109,8 @@
             <br>
             <label>Requires at least 8 characters, 1 uppercase, 1 lowercase, 1 special character and 1 number.</label>
             <input class="sign_up_input" type="password" id= "paswd" name="paswd">
-            <label for="password">Confirm Password *</label>
-            <input class="sign_up_input" type="password" id= "paswd2" name="paswd2">
 
-            <label for="level">Current Educational Level *</label>
+            <label for="level">Current Educational Level</label>
             <select class="sign_up_input" name="title" id= "title">
                 <option selected="choose one"></option>
                 <option value="Undergraduate">Undergraduate</option>
@@ -136,21 +121,21 @@
             <label for="expertise">CSE Course to tutor *</label>
 
             <select class="sign_up_input" name="courses" id= "courses">
-                <option selected="choose one"></option>
-                <option value="CSE115">CSE115</option>
-                <option value="CSE116">CSE116</option>
-                <option value="CSE220">CSE220</option>
-                <option value="CSE250">CSE250</option>
-                <option value="CSE305">CSE305</option>
-                <option value="CSE306">CSE306</option>
-                <option value="CSE321">CSE321</option>
-                <option value="CSE331">CSE331</option>
+                	<option selected="choose one"></option>
+                	<option value="CSE115">CSE115</option>
+                	<option value="CSE116">CSE116</option>
+                	<option value="CSE220">CSE220</option>
+                	<option value="CSE250">CSE250</option>
+                	<option value="CSE305">CSE305</option>
+                	<option value="CSE306">CSE306</option>
+                	<option value="CSE321">CSE321</option>
+                	<option value="CSE331">CSE331</option>
 		        <option value="CSE341">CSE341</option>
 		        <option value="CSE365">CSE365</option>
-                <option value="CSE368">CSE368</option>
-                <option value="CSE370">CSE370</option>
+                	<option value="CSE368">CSE368</option>
+                	<option value="CSE370">CSE370</option>
 		        <option value="CSE379">CSE379</option>
-                <option value="CSE396">CSE396</option>
+                	<option value="CSE396">CSE396</option>
 		        <option value="CSE404">CSE404</option>
 		        <option value="CSE411">CSE411</option>
 		        <option value="CSE421">CSE421</option>
@@ -176,10 +161,10 @@
 		        <option value="CSE469">CSE469</option>
 		        <option value="CSE470">CSE470</option>
 		        <option value="CSE473">CSE473</option>	
-                <option value="CSE474">CSE474</option>
+                	<option value="CSE474">CSE474</option>
 		        <option value="CSE486">CSE486</option>
-                <option value="CSE487">CSE487</option>
-                <option value="CSE489">CSE489</option>
+                	<option value="CSE487">CSE487</option>
+                	<option value="CSE489">CSE489</option>
 		        <option value="CSE490">CSE490</option>
 		        <option value="CSE491">CSE491</option>
 		        <option value="CSE493">CSE493</option>
@@ -187,36 +172,11 @@
 
             <label for="phoneNumber">10 digit US Phone Number *</label>
             <input class="sign_up_input" type="text" id= "phone" name="phone">
-
-            <label for="carrier">Phone Carrier *</label>
-
-            <select class="sign_up_input" name="carrier" id= "carrier">
-                <option selected="choose one"></option>
-                <option value="AT&T">AT&T</option>
-                <option value="Boost Mobile">Boost Mobile</option>
-                <option value="Cricket">Cricket</option>
-                <option value="Consumer Cellular">Consumer Cellular</option>
-                <option value="C-Spire">C-Spire</option>
-                <option value="Google Fi">Google Fi</option>
-                <option value="Metro PCS">Metro PCS</option>
-                <option value="Mint Mobile">Mint Mobile</option>
-		        <option value="Page Plus">Page Plus</option>
-                <option value="Republic Wireless">Republic Wireless</option>
-                <option value="Simple Mobile">Simple Mobile</option>
-		        <option value="Sprint">Sprint</option>
-                <option value="Ting">Ting</option>
-                <option value="Tracfone">Tracfone</option>
-                <option value="U.S. Cellular">U.S. Cellular</option>
-		        <option value="Verizon">Verizon</option>
-		        <option value="Virgin Mobile">Virgin Mobile</option>
-		        <option value="Visible">Visible</option>
-		        <option value="Xfinity Mobile">Xfinity Mobile</option>
-
-            </select>
             <input type="submit" id="tutor_signup_submit" value= "Verify"> 
             <br><br><br>
         </form>
 
+            <!-- <button class="selectButton" onclick="window.location.href = './tutorprofile.html';">Submit</button> -->
     </div>
     <script src="../index.js"></script>
 

@@ -1,7 +1,7 @@
 <?php
 $message="";
-include_once "access-db.php";
 if(count($_POST)>0) {
+	$conn = mysqli_connect("tethys.cse.buffalo.edu","nekesame","50278839","cse442_542_2020_spring_teami_db");
 	$result = mysqli_query($conn,"SELECT * FROM students WHERE email='" . $_POST["email"] . "' and paswd = '". $_POST["paswd"]."'");
 	$count  = mysqli_num_rows($result);
 	if($count==0) {
@@ -31,13 +31,9 @@ if(count($_POST)>0) {
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content ="width=device-width,initial-scale=1,user-scalable=yes" />
-    <title>UB Tutoring</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../style.css" />
-    <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <title>UB Tutoring Service</title>
+    <title>UB Tutoring Login</title>
 </head>
 
 <body>
@@ -59,12 +55,11 @@ if(count($_POST)>0) {
             <h2 class="logo"> <a href="../index.html">UBtutoring</a> </h2>
         </div>
     </div>
+    <br>
     <hr class="hr-navbar">
+    <br>
+    <button class="selectButton" onclick="window.location.href = '../create-account.html';">Not Registered? Sign Up Here.</button>
 
-    <button class="selectButton" onclick="window.location.href = '../create-account.html';">Register</button>
-    <br>
-    <br>
-    <br>
     <h1 class="welcome-page-title">Student Log In</h1>
 
     <div id="tutor_signup_div">
@@ -88,7 +83,7 @@ if(count($_POST)>0) {
             <br>
             <br>
             <br>
-            <a href="user-forgot-student.php" id="forgot_link_id"> forgot password? </a>
+            <a href="user-forgot-student.html" id="forgot_link_id"> forgot password? </a>
         </form>
     </div>
 
