@@ -23,7 +23,6 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content ="width=device-width,initial-scale=1,user-scalable=yes" />
     <title>UB Tutoring</title>
     <link rel="stylesheet" type="text/css" href="../style.css" />
     <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
@@ -42,17 +41,13 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
                 <!-- <li><a href="javascript:loadPage('./login.php')">login</a> </li> -->
                 <li><a class="navlink" href="./student-appts.php?user_id=<?php echo $_GET['user_id']; ?>">my appointments</a> </li>
                 <div class="dropdown">
-                <li><button onclick="progressclick()" class="dropbtn">my progress</button>
-                            <div id="myDropdown" class="dropdown-content">
+                        <li><a class="dropbtn">my progress</a>
+                            <div class="dropdown-content">
                                 <?php 
-                                if (mysqli_num_rows($progress)<1){
-                                    echo "<p class='center'>no progress yet</p>";
-                                }else{
                                 while ($progressInfo = mysqli_fetch_array($progress)){ 
                                     $linkname=$progressInfo['course'];
                                     $link="./student-progress.php?user_id=" . $_GET['user_id'] . "&cid=" . $linkname ; 
                                     echo "<a href=".$link.">".$linkname."</a>";}
-                                }
                                 ?>
                             </div>
                         </li>
@@ -74,6 +69,7 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
 window.onload = function () {
  
 var chart = new CanvasJS.Chart("chartContainer", {
+    // backgroundColor: "#000083",
 	animationEnabled: true,
 	exportEnabled: true,
 	 theme: "dark1", // "light1", "light2", "dark1", "dark2"
@@ -103,9 +99,8 @@ chart.render();
 </script>
 </head>
 <body>
-<button class="selectButton" onclick="window.location.href = './student-add-exam.php?user_id=<?php echo $_GET['user_id']; ?>';">Add a grade</button>
     <br><br><br>
-<div id="chartContainer" style="margin-left: auto; margin-right: auto; height: 100%; width: 70%;"></div>
+<div id="chartContainer" style="margin-left: auto; margin-right: auto; height: 500px; width: 960px;"></div>
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </body>
 </html>         

@@ -14,7 +14,6 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content ="width=device-width,initial-scale=1,user-scalable=yes" />
     <title>UB Tutoring</title>
     <link rel="stylesheet" type="text/css" href="../style.css" />
     <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
@@ -34,17 +33,13 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
                 <li><a class="navlink" href="./student-add-exam.php?user_id=<?php echo $row['user_id']; ?>">add grades</a> </li>
                 <li><a class="navlink" href="./search.php?user_id=<?php echo $row['user_id']; ?>">find a tutor</a> </li>
                 <div class="dropdown">
-                        <li><button oncli1ck="progressclick()" class="dropbtn">my progress</button>
-                            <div id="myDropdown" class="dropdown-content">
+                        <li><a class="dropbtn">my progress</a>
+                            <div class="dropdown-content">
                                 <?php 
-                                if (mysqli_num_rows($progress)<1){
-                                    echo "<p class='center'>no progress yet</p>";
-                                }else{
                                 while ($progressInfo = mysqli_fetch_array($progress)){ 
                                     $linkname=$progressInfo['course'];
                                     $link="./student-progress.php?user_id=" . $_GET['user_id'] . "&cid=" . $linkname ; 
                                     echo "<a href=".$link.">".$linkname."</a>";}
-                                }
                                 ?>
                             </div>
                         </li>
@@ -90,11 +85,11 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
 
  
     <tr><td><?php echo $appt["day"]; ?></td>
-        <td><?php if($appt["time"]>12){echo $appt["time"]-12  . ":00 PM";}else{echo $appt["time"]  . ":00 AM";}  ?></td>
+        <td><?php echo $appt["time"]; ?>:00</td>
         <td><a class="navlink" style="text-decoration: none" href="./tutorprof-student.php?user_id=<?php echo $_GET['user_id']; ?>&tutor_id=<?php echo $tid;?>"><?php echo $tutarray["fname"]; ?> <?php echo $tutarray["lname"]; ?></td>
         <td><?php echo $tutarray["courses"]; ?></td>
-        <td><form method="post"><input type="hidden" name="apptid" class="input1" value="<?php echo $appt['appt_id']; ?>"><input type="submit" class="rate" name="yes" value="done"></form>
-        <td><button class="cancel" onclick="window.location.href='./cancel-appt.php?user_id=<?php echo $_GET['user_id']; ?>&appt_id=<?php echo $appt['appt_id']; ?>'">X</a><td>
+        <td><form method="post"><input type="hidden" name="apptid" class="input1" value="<?php echo $appt['appt_id']; ?>"><input type="submit" class="rate" name="yes" value="complete"></form>
+        <td><a href="./cancel-appt.php?user_id=<?php echo $_GET['user_id']; ?>&appt_id=<?php echo $appt['appt_id']; ?>">cancel</a><td>
 
     </tr>
 

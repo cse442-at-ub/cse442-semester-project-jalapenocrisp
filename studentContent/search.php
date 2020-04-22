@@ -18,7 +18,6 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content ="width=device-width,initial-scale=1,user-scalable=yes" />
     <title>UB Tutoring</title>
     <link rel="stylesheet" type="text/css" href="../style.css" />
     <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
@@ -35,17 +34,13 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
                 <li>
                     <li><a class="navlink" href="./student-appts.php?user_id=<?php echo $_GET['user_id']; ?>">my appointments</a> </li>
                     <div class="dropdown">
-                    <li><button onclick="progressclick()" class="dropbtn">my progress</button>
-                            <div id="myDropdown" class="dropdown-content">
+                        <li><a class="dropbtn">my progress</a>
+                            <div class="dropdown-content">
                                 <?php 
-                                if (mysqli_num_rows($progress)<1){
-                                    echo "<p class='center'>no progress yet</p>";
-                                }else{
                                 while ($progressInfo = mysqli_fetch_array($progress)){ 
                                     $linkname=$progressInfo['course'];
                                     $link="./student-progress.php?user_id=" . $_GET['user_id'] . "&cid=" . $linkname ; 
                                     echo "<a href=".$link.">".$linkname."</a>";}
-                                }
                                 ?>
                             </div>
                         </li>
@@ -64,15 +59,13 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
     <hr class="hr-navbar">
 
     <h1 class="welcome-page-title">Find Your Class: </h1>
-    <br>
-    <br>
     <div class="dd">
     <form method="post">
 
       <div class="options">
 
-        <select class="input2" id ="first-choice">
-            <option selected>Pick a class</option>
+        <select class="input1" id ="first-choice">
+            <option selected="selected">Pick a class</option>
             <?php    
                 foreach($courseArray as $item){
             ?>
@@ -86,8 +79,8 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
 
         <br>
 
-        <select class="input2" id="second-choice" name="tutor">
-            <option selected>Please choose from above</option>
+        <select class="input1" id="second-choice" name="tutor">
+            <option selected="selected">Please choose from above</option>
         </select>
         <br>
         <br>
