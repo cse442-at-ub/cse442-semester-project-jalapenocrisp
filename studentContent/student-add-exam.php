@@ -23,7 +23,7 @@
         }
     }
     if($num_of_grades > 0){
-        $courses_need_grades = rtrim($courses_need_grades, ",");
+        $courses_need_grades = rtrim($courses_need_grades, ", ");
     }
 
     if(count($_POST) > 0){
@@ -114,15 +114,15 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
         if(strcmp($msg_error, "")!= 0){
             echo "<h2 class=\"welcome-page-title\">***ENTER A VALID GRADE (between 0 - 150)***</h1><br>";
         }
-        if($num_of_grades > 0){ ?>
-            <p class="center"> <?php  echo $courses_need_grades; ?> </p>
-
-    <?php }
+        
         $num_classes = count($all_courses);
         if( $num_classes > 0){
     ?>
     
     <h1 class="welcome-page-title">Your Classes</h1><br>
+    <?php
+    if($num_of_grades > 0){ ?>
+            <p class="center"> <?php  echo $courses_need_grades; ?> </p> <?php } ?>
 
     <div id="student_appointment_div">
         <form method="post">
