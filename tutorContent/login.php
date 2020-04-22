@@ -77,7 +77,7 @@ if(count($_POST)>0) {
             <br>
             <br>
             <br>
-            <a href="user-forgot.html" id="forgot_link_id"> forgot password? </a>
+            <a href="user-forgot.php" id="forgot_link_id"> forgot password? </a>
         </form>
     </div>
 
