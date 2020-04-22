@@ -11,15 +11,18 @@
     $formatted_todays_date = $todays_date->format('Y-m-d');
     
     while($row = mysqli_fetch_array($result)){
-        $nextExam_string = $row['nextExam'];
-        $nextExam_date = strtotime($nextExam_string); 
-        $nextExam = date('Y-m-d', $nextExam_date); 
         $course_name = $row["course"];
         array_push($all_courses, $course_name);
 
-        if($formatted_todays_date >= $nextExam){
-            $courses_need_grades .= $course_name . ", ";
-            $num_of_grades++;
+        $nextExam_string = $row['nextExam'];
+        if(strlen($nextExam_string) > 2){
+            $nextExam_date = strtotime($nextExam_string); 
+            $nextExam = date('Y-m-d', $nextExam_date); 
+
+            if($formatted_todays_date >= $nextExam){
+                $courses_need_grades .= $course_name . ", ";
+                $num_of_grades++;
+            }
         }
     }
     if($num_of_grades > 0){
