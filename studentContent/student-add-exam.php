@@ -47,7 +47,7 @@
                 $prev_grades .= ",".$grade_entered;
             }
             
-            mysqli_query($conn, "UPDATE progress SET grades=\"$prev_grades\" WHERE student_id=$student_id AND course=\"$choosen_class\" ;");
+            mysqli_query($conn, "UPDATE progress SET grades=\"$prev_grades\", nextExam=\"\" WHERE student_id=$student_id AND course=\"$choosen_class\" ;");
         }else{
             $msg_error = "Enter a valid grade";
         }
