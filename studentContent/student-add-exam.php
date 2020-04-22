@@ -51,6 +51,7 @@
             }
             
             mysqli_query($conn, "UPDATE progress SET grades=\"$prev_grades\", nextExam=\"\" WHERE student_id=$student_id AND course=\"$choosen_class\" ;");
+            header('Refresh:0');
         }else{
             $msg_error = "Enter a valid grade";
         }
