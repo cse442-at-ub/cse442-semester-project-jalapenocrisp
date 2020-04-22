@@ -122,7 +122,7 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
     <h1 class="welcome-page-title">Your Classes</h1><br>
     <?php
     if($num_of_grades > 0){ ?>
-            <p style="color:red" class="center"> <?php  echo "ENTER GRADES FOR :". $courses_need_grades; ?> </p> <?php } ?>
+            <p style="color:red" class="center"> <?php  echo "ENTER GRADES FOR : ". $courses_need_grades; ?> </p> <?php } ?>
 
     <div id="student_appointment_div">
         <form method="post">
