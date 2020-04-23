@@ -58,6 +58,9 @@
     </div>
     <hr class="hr-navbar">
 
+
+    <p>this is testing</p>
+
     <!-- display all the names for the tutors friom the db -->
     <!-- display all the ratings for the tutors  -->
     <!-- order the names by alphabetical order -->
