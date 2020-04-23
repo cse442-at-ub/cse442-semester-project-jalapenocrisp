@@ -1,3 +1,26 @@
+<?php
+   include_once "access-db.php";
+   
+   $sql = 'SELECT lname, email, numRatings FROM employee';
+   mysql_select_db('test_db');
+   $retval = mysql_query( $sql, $conn );
+   
+   if(! $retval ) {
+      die('Could not get data: ' . mysql_error());
+   }
+   
+   while($row = mysql_fetch_array($retval, MYSQL_ASSOC)) {
+      echo "EMP ID :{$row['lname']}  <br> ".
+         "EMP NAME : {$row['email']} <br> ".
+         "EMP SALARY : {$row['numRatings']} <br> ".
+         "--------------------------------<br>";
+   }
+   
+   echo "Fetched data successfully\n";
+   
+   mysql_close($conn);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,8 +58,11 @@
     </div>
     <hr class="hr-navbar">
 
-
-    //show the tutors in order of their names in alphabetical order. 
+    <!-- display all the names for the tutors friom the db -->
+    <!-- display all the ratings for the tutors  -->
+    <!-- order the names by alphabetical order -->
+    <!-- show their emails -->
+<!-- order the names by  -->
         
 </body>
 
