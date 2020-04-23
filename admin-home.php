@@ -49,7 +49,7 @@ include_once "access-db.php";
         </div>
     </div>
     <div class="input-narrow">
-    <form class="bottomtext" method="post" action="">
+    <form method="post" action="" style="position: absolute; bottom: 0;">
         <input class="log_in_input" type="text" id="text" name="text" placeholder="say something to the user">
     </form>
     </div>      
