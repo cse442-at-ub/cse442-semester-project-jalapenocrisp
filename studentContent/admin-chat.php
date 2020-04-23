@@ -52,7 +52,7 @@ include_once "access-db.php";
         </div>
     </div>
     <div class="input-narrow">
-    <form method="post" action="" style="position: absolute; bottom: 0;">
+    <form method="post" action="" style="position: absolute; bottom: 10;margin-left: 30%; margin-right: 30%;">
         <input class="log_in_input" type="text" id="text" name="text" placeholder="say something to the admin">
     </form>
     </div>      
