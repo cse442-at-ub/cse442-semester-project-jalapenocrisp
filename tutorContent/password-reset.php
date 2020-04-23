@@ -84,7 +84,7 @@
             $mess="Code is incorrect";
         }else{
             mysqli_query($conn,"UPDATE tutors SET verified=1 WHERE user_id='" . $_GET['user_id'] . "'"); 
-            header('Location: ./password-reset-tutor.php?user_id=' . $_GET["user_id"]);
+            header('Location: ./tutorprof.php?user_id=' . $_GET["user_id"]);
         }
     }
     
@@ -134,7 +134,7 @@
     </div> 
     <div id="tutor_signup_div">
         <form method="post" action="">
-            <input class="sign_up_input" type="text" id= "code" name="code" placeholder="enter code" autofocus>
+            <input class="sign_up_input" type="text" id= "code" name="code">
             <input type="submit" id="tutor_signup_submit" name="text" value= "Resend Code"> 
             <input type="submit" id="tutor_signup_submit" name="verify" value= "Verify"> 
 

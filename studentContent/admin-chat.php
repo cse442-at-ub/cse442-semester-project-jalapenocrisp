@@ -39,7 +39,7 @@ include_once "access-db.php";
     <div class="chat-container">
         <div class="talk-bubble-other round ">
             <div class="talktext">
-                <p>from the file, this is the first message from the user!</p>
+                <p>from the file, this is the first message from the admin!</p>
             </div>
         </div>
     </div>
@@ -53,7 +53,7 @@ include_once "access-db.php";
     </div>
     <div class="input-narrow">
     <form class="bottomtext" method="post" action="">
-        <input class="log_in_input" type="text" id="text" name="text" placeholder="say something to the user">
+        <input class="log_in_input" type="text" id="text" name="text" placeholder="say something to the admin">
     </form>
     </div>      
    

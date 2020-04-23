@@ -62,11 +62,11 @@ if(count($_POST)>0) {
     </div>
         Password:<br>
         <label>Requires at least 8 characters, 1 uppercase, 1 lowercase, 1 special character and 1 number.</label>
-        <input type="password" name="paswd" class="input1">
+        <input type="password" name="paswd" class="input1" placeholder="password" autofocus>
         <br>
         <br>
         Confirm password:<br>
-        <input type="password" name="paswd2" class="input1" >
+        <input type="password" name="paswd2" class="input1" placeholder="confirm password" autofocus>
         <br>
         <br>
         <input id="tutor_signup_submit" type="submit" name="submit" value="Save" class="button">

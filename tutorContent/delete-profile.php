@@ -58,7 +58,7 @@ if(count($_POST)>0) {
     </div> 
     <br>
         Password:<br>
-        <input type="password" name="pass" class="input1"><br>
+        <input type="password" name="pass" class="input1" placeholder="enter password" autofocus><br>
         <input type="submit" name="submit" value="delete forever" class="selectButton2">
 
 

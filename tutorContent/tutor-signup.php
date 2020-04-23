@@ -111,19 +111,19 @@
             
             <label for="fname">First Name *</label>
 
-            <input class="sign_up_input" type="text"  id= "fname" name="fname" placeholder="First">
+            <input class="sign_up_input" type="text"  id= "fname" name="fname" placeholder="first name" autofocus>
 
             <label for="lname">Last Name *</label>
-            <input class="sign_up_input" type="text" id= "lname" name="lname" placeholder="Last">
+            <input class="sign_up_input" type="text" id= "lname" name="lname" placeholder="last name">
             <label for="email">UB Email *</label>
-            <input class="sign_up_input" type="text" id= "email" name="email" placeholder="johnsmith@buffalo.edu">
+            <input class="sign_up_input" type="text" id= "email" name="email" placeholder="abc123@buffalo.edu">
 
             <label for="password">Password *</label>
             <br>
             <label>Requires at least 8 characters, 1 uppercase, 1 lowercase, 1 special character and 1 number.</label>
-            <input class="sign_up_input" type="password" id= "paswd" name="paswd">
+            <input class="sign_up_input" type="password" id= "paswd" name="paswd" placeholder="passord">
             <label for="password">Confirm Password *</label>
-            <input class="sign_up_input" type="password" id= "paswd2" name="paswd2">
+            <input class="sign_up_input" type="password" id= "paswd2" name="paswd2" placeholder="confirm password">
 
             <label for="level">Current Educational Level *</label>
             <select class="sign_up_input" name="title" id= "title">
