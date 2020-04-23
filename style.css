@@ -680,4 +680,48 @@ input[type="submit"]:hover {
     
 }
 
-/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ end student appt styling ~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ chat css ~~~~~~~~~~~~~~~~~~~~~~~~ */
+  
+  .talk-bubble-other {
+    margin-left:25%;
+    display: inline-block;
+    position: relative;
+    width: 200px;
+    height: auto;
+    background-color: white;
+  }
+  .talk-bubble-self {
+    margin-left: 65%;
+    display: inline-block;
+    position: relative;
+    width: 200px;
+    height: auto;
+    background-color: white;
+  }
+  .border{
+    border: 8px solid #666;
+  }
+  .round{
+    border-radius: 30px;
+      -webkit-border-radius: 30px;
+      -moz-border-radius: 30px;  
+  }
+
+  .talktext{
+    padding: 1em;
+    text-align: left;
+    line-height: 1.5em;
+  }
+  .talktext p{
+    /* remove webkit p margins */
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+  }
+  .bottomtext{
+      margin-top: 200px;
+  }
+  .input-narrow{
+    border-radius: 5px;
+    margin-left: 30%;
+    margin-right: 30%;
+  }
