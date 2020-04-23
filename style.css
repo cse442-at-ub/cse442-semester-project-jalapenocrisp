@@ -683,7 +683,6 @@ input[type="submit"]:hover {
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ chat css ~~~~~~~~~~~~~~~~~~~~~~~~ */
   
   .talk-bubble-other {
-    margin-left:25%;
     display: inline-block;
     position: relative;
     width: 200px;
@@ -691,8 +690,7 @@ input[type="submit"]:hover {
     background-color: white;
   }
   .talk-bubble-self {
-    margin-left: 65%;
-    display: inline-block;
+    float: right;
     position: relative;
     width: 200px;
     height: auto;
@@ -718,10 +716,16 @@ input[type="submit"]:hover {
     -webkit-margin-after: 0em;
   }
   .bottomtext{
-      margin-top: 200px;
+      margin-top: 400px;
   }
   .input-narrow{
     border-radius: 5px;
-    margin-left: 30%;
-    margin-right: 30%;
+    /* margin-left: 10%;
+    margin-right: 10%; */
   }
+  .cont{
+      width: 60%;
+      margin-left: auto;
+      margin-right: auto;
+  }
+  

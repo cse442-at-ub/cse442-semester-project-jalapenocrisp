@@ -1,5 +1,12 @@
 <?php
 include_once "access-db.php";
+if (isset($_POST['message'])){
+    $mess=$_POST['message'];
+    $file = fopen("chat/chat.txt", "w") or die("Unable to open file!");
+    fwrite($file, $txt);
+    fclose($file);
+}
+
 ?>
 <!DOCTYPE html>
 
@@ -30,29 +37,36 @@ include_once "access-db.php";
     <hr class="hr-navbar">
 
     <br>
-
     <h1 class="welcome-page-title">Chatting with user: </h1>
     <br><br>
-    <div class="chat-container">
-        <div class="talk-bubble-other round ">
-            <div class="talktext">
-                <p>from the file, this is the first message from the user!</p>
-            </div>
-        </div>
-    </div>
 
-    <div class="chat-container">
-        <div class="talk-bubble-self round ">
-            <div class="talktext">
-                <p>from the file, this is the first message from me!</p>
+    <div class="cont">
+
+
+        <div class="chat-container">
+            <div class="talk-bubble-other round ">
+                <div class="talktext">
+                    <p>from the file, this is the first message from the user!</p>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="input-narrow">
-    <form method="post" action="" style="position: absolute; bottom: 10; margin-left: 30%; margin-right: 30%;">
-        <input class="log_in_input" type="text" id="text" name="text" placeholder="say something to the user">
-    </form>
-    </div>      
+
+        <div class="chat-container">
+            <div class="talk-bubble-self round ">
+                <div class="talktext">
+                    <p>from the file, this is the first message from me!</p>
+                </div>
+            </div>
+        </div>
+    
+
+        <div class="input-narrow bottomtext">
+        <form method="post" action="">
+            <input class="log_in_input" type="text" id="text" name="message" placeholder="say something to the user">
+        </form>
+        </div>  
+
+    </div>    
     <script src="../index.js"></script>
     
 </body>

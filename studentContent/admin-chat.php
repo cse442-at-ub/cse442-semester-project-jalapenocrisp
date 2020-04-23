@@ -1,5 +1,7 @@
 <?php
 include_once "access-db.php";
+if (isset($_POST['message'])){
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,25 +38,32 @@ include_once "access-db.php";
                    
     <h1 class="welcome-page-title">You are chatting with an admin.</h1>
     <br><br>
-    <div class="chat-container">
-        <div class="talk-bubble-other round ">
-            <div class="talktext">
-                <p>from the file, this is the first message from the admin!</p>
-            </div>
-        </div>
-    </div>
+    <div class="cont">
 
-    <div class="chat-container">
-        <div class="talk-bubble-self round ">
-            <div class="talktext">
-                <p>from the file, this is the first message from me!</p>
+
+        <div class="chat-container">
+            <div class="talk-bubble-other round ">
+                <div class="talktext">
+                    <p>from the file, this is the first message from the admin!</p>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="input-narrow">
-    <form method="post" action="" style="position: absolute; bottom: 10;margin-left: 30%; margin-right: 30%;">
-        <input class="log_in_input" type="text" id="text" name="text" placeholder="say something to the admin">
-    </form>
+
+        <div class="chat-container">
+            <div class="talk-bubble-self round ">
+                <div class="talktext">
+                    <p>from the file, this is the first message from me!</p>
+                </div>
+            </div>
+        </div>
+    
+
+        <div class="input-narrow bottomtext">
+        <form method="post" action="">
+            <input class="log_in_input" type="text" id="text" name="message" placeholder="say something to the admin">
+        </form>
+        </div>  
+
     </div>      
    
 
