@@ -86,7 +86,7 @@ $row = mysqli_fetch_array($result);
     <tr><td class="score" title="The number of tutoring hours this tutor has completed.">Score: </td><td><?php echo $row["score"]; ?></td></tr>
 
     <?php if ($row['bio_leadership'] != NULL || $row['bio_languages'] != NULL || $row['bio_topics'] != NULL) : ?>
-    <label><?php echo $row["fname"]; ?>'s Bio</label>
+    <label class="info"><?php echo $row["fname"]; ?>'s Bio</label>
     <?php endif ?>
     
     </table>    
@@ -100,14 +100,16 @@ $row = mysqli_fetch_array($result);
     <label><?php echo $row["bio_leadership"]; ?></label>
     <?php endif ?>
     </td></tr>
+    
     <tr><td>
     <?php if ($row['bio_languanges'] != NULL) : ?>
     <button class="calendarView" name="bioLangButtn"  >
     <i aria-hidden="true"></i> 
-    Coding Languages</button>
+    Languages</button>
     <label><?php echo $row["bio_languages"]; ?></label>
     <?php endif ?>
     </td></tr>
+    
     <tr><td>
     <?php if ($row['bio_topics'] != NULL) : ?>
     <button class="calendarView" name="bioTopicsButtn" >
