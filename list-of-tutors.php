@@ -5,10 +5,12 @@
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
+        echo "<table><tr><th>ID</th><th>Name</th><th>ratings</th></tr>";
         // output data of each row
         while($row = $result->fetch_assoc()) {
-            echo "id: " . $row["lname"]. " - Name: " . $row["email"]. " " . $row["numRatings"]. "<br>";
+            echo "<tr><td>" . $row["lname"]. "<tr><td>" . $row["email"]. "<tr><td>". $row["numRatings"]. "</td></tr>";
         }
+        echo "</table>";
     } else {
         echo "0 results";
     }
