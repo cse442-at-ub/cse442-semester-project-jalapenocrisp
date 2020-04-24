@@ -1,11 +1,11 @@
 <?php
    include_once "access-db.php";
 
-   $sql = "SELECT lname, email, numRatings FROM tutors";
+   $sql = "SELECT lname, email, numRatings FROM tutors ORDER BY numRatings";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
-        echo "<table><tr><th>ID</th><th>email</th><th>ratings</th></tr>";
+        echo "<table><tr><th>last name</th><th>email</th><th>ratings</th></tr>";
         // output data of each row
         while($row = $result->fetch_assoc()) {
             echo "<tr><td>" . $row["lname"]. "<td>" . $row["email"]. "<td>". $row["numRatings"]. "</td></tr>";
