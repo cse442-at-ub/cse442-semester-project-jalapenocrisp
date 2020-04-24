@@ -1,7 +1,7 @@
 <?php
    include_once "access-db.php";
 
-   $sql = "SELECT fname, lname, email, numRatings FROM tutors ORDER BY numRatings DESC";
+   $sql = "SELECT fname, lname, email, numRatings, courses FROM tutors ORDER BY numRatings DESC";
     $result = $conn->query($sql);
 
     
@@ -49,10 +49,10 @@
     <?php
 
         if ($result->num_rows > 0) {
-            echo "<table><tr><th>first name </th><th>last name</th><th>email</th><th>ratings</th></tr>";
+            echo "<table><tr><th>first name </th><th>last name</th><th>email</th><th>ratings</th><th>course</th></tr>";
             // output data of each row
             while($row = $result->fetch_assoc()) {
-                echo "<tr><td>" .$row["fname"]. "<td>" . $row["lname"]. "<td>" . $row["email"]. "<td>". $row["numRatings"]. "</td></tr>";
+                echo "<tr><td>" .$row["fname"]. "<td>" . $row["lname"]. "<td>" . $row["email"]. "<td>". $row["numRatings"]. "<td>" .$row["courses"] "</td></tr>";
             }
             echo "</table>";
         } else {
