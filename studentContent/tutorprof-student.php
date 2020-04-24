@@ -89,21 +89,24 @@ $row = mysqli_fetch_array($result);
     <br>
 
     <?php if ($row['bio_leadership'] != NULL) : ?>
-    <button class="calendarView" name="zoomButtn" onclick="window.open('<?php echo $row['zoom_link']?>','_blank')" >
+    <button class="calendarView" name="zoomButtn" >
     <i aria-hidden="true"></i> 
     Leadership</button>
+    <label><?php echo $row["bio_leadership"]; ?></label>
     <?php endif ?>
 
     <?php if ($row['bio_languanges'] != NULL) : ?>
-    <button class="calendarView" name="zoomButtn" onclick="window.open('<?php echo $row['zoom_link']?>','_blank')" >
+    <button class="calendarView" name="zoomButtn"  >
     <i aria-hidden="true"></i> 
     Coding Languages</button>
+    <label><?php echo $row["bio_languages"]; ?></label>
     <?php endif ?>
 
     <?php if ($row['bio_topics'] != NULL) : ?>
-    <button class="calendarView" name="zoomButtn" onclick="window.open('<?php echo $row['zoom_link']?>','_blank')" >
+    <button class="calendarView" name="zoomButtn" >
     <i aria-hidden="true"></i> 
     Topics</button>
+    <label><?php echo $row["bio_topics"]; ?></label>
     <?php endif ?>
     
     <br><br>
