@@ -85,12 +85,16 @@ $row = mysqli_fetch_array($result);
     <tr><td>Rating: </td><td><?php echo $row["rank"]; ?></td></tr>
     <tr><td class="score" title="The number of tutoring hours this tutor has completed.">Score: </td><td><?php echo $row["score"]; ?></td></tr>
 
+    <?php if ($row['bio_leadership'] != NULL || $row['bio_languages'] != NULL || $row['bio_topics'] != NULL) : ?>
+    <label><?php echo $row["fname"]; ?>'s Bio</label>
+    <?php endif ?>
+    
     </table>    
     <br>
     <table class="info">
     <tr><td>
     <?php if ($row['bio_leadership'] != NULL) : ?>
-    <button class="calendarView" name="zoomButtn" >
+    <button class="calendarView" name="bioLeadButtn" >
     <i aria-hidden="true"></i> 
     Leadership</button>
     <label><?php echo $row["bio_leadership"]; ?></label>
@@ -98,7 +102,7 @@ $row = mysqli_fetch_array($result);
     </td></tr>
     <tr><td>
     <?php if ($row['bio_languanges'] != NULL) : ?>
-    <button class="calendarView" name="zoomButtn"  >
+    <button class="calendarView" name="bioLangButtn"  >
     <i aria-hidden="true"></i> 
     Coding Languages</button>
     <label><?php echo $row["bio_languages"]; ?></label>
@@ -106,7 +110,7 @@ $row = mysqli_fetch_array($result);
     </td></tr>
     <tr><td>
     <?php if ($row['bio_topics'] != NULL) : ?>
-    <button class="calendarView" name="zoomButtn" >
+    <button class="calendarView" name="bioTopicsButtn" >
     <i aria-hidden="true"></i> 
     Topics</button>
     <label class="info1"><?php echo $row["bio_topics"]; ?></label>
