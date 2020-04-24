@@ -90,13 +90,13 @@ $row = mysqli_fetch_array($result);
 	   <input type="hidden" id="user_id" value=<?php echo $row['user_id']?>>
 	   <br>
 	   <label>Leadership Skills or Activities</label>
-	   <input class="sign_up_input" type="text" id="Leadership" name="Leadership" value=<?php echo $row['bio_leadership']?>>
+	   <input class="sign_up_input" type="text" id="Leadership" name="Leadership" value=<?php echo $row['bio_leadership'];?>>
 	   <br>
 	   <label>Coding Languages You're Skilled in</label>
-	   <input class="sign_up_input" type="text" id="Languages" name="Languages" value=<?php echo $row['bio_languages']?>>
+	   <input class="sign_up_input" type="text" id="Languages" name="Languages" value=<?php echo $row['bio_languages'];?>>
 	   <br>
 	   <label>Topics You're Strong In [For the Course You're Tutoring]</label>
-	   <input class="sign_up_input" type="text" id="Topics" name="Topics" value=<?php echo $row['bio_topics']?>>
+	   <input class="sign_up_input" type="text" id="Topics" name="Topics" value=<?php echo $row['bio_topics'];?>>
 	   <br>
 	   
            <input class= "sign_up_input" type="submit" id="tutor_zoom_submit" name="submit" value= "Save">
