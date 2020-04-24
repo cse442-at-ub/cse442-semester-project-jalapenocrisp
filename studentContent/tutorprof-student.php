@@ -87,28 +87,32 @@ $row = mysqli_fetch_array($result);
 
     </table>    
     <br>
-
+    <table class="info">
+    <tr><td>
     <?php if ($row['bio_leadership'] != NULL) : ?>
     <button class="calendarView" name="zoomButtn" >
     <i aria-hidden="true"></i> 
     Leadership</button>
     <label><?php echo $row["bio_leadership"]; ?></label>
     <?php endif ?>
-
+    </td></tr>
+    <tr><td>
     <?php if ($row['bio_languanges'] != NULL) : ?>
     <button class="calendarView" name="zoomButtn"  >
     <i aria-hidden="true"></i> 
     Coding Languages</button>
     <label><?php echo $row["bio_languages"]; ?></label>
     <?php endif ?>
-
+    </td></tr>
+    <tr><td>
     <?php if ($row['bio_topics'] != NULL) : ?>
     <button class="calendarView" name="zoomButtn" >
     <i aria-hidden="true"></i> 
     Topics</button>
     <label class="info1"><?php echo $row["bio_topics"]; ?></label>
     <?php endif ?>
-    
+    </td></tr>
+
     <br><br>
     <button class="selectButton" onclick="window.location.href = 'mailto:<?php echo $row['email'];?>?subject = Feedback&body = Message'">
      Contact Tutor
