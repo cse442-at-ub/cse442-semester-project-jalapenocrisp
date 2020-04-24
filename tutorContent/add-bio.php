@@ -15,25 +15,31 @@ if(count($_POST)>0){
     }else{
 		 
 	
-	if(empty($Languages) == false){
+	if(empty($Languages) == false && strlen($Languages) <= 100){
 	     mysqli_query($conn,"UPDATE tutors SET bio_languages='" . $Languages . "' WHERE user_id='" . $_GET['user_id'] . "'");
 	     $message = "Languages added successfully!";	
+	}else if(strlen($Languages) > 100){
+	      $message = "Enter info up to 100 characters!"; 
 	}else{
 	     $Languages = null;
 	      mysqli_query($conn,"UPDATE tutors SET bio_languages='" . $Languages . "' WHERE user_id='" . $_GET['user_id'] . "'");
 	}
 	
-	if(empty($Leadership) == false){
+	if(empty($Leadership) == false && strlen($Leadership) <= 100){
              mysqli_query($conn,"UPDATE tutors SET bio_leadership='" . $Leadership . "' WHERE user_id='" . $_GET['user_id'] . "'");
 	     $message = "Leadership added successfully!";
+	}else if(strlen($Leadership) > 100){
+	      $message = "Enter info up to 100 characters!";
 	}else{
 	     $Leadership = null;
 	     mysqli_query($conn,"UPDATE tutors SET bio_leadership='" . $Leadership . "' WHERE user_id='" . $_GET['user_id'] . "'");
 	}
 	
-	if(empty($Topics) == false){
+	if(empty($Topics) == false && strlen($Topics) <= 100){
              mysqli_query($conn,"UPDATE tutors SET bio_topics='" . $Topics . "' WHERE user_id='" . $_GET['user_id'] . "'");
 	     $message = "Topics added successfully!";
+	}else if(strlen($Leadership) > 100){
+	     $message = "Enter info up to 100 characters!";
 	}else{
 	     $Topics = null;
 	     mysqli_query($conn,"UPDATE tutors SET bio_topics='" . $Topics . "' WHERE user_id='" . $_GET['user_id'] . "'");
