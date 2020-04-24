@@ -35,7 +35,7 @@ $row = mysqli_fetch_array($result);
 
 ?>
 
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
