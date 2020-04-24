@@ -85,6 +85,7 @@ $row = mysqli_fetch_array($result);
     <tr><td>Rating: </td><td><?php echo $row["rank"]; ?></td></tr>
     <tr><td class="score" title="The number of tutoring hours this tutor has completed.">Score: </td><td><?php echo $row["score"]; ?></td></tr>
 
+    <br>
     <?php if ($row['bio_leadership'] != NULL || $row['bio_languages'] != NULL || $row['bio_topics'] != NULL) : ?>
     <label class="info"><?php echo $row["fname"]; ?>'s Bio</label>
     <?php endif ?>
@@ -118,7 +119,8 @@ $row = mysqli_fetch_array($result);
     <label class="info1"><?php echo $row["bio_topics"]; ?></label>
     <?php endif ?>
     </td></tr>
-
+    </table>
+    
     <br><br>
     <button class="selectButton" onclick="window.location.href = 'mailto:<?php echo $row['email'];?>?subject = Feedback&body = Message'">
      Contact Tutor
