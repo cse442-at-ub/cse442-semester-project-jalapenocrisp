@@ -86,11 +86,12 @@ $row = mysqli_fetch_array($result);
     <tr><td class="score" title="The number of tutoring hours this tutor has completed.">Score: </td><td><?php echo $row["score"]; ?></td></tr>
 
     <br>
+    </table> 
     <?php if ($row['bio_leadership'] != NULL || $row['bio_languages'] != NULL || $row['bio_topics'] != NULL) : ?>
-    <label class="info"><?php echo $row["fname"]; ?>'s Bio</label>
+    <h1 class="welcome-page-title"><?php echo $row["fname"]; ?>'s Bio</label>
     <?php endif ?>
     
-    </table>    
+       
     <br>
     <table class="info">
     <tr><td>
