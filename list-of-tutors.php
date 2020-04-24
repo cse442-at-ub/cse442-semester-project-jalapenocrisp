@@ -1,24 +1,17 @@
 <?php
    include_once "access-db.php";
-   
-   $sql = 'SELECT lname, email, numRatings FROM employee';
-   mysql_select_db('test_db');
-   $retval = mysql_query( $sql, $conn );
-   
-   if(! $retval ) {
-      die('Could not get data: ' . mysql_error());
-   }
-   
-   while($row = mysql_fetch_array($retval, MYSQL_ASSOC)) {
-      echo "EMP ID :{$row['lname']}  <br> ".
-         "EMP NAME : {$row['email']} <br> ".
-         "EMP SALARY : {$row['numRatings']} <br> ".
-         "--------------------------------<br>";
-   }
-   
-   echo "Fetched data successfully\n";
-   
-   mysql_close($conn);
+
+   $sql = "SELECT lname, email, numRatings FROM tutors";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+            echo "id: " . $row["lname"]. " - Name: " . $row["email"]. " " . $row["numRatings"]. "<br>";
+        }
+    } else {
+        echo "0 results";
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
