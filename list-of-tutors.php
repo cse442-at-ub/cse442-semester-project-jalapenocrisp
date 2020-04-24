@@ -4,16 +4,7 @@
    $sql = "SELECT lname, email, numRatings FROM tutors ORDER BY numRatings DESC";
     $result = $conn->query($sql);
 
-    if ($result->num_rows > 0) {
-        echo "<table><tr><th>last name</th><th>email</th><th>ratings</th></tr>";
-        // output data of each row
-        while($row = $result->fetch_assoc()) {
-            echo "<tr><td>" . $row["lname"]. "<td>" . $row["email"]. "<td>". $row["numRatings"]. "</td></tr>";
-        }
-        echo "</table>";
-    } else {
-        echo "0 results";
-    }
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,7 +44,21 @@
     <hr class="hr-navbar">
 
 
-    <p>this is testing</p>
+    <p>The list of tutors sorted based on their ratings. </p>
+
+    <?php
+
+        if ($result->num_rows > 0) {
+            echo "<table><tr><th>last name</th><th>email</th><th>ratings</th></tr>";
+            // output data of each row
+            while($row = $result->fetch_assoc()) {
+                echo "<tr><td>" . $row["lname"]. "<td>" . $row["email"]. "<td>". $row["numRatings"]. "</td></tr>";
+            }
+            echo "</table>";
+        } else {
+            echo "0 results";
+        }
+    ?>
 
     <!-- display all the names for the tutors friom the db -->
     <!-- display all the ratings for the tutors  -->
