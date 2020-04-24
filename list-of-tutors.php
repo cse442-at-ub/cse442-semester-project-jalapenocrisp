@@ -1,7 +1,7 @@
 <?php
    include_once "access-db.php";
 
-   $sql = "SELECT lname, email, numRatings FROM tutors ORDER BY numRatings";
+   $sql = "SELECT lname, email, numRatings FROM tutors ORDER BY numRatings DESC";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
