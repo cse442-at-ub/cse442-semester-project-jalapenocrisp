@@ -1,3 +1,25 @@
+<?php
+   include_once "access-db.php";
+   
+   $sql = 'SELECT lname, email, numRatings FROM employee';
+   mysql_select_db('test_db');
+   $retval = mysql_query( $sql, $conn );
+   
+   if(! $retval ) {
+      die('Could not get data: ' . mysql_error());
+   }
+   
+   while($row = mysql_fetch_array($retval, MYSQL_ASSOC)) {
+      echo "EMP ID :{$row['lname']}  <br> ".
+         "EMP NAME : {$row['email']} <br> ".
+         "EMP SALARY : {$row['numRatings']} <br> ".
+         "--------------------------------<br>";
+   }
+   
+   echo "Fetched data successfully\n";
+   
+   mysql_close($conn);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +28,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content ="width=device-width,initial-scale=1,user-scalable=yes" />
     <title>UB Tutoring</title>
-    <link rel="stylesheet" type="text/css" href="../style.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
     <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <title>UB Tutoring Service</title>
