@@ -86,7 +86,26 @@ $row = mysqli_fetch_array($result);
     <tr><td class="score" title="The number of tutoring hours this tutor has completed.">Score: </td><td><?php echo $row["score"]; ?></td></tr>
 
     </table>    
-        
+    <br>
+
+    <?php if ($row['bio_leadership'] != NULL) : ?>
+    <button class="calendarView" name="zoomButtn" onclick="window.open('<?php echo $row['zoom_link']?>','_blank')" >
+    <i aria-hidden="true"></i> 
+    Leadership</button>
+    <?php endif ?>
+
+    <?php if ($row['bio_languanges'] != NULL) : ?>
+    <button class="calendarView" name="zoomButtn" onclick="window.open('<?php echo $row['zoom_link']?>','_blank')" >
+    <i aria-hidden="true"></i> 
+    Coding Languages</button>
+    <?php endif ?>
+
+    <?php if ($row['bio_topics'] != NULL) : ?>
+    <button class="calendarView" name="zoomButtn" onclick="window.open('<?php echo $row['zoom_link']?>','_blank')" >
+    <i aria-hidden="true"></i> 
+    Topics</button>
+    <?php endif ?>
+    
     <br><br>
     <button class="selectButton" onclick="window.location.href = 'mailto:<?php echo $row['email'];?>?subject = Feedback&body = Message'">
      Contact Tutor
