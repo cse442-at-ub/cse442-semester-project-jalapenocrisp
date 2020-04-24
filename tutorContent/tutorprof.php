@@ -73,7 +73,10 @@ $uid=$_GET['user_id'];
     <tr><td class="score" title="The number of tutoring hours you have completed.">Score: </td><td><?php echo $row["score"]; ?></td></tr>
     
     </table>
-    <button class="selectButton" onclick="window.location.href ='./update-tutor-profile.php?user_id=<?php echo $row['user_id']; ?>';">Edit Information</button>  
+    <button class="selectButton" onclick="window.location.href ='./update-tutor-profile.php?user_id=<?php echo $row['user_id']; ?>';">Edit Information</button>
+
+
+    <button class="calendarView" onclick="window.location.href = './add-bio.php?user_id=<?php echo $row['user_id']; ?>';">Personalize Your Bio</button>
     
     <button class="delButton" onclick="window.location.href ='./delete-profile.php?user_id=<?php echo $row['user_id']; ?>';">Delete Profile</button> 
     <br><br><br>
