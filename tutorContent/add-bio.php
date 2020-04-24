@@ -13,17 +13,30 @@ if(count($_POST)>0){
     if(empty($Languages) && (empty($Topics) && (empty($Leadership)))){
 	$message="Please enter a skill for at least one category!"; 
     }else{
-	if(empty($Languages) == false){
+	if(empty($Languages)){
+	    	query("UPDATE tutors SET bio_languages= NULL");
+	}
+	
+        if(empty($Leadership)){
+	    	query("UPDATE tutors SET bio_leadership= NULL");
+	}
+
+	if(empty($Topics)){
+	    	query("UPDATE tutors SET topics= NULL");
+	}
+	 
+	
+	if(empty($Languages) == false && ){
 	     mysqli_query($conn,"UPDATE tutors SET bio_languages='" . $Languages . "' WHERE user_id='" . $_GET['user_id'] . "'");
-	$message = "Languages added successfully!";	
+	     $message = "Languages added successfully!";	
 	}
 	if(empty($Leadership) == false){
              mysqli_query($conn,"UPDATE tutors SET bio_leadership='" . $Leadership . "' WHERE user_id='" . $_GET['user_id'] . "'");
-	$message = "Leadership added successfully!";
+	     $message = "Leadership added successfully!";
 	}
 	if(empty($Topics) == false){
              mysqli_query($conn,"UPDATE tutors SET bio_topics='" . $Topics . "' WHERE user_id='" . $_GET['user_id'] . "'");
-	$message = "Topics added successfully!";
+	     $message = "Topics added successfully!";
 	}
      	
      	header('Location: ./tutorprof.php?user_id=' . $_GET["user_id"]);     
