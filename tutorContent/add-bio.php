@@ -26,7 +26,7 @@ if(count($_POST)>0){
 	}
 	 
 	
-	if(empty($Languages) == false && ){
+	if(empty($Languages) == false){
 	     mysqli_query($conn,"UPDATE tutors SET bio_languages='" . $Languages . "' WHERE user_id='" . $_GET['user_id'] . "'");
 	     $message = "Languages added successfully!";	
 	}
