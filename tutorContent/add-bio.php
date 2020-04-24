@@ -66,7 +66,7 @@ $row = mysqli_fetch_array($result);
 
     </div>
     <hr class="hr-navbar">
-
+    <button class= "calendarView">
     <h1 class="welcome-page-title">Personalize Your Bio, <?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?>!</h1>
 
    <?php if(isset($message)) { echo $message; } ?>
@@ -88,7 +88,7 @@ $row = mysqli_fetch_array($result);
 	   
            <input class= "sign_up_input" type="submit" id="tutor_zoom_submit" name="submit" value= "Save">
      </form>
-   
+     </button>
 
 <script src="../index.js"></script>
 
