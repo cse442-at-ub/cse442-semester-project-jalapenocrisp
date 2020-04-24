@@ -106,7 +106,7 @@ $row = mysqli_fetch_array($result);
     <button class="calendarView" name="zoomButtn" >
     <i aria-hidden="true"></i> 
     Topics</button>
-    <label><?php echo $row["bio_topics"]; ?></label>
+    <label class="info1"><?php echo $row["bio_topics"]; ?></label>
     <?php endif ?>
     
     <br><br>
