@@ -102,6 +102,7 @@ $row = mysqli_fetch_array($result);
            <input class= "sign_up_input" type="submit" id="tutor_zoom_submit" name="submit" value= "Save">
      </form>
      </button>
+     <br><br>     
 
 <script src="../index.js"></script>
 
