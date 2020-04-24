@@ -104,7 +104,7 @@ $row = mysqli_fetch_array($result);
     </td></tr>
     
     <tr><td>
-    <?php if ($row['bio_languanges'] != NULL) : ?>
+    <?php if ($row['bio_languages'] != NULL) : ?>
     <button class="calendarView" name="bioLangButtn"  >
     <i aria-hidden="true"></i> 
     Languages</button>
