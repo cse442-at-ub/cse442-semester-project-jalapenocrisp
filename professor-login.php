@@ -23,7 +23,7 @@ if(count($_POST)>0) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content ="width=device-width,initial-scale=1,user-scalable=yes" />
     <title>UB Tutoring</title>
-    <link rel="stylesheet" type="text/css" href="../style.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
     <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <title>UB Tutoring Service</title>
@@ -50,18 +50,18 @@ if(count($_POST)>0) {
     </div>
     <hr class="hr-navbar">
 
-    <button class="selectButton" onclick="window.location.href = './tutor-signup.php';">Register</button>
     <br>
     <br>
     <br>
-    <h1 class="welcome-page-title">Tutor Log In</h1>
+    <h1 class="welcome-page-title">Professor Access</h1>
 
 
         <!-- enter ub email to verify that you are a UB professor -->
 
         <form action="list-of-tutors.php">
 
-            <label for="email">Enter your UB email:</label>
+            <label for="email">Please enter your UB email to verify that you are a UB professor:</label>
+            <br>
             <input type="email" id="email" pattern=".+@buffalo.edu" size="30" required>
 
             <button type="submit"> Submit </button>
