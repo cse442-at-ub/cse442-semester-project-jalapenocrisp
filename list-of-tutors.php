@@ -60,11 +60,7 @@
         }
     ?>
 
-    <!-- display all the names for the tutors friom the db -->
-    <!-- display all the ratings for the tutors  -->
-    <!-- order the names by alphabetical order -->
-    <!-- show their emails -->
-<!-- order the names by  -->
+    <!-- add login for the professor -->
         
 </body>
 
