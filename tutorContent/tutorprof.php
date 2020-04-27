@@ -50,9 +50,15 @@ $uid=$_GET['user_id'];
        }
     ?>    
     
+    <button class="calendarView" onclick="window.location.href = './change-photo.php?user_id=<?php echo $row['user_id']; ?>';">Add/Edit Photo</button>
 
-    <button class="calendarView" onclick="window.location.href = './change-photo.php?user_id=<?php echo $row['user_id']; ?>';">Edit Photo</button>
+    
+    <table class = "info">
+    <tr><td><?php echo $row['zoom_link']?></td></tr>
+    </table>	
+    <button class="calendarView" onclick="window.location.href = './add-zoom.php?user_id=<?php echo $row['user_id']; ?>';">Add/Edit Zoom Link</button>
     <br>
+
 
     <table class="info">
 

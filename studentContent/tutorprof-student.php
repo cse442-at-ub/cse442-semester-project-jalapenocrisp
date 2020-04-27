@@ -77,7 +77,14 @@ $row = mysqli_fetch_array($result);
         echo '<img class="profilePicture" src="user-default.jpg" alt="you">';
        }
     ?>    
-    <br>
+
+    <?php if ($row['zoom_link'] != NULL) : ?>
+    <button class="calendarView" name="zoomButtn" onclick="window.open('<?php echo $row['zoom_link']?>','_blank')" >
+    <i aria-hidden="true"></i> 
+    Go to This Tutors Zoom Meeting Room</button>
+    <?php endif ?>
+     
+    
     <table class="info">
     <tr><td>Course: </td><td><?php echo $row["courses"]; ?></td></tr>
     <tr><td>Academic Level: </td><td><?php echo $row["title"]; ?></td></tr>
