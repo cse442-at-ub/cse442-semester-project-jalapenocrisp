@@ -36,16 +36,16 @@ if(count($_POST)>0) {
                 <!-- the line of code commented below is important when we upload the work on a server. for now, i'm using an alternative below -->
                 <!-- <li><a href="javascript:loadPage('./login.php')">login</a> </li> -->
                 <li>
-                    <a class="navlink" href="../create-account.html">create account</a> </li>
+                    <a class="navlink" href="create-account.html">create account</a> </li>
                 <li>
-                    <a class="navlink" href="../index.html">home</a> </li>
+                    <a class="navlink" href="index.html">home</a> </li>
        
 
             </ul>
         </div>
 
         <div class="logo">
-            <h2 class="logo"> <a href="../index.html">UBtutoring</a> </h2>
+            <h2 class="logo"> <a href="index.html">UBtutoring</a> </h2>
         </div>
     </div>
     <hr class="hr-navbar">
