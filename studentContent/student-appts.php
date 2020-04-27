@@ -144,6 +144,13 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
         $stmt1->execute();
         $stmt1->close();
 
+        $ress2 = mysqli_query($conn, "select complete from students where user_id=$userid");
+        $complete_arr = mysqli_fetch_array($ress2);
+        $num_of_complete = $complete_arr["complete"];  
+        $num_of_complete++;
+        
+        $ress2 = mysqli_query($conn, "UPDATE students SET complete=$num_of_complete WHERE user_id=$userid;");
+
         header('Location: ./student-appt-history.php?user_id=' . $userid);
     }
 ?>
