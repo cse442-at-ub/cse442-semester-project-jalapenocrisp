@@ -77,6 +77,32 @@ $uid=$_GET['user_id'];
 
 
     <button class="calendarView" onclick="window.location.href = './add-bio.php?user_id=<?php echo $row['user_id']; ?>';">Personalize Your Bio</button>
+    <br>
+     </table> 
+    <?php if ($row['bio_leadership'] != NULL || $row['bio_languages'] != NULL || $row['bio_topics'] != NULL) : ?>
+    <h1 class="welcome-page-title"><?php echo $row["fname"]; ?>'s Bio</label>
+    <?php endif ?>
+           
+    <table class="info">
+    <tr><td>
+    <?php if ($row['bio_leadership'] != NULL) : ?>
+    <label>Leadership: <?php echo $row["bio_leadership"]; ?></label>
+    <?php endif ?>
+    </td></tr>
+    
+    <tr><td>
+    <?php if ($row['bio_languages'] != NULL) : ?>
+    <label>Coding Languages: <?php echo $row["bio_languages"]; ?></label>
+    <?php endif ?>
+    </td></tr>
+    
+    <tr><td>
+    <?php if ($row['bio_topics'] != NULL) : ?>
+    <label class="info1">Topics: <?php echo $row["bio_topics"]; ?></label>
+    <?php endif ?>
+    </td></tr>
+    </table>
+    <br>
     
     <button class="delButton" onclick="window.location.href ='./delete-profile.php?user_id=<?php echo $row['user_id']; ?>';">Delete Profile</button> 
     <br><br><br>
