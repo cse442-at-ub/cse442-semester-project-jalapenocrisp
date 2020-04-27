@@ -81,7 +81,7 @@ $row = mysqli_fetch_array($result);
     <hr class="hr-navbar">
     <button class= "calendarView">
     <h1 class="welcome-page-title">Personalize Your Bio, <?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?>!</h1>
-
+    <p>[Text limit for each field is 100 characters]</p>
    <?php if(isset($message)) { echo $message; } ?>
 
    <form method="post" class="info1" action="">
