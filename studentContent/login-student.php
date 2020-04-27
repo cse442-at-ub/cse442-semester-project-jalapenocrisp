@@ -12,17 +12,16 @@ if(count($_POST)>0) {
         $message = "You are successfully authenticated!";
         $var1=$row['user_id'];
 
-        // KEEP FOLLOWING COMMENTS.. IT WILL BE USED ON SPRINT 4  -syed
-
-        // $results = mysqli_query($conn, "SELECT * FROM progress WHERE student_id=$var1;");
-        // $count = mysqli_num_rows($results);
-        // for($i= 0; $i< count; $i++){
-
-        // }
-        // date_default_timezone_set('America/New_York');
-        // $timezone = date_default_timezone_get();
-
-        header('Location: ./student-appts.php?user_id=' .$var1);
+        
+        $ress2 = mysqli_query($conn, "select complete, cancel from students where user_id=$userid");
+        $complete_arr = mysqli_fetch_array($ress2);
+        $num_of_complete = $complete_arr["complete"];  
+        $num_of_cancel = $complete_arr["cancel"];
+        if($num_of_complete > $num_of_cancel){
+            header('Location: ./student-appts.php?user_id=' .$var1);
+        }else{
+            $message= "It seems you cancellation rate is too high <br>You're currently being banned. For more info contact us.";
+        }
 	}
 }
 ?>
