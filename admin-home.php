@@ -2,8 +2,8 @@
 include_once "access-db.php";
 if (isset($_POST['message'])){
     $mess=$_POST['message'];
-    $file = fopen("chat/chat.txt", "w") or die("Unable to open file!");
-    fwrite($file, $txt);
+    $file = fopen("chat.txt", "w") or die("Unable to open file!");
+    fwrite($file, $mess);
     fclose($file);
 }
 

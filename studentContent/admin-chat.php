@@ -1,7 +1,7 @@
 <?php
 include_once "access-db.php";
 if (isset($_POST['message'])){
-
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
