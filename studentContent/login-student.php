@@ -13,7 +13,7 @@ if(count($_POST)>0) {
         $var1=$row['user_id'];
 
         
-        $ress2 = mysqli_query($conn, "select complete, cancel from students where user_id=$userid");
+        $ress2 = mysqli_query($conn, "select complete, cancel from students where user_id=$userid ;");
         $complete_arr = mysqli_fetch_array($ress2);
         $num_of_complete = $complete_arr["complete"];  
         $num_of_cancel = $complete_arr["cancel"];
