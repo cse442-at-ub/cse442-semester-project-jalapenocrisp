@@ -210,8 +210,8 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
             if($tutarray['verified']){
                 mail( $toText, '', $message );
             }
-            
-            $cencel_arr = mysqli_fetch_array(mysqli_query($conn, "SELECT cancel FROM students WHERE `user_id`=`$userid` ;"));
+            $ress2 = mysqli_query($conn, "select cancel from students where user_id=$userid");
+            $cencel_arr = mysqli_fetch_array($ress2);
             $num_of_cancel = $cencel_arr["cancel"];  
             echo "cancel number \"$num_of_cancel\"######################\n";
             $num_of_cancel++;
