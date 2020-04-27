@@ -80,7 +80,7 @@ $uid=$_GET['user_id'];
     <br>
      </table> 
     <?php if ($row['bio_leadership'] != NULL || $row['bio_languages'] != NULL || $row['bio_topics'] != NULL) : ?>
-    <h1 class="welcome-page-title"><?php echo $row["fname"]; ?>'s Bio</label>
+    <h1 class="welcome-page-title">Your Bio</label>
     <?php endif ?>
            
     <table class="info">
