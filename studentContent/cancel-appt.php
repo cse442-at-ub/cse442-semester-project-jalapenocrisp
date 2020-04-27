@@ -215,8 +215,8 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
             $num_of_cancel = $cencel_arr["cancel"];
             $num_of_cancel++;
             $cancel_sql = "UPDATE students SET cancel=`$num_of_cancel` WHERE `user_id`=`$userid`";
-            
-            header('Location: ./student-appts.php?user_id=' . $userid);
+            echo "##############################\n" . $num_of_cancel;
+            //header('Location: ./student-appts.php?user_id=' . $userid);
 
         }
 
