@@ -90,9 +90,7 @@ $row = mysqli_fetch_array($result);
     <?php if ($row['bio_leadership'] != NULL || $row['bio_languages'] != NULL || $row['bio_topics'] != NULL) : ?>
     <h1 class="welcome-page-title"><?php echo $row["fname"]; ?>'s Bio</label>
     <?php endif ?>
-    
-       
-    <br>
+        
     <table class="info">
     <tr><td>
     <?php if ($row['bio_leadership'] != NULL) : ?>
