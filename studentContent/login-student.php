@@ -14,10 +14,12 @@ if(count($_POST)>0) {
 
         
         $ress2 = mysqli_query($conn, "select complete, cancel from students where user_id=$userid ;");
-        $complete_arr = mysqli_fetch_array($ress2);
-        $num_of_complete = $complete_arr["complete"];  
-        $num_of_cancel = $complete_arr["cancel"];
-        if($num_of_complete > $num_of_cancel){
+        $arr_ = mysqli_fetch_array($ress2);
+        $num_of_complete = $arr_["complete"];  
+        echo "######\"$num_of_complete\"######\n";
+        $num_of_cancel = $arr_["cancel"];
+        echo "######\"$num_of_cancel\"######\n";
+        if($num_of_complete >= $num_of_cancel){
             header('Location: ./student-appts.php?user_id=' .$var1);
         }else{
             $message= "  $num_of_complete > $num_of_cancel It seems you cancellation rate is too high <br> You're currently being banned. For more info contact us. ";
