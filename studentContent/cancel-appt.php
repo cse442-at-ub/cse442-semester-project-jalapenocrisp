@@ -211,12 +211,12 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
                 mail( $toText, '', $message );
             }
             
-            $cencel_arr = mysqli_fetch_array(mysqli_query($conn, "SELECT cancel FROM students WHERE `user_id`=`$userid`"));
+            $cencel_arr = mysqli_fetch_array(mysqli_query($conn, "SELECT cancel FROM students WHERE `user_id`=`$userid` ;"));
             $num_of_cancel = $cencel_arr["cancel"];
             $num_of_cancel++;
-            $cancel_sql = "UPDATE students SET cancel=`$num_of_cancel` WHERE `user_id`=`$userid`";
-            echo "##############################\n" . $num_of_cancel;
-            //header('Location: ./student-appts.php?user_id=' . $userid);
+            $cancel_sql = "UPDATE students SET cancel=$num_of_cancel WHERE user_id=$userid;";
+            
+            header('Location: ./student-appts.php?user_id=' . $userid);
 
         }
 
