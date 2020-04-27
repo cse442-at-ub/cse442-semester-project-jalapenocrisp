@@ -20,7 +20,7 @@ if(count($_POST)>0) {
         $num_of_cancel = $arr_["cancel"];
         echo "######\"$num_of_cancel\"######\n";
         if($num_of_complete >= $num_of_cancel){
-            header('Location: ./student-appts.php?user_id=' .$var1);
+            //header('Location: ./student-appts.php?user_id=' .$var1);
         }else{
             $message= "  $num_of_complete > $num_of_cancel It seems you cancellation rate is too high <br> You're currently being banned. For more info contact us. ";
         }
