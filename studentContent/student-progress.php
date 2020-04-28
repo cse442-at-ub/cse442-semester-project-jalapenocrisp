@@ -105,7 +105,7 @@ chart.render();
 <body>
 <button class="selectButton" onclick="window.location.href = './student-add-exam.php?user_id=<?php echo $_GET['user_id']; ?>';">Add a grade</button>
     <br><br><br>
-<div id="chartContainer" style="margin-left: auto; margin-right: auto; height: 60%; width: 70%;"></div>
+<div id="chartContainer" style="margin-left: auto; margin-right: auto; height: 100%; width: 70%;"></div>
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </body>
 </html>         

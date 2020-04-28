@@ -6,6 +6,26 @@ $row = mysqli_fetch_array($result);
 $result2 = mysqli_query($conn,"SELECT * FROM appointments WHERE student_id='" . $_GET['user_id'] . "' and status = 'upcoming'");
 $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GET['user_id'] . "'");
 
+$next_exam_result = mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GET['user_id'] . "'");
+$num_of_grades = 0;
+$courses_need_grades = array();
+$next_exams = array();
+$todays_date = new DateTime("now", new DateTimeZone('America/New_York') );
+$formatted_todays_date = $todays_date->format('Y-m-d');
+
+while($arr_exam_result = mysqli_fetch_array($next_exam_result)){
+    $nextExam_string = $arr_exam_result['nextExam'];
+    if(strlen($nextExam_string) > 2 ){
+        $nextExam_date = strtotime($nextExam_string); 
+        $nextExam = date('Y-m-d', $nextExam_date); 
+        
+        if($formatted_todays_date >= $nextExam){
+            array_push($courses_need_grades, $arr_exam_result['course']);
+            $num_of_grades++;
+        }
+    }
+    
+};
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +51,15 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
 
                 <!-- the line of code commented below is important when we upload the work on a server. for now, i'm using an alternative below -->
                 <!-- <li><a href="javascript:loadPage('./login.php')">login</a> </li> -->
-                <li><a class="navlink" href="./student-add-exam.php?user_id=<?php echo $row['user_id']; ?>">add grades</a> </li>
+
+
+
+                <li><a class="navlink" href="./student-add-exam.php?user_id=<?php echo $row['user_id']; ?>">add grades<?php
+                    if($num_of_grades > 0){
+
+                        echo "<span style=\"border-radius: 50%; background-color: red; color: white; padding: 5px 10px;\">$num_of_grades</span>";
+                    } ?></a> </li>
+                
                 <li><a class="navlink" href="./search.php?user_id=<?php echo $row['user_id']; ?>">find a tutor</a> </li>
                 <div class="dropdown">
                         <li><button oncli1ck="progressclick()" class="dropbtn">my progress</button>
@@ -90,7 +118,7 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
 
  
     <tr><td><?php echo $appt["day"]; ?></td>
-        <td><?php echo $appt["time"]; ?>:00</td>
+        <td><?php if($appt["time"]>12){echo $appt["time"]-12  . ":00 PM";}else{echo $appt["time"]  . ":00 AM";}  ?></td>
         <td><a class="navlink" style="text-decoration: none" href="./tutorprof-student.php?user_id=<?php echo $_GET['user_id']; ?>&tutor_id=<?php echo $tid;?>"><?php echo $tutarray["fname"]; ?> <?php echo $tutarray["lname"]; ?></td>
         <td><?php echo $tutarray["courses"]; ?></td>
         <td><form method="post"><input type="hidden" name="apptid" class="input1" value="<?php echo $appt['appt_id']; ?>"><input type="submit" class="rate" name="yes" value="done"></form>

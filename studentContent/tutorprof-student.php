@@ -5,6 +5,7 @@ $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['tut
 
 $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GET['user_id'] . "'");
 
+$row = mysqli_fetch_array($result);
 
 ?>
 
@@ -63,11 +64,12 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
 
     <hr class="hr-navbar">
 
-    <button class="calendarView" onclick="window.location.href = './tutor-calendar-view-student.php?user_id=<?php echo $_GET['user_id']; ?>&tutor_id=<?php echo $_GET['tutor_id']; ?>'">Make an Appointment</button>
-    <br><br>
+    <button class="calendarView" onclick="window.location.href = './tutor-calendar-view-student.php?user_id=<?php echo $_GET['user_id']; ?>&tutor_id=<?php echo $_GET['tutor_id']; ?>'">Make an Appointment</button><br>
+    <h1 class="welcome-page-title"><?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?></h1>
+    <br>
+    <br>
     <?php
     
-    $row = mysqli_fetch_array($result);
 
     if ($row['user_image']){
      echo '<img class="profilePicture" src="data:image/jpeg;base64,'. $row['user_image'] .'"/>';
@@ -76,20 +78,26 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
        }
     ?>    
 
-    <h1 class="welcome-page-title"></h1>
-    <table class="info">
+    <?php if ($row['zoom_link'] != NULL) : ?>
+    <button class="calendarView" name="zoomButtn" onclick="window.open('<?php echo $row['zoom_link']?>','_blank')" >
+    <i aria-hidden="true"></i> 
+    Go to This Tutors Zoom Meeting Room</button>
+    <?php endif ?>
+     
     
-    <tr><td>Name: </td><td><?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?></td></tr>
+    <table class="info">
+    <tr><td>Course: </td><td><?php echo $row["courses"]; ?></td></tr>
     <tr><td>Academic Level: </td><td><?php echo $row["title"]; ?></td></tr>
     <tr><td>Email: </td><td><?php echo $row["email"]; ?></td></tr>
-    <tr><td>Course: </td><td><?php echo $row["courses"]; ?></td></tr>
     <tr><td>Rating: </td><td><?php echo $row["rank"]; ?></td></tr>
     <tr><td class="score" title="The number of tutoring hours this tutor has completed.">Score: </td><td><?php echo $row["score"]; ?></td></tr>
 
     </table>    
         
-    </form>
-    <br><br><br>
+    <br><br>
+    <button class="selectButton" onclick="window.location.href = 'mailto:<?php echo $row['email'];?>?subject = Feedback&body = Message'">
+     Contact Tutor
+    </button>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="../index.js"></script>
