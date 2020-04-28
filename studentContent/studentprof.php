@@ -102,7 +102,7 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
             ?></td></tr>
     <tr><td>Carrier: </td><td><?php echo $row["carrier"]; ?></td></tr>
     <tr><td>Academic Level: </td><td><?php echo $row["title"]; ?></td></tr>
-    <tr><td title="The number of completed appointments over the number or total appointments.  If your Completion Rate gets to below 50% your account will be banned.">Cancellation Rate: </td><td><?php echo $row["num_cancelled"]; ?>/<?php
+    <tr><td title="The number of completed appointments(+10) over the number or total appointments.  If your Completion Rate gets to below 50% your account will be banned.">Completion Rate: </td><td><?php echo $row["num_completed"]; ?>/<?php
     	$num_total =  $row["num_completed"];
 	$num_total += $row["num_cancelled"];
 
