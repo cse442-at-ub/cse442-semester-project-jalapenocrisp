@@ -71,7 +71,7 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
 
     <button class="calendarView" onclick="window.location.href = './change-photo-student.php?user_id=<?php echo $row['user_id']; ?>';">Edit Photo</button>
     <br> 
-    <?php if ($row['BANNED'] == 1) : ?>
+    <?php if ($row['complete'] / ($row['complete'] + $row['cancel']) < .5) : ?>
     <table class= "info">
     <tr><td>
     <label class= "message">YOUR ACCOUNT HAS BEEN TEMPORARILY BANNED</label>
@@ -102,9 +102,9 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
             ?></td></tr>
     <tr><td>Carrier: </td><td><?php echo $row["carrier"]; ?></td></tr>
     <tr><td>Academic Level: </td><td><?php echo $row["title"]; ?></td></tr>
-    <tr><td title="The number of completed appointments(+10) over the number or total appointments.  If your Completion Rate gets to below 50% your account will be banned.">Completion Rate: </td><td><?php echo $row["num_completed"]; ?>/<?php
-    	$num_total =  $row["num_completed"];
-	$num_total += $row["num_cancelled"];
+    <tr><td title="The number of completed appointments(+10) over the number or total appointments.  If your Completion Rate gets to below 50% your account will be banned.">Completion Rate: </td><td><?php echo $row["complete"]; ?>/<?php
+    	$num_total =  $row["omplete"];
+	$num_total += $row["cancel"];
 
 	echo $num_total; 
 	?></td></tr>
