@@ -70,7 +70,17 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
     ?>    
 
     <button class="calendarView" onclick="window.location.href = './change-photo-student.php?user_id=<?php echo $row['user_id']; ?>';">Edit Photo</button>
-
+    <br> 
+    <?php if ($row['BANNED'] == 1) : ?>
+    <table class= "info">
+    <tr><td>
+    <label class= "message">YOUR ACCOUNT HAS BEEN TEMPORARILY BANNED</label>
+    </td></tr>
+    <tr><td>
+    <label class= "message">FOR TOO MANY APPOINTMENT CANCELLATIONS</label>
+    </td></tr>
+    </table>
+    <?php endif ?>
     <br>
     
     <table class="info">
@@ -92,7 +102,12 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
             ?></td></tr>
     <tr><td>Carrier: </td><td><?php echo $row["carrier"]; ?></td></tr>
     <tr><td>Academic Level: </td><td><?php echo $row["title"]; ?></td></tr>
-    
+    <tr><td title="The number of completed appointments over the number or total appointments.  If your Completion Rate gets to below 50% your account will be banned.">Cancellation Rate: </td><td><?php echo $row["num_cancelled"]; ?>/<?php
+    	$num_total =  $row["num_completed"];
+	$num_total += $row["num_cancelled"];
+
+	echo $num_total; 
+	?></td></tr>
     </table>
     <button class="selectButton" onclick="window.location.href ='./update-student-profile.php?user_id=<?php echo $row['user_id']; ?>';">Edit Information</button>  
     
