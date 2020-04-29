@@ -38,6 +38,12 @@ body {
 .welcome-page-content {
  width: 60%;
  height: 40%;
+ margin: auto;
+}
+
+.welcome-text {
+    width: 50%;
+    
 }
 
 .new-login-btn{
