@@ -7,6 +7,7 @@
 body {
     background-color: var(--teal);
     color: var(--blue);
+    background-image: url('ub-banner.jpg');
 }
 
 .aboutButton {
