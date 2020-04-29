@@ -109,8 +109,14 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
 	echo $num_total; 
 	?></td></tr>
     </table>
-    <button class="selectButton2" onclick="window.location.href ='./update-student-profile.php?user_id=<?php echo $row['user_id']; ?>';">Edit Information</button>  
     
+    <table>
+    <tr>
+    <th width="50%"></th>
+    <th width="50%"></th>
+    <button class="selectButton" onclick="window.location.href ='./update-student-profile.php?user_id=<?php echo $row['user_id']; ?>';">Edit Information</button>  
+    </tr>
+    </table>
     <button class="delButton" onclick="window.location.href ='./delete-profile-student.php?user_id=<?php echo $row['user_id']; ?>';">Delete Profile</button> 
     <br><br><br>
 
