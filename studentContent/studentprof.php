@@ -102,14 +102,14 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
             ?></td></tr>
     <tr><td>Carrier: </td><td><?php echo $row["carrier"]; ?></td></tr>
     <tr><td>Academic Level: </td><td><?php echo $row["title"]; ?></td></tr>
-    <tr><td title="">Completion Rate: </td><td><?php echo $row["complete"]; ?>/<?php
+    <tr><td title="The number of completed appointments(+10) over the number or total appointments.  If your Completion Rate gets to below 50% your account will be banned.">Completion Rate: </td><td><?php echo $row["complete"]; ?>/<?php
     	$num_total =  $row["complete"];
 	$num_total += $row["cancel"];
 
 	echo $num_total; 
 	?></td></tr>
     </table>
-    <button class="selectButton" onclick="window.location.href ='./update-student-profile.php?user_id=<?php echo $row['user_id']; ?>';">Edit Information</button>  
+    <button class="selectButton2" onclick="window.location.href ='./update-student-profile.php?user_id=<?php echo $row['user_id']; ?>';">Edit Information</button>  
     
     <button class="delButton" onclick="window.location.href ='./delete-profile-student.php?user_id=<?php echo $row['user_id']; ?>';">Delete Profile</button> 
     <br><br><br>
