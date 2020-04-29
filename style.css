@@ -7,10 +7,10 @@
 body {
     background-color: var(--teal);
     color: var(--blue);
-    background-image: url('ub-banner.jpg');
+    background: linear-gradient( rgba(20, 20, 20, .5), rgba(20, 20, 20, .5)), url(ub-banner.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    background: linear-gradient( rgba(20, 20, 20, .5), rgba(20, 20, 20, .5)), url(ub-banner.jpg);
+    
 }
 
 .aboutButton {
