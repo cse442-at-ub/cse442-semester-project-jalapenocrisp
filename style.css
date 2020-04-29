@@ -42,11 +42,6 @@ body {
 padding-top: 50px;
 }
 
-.welcome-text p {
-    width: 50%;
-    margin-left: 20px;
-}
-
 .new-login-btn{
   display: inline-block;
   text-decoration: none;
@@ -78,6 +73,7 @@ padding-top: 50px;
 .welome-text{
     text-align: center;
     margin:0;
+    width: 50%;
 }
 
 hr.hr-navbar {
