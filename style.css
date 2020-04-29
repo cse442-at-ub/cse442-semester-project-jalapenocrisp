@@ -1,6 +1,6 @@
 :root {
     --teal: #5CDB95;
-    --yellow: #cbcaa5;
+    --yellow: #EDF5E1;
     --blue: #05386B;
 }
 
@@ -8,7 +8,7 @@ body {
     background-color: var(--teal);
     color: var(--blue);
     background-repeat: no-repeat;
-    background: linear-gradient( rgba(20, 20, 20, .5), rgba(20, 20, 20, .5)), url(ub-banner.jpg);
+    background: linear-gradient( rgba(20, 20, 20, .7), rgba(20, 20, 20, .7)), url(ub-banner.jpg);
     background-size: cover;
     
 }
@@ -59,7 +59,12 @@ body {
     text-align: center;
     margin: auto;
     padding-top: 20px;
-    font-family: 'Noto Serif', serif;
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+.welome-text{
+    text-align: center;
+    margin:0;
 }
 
 hr.hr-navbar {
