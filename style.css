@@ -43,24 +43,21 @@ padding-top: 50px;
 }
 
 .new-login-btn{
-  display: inline-block;
-  text-decoration: none;
-  color: #668ad8;
-  width: 120px;
-  height: 120px;
-  line-height: 120px;
-  border-radius: 50%;
-  border: solid 2px #668ad8;
-  text-align: center;
-  vertical-align: middle;
-  overflow: hidden;
-  font-weight: bold;
-  transition: .4s;
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    color: #67c5ff;
+    border: dashed 1px #67c5ff;
+    background: #f2fcff;
+    border-radius: 3px;
+    transition: .4s;
 }
 
 .new-login-btn:hover {
-    background: #b3e1ff;
+    background: #cbedff;
+    color: #FFF;
 }
+
 
 .welcome-page-title {
     text-align: center;
@@ -148,7 +145,7 @@ ul li {
 }
 
 ul li a {
-    color: black;
+    color: var(--yellow);
     text-decoration: none;
 }
 
