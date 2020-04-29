@@ -36,31 +36,23 @@ body {
 /* styling for the welcome page */
 
 .new-login-btn{
-    display: inline-block;
-    text-decoration: none;
-    background: #5dc3d0;
-    color: rgb(82, 142, 150);
-    width: 122px;
-    font-size: 20px;
-    height: 120px;
-    line-height: 120px;
-    border-radius: 50%;
-    text-align: center;
-    vertical-align: middle;
-    overflow: hidden;
-    box-shadow: inset 0px 3px 0 rgba(255,255,255,0.3), 0 3px 3px rgba(0, 0, 0, 0.3);
-    font-weight: bold;
-    border-bottom: solid 3px #549fa9;
-    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.65);
-    transition: .4s;
+  display: inline-block;
+  text-decoration: none;
+  color: #668ad8;
+  width: 120px;
+  height: 120px;
+  line-height: 120px;
+  border-radius: 50%;
+  border: solid 2px #668ad8;
+  text-align: center;
+  vertical-align: middle;
+  overflow: hidden;
+  font-weight: bold;
+  transition: .4s;
 }
 
-.new-login-btn:active{
-    -ms-transform: translateY(1px);
-    -webkit-transform: translateY(1px);
-    transform: translateY(1px);
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.35);
-    border-bottom: none;
+.new-login-btn:hover {
+    background: #b3e1ff;
 }
 
 .welcome-page-title {
