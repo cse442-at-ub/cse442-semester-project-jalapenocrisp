@@ -43,14 +43,15 @@ padding-top: 50px;
 }
 
 .new-login-btn{
-    display: inline-block;
+   display: inline-block;
     padding: 0.5em 1em;
     text-decoration: none;
-    color: #67c5ff;
-    border: dashed 1px #67c5ff;
-    background: #f2fcff;
+    color: black;
+    border: solid 1px black;
+    background: white;
     border-radius: 3px;
     transition: .4s;
+    width: 300px;
 }
 
 .new-login-btn:hover {
@@ -67,7 +68,7 @@ padding-top: 50px;
     color: var(--teal);
 }
 
-.welome-text{
+.welome-text p{
     text-align: center;
     margin:0;
     width: 50%;
