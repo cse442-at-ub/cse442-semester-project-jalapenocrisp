@@ -39,11 +39,12 @@ body {
  width: 60%;
  height: 40%;
  margin: auto;
+padding-top: 50px;
 }
 
-.welcome-text {
+.welcome-text p {
     width: 50%;
-    
+    margin-left: 20px;
 }
 
 .new-login-btn{
