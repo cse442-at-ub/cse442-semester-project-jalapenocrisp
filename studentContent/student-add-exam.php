@@ -4,9 +4,29 @@
     $result = mysqli_query($conn,"SELECT * FROM progress WHERE student_id=$student_id;");
     $msg_error = "";
     $all_courses = array();
+    
+    $num_of_grades = 0;
+    $courses_need_grades = "";
+    $todays_date = new DateTime("now", new DateTimeZone('America/New_York') );
+    $formatted_todays_date = $todays_date->format('Y-m-d');
+    
     while($row = mysqli_fetch_array($result)){
         $course_name = $row["course"];
         array_push($all_courses, $course_name);
+
+        $nextExam_string = $row['nextExam'];
+        if(strlen($nextExam_string) > 2){
+            $nextExam_date = strtotime($nextExam_string); 
+            $nextExam = date('Y-m-d', $nextExam_date); 
+
+            if($formatted_todays_date >= $nextExam){
+                $courses_need_grades .= $course_name . ", ";
+                $num_of_grades++;
+            }
+        }
+    }
+    if($num_of_grades > 0){
+        $courses_need_grades = rtrim($courses_need_grades, ", ");
     }
 
     if(count($_POST) > 0){
@@ -30,7 +50,8 @@
                 $prev_grades .= ",".$grade_entered;
             }
             
-            mysqli_query($conn, "UPDATE progress SET grades=\"$prev_grades\" WHERE student_id=$student_id AND course=\"$choosen_class\" ;");
+            mysqli_query($conn, "UPDATE progress SET grades=\"$prev_grades\", nextExam=\"\" WHERE student_id=$student_id AND course=\"$choosen_class\" ;");
+            header('Refresh:0');
         }else{
             $msg_error = "Enter a valid grade";
         }
@@ -97,11 +118,15 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
         if(strcmp($msg_error, "")!= 0){
             echo "<h2 class=\"welcome-page-title\">***ENTER A VALID GRADE (between 0 - 150)***</h1><br>";
         }
+        
         $num_classes = count($all_courses);
         if( $num_classes > 0){
     ?>
     
     <h1 class="welcome-page-title">Your Classes</h1><br>
+    <?php
+    if($num_of_grades > 0){ ?>
+            <p style="color:red" class="center"> <?php  echo "ENTER GRADES FOR : ". $courses_need_grades; ?> </p> <?php } ?>
 
     <div id="student_appointment_div">
         <form method="post">

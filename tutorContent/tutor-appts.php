@@ -77,6 +77,7 @@ $result2 = mysqli_query($conn,"SELECT * FROM appointments WHERE tutor_id='" . $_
         <td><a style="text-decoration: none" class="navlink" href="./studentprof-tutor.php?user_id=<?php echo $_GET['user_id']; ?>&student_id=<?php echo $tid;?>"><?php echo $tutarray["fname"]; ?> <?php echo $tutarray["lname"]; ?></td>
         <td><?php echo $row["courses"]; ?></td>
         <td><form method="post"><input type="hidden" name="apptid" class="input1" value="<?php echo $appt['appt_id']; ?>"><input type="submit" class="rate" name="yes" value="done"></form>
+        <td><button class="selectButton" onclick="window.location.href = 'mailto:<?php echo $tutarray['email'];?>?subject = Feedback&body = Message'">Contact</button></td>
         <td><button class="cancel" onclick="window.location.href='./cancel-appt-tutor-side.php?user_id=<?php echo $_GET['user_id']; ?>&appt_id=<?php echo $appt['appt_id']; ?>'">X</button><td>
 
     </tr>
