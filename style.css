@@ -6,7 +6,7 @@
 
 body {
     background-color: var(--teal);
-    color: var(--blue);
+    color: var(--yellow);
     background-repeat: no-repeat;
     background: linear-gradient( rgba(20, 20, 20, .7), rgba(20, 20, 20, .7)), url(ub-banner.jpg);
     background-size: cover;
@@ -35,6 +35,11 @@ body {
 
 /* styling for the welcome page */
 
+.welcome-page-content {
+ width: 60%;
+ height: 40%;
+}
+
 .new-login-btn{
   display: inline-block;
   text-decoration: none;
@@ -60,6 +65,7 @@ body {
     margin: auto;
     padding-top: 20px;
     font-family: 'Barlow Condensed', sans-serif;
+    color: var(--teal);
 }
 
 .welome-text{
