@@ -1,12 +1,12 @@
 :root {
-    --teal: #b1cddd;
+    --teal: #5CDB95;
     --yellow: #cbcaa5;
-    --black: #000000;
+    --blue: #05386B;
 }
 
 body {
     background-color: var(--teal);
-    color: black;
+    color: var(--blue);
 }
 
 .aboutButton {
@@ -643,6 +643,7 @@ input[type="submit"]:hover {
     display: block;
 }
 
+
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~student appt styling ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 #student_appt_info_header {
@@ -726,5 +727,5 @@ td {
     border: 1px solid black;
 }
 
-/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ end student appt styling ~~~~~~~~~~~~~~~~~~~~~~~~ */
 
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ end student appt styling ~~~~~~~~~~~~~~~~~~~~~~~~ */
