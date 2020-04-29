@@ -528,16 +528,17 @@ input[type="submit"]:hover {
     border: none;
     color: black;
 }
-.verify{
+
+.verify {
     padding-left: 10px;
-    color:red;
+    color: red;
     text-decoration: none;
 }
-.verify:hover{
+
+.verify:hover {
     color: rgb(131, 11, 11);
     cursor: pointer;
     text-decoration: underline;
-
 }
 
 
@@ -548,11 +549,11 @@ input[type="submit"]:hover {
 }
 
 .profilePicture {
-    width:250px;
-    height:250px;
-    object-fit:cover;
-    border-radius:50%;
-    display:block;
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
     margin-left: auto;
     margin-right: auto;
     border: 5px solid white;
@@ -595,10 +596,12 @@ input[type="submit"]:hover {
 
 .dropdown {
     font-family: "Alatsi", sans-serif;
-  }
-  
-  /* The container <div> - needed to position the dropdown content */
-  .dropdown {
+}
+
+
+/* The container <div> - needed to position the dropdown content */
+
+.dropdown {
     position: relative;
     display: inline-block;
 }
@@ -639,7 +642,6 @@ input[type="submit"]:hover {
 .show {
     display: block;
 }
-
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~student appt styling ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
@@ -711,3 +713,18 @@ input[type="submit"]:hover {
 
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ end student appt styling ~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+
+/* styling for the list of tutor page */
+
+
+/* table styling */
+
+table,
+th,
+td {
+    border: 1px solid black;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ end student appt styling ~~~~~~~~~~~~~~~~~~~~~~~~ */
+
