@@ -55,6 +55,8 @@ if(count($_POST)>0) {
     <br>
     <br>
     <br>
+    
+    <div class="modal">
     <h1 class="welcome-page-title">Tutor Log In</h1>
 
     <div id="tutor_signup_div">
@@ -80,6 +82,7 @@ if(count($_POST)>0) {
             <br>
             <a href="user-forgot.php" id="forgot_link_id"> forgot password? </a>
         </form>
+    </div>
     </div>
 
     <script src="../index.js"></script>
