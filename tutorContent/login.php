@@ -76,7 +76,7 @@ if(count($_POST)>0) {
                 
                 <input type="text" id="email" name="email" placeholder="Email">
                     
-                
+                <br> <br>
                 <input type="password" id="password" name="paswd" placeholder="Password">
                 
              </div>
