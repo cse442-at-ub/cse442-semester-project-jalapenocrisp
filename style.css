@@ -184,6 +184,17 @@ ul li a:hover {
     margin: auto;
 }
 
+.modal-input input{
+
+  border:0;
+  border-bottom:1px solid #555;  
+  background:transparent;
+  width:100%;
+  padding:8px 0 5px 0;
+  font-size:16px;
+  color:#fff;
+}
+
 .log_in_input,
 .sign_up_input  {
     width: 100%;
@@ -194,11 +205,7 @@ ul li a:hover {
     border-radius: 4px;
     box-sizing: border-box;
 }
-input[type=text] {
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid #000000;
-}
+
 .input_text_field {
     padding-bottom: 40px;
 }
