@@ -88,9 +88,9 @@ if(count($_POST)>0) {
             <input class="log_in_input" type="text" id="email" name="email" placeholder="Email">
 
             <br> <br>
-            <input class="log_in_input" type="password" id="password" name="paswd">
+            <input class="log_in_input" type="password" id="password" name="paswd" placeholder="Password">
             </div>
-            <input id="log_in_button" name="submit" type="submit" value="Submit">
+            <input class="new-login-btn" id="log_in_button" name="submit" type="submit" value="Submit">
             <br>
             <br>
             <br>
