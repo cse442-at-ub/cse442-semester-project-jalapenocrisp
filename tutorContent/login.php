@@ -72,8 +72,8 @@ if(count($_POST)>0) {
            
             <div class="modal-input">
             
-             <input type="text" id="email" name="email" placeholder="Email">
-                
+             <input type="text" required=""/>
+		<label>Full Name</label>
             </div>
 
             <label for="email">User Email</label>
