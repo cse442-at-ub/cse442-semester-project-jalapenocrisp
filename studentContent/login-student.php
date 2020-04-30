@@ -68,7 +68,7 @@ if(count($_POST)>0) {
     <br>
     <br>
     <div class="modal">
-    <h1 class="welcome-page-title">Student Log In</h1>
+    <h1 class="welcome-page-title modal-title">Student Log In</h1>
 
     <div id="tutor_signup_div">
         <form name="frmUser" method='post' action="">
