@@ -178,7 +178,7 @@ ul li a:hover {
 /*-------------------- styling for the tutor signup page */
 
 .modal{
-    height: 500px;
+    height: 450px;
     background-color: darkblue;
     width: 30%;
     margin: auto;
@@ -237,8 +237,9 @@ input[type="submit"]:hover {
 }
 
 #forgot_link_id {
-    color: black;
+    color: white;
     font-weight: bold;
+    font-family: 'Roboto', sans-serif;
 }
 
 .message {
@@ -251,7 +252,7 @@ input[type="submit"]:hover {
 /* search style */
 
 .selectButton {
-    width: 100%;
+    width: 30%;
     margin-top: 2%;
     display: block;
     margin-left: auto;
