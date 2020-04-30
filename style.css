@@ -67,6 +67,7 @@ text-align: center;
     padding-top: 20px;
     font-family: 'Barlow Condensed', sans-serif;
     color: var(--teal);
+    font-size: 70px;
 }
 
 .welcome-text{
@@ -74,8 +75,13 @@ text-align: center;
     margin:0;
     width: 50%;
     padding-top: 30px;
-    font-size: 15px;
+    font-size: 20px;
     color: white;
+}
+
+.welcome-text p {
+
+    font-family: 'Roboto', sans-serif;
 }
 
 hr.hr-navbar {
@@ -104,7 +110,7 @@ hr.hr-navbar {
 .route-buttons {
     display: flex;
     justify-content: space-evenly;
-    margin-top: 100px;
+    margin-top: 150px;
 }
 
 .welcome-page-buttons:hover,
