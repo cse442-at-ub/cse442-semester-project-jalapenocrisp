@@ -79,7 +79,7 @@ if(count($_POST)>0) {
                 <input type="password" id="password" name="paswd" placeholder="Password">
                 
              </div>
-            <input id="log_in_button" name="submit" type="submit" value="Submit">
+            <input class="new-login-btn" id="log_in_button" name="submit" type="submit" value="Submit">
             <br>
             <br>
             <br>
