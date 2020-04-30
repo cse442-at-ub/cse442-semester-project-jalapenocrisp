@@ -72,10 +72,12 @@ if(count($_POST)>0) {
            
             <div class="modal-input">
             
-                <label for="email">User Email</label>
-                <input class="log_in_input" type="text" id="email" name="email" placeholder="Email">
+             <input type="text" id="email" name="email" placeholder="Email">
+                
             </div>
 
+            <label for="email">User Email</label>
+                <input class="log_in_input" type="text" id="email" name="email" placeholder="Email">
             <label for="password">Password</label>
             <input class="log_in_input" type="password" id="password" name="paswd">
             
