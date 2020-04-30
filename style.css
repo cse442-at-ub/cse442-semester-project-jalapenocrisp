@@ -201,6 +201,9 @@ ul li a:hover {
   color:#fff;
 }
 
+.modal-title{
+    font-size: 15px;
+}
 .log_in_input,
 .sign_up_input  {
     width: 100%;
