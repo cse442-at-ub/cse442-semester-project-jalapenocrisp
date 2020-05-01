@@ -58,6 +58,9 @@ $row = mysqli_fetch_array($result);
     <link rel="stylesheet" type="text/css" href="../style.css" />
     <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&family=Noto+Serif:wght@700&family=Roboto+Slab:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Fredericka+the+Great&family=Noto+Serif&family=Roboto&display=swap" rel="stylesheet">
+    
     <title>UB Tutoring Service</title>
 </head>
 
@@ -80,7 +83,7 @@ $row = mysqli_fetch_array($result);
     </div>
     <hr class="hr-navbar">
     <button class= "calendarView">
-    <h1 class="welcome-page-title">Personalize Your Bio, <?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?>!</h1>
+    <h1 class="modal-title welcome-page-title">Personalize Your Bio, <?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?>!</h1>
     <p>[Text limit for each field is 100 characters]</p>
    <?php if(isset($message)) { echo $message; } ?>
 
