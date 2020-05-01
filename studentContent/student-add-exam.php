@@ -119,7 +119,7 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
 
     <?php
         if(strcmp($msg_error, "")!= 0){
-            echo "<h2 class=\"welcome-page-title\">***ENTER A VALID GRADE (between 0 - 150)***</h1><br>";
+            echo "<h2 class=\"modal-title\">***ENTER A VALID GRADE (between 0 - 150)***</h1><br>";
         }
         
         $num_classes = count($all_courses);
@@ -155,7 +155,7 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
     <?php
         }else{
     ?>
-    <h1 class="welcome-page-title">No courses available.</h1><br>
+    <h1 class="modal-title welcome-page-title">No courses available.</h1><br>
     <?php
         }
     ?>
