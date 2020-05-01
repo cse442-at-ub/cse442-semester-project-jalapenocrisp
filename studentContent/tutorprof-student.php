@@ -77,7 +77,14 @@ $row = mysqli_fetch_array($result);
         echo '<img class="profilePicture" src="user-default.jpg" alt="you">';
        }
     ?>    
-    <br>
+
+    <?php if ($row['zoom_link'] != NULL) : ?>
+    <button class="calendarView" name="zoomButtn" onclick="window.open('<?php echo $row['zoom_link']?>','_blank')" >
+    <i aria-hidden="true"></i> 
+    Go to This Tutors Zoom Meeting Room</button>
+    <?php endif ?>
+     
+    
     <table class="info">
     <tr><td>Course: </td><td><?php echo $row["courses"]; ?></td></tr>
     <tr><td>Academic Level: </td><td><?php echo $row["title"]; ?></td></tr>
@@ -85,12 +92,46 @@ $row = mysqli_fetch_array($result);
     <tr><td>Rating: </td><td><?php echo $row["rank"]; ?></td></tr>
     <tr><td class="score" title="The number of tutoring hours this tutor has completed.">Score: </td><td><?php echo $row["score"]; ?></td></tr>
 
-    </table>    
+    <br>
+    </table> 
+    <?php if ($row['bio_leadership'] != NULL || $row['bio_languages'] != NULL || $row['bio_topics'] != NULL) : ?>
+    <h1 class="welcome-page-title"><?php echo $row["fname"]; ?>'s Bio</label>
+    <?php endif ?>
         
+    <table class="info">
+    <tr><td>
+    <?php if ($row['bio_leadership'] != NULL) : ?>
+    <button class="calendarView" name="bioLeadButtn" >
+    <i aria-hidden="true"></i> 
+    Leadership</button>
+    <label><?php echo $row["bio_leadership"]; ?></label>
+    <?php endif ?>
+    </td></tr>
+    
+    <tr><td>
+    <?php if ($row['bio_languages'] != NULL) : ?>
+    <button class="calendarView" name="bioLangButtn"  >
+    <i aria-hidden="true"></i> 
+    Languages</button>
+    <label><?php echo $row["bio_languages"]; ?></label>
+    <?php endif ?>
+    </td></tr>
+    
+    <tr><td>
+    <?php if ($row['bio_topics'] != NULL) : ?>
+    <button class="calendarView" name="bioTopicsButtn" >
+    <i aria-hidden="true"></i> 
+    Topics</button>
+    <label class="info1"><?php echo $row["bio_topics"]; ?></label>
+    <?php endif ?>
+    </td></tr>
+    </table>
+    
     <br><br>
     <button class="selectButton" onclick="window.location.href = 'mailto:<?php echo $row['email'];?>?subject = Feedback&body = Message'">
      Contact Tutor
     </button>
+    <br><br><br>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="../index.js"></script>
