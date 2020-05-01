@@ -13,8 +13,8 @@ body {
 }
 
 .page-card {
-    width: 90%;
-    height: 90%;
+    width: 80%;
+    height: 80%;
     background-color: white;
     margin: auto;
 }
@@ -32,6 +32,7 @@ body {
     cursor: pointer;
     border: none;
     color: white;
+    font-family: 'Roboto', sans-serif;
 }
 
 .about {
