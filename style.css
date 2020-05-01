@@ -64,7 +64,7 @@ body {
 }
 
 .new-login-btn:hover {
-    background: #cbedff;
+    background: rgb(0, 0, 131);
     color: #FFF;
 }
 
