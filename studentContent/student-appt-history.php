@@ -74,6 +74,7 @@ if (isset($_POST['submit'])){
     <hr class="hr-navbar">
 
     <h1 class=" modal-title welcome-page-title">Your Past Appointments</h1>
+    <br>
     <?php 
     if (mysqli_num_rows($result2)<1){
         echo "<br><br><br><br><h2 class='center'>No past appointments.</h2>";

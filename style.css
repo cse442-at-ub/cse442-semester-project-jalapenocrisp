@@ -28,10 +28,11 @@ body {
     border-radius: 8px;
     padding: 5px;
     font-size: 24px;
-    background-color: darkblue;
+    background-color: white;
     cursor: pointer;
     border: none;
-    color: white;
+    font-size: 20px;
+    color: black;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -134,7 +135,7 @@ hr.hr-navbar {
     margin-left: auto;
     margin-right: auto;
     width: 80%;
-    color: black;
+    color: white;
     font-family: 'Roboto', sans-serif;
 }
 

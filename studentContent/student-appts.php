@@ -93,6 +93,7 @@ while($arr_exam_result = mysqli_fetch_array($next_exam_result)){
     <hr class="hr-navbar">
 
     <h1 class="modal-title welcome-page-title">Your Appointments</h1><br>
+    <br>
     <a class="center" href="./student-appt-history.php?user_id=<?php echo $row['user_id']; ?>">appointment history</a>
 
     <?php 
