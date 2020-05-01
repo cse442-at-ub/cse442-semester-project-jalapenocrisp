@@ -690,15 +690,15 @@ input[type="submit"]:hover {
     background-color: white;
   }
   .talk-bubble-self {
-    float: right;
+    display: inline-block;
     position: relative;
+    margin-left: 100%;
+    /* position: relative; */
     width: 200px;
     height: auto;
     background-color: white;
   }
-  .border{
-    border: 8px solid #666;
-  }
+
   .round{
     border-radius: 30px;
       -webkit-border-radius: 30px;
@@ -715,17 +715,9 @@ input[type="submit"]:hover {
     -webkit-margin-before: 0em;
     -webkit-margin-after: 0em;
   }
-  .bottomtext{
-      margin-top: 400px;
-  }
-  .input-narrow{
-    border-radius: 5px;
-    /* margin-left: 10%;
-    margin-right: 10%; */
-  }
+  
   .cont{
       width: 60%;
       margin-left: auto;
       margin-right: auto;
   }
-  

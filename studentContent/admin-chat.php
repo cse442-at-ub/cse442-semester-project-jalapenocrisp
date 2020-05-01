@@ -1,6 +1,18 @@
 <?php
 include_once "access-db.php";
 if (isset($_POST['message'])){
+    $name='student: ';
+    $separator='%%%';
+    $id=0;
+    $message=$name.$_POST['message'].$separator;
+    $result = mysqli_query($conn,"SELECT * FROM admin WHERE id=0");
+    $row= mysqli_fetch_array($result);
+    $chat=$row['chat'];
+    $chat.=$message;
+    echo $chat;
+    mysqli_query($conn,"UPDATE admin SET chat='" . $chat . "' WHERE id='" . $id . "'"); 
+    header('Refresh: 0');
+
 }
 ?>
 <!DOCTYPE html>
