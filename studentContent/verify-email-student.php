@@ -80,7 +80,7 @@
     </div> 
     <div id="tutor_signup_div">
         <form method="post" action="">
-            <input class="sign_up_input" type="text" id= "code" name="code">
+            <input class="sign_up_input" type="text" id= "code" name="code" placeholder="enter code" autofocus>
             <input type="submit" id="tutor_signup_submit" name="text" value= "Resend Code"> 
             <input type="submit" id="tutor_signup_submit" name="verify" value= "Verify"> 
 

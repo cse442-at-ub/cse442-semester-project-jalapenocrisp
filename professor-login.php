@@ -1,7 +1,7 @@
 <?php
 $message="";
-include_once "access-db.php";
 if(count($_POST)>0) {
+	$conn = mysqli_connect("tethys.cse.buffalo.edu","nekesame","50278839","cse442_542_2020_spring_teami_db");
 	$result = mysqli_query($conn,"SELECT * FROM tutors WHERE email='" . $_POST["email"] . "' and paswd = '". $_POST["paswd"]."'");
 	$count  = mysqli_num_rows($result);
 	if($count==0) {
@@ -23,7 +23,7 @@ if(count($_POST)>0) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content ="width=device-width,initial-scale=1,user-scalable=yes" />
     <title>UB Tutoring</title>
-    <link rel="stylesheet" type="text/css" href="../style.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
     <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <title>UB Tutoring Service</title>
@@ -36,50 +36,37 @@ if(count($_POST)>0) {
                 <!-- the line of code commented below is important when we upload the work on a server. for now, i'm using an alternative below -->
                 <!-- <li><a href="javascript:loadPage('./login.php')">login</a> </li> -->
                 <li>
-                    <a class="navlink" href="../create-account.html">create account</a> </li>
+                    <a class="navlink" href="create-account.html">create account</a> </li>
                 <li>
-                    <a class="navlink" href="../index.html">home</a> </li>
+                    <a class="navlink" href="index.html">home</a> </li>
        
 
             </ul>
         </div>
 
         <div class="logo">
-            <h2 class="logo"> <a href="../index.html">UBtutoring</a> </h2>
+            <h2 class="logo"> <a href="index.html">UBtutoring</a> </h2>
         </div>
     </div>
     <hr class="hr-navbar">
 
-    <button class="selectButton" onclick="window.location.href = './tutor-signup.php';">Register</button>
     <br>
     <br>
     <br>
-    <h1 class="welcome-page-title">Tutor Log In</h1>
+    <h1 class="welcome-page-title">Professor Access</h1>
 
-    <div id="tutor_signup_div">
-        <form name="frmUser" method='post' action="">
 
-        <div class="message">
-    
-        <?php if($message!="") { 
-            echo $message; 
-            
-            } ?> 
-        </div> 
+        <!-- enter ub email to verify that you are a UB professor -->
 
-            <label for="email">User Email</label>
-            <input class="log_in_input" type="text" id="email" name="email" placeholder="email" autofocus>
+        <form action="list-of-tutors.php">
 
-            <label for="password">Password</label>
-            <input class="log_in_input" type="password" id="password" name="paswd" placeholder="password">
-            
-            <input id="log_in_button" name="submit" type="submit" value="Submit">
+            <label for="email">Please enter your UB email to verify that you are a UB professor:</label>
             <br>
-            <br>
-            <br>
-            <a href="user-forgot.php" id="forgot_link_id"> forgot password? </a>
+            <input type="email" id="email" pattern=".+@buffalo.edu" size="30" required>
+
+            <button type="submit"> Submit </button>
+        
         </form>
-    </div>
 
     <script src="../index.js"></script>
     

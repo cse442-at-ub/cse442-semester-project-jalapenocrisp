@@ -88,7 +88,7 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
     </div> 
     <br>
         Password:<br>
-        <input type="password" name="pass" class="input1"><br>
+        <input type="password" name="pass" class="input1" placeholder="password" autofocus><br>
         <input class="selectButton2" type="submit" name="submit" value="delete forever">
 
 

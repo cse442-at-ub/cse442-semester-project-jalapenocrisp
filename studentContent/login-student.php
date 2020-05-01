@@ -65,7 +65,7 @@ if(count($_POST)>0) {
     <br>
     <br>
     <br>
-    <h1 class="welcome-page-title">Student Log In</h1>
+    <h1 class="welcome-page-title">Student Login</h1>
 
     <div id="tutor_signup_div">
         <form name="frmUser" method='post' action="">
@@ -78,11 +78,11 @@ if(count($_POST)>0) {
             } ?> 
         </div> 
 
-            <label for="email">User Email</label>
-            <input class="log_in_input" type="text" id="email" name="email" placeholder="Email">
+            <label for="email">Email</label>
+            <input class="log_in_input" type="text" id="email" name="email" placeholder="email" autofocus>
 
             <label for="password">Password</label>
-            <input class="log_in_input" type="password" id="password" name="paswd">
+            <input class="log_in_input" type="password" id="password" name="paswd" placeholder="password">
             
             <input id="log_in_button" name="submit" type="submit" value="Submit">
             <br>
