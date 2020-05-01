@@ -56,6 +56,7 @@ if(count($_POST)>0) {
     <br>
     <br>
     <br>
+    <div class="modal">
     <h1 class="modal-title welcome-page-title">Professor Access</h1>
 
 
@@ -67,10 +68,10 @@ if(count($_POST)>0) {
             <br>
             <input type="email" id="email" pattern=".+@buffalo.edu" size="30" required>
 
-            <button type="submit"> Submit </button>
+            <button class="new-login-btn" type="submit"> Submit </button>
         
         </form>
-
+    </div>
     <script src="../index.js"></script>
     
 </body>
