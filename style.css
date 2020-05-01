@@ -192,7 +192,7 @@ input[type="submit"]:hover {
 /* search style */
 
 .selectButton {
-    width: 100%;
+    width: 30%;
     margin-top: 2%;
     display: block;
     margin-left: auto;
@@ -727,9 +727,9 @@ input[type="submit"]:hover {
 
 /* table styling */
 
-table,
-th,
-td {
+.tutortable,
+.tutortable th,
+.tutortable td {
     border: 1px solid black;
 }
 
