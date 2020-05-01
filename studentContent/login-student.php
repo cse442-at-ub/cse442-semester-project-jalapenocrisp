@@ -37,6 +37,8 @@ if(count($_POST)>0) {
     <link rel="stylesheet" type="text/css" href="../style.css" />
     <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&family=Noto+Serif:wght@700&family=Roboto+Slab:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Fredericka+the+Great&family=Noto+Serif&family=Roboto&display=swap" rel="stylesheet">
     <title>UB Tutoring Service</title>
 </head>
 
@@ -61,11 +63,14 @@ if(count($_POST)>0) {
     </div>
     <hr class="hr-navbar">
 
-    <button class="selectButton" onclick="window.location.href = '../create-account.html';">Register</button>
+    
     <br>
     <br>
     <br>
-    <h1 class="welcome-page-title">Student Log In</h1>
+    <br>
+    <div class="modal">
+    <h1 class="welcome-page-title modal-title">Student Log In</h1>
+    <br> <br>
 
     <div id="tutor_signup_div">
         <form name="frmUser" method='post' action="">
@@ -77,20 +82,25 @@ if(count($_POST)>0) {
             
             } ?> 
         </div> 
+        
+        <div class="modal-input">
 
-            <label for="email">User Email</label>
+            
             <input class="log_in_input" type="text" id="email" name="email" placeholder="Email">
 
-            <label for="password">Password</label>
-            <input class="log_in_input" type="password" id="password" name="paswd">
-            
-            <input id="log_in_button" name="submit" type="submit" value="Submit">
+            <br> <br>
+            <input class="log_in_input" type="password" id="password" name="paswd" placeholder="Password">
+            </div>
+            <input class="new-login-btn" id="log_in_button" name="submit" type="submit" value="Submit">
             <br>
             <br>
             <br>
             <a href="user-forgot-student.php" id="forgot_link_id"> forgot password? </a>
         </form>
     </div>
+    
+    </div>
+    <button class="selectButton" onclick="window.location.href = '../create-account.html';">Register</button>
 
     <script src="../index.js"></script>
     
