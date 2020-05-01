@@ -3,6 +3,14 @@ include_once "access-db.php";
 $result = mysqli_query($conn,"SELECT * FROM students WHERE user_id='" . $_GET['user_id'] . "'");
 $row= mysqli_fetch_array($result);
 $name=$row['fname']. " " .$row['lname'];
+
+if (isset($_POST['exit'])){
+    $chat="";
+    $id=0;
+    mysqli_query($conn,"UPDATE admin SET chat='" . $chat . "' WHERE id='" . $id . "'"); 
+    header('Location: ./studentprof.php?user_id=' .$_GET['user_id']);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -66,12 +74,12 @@ $name=$row['fname']. " " .$row['lname'];
     <div class="header">
         <div class="menu_welcomePage">
             <ul>
-                <li><a class="navlink" href="./index.html">logout</a> </li>
+                <li><a class="navlink" href="../index.html">logout</a> </li>
             </ul>
         </div>
 
         <div class="logo">
-            <h2 class="logo"> <a href="./index.html">UBtutoring</a> </h2>
+            <h2 class="logo"> <a href="../index.html">UBtutoring</a> </h2>
         </div>
     </div>
     <hr class="hr-navbar">

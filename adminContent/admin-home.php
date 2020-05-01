@@ -1,6 +1,11 @@
 <?php
 include_once "../access-db.php";
-
+if (isset($_POST['exit'])){
+    $chat="";
+    $id=0;
+    mysqli_query($conn,"UPDATE admin SET chat='" . $chat . "' WHERE id='" . $id . "'"); 
+    header('Refresh:0');
+}
 ?>
 <!DOCTYPE html>
 
@@ -27,14 +32,16 @@ include_once "../access-db.php";
                         child=div.lastElementChild;
                     }
                     var total=this.responseText;
-                    var arr=total.split("%%%");
-                    var arrLen=arr.length;
-                    for (var i=arrLen-1; i>=0; i--){
-                        var paragraph=document.createElement("p");
-                        var el=document.createTextNode(arr[i]);
-                        paragraph.appendChild(el);
-                        var d=document.getElementById("cont");
-                        d.appendChild(paragraph);
+                    if (total){
+                        var arr=total.split("%%%");
+                        var arrLen=arr.length;
+                        for (var i=arrLen-1; i>=0; i--){
+                            var paragraph=document.createElement("p");
+                            var el=document.createTextNode(arr[i]);
+                            paragraph.appendChild(el);
+                            var d=document.getElementById("cont");
+                            d.appendChild(paragraph);
+                        }
                     }
                 }
             };
@@ -88,6 +95,9 @@ include_once "../access-db.php";
         <p id="chat"></p>
 
     </div>   
+    <br>
+    <p class="center">Please wait for a student to connect...</p>
+
     <form method="post" action="">
         <input class="selectButton" type="submit" name="exit" id="exit" value="exit chat"/>
     </form>
