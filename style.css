@@ -1,16 +1,26 @@
 :root {
-    --teal: #b1cddd;
-    --yellow: #cbcaa5;
-    --black: #000000;
+    --teal: #5CDB95;
+    --yellow: #EDF5E1;
+    --blue: #05386B;
 }
 
 body {
     background-color: var(--teal);
-    color: black;
+    color: var(--yellow);
+    background-repeat: no-repeat;
+    background: linear-gradient( rgba(20, 20, 20, .9), rgba(20, 20, 20, .9)), url(ub-banner.jpg);
+    background-size: cover;
+}
+
+.page-card {
+    width: 80%;
+    height: 80%;
+    background-color: rgb(0, 0, 131);
+    margin: auto;
 }
 
 .aboutButton {
-    width: 90%;
+    width: 50%;
     margin-top: 2%;
     display: block;
     margin-left: auto;
@@ -21,20 +31,68 @@ body {
     background-color: white;
     cursor: pointer;
     border: none;
+    font-size: 20px;
     color: black;
+    font-family: 'Roboto', sans-serif;
 }
 
 .about {
     padding-top: 50px;
 }
 
+.create-acct-buttons {
+    margin-top: 80px;
+    text-align: center;
+}
+
 
 /* styling for the welcome page */
+
+.welcome-page-content {
+    width: 60%;
+    height: 40%;
+    margin: auto;
+    padding-top: 50px;
+    text-align: center;
+}
+
+.new-login-btn {
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    color: black;
+    border: solid 1px black;
+    background: white;
+    border-radius: 3px;
+    transition: .4s;
+    width: 300px;
+}
+
+.new-login-btn:hover {
+    background: rgb(0, 0, 131);
+    color: #FFF;
+}
 
 .welcome-page-title {
     text-align: center;
     margin: auto;
     padding-top: 20px;
+    font-family: 'Barlow Condensed', sans-serif;
+    color: var(--teal);
+    font-size: 70px;
+}
+
+.welcome-text {
+    display: inline-block;
+    margin: 0;
+    width: 50%;
+    padding-top: 30px;
+    font-size: 20px;
+    color: white;
+}
+
+.welcome-text p {
+    font-family: 'Roboto', sans-serif;
 }
 
 hr.hr-navbar {
@@ -62,14 +120,14 @@ hr.hr-navbar {
 
 .route-buttons {
     display: flex;
-    justify-content: center;
-    margin-top: 200px;
+    justify-content: space-evenly;
+    margin-top: 150px;
 }
 
 .welcome-page-buttons:hover,
 .aboutButton:hover {
-    background-color: rgb(0, 0, 131);
-    color: white;
+    background-color: white;
+    color: rgb(0, 0, 131);
 }
 
 .navlink:hover,
@@ -81,12 +139,14 @@ hr.hr-navbar {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 90%;
+    width: 80%;
+    color: white;
+    font-family: 'Roboto', sans-serif;
 }
 
 .logo a {
-    color: black;
-    font-family: sans-serif;
+    color: white;
+    font-family: 'Fredericka the Great', cursive;
     text-decoration: none;
 }
 
@@ -99,7 +159,7 @@ hr.hr-navbar {
 }
 
 .menu_welcomePage {
-    font-family: "Alatsi", sans-serif;
+    font-family: 'Roboto', sans-serif;
     float: right;
 }
 
@@ -109,8 +169,9 @@ ul li {
 }
 
 ul li a {
-    color: black;
+    color: white;
     text-decoration: none;
+    font-family: 'Roboto', sans-serif;
 }
 
 ul li a:hover {
@@ -134,6 +195,27 @@ ul li a:hover {
 
 
 /*-------------------- styling for the tutor signup page */
+
+.modal {
+    height: 450px;
+    background-color: darkblue;
+    width: 30%;
+    margin: auto;
+}
+
+.modal-input input {
+    border: 0;
+    border-bottom: 1px solid #555;
+    background: transparent;
+    width: 100%;
+    padding: 8px 0 5px 0;
+    font-size: 16px;
+    color: #fff;
+}
+
+.modal-title {
+    font-size: 45px;
+}
 
 .log_in_input,
 .sign_up_input {
@@ -165,11 +247,10 @@ input[type="submit"]:hover {
 #log_in_button {
     display: inline-block;
     border: 0px solid #ccc;
-    margin-top: 10px;
-    background-color: blue;
-    color: white;
+    margin-top: 60px;
+    background-color: white;
+    color: black;
     width: 100%;
-    padding: 12px;
 }
 
 #tutor_signup_submit:hover,
@@ -178,8 +259,9 @@ input[type="submit"]:hover {
 }
 
 #forgot_link_id {
-    color: black;
+    color: white;
     font-weight: bold;
+    font-family: 'Roboto', sans-serif;
 }
 
 .message {
@@ -585,7 +667,7 @@ input[type="submit"]:hover {
     background: none;
     border: none;
     margin: 0;
-    color: black;
+    color: white;
     padding: 0px;
     font-size: 16px;
     cursor: pointer;
@@ -642,6 +724,7 @@ input[type="submit"]:hover {
 .show {
     display: block;
 }
+
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~student appt styling ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
@@ -733,5 +816,5 @@ input[type="submit"]:hover {
     border: 1px solid black;
 }
 
-/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ end student appt styling ~~~~~~~~~~~~~~~~~~~~~~~~ */
 
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ end student appt styling ~~~~~~~~~~~~~~~~~~~~~~~~ */

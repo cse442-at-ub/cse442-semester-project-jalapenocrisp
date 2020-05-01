@@ -16,6 +16,9 @@ $uid=$_GET['user_id'];
     <link rel="stylesheet" type="text/css" href="../style.css" />
     <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&family=Noto+Serif:wght@700&family=Roboto+Slab:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Fredericka+the+Great&family=Noto+Serif&family=Roboto&display=swap" rel="stylesheet">
+    
     <title>UB Tutoring Service</title>
 </head>
 
@@ -39,7 +42,7 @@ $uid=$_GET['user_id'];
     </div>
     <hr class="hr-navbar">
 
-    <h1 class="welcome-page-title"><?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?></h1>
+    <h1 class="modal-title welcome-page-title"><?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?></h1>
     <br>
 
     <?php
@@ -86,7 +89,7 @@ $uid=$_GET['user_id'];
     <br>
      </table> 
     <?php if ($row['bio_leadership'] != NULL || $row['bio_languages'] != NULL || $row['bio_topics'] != NULL) : ?>
-    <h1 class="welcome-page-title">Your Bio</label>
+    <h1 class="modal-title welcome-page-title">Your Bio</label>
     <?php endif ?>
            
     <table class="info">
