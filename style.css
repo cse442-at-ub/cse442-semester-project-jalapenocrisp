@@ -40,6 +40,11 @@ body {
     padding-top: 50px;
 }
 
+.create-acct-buttons {
+    margin-top: 80px;
+    text-align: center;
+}
+
 
 /* styling for the welcome page */
 
