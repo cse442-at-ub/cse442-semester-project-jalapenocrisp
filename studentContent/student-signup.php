@@ -84,7 +84,7 @@
     </div>
     <hr class="hr-navbar">
 
-    <h1 class="welcome-page-title">Student Sign Up</h1>
+    <h1 class="modal-title welcome-page-title">Student Sign Up</h1>
     <br>
     <div id="tutor_signup_div">
         <form method="post" action="">
