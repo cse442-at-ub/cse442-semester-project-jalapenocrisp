@@ -1,10 +1,7 @@
 <?php
-include_once "access-db.php";
-$result = mysqli_query($conn,"SELECT * FROM students WHERE user_id='" . $_GET['user_id'] . "'");
-$row= mysqli_fetch_array($result);
-$name=$row['fname']. " " .$row['lname'];
-?>
+include_once "../access-db.php";
 
+?>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -41,7 +38,7 @@ $name=$row['fname']. " " .$row['lname'];
                     }
                 }
             };
-            xmlhttp.open("GET", "../adminContent/refresh-chat.php", true);
+            xmlhttp.open("GET", "refresh-chat.php", true);
             xmlhttp.send();
         }
 
@@ -56,7 +53,7 @@ $name=$row['fname']. " " .$row['lname'];
                     document.getElementById("chat").innerHTML=this.responseText;
                 }
             };
-            request.open("POST", "send-message-student.php?user=<?php echo $name; ?>");
+            request.open("POST", "send-message.php");
             request.send(formData);
 }
     </script>
@@ -66,22 +63,24 @@ $name=$row['fname']. " " .$row['lname'];
     <div class="header">
         <div class="menu_welcomePage">
             <ul>
-                <li><a class="navlink" href="./index.html">logout</a> </li>
+                <li><a class="navlink" href="../index.html">logout</a> </li>
             </ul>
         </div>
 
         <div class="logo">
-            <h2 class="logo"> <a href="./index.html">UBtutoring</a> </h2>
+            <h2 class="logo"> <a href="../index.html">UBtutoring</a> </h2>
         </div>
     </div>
     <hr class="hr-navbar">
 
     <br>
-    <h1 class="welcome-page-title">Chatting with Admin: </h1>
+    <h1 class="welcome-page-title">Chatting with Student: </h1>
     <br><br>
     <div style="width: 50%; margin-left: auto; margin-right: auto;">
     <form id="msg" action="" method="post" enctype="multipart/form-data" onsubmit="sendFormData();return false;">
-        <input class="log_in_input" type="text" id="message" name="message" placeholder="say something to the admin"/>
+        <input class="log_in_input" type="text" id="message" name="message" placeholder="say something to the user"/>
+        <input type="hidden" name="user" value="admin">
+
     </form>
 
     </div>
