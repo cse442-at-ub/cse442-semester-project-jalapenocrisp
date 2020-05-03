@@ -69,6 +69,9 @@ if(count($_POST)>0) {
             <input type="email" id="email" pattern=".+@buffalo.edu" size="30" required>
 
             <button class="new-login-btn" type="submit"> Submit </button>
+            <br>
+            <br>
+            <br>
         
         </form>
     </div>

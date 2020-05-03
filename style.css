@@ -46,6 +46,9 @@ body {
 }
 
 
+/* styling for the professor page */
+
+
 /* styling for the welcome page */
 
 .welcome-page-content {
@@ -201,6 +204,7 @@ ul li a:hover {
     background-color: darkblue;
     width: 70%;
     margin: auto;
+    text-align: center;
 }
 
 .modal-input input {
@@ -812,19 +816,5 @@ td {
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ end student appt styling ~~~~~~~~~~~~~~~~~~~~~~~~ */
 
-@media screen and (max-width: 760px) {
-    /*Make dropdown links appear inline*/
-    ul {
-        position: static;
-        display: none;
-    }
-    /*Create vertical spacing*/
-    li {
-        margin-bottom: 1px;
-    }
-    /*Make all menu links full width*/
-    ul li,
-    li a {
-        width: 100%;
-    }
-}
+
+/* */
