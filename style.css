@@ -203,7 +203,7 @@ ul li a:hover {
     margin: auto;
 }
 
-.modal-input input {
+.modal-input input textarea{
     border: 0;
     border-bottom: 1px solid #555;
     background: transparent;
