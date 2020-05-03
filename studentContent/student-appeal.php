@@ -59,11 +59,11 @@
 				<br>
 				<br>
 				<br>
-				<a href="user-forgot-student.php" id="forgot_link_id"> forgot password? </a>
+				
 			</div>
         </form>
     </div>
-    <button class="selectButton" onclick="window.location.href = '../create-account.html';">Register</button>
+    <button class="selectButton" onclick="window.location.href = '../index.html';">I changed my mind</button>
 
     <script src="../index.js"></script>
     
