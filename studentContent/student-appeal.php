@@ -17,7 +17,7 @@ if(count($_POST)>0) {
 
     $description = $_POST["appeal_reason"];
     
-    $from="no-reply@buffalo.com";
+    $from = "no-reply@buffalo.com";
     $headers  = "MIME-Version: 1.0" . "\r\n";
     $headers .= "Content-type: text/plain; charset=iso-8859-1" . "\r\n";
     $headers .= "From: ". $from. "\r\n";
@@ -29,10 +29,10 @@ if(count($_POST)>0) {
     $message = "$studentName has made an appeal with the following -\r\n" . $description;
 
     mail($studentEmail, $subject, $message, $headers);
-    // mail($syedsEmail, $subject, $message, $headers);
-    // mail($jennysEmail, $subject, $message, $headers);
-    // mail($mercysEmail, $subject, $message, $headers);
-    // mail($tresEmail, $subject, $message, $headers);
+    mail($syedsEmail, $subject, $message, $headers);
+    mail($jennysEmail, $subject, $message, $headers);
+    mail($mercysEmail, $subject, $message, $headers);
+    mail($tresEmail, $subject, $message, $headers);
 
     $FLAG = TRUE;
 }
