@@ -17,6 +17,7 @@ if(count($_POST)>0) {
 
     $description = $_POST["appeal_reason"];
     
+    $from="no-reply@buffalo.com";
     $headers  = "MIME-Version: 1.0" . "\r\n";
     $headers .= "Content-type: text/plain; charset=iso-8859-1" . "\r\n";
     $headers .= "From: ". $from. "\r\n";
