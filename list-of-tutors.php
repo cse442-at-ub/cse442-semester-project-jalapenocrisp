@@ -42,8 +42,12 @@
     </div>
     <hr class="hr-navbar">
 
+    <div class="modal">
 
-    <p>The list of tutors sorted based on their ratings. </p>
+    
+
+
+    <h1 class="modal-title welcome-page-title">The list of tutors sorted based on their ratings. </h1>
 
     <?php
 
@@ -58,7 +62,7 @@
             echo "0 results";
         }
     ?>
-
+</div>
     <!-- add login for the professor -->
         
 </body>
