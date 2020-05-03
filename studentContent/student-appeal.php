@@ -1,3 +1,44 @@
+<?php
+include_once "access-db.php";
+
+$FLAG = FALSE;
+
+$user_id = $_GET["user_id"];
+$ress= mysqli_query($conn,"SELECT * FROM students WHERE user_id=$user_id;");
+$arr_ = mysqli_fetch_array($tutorRes);
+$studentEmail=$arr_['email'];
+$studentName = $arr_['fname'] . " " . $arr_['lname'];
+
+if(count($_POST)>0) {
+    $syedsEmail = "syedrehm@buffalo.edu";
+    $jennysEmail = "jenniech@buffalo.edu";
+    $mercysEmail = "nekesame@buffalo.edu";
+    $tresEmail = "tjones@buffalo.edu";
+
+    $description = $_POST["appeal_reason"];
+    
+    $headers  = "MIME-Version: 1.0" . "\r\n";
+    $headers .= "Content-type: text/plain; charset=iso-8859-1" . "\r\n";
+    $headers .= "From: ". $from. "\r\n";
+    $headers .= "Reply-To: ". $from. "\r\n";
+    $headers .= "X-Mailer: PHP/" . phpversion();
+    $headers .= "X-Priority: 1" . "\r\n";
+
+    $subject = "Banned Students Appeal";
+    $message = "$studentName has made an appeal with the following -\r\n" . $description;
+
+    mail($studentEmail, $subject, $message, $headers);
+    mail($syedsEmail, $subject, $message, $headers);
+    mail($jennysEmail, $subject, $message, $headers);
+    mail($mercysEmail, $subject, $message, $headers);
+    mail($tresEmail, $subject, $message, $headers);
+
+    $FLAG = TRUE;
+}
+
+?>
+
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -43,8 +84,8 @@
 
 			<div class="message">
 		
-				<?php if($message!="") { 
-					echo $message; 
+				<?php if($FLAG == TRUE) { 
+					echo "Your appeal has been successfully sent\n"; 
 					
 					} 
 				?> 
@@ -62,8 +103,10 @@
 				
 			</div>
         </form>
+        <button class="selectButton" onclick="window.location.href = '../index.html';">I changed my mind</button>
+
     </div>
-    <button class="selectButton" onclick="window.location.href = '../index.html';">I changed my mind</button>
+    
 
     <script src="../index.js"></script>
     
