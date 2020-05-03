@@ -46,9 +46,6 @@ body {
 }
 
 
-/* styling for the professor page */
-
-
 /* styling for the welcome page */
 
 .welcome-page-content {
@@ -199,7 +196,7 @@ ul li a:hover {
 
 /* styling for the list of tutors table */
 
-.list-of-tutors-table {
+.list-of-tutors-table table {
     margin: auto;
 }
 
@@ -211,6 +208,7 @@ ul li a:hover {
     background-color: darkblue;
     width: 70%;
     margin: auto;
+    text-align: center;
     text-align: center;
 }
 
@@ -824,4 +822,8 @@ td {
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ end student appt styling ~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 
-/* */
+/*styling for contact tutor button */
+
+.contact-button {
+    width: 40%;
+}

@@ -79,6 +79,9 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
     <meta name="viewport" content ="width=device-width,initial-scale=1,user-scalable=yes" />    <link rel="stylesheet" type="text/css" href="../style.css" >
     <link rel="stylesheet" type="text/css" href="../style.css" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&family=Noto+Serif:wght@700&family=Roboto+Slab:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Fredericka+the+Great&family=Noto+Serif&family=Roboto&display=swap" rel="stylesheet">
+    
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <title>UB Tutoring Service</title>
 </head>

@@ -50,7 +50,7 @@
 
 
     <h1 class="modal-title welcome-page-title">The list of tutors sorted based on their ratings. </h1>
-
+<br><br>
     <div class="list-of-tutors-table">
 
     
