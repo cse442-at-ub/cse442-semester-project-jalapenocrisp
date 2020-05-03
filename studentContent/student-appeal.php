@@ -53,7 +53,7 @@
 			<div class="modal-input">
 
 				<label for="appeal_reason">Enter a descriptive message for you appeal</label>
-				<input class="log_in_input" type="text" id="appeal_reason" name="appeal_reason" placeholder="Why do you want an appeal?" autofocus>
+				<textarea id="appeal_reason" name="appeal_reason" placeholder="Why do you want an appeal?" autofocus></textarea>
 				
 				<input id="log_in_button" name="submit" type="submit" value="Submit Appeal">
 				<br>
