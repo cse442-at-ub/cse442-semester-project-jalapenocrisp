@@ -20,7 +20,7 @@ if(count($_POST)>0) {
         if($num_of_complete >= $num_of_cancel){
             header('Location: ./student-appts.php?user_id=' .$var1);
         }else{
-            $message= " It seems you cancellation rate is too high <br> You're currently being banned. For more info <a href=\"student-appeal.php\"> contact us </a>";
+            $message= " It seems you cancellation rate is too high <br> You're currently being banned. For more info <a href=\"user-forgot-student.php\"> contact us </a>";
         }
 	}
 }
