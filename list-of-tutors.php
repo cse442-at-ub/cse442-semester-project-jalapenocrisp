@@ -57,7 +57,7 @@
     <?php
 
         if ($result->num_rows > 0) {
-            echo "<table><tr><th>first name </th><th>last name</th><th>email</th><th>ratings</th><th>course</th></tr>";
+            echo "<table class='tutortable'><tr><th>first name </th><th>last name</th><th>email</th><th>ratings</th><th>course</th></tr>";
             // output data of each row
             while($row = $result->fetch_assoc()) {
                 echo "<tr><td>" .$row["fname"]. "<td>" . $row["lname"]. "<td>" . $row["email"]. "<td>". $row["numRatings"]. "<td>" .$row["courses"]. "</td></tr>";

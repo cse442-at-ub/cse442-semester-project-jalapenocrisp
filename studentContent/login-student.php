@@ -12,17 +12,16 @@ if(count($_POST)>0) {
         $message = "You are successfully authenticated!";
         $var1=$row['user_id'];
 
-        // KEEP FOLLOWING COMMENTS.. IT WILL BE USED ON SPRINT 4  -syed
-
-        // $results = mysqli_query($conn, "SELECT * FROM progress WHERE student_id=$var1;");
-        // $count = mysqli_num_rows($results);
-        // for($i= 0; $i< count; $i++){
-
-        // }
-        // date_default_timezone_set('America/New_York');
-        // $timezone = date_default_timezone_get();
-
-        header('Location: ./student-appts.php?user_id=' .$var1);
+        
+        $ress2 = mysqli_query($conn, "SELECT complete, cancel from students where user_id=$var1 ;");
+        $arr_ = mysqli_fetch_array($ress2);
+        $num_of_complete = $arr_["complete"];  
+        $num_of_cancel = $arr_["cancel"];
+        if($num_of_complete >= $num_of_cancel){
+            header('Location: ./student-appts.php?user_id=' .$var1);
+        }else{
+            $message= " It seems you cancellation rate is too high <br> You're currently being banned. For more info contact us. ";
+        }
 	}
 }
 ?>
@@ -85,13 +84,13 @@ if(count($_POST)>0) {
         
         <div class="modal-input">
 
-            
-            <input class="log_in_input" type="text" id="email" name="email" placeholder="Email">
+            <label for="email">Email</label>
+            <input class="log_in_input" type="text" id="email" name="email" placeholder="email" autofocus>
 
-            <br> <br>
-            <input class="log_in_input" type="password" id="password" name="paswd" placeholder="Password">
-            </div>
-            <input class="new-login-btn" id="log_in_button" name="submit" type="submit" value="Submit">
+            <label for="password">Password</label>
+            <input class="log_in_input" type="password" id="password" name="paswd" placeholder="password">
+            
+            <input id="log_in_button" name="submit" type="submit" value="Submit">
             <br>
             <br>
             <br>

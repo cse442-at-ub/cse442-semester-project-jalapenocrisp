@@ -803,6 +803,13 @@ input[type="submit"]:hover {
     display: inline-block;
 }
 
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ chat css ~~~~~~~~~~~~~~~~~~~~~~~~ */
+   
+  .cont{
+      width: 60%;
+      margin-left: auto;
+      margin-right: auto;
+  }
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ end student appt styling ~~~~~~~~~~~~~~~~~~~~~~~~ */
 
@@ -812,9 +819,9 @@ input[type="submit"]:hover {
 
 /* table styling */
 
-table,
-th,
-td {
+.tutortable,
+.tutortable th,
+.tutortable td {
     border: 1px solid black;
 }
 

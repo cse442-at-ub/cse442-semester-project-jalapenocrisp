@@ -1,7 +1,7 @@
 <?php
 $message="";
+include_once "access-db.php";
 if(count($_POST)>0) {
-	$conn = mysqli_connect("tethys.cse.buffalo.edu","nekesame","50278839","cse442_542_2020_spring_teami_db");
 	$result = mysqli_query($conn,"SELECT * FROM tutors WHERE email='" . $_POST["email"] . "' and paswd = '". $_POST["paswd"]."'");
 	$count  = mysqli_num_rows($result);
 	if($count==0) {
@@ -74,14 +74,13 @@ if(count($_POST)>0) {
            
             <div class="modal-input">
 
-                
-                <input type="text" id="email" name="email" placeholder="Email">
-                    
-                <br> <br>
-                <input type="password" id="password" name="paswd" placeholder="Password">
-                
-             </div>
-            <input class="new-login-btn" id="log_in_button" name="submit" type="submit" value="Submit">
+            <label for="email">User Email</label>
+            <input class="log_in_input" type="text" id="email" name="email" placeholder="email" autofocus>
+
+            <label for="password">Password</label>
+            <input class="log_in_input" type="password" id="password" name="paswd" placeholder="password">
+            
+            <input id="log_in_button" name="submit" type="submit" value="Submit">
             <br>
             <br>
             <br>

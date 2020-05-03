@@ -209,7 +209,14 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
             mail($to, $subject, $message, $headers);
             if($tutarray['verified']){
                 mail( $toText, '', $message );
-            }           
+            }
+            $ress2 = mysqli_query($conn, "select cancel from students where user_id=$userid");
+            $cencel_arr = mysqli_fetch_array($ress2);
+            $num_of_cancel = $cencel_arr["cancel"];  
+            echo "cancel number \"$num_of_cancel\"######################\n";
+            $num_of_cancel++;
+            
+            $ress2 = mysqli_query($conn, "UPDATE students SET cancel=$num_of_cancel WHERE user_id=$userid;");
             header('Location: ./student-appts.php?user_id=' . $userid);
 
         }
