@@ -35,7 +35,7 @@
     <br>
 
     <div class="modal">
-    <h1 class="welcome-page-title modal-title">Student Log In</h1>
+    <h1 class="welcome-page-title modal-title"> Appeal </h1>
     <br> <br>
 
     <div id="tutor_signup_div">
@@ -52,13 +52,10 @@
 			
 			<div class="modal-input">
 
-				<label for="email">Email</label>
-				<input class="log_in_input" type="text" id="email" name="email" placeholder="email" autofocus>
-
-				<label for="password">Password</label>
-				<input class="log_in_input" type="password" id="password" name="paswd" placeholder="password">
+				<label for="appeal_reason">Enter a descriptive message for you appeal</label>
+				<input class="log_in_input" type="text" id="appeal_reason" name="appeal_reason" placeholder="Why do you want an appeal?" autofocus>
 				
-				<input id="log_in_button" name="submit" type="submit" value="Submit">
+				<input id="log_in_button" name="submit" type="submit" value="Submit Appeal">
 				<br>
 				<br>
 				<br>
