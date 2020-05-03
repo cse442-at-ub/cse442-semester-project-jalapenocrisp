@@ -197,6 +197,13 @@ ul li a:hover {
 }
 
 
+/* styling for the list of tutors table */
+
+.list-of-tutors-table {
+    margin: auto;
+}
+
+
 /*-------------------- styling for the tutor signup page */
 
 .modal {
