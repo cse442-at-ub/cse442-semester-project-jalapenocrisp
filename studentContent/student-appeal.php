@@ -5,7 +5,7 @@ $FLAG = FALSE;
 
 $user_id = $_GET["user_id"];
 $ress= mysqli_query($conn,"SELECT * FROM students WHERE user_id=$user_id;");
-$arr_ = mysqli_fetch_array($tutorRes);
+$arr_ = mysqli_fetch_array($ress);
 $studentEmail=$arr_['email'];
 $studentName = $arr_['fname'] . " " . $arr_['lname'];
 
@@ -28,10 +28,10 @@ if(count($_POST)>0) {
     $message = "$studentName has made an appeal with the following -\r\n" . $description;
 
     mail($studentEmail, $subject, $message, $headers);
-    mail($syedsEmail, $subject, $message, $headers);
-    mail($jennysEmail, $subject, $message, $headers);
-    mail($mercysEmail, $subject, $message, $headers);
-    mail($tresEmail, $subject, $message, $headers);
+    // mail($syedsEmail, $subject, $message, $headers);
+    // mail($jennysEmail, $subject, $message, $headers);
+    // mail($mercysEmail, $subject, $message, $headers);
+    // mail($tresEmail, $subject, $message, $headers);
 
     $FLAG = TRUE;
 }
