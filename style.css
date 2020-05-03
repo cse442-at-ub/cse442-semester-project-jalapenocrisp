@@ -65,7 +65,7 @@ body {
     background: white;
     border-radius: 3px;
     transition: .4s;
-    width: 300px;
+    width: 30%;
 }
 
 .new-login-btn:hover {
@@ -132,7 +132,7 @@ hr.hr-navbar {
 
 .navlink:hover,
 .dropbtn:hover {
-    color: blue;
+    color: var(--teal);
 }
 
 .centerp {
@@ -151,7 +151,7 @@ hr.hr-navbar {
 }
 
 .logo a:hover {
-    color: blue;
+    color: var(--teal);
 }
 
 .header {
@@ -197,9 +197,9 @@ ul li a:hover {
 /*-------------------- styling for the tutor signup page */
 
 .modal {
-    height: 450px;
+    height: 60%;
     background-color: darkblue;
-    width: 30%;
+    width: 70%;
     margin: auto;
 }
 
@@ -233,7 +233,7 @@ ul li a:hover {
 }
 
 input[type="submit"]:hover {
-    background-color: blue;
+    background-color: var(--teal);
     color: white;
 }
 
@@ -627,7 +627,7 @@ input[type="submit"]:hover {
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ profile styling ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 .score:hover {
-    color: blue;
+    color: var(--teal);
 }
 
 .profilePicture {
@@ -777,7 +777,7 @@ input[type="submit"]:hover {
 }
 
 #student_appt_submit:hover {
-    background-color: #005eac;
+    background-color: var(--teal);
 }
 
 #student_appointment_label {

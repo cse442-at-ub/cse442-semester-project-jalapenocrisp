@@ -20,6 +20,10 @@ $row = mysqli_fetch_array($result);
     <link rel="stylesheet" type="text/css" href="../style.css" />
     <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&family=Noto+Serif:wght@700&family=Roboto+Slab:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Fredericka+the+Great&family=Noto+Serif&family=Roboto&display=swap" rel="stylesheet">
+   
     <title>UB Tutoring Service</title>
 </head>
 
@@ -65,7 +69,7 @@ $row = mysqli_fetch_array($result);
     <hr class="hr-navbar">
 
     <button class="calendarView" onclick="window.location.href = './tutor-calendar-view-student.php?user_id=<?php echo $_GET['user_id']; ?>&tutor_id=<?php echo $_GET['tutor_id']; ?>'">Make an Appointment</button><br>
-    <h1 class="welcome-page-title"><?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?></h1>
+    <h1 class="modal-title welcome-page-title"><?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?></h1>
     <br>
     <br>
     <?php
