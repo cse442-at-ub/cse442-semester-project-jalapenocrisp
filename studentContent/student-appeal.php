@@ -76,7 +76,7 @@ if(count($_POST)>0) {
     <br>
     <br>
 
-    <div class="modal">
+<div class="modal">
     <h1 class="welcome-page-title modal-title"> Appeal </h1>
     <br> <br>
 
@@ -94,19 +94,21 @@ if(count($_POST)>0) {
 			
 			<div class="modal-input">
 
-				<label for="appeal_reason">Enter a descriptive message for you appeal</label>
-				<textarea id="appeal_reason" name="appeal_reason" cols="70" placeholder="Why do you want an appeal?" autofocus></textarea>
+				<label>Enter a descriptive message for you appeal: </label>
+				<input class="sign_up_input" name="appeal_reason" placeholder="Why do you want an appeal?" autofocus></input>
 				
 				<input id="log_in_button" name="submit" type="submit" value="Submit Appeal">
 				<br>
 				<br>
-				<br>
-				
+                <br>
 			</div>
+				
         </form>
-        <button class="selectButton" onclick="window.location.href = '../index.html';">I changed my mind</button>
-
     </div>
+
+        <button class="selectButton" onclick="window.location.href = '../index.html';">I changed my mind</button><br><br>
+
+</div>
     
 
     <script src="../index.js"></script>
