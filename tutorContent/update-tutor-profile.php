@@ -67,21 +67,24 @@ $row= mysqli_fetch_array($result);
         </div>
     </div>
     <hr class="hr-navbar">
+<br><br><br><br>
+<div class="modal">
 
-<h1 class="welcome-page-title">Please Save Before Returning</h1>
+<h1 class="welcome-page-title modal-title">Please Save Before Returning</h1>
+
 <form class = "info1" name="frmUser" method="post" action="">
 
 <div class="message"><?php if(isset($message)) { echo $message; } ?>
 </div>
 <div style="padding-bottom:5px;">
 </div>
+<div class="modal-input">
+
 First Name:<br>
 <input type="text" name="fname" class="input1" value="<?php echo $row['fname']; ?>">
 <br>
-<br>
 Last Name:<br>
 <input type="text" name="lname" class="input1" value="<?php echo $row['lname']; ?>">
-<br>
 <br>
 Level:<br>
 <select class="input1" name="title" id= "title">
@@ -94,7 +97,6 @@ Level:<br>
 <br>
 Email:<br>
 <input type="text" name="email" class="input1" value="<?php echo $row['email']; ?>">
-<br>
 <br>
 Course:<br>
 
@@ -148,17 +150,17 @@ Course:<br>
 		        <option value="CSE493">CSE493</option>
 </select>
 <br>
-<br>
 Password:<br>
 <input type="password" name="paswd" class="input1" value="<?php echo $row['paswd']; ?>">
-<br>
 <br>
 Confirm password:<br>
 <input type="password" name="paswd2" class="input1" value="<?php echo $row['paswd']; ?>">
 <br>
-<br>
-<input id="tutor_signup_submit" type="submit" name="submit" value="Save" class="button">
+<input id="log_in_button" type="submit" name="submit" value="Save" class="button">
+<br><br>
+</div>
 </form>
+</div>
 <br>
 <br>
 <br>

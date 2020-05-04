@@ -58,7 +58,7 @@
 
 
     <h1 class = "modal-title welcome-page-title">Your Availability</h1>
-    <a class="center">* A dark box indicates that you are available at that time *</a>
+    <a class="center">Click a box to add your availability at that tine. A blue box indicates that you are available.</a>
     <br><br>
     <form method="post">
         <table id="calendar_tutor" rules="all">
@@ -128,8 +128,8 @@
                                 $color = "transparent";
                                 $v = "-";
                                 if($items[$k] == 1){
-                                    $color = "#00334d";
-                                    $v = "--";
+                                    $color = "#b6d9ee";
+                                    $v = "";
                                 }
                                 echo "<td style=\" background-color: $color;\"><input type=submit name=$columns[$k] style=\"width:100%; height:100%; background: transparent; border: none;\" value=\"$v\"></td>";
 

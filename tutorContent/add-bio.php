@@ -70,7 +70,9 @@ $row = mysqli_fetch_array($result);
 
         <div class="menu_welcomePage">
             <ul>
-              
+            <li><a class="navlink" href="./tutorCalendarView.php?user_id=<?php echo $_GET['user_id']; ?>">set availability</a> </li>
+                <li><a class="navlink" href="./tutor-appts.php?user_id=<?php echo $_GET['user_id']; ?>">appointments</a> </li>
+                <li><a class="navlink" href="./tutorprof.php?user_id=<?php echo $_GET['user_id']; ?>">profile</a> </li>
                 <li><a class="navlink" href="../index.html">logout</a> </li>
 
             </ul>
@@ -82,29 +84,33 @@ $row = mysqli_fetch_array($result);
 
     </div>
     <hr class="hr-navbar">
-    <button class= "calendarView">
-    <h1 class="modal-title welcome-page-title">Personalize Your Bio, <?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?>!</h1>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="modal">
+
+    <h1 class="modal-title welcome-page-title">Personalize Your Bio</h1>
     <p>[Text limit for each field is 100 characters]</p>
    <?php if(isset($message)) { echo $message; } ?>
 
    <form method="post" class="info1" action="">
-	   <input type="hidden" id="fname" value=<?php echo $row['fname']?>>
-	   <input type="hidden" id="lname" value=<?php echo $row['lname']?>>
-	   <input type="hidden" id="user_id" value=<?php echo $row['user_id']?>>
-	   <br>
+    <div class="modal-input">
 	   <label>Leadership Skills or Activities</label>
 	   <input class="sign_up_input" type="text" id="Leadership" name="Leadership">
-	   <br>
+	   <br><br>
 	   <label>Coding Languages You're Skilled in</label>
 	   <input class="sign_up_input" type="text" id="Languages" name="Languages">
-	   <br>
+	   <br><br>
 	   <label>Topics You're Strong In [For the Course You're Tutoring]</label>
 	   <input class="sign_up_input" type="text" id="Topics" name="Topics">
-	   <br>
+	   <br><br>
 	   
-           <input class= "sign_up_input" type="submit" id="tutor_zoom_submit" name="submit" value= "Save">
+        <input class= "log_in_button" type="submit" id="tutor_zoom_submit" name="submit" value= "Save">
+        <br><br>
      </form>
-     </button>
+     </div>
+</div>
      <br><br>     
 
 <script src="../index.js"></script>

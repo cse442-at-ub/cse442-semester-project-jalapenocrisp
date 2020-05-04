@@ -24,6 +24,15 @@ $tutarray = mysqli_fetch_array($tutorRes);
 <body class="main-container">
 
     <div class="header">
+        <div class="menu_welcomePage">
+            <ul>
+            <li><a class="navlink" href="./tutorCalendarView.php?user_id=<?php echo $_GET['user_id']; ?>">set availability</a> </li>
+                <li><a class="navlink" href="./tutor-appts.php?user_id=<?php echo $_GET['user_id']; ?>">appointments</a> </li>
+                <li><a class="navlink" href="./tutorprof.php?user_id=<?php echo $_GET['user_id']; ?>">profile</a> </li>
+                <li><a class="navlink" href="../index.html">logout</a> </li>
+
+            </ul>
+        </div>
 
         <div class="logo">
             <h2 class="logo"> <a href="../index.html">UBtutoring</a> </h2>
