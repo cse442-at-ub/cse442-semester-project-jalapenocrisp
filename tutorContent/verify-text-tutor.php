@@ -47,6 +47,8 @@
     <link rel="stylesheet" type="text/css" href="../style.css" />
     <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&family=Noto+Serif:wght@700&family=Roboto+Slab:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Fredericka+the+Great&family=Noto+Serif&family=Roboto&display=swap" rel="stylesheet">
     <title>UB Tutoring Service</title>
 </head>
 <body>
@@ -67,8 +69,9 @@
 
     </div>
     <hr class="hr-navbar">
+    <div class="modal">
 
-    <h1 class="welcome-page-title">Enter your verification code:</h1>
+    <h1 class="welcome-page-title modal-title">Enter your verification code:</h1>
     <p class="center">* code may take up to a minute to arrive *</p>
 <br>
     <div class="message">
@@ -79,6 +82,8 @@
         } ?> 
     </div> 
     <div id="tutor_signup_div">
+    <div class="modal-input">
+
         <form method="post" action="">
             <input class="sign_up_input" type="text" id= "code" name="code" placeholder="enter code" autofocus>
             <input type="submit" id="tutor_signup_submit" name="text" value= "Text me a code"> 
@@ -87,10 +92,6 @@
         <br><br><br>
         </form>
     </div>
-
-
-
-
     </div>
     <script src="../index.js"></script>
 

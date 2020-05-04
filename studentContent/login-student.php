@@ -100,7 +100,7 @@ if(count($_POST)>0) {
     </div>
     
     </div>
-    <button class="selectButton" onclick="window.location.href = '../create-account.html';">Register</button>
+    <!-- <button class="selectButton" onclick="window.location.href = '../create-account.html';">Register</button> -->
 
     <script src="../index.js"></script>
     

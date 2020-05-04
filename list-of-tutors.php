@@ -1,8 +1,8 @@
 <?php
    include_once "access-db.php";
 
-   $sql = "SELECT fname, lname, email, numRatings, courses FROM tutors ORDER BY numRatings DESC";
-    $result = $conn->query($sql);
+   $sql = "SELECT fname, lname, email, rank, courses FROM tutors ORDER BY rank DESC";
+   $result = $conn->query($sql);
 
     
 ?>
@@ -49,7 +49,7 @@
     
 
 
-    <h1 class="modal-title welcome-page-title">The list of tutors sorted based on their ratings. </h1>
+    <h1 class="modal-title welcome-page-title">List of UBTutoring tutors sorted by rating </h1>
 <br><br>
     <div class="list-of-tutors-table">
 
@@ -57,10 +57,16 @@
     <?php
 
         if ($result->num_rows > 0) {
-            echo "<table class='tutortable'><tr><th>first name </th><th>last name</th><th>email</th><th>ratings</th><th>course</th></tr>";
+            echo "<table class='tutortable'><tr style='height: 80px'><th style='text-align:left'>first name </th><th style='text-align:left'>last name</th><th style='text-align:left'>email</th><th style='text-align:left'>rating</th><th style='text-align:left'>course</th></tr><br><br>";
             // output data of each row
-            while($row = $result->fetch_assoc()) {
-                echo "<tr><td>" .$row["fname"]. "<td>" . $row["lname"]. "<td>" . $row["email"]. "<td>". $row["numRatings"]. "<td>" .$row["courses"]. "</td></tr>";
+            while($row = mysqli_fetch_array($result)) {
+                echo "<tr style='height: 40px'>
+                    <td>" .$row["fname"]. "</td>
+                    <td>" . $row["lname"]. "</td>
+                    <td>" . $row["email"]. "</td>
+                    <td>". $row["rank"]. "</td>
+                    <td>" .$row["courses"]. "</td>
+                </tr>";
             }
             echo "</table>";
         } else {

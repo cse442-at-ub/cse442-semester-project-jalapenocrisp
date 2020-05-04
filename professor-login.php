@@ -61,12 +61,15 @@ if(count($_POST)>0) {
 
 
         <!-- enter ub email to verify that you are a UB professor -->
+        <div id="tutor_signup_div">
+
+        <div class="modal-input">
 
         <form action="list-of-tutors.php">
 
-            <label for="email">Please enter your UB email to verify that you are a UB professor:</label>
+            <label for="email">Please enter your UB email to verify that you are a UB professor:</label><br><br>
             <br>
-            <input type="email" id="email" pattern=".+@buffalo.edu" size="30" required>
+            <input class="sign_up_input" type="email" id="email" pattern=".+@buffalo.edu" size="30" required><br><br>
 
             <button class="new-login-btn" type="submit"> Submit </button>
             <br>
@@ -74,6 +77,8 @@ if(count($_POST)>0) {
             <br>
         
         </form>
+        </div>
+        </div>
     </div>
     <script src="../index.js"></script>
     

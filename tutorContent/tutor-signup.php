@@ -99,6 +99,8 @@
     <br>
 
     <div id="tutor_signup_div">
+    <div class="modal-input">
+
         <form method="post" action="">
             <label>Fields marked * must be filled in order to create an account.</label>
             <br>
@@ -220,6 +222,7 @@
             <br><br><br>
         </form>
 
+    </div>
     </div>
     <script src="../index.js"></script>
 
