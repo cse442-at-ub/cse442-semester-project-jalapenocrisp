@@ -178,7 +178,7 @@ hr.hr-navbar {
 
 ul li {
     display: inline;
-    padding: 20px;
+    padding: 10px;
 }
 
 ul li a {
@@ -357,7 +357,7 @@ input[type="submit"]:hover {
 }
 
 .info {
-    font-size: large;
+    font-size: medium;
     width: 60%;
     margin-left: 30%;
     margin-right: auto;
@@ -762,7 +762,6 @@ input[type="submit"]:hover {
 
 #student_appt_info_header {
     text-align: center;
-    font-family: 'Open Sans';
     font-size: 160%;
     margin: auto;
     padding-top: 20px;
@@ -779,8 +778,6 @@ input[type="submit"]:hover {
 .exam_student_input {
     width: 100%;
     text-align: left;
-    font-family: 'Open Sans';
-    font-size: 14px;
     display: block;
     height: 40px;
     margin-bottom: 5px;
@@ -790,23 +787,10 @@ input[type="submit"]:hover {
 #num_of_exams {
     width: 100%;
     text-align: left;
-    font-family: 'Open Sans';
-    font-size: 14px;
     display: block;
     height: 40px;
 }
 
-#student_appt_submit {
-    width: 100%;
-    font-family: 'Open Sans';
-    font-size: 16px;
-    text-align: center;
-    background-color: rgb(0, 63, 99);
-    color: #b1cdd0;
-    height: 30px;
-    margin-top: 5px;
-    display: block;
-}
 
 #student_appt_submit:hover {
     background-color: var(--teal);
@@ -814,8 +798,6 @@ input[type="submit"]:hover {
 
 #student_appointment_label {
     text-align: left;
-    font-family: 'Open Sans';
-    font-size: 14px;
     display: block;
     margin-top: 20px;
 }

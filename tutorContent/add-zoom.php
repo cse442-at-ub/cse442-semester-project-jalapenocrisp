@@ -15,7 +15,6 @@ if(count($_POST)>0){
     	$message="Please enter valid Zoom Meeting Room Url";
     }else{    
      	mysqli_query($conn,"UPDATE tutors SET zoom_link='" . $zoomLink . "' WHERE user_id='" . $_GET['user_id'] . "'");
-	$message = "Url added successfully!";
      	header('Location: ./tutorprof.php?user_id=' . $_GET["user_id"]);     
     }   
 }
@@ -64,10 +63,8 @@ $row = mysqli_fetch_array($result);
 
     <h1 class="welcome-page-title modal-title">Update Your Zoom Meeting Link</h1>
     
-    <div class="modal-input">
         <br><br>
-    <button class="selectButton" onclick="window.open('https://zoom.us/signin','_blank')">Go to Zoom Sign in</button>
-    </div>
+    <button class="selectButton" onclick="window.open('https://zoom.us/signin','_blank')">Zoom</button>
     <br><br><br>
     <p class="center">Open the link above in a new tab. Then, sign into your Zoom account and copy your meeting link</p> 
     <p class="center">(found below you Personal Meeting ID). Return to this page and paste it in the textbox below.</p>

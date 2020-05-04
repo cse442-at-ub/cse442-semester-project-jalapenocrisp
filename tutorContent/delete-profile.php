@@ -58,7 +58,7 @@ if(count($_POST)>0) {
     <div class="modal">
     <h1 class="welcome-page-title modal-title ">Enter your password to complete profile delete: </h1>
 
-    <form name="frmUser" method="post" action="">
+    <form class="info1" name="frmUser" method="post" action="">
     <div class="message">
     
     <?php if($message!="") { 

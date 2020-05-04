@@ -70,15 +70,15 @@ if(count($_POST)>0) {
             <label for="email">Please enter your UB email to verify that you are a UB professor:</label><br><br>
             <br>
             <input class="sign_up_input" type="email" id="email" pattern=".+@buffalo.edu" size="30" required><br><br>
+            </div>
+            </div>
 
-            <button class="new-login-btn" type="submit"> Submit </button>
+            <button class="selectButton" type="submit"> Submit </button>
             <br>
             <br>
             <br>
         
         </form>
-        </div>
-        </div>
     </div>
     <script src="../index.js"></script>
     

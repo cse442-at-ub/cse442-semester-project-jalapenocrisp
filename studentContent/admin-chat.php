@@ -88,7 +88,7 @@ if (isset($_POST['exit'])){
     <br>
     <h1 class="welcome-page-title modal-title">Chatting with Admin: </h1>
     <br><br>
-    <div style="width: 50%; margin-left: auto; margin-right: auto;">
+    <div style="width: 60%; margin-left: auto; margin-right: auto;">
     <div class="modal-input">
 
     <form id="msg" action="" method="post" enctype="multipart/form-data" onsubmit="sendFormData();return false;">
@@ -100,11 +100,12 @@ if (isset($_POST['exit'])){
         <p id="chat"></p>
 
     </div>   
+    </div>
+
     <form method="post" action="">
         <input class="selectButton" type="submit" name="exit" id="exit" value="exit chat"/>
     </form>
 
-</div>
     <br>
     <br>
 

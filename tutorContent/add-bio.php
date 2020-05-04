@@ -39,8 +39,9 @@ if(count($_POST)>0){
 	     mysqli_query($conn,"UPDATE tutors SET bio_topics='" . $Topics . "' WHERE user_id='" . $_GET['user_id'] . "'");
 	}
      	
-     	header('Location: ./tutorprof.php?user_id=' . $_GET["user_id"]);     
     }   
+    header('Location: ./tutorprof.php?user_id=' . $_GET["user_id"]);     
+
 }
 
 $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['user_id'] . "'");

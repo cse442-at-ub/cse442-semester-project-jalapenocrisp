@@ -181,7 +181,7 @@ if (isset($_POST['submit'])){
         mail( $toText, '', $message );
     }
     if ($stuarray['verified']){
-        mail( $toTextStu, '', $message );
+        mail( $toTextStu, '', $messageS );
     }
     mail($to, $subject, $message, $headers);
     mail($tos, $subject, $messageS, $headers);

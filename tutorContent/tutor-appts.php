@@ -58,9 +58,8 @@ $result2 = mysqli_query($conn,"SELECT * FROM appointments WHERE tutor_id='" . $_
     <table class="infoAppt">
     <tr>
     <th width="30%">Date</th>
-    <th width="15%">Time</th>
-    <th width="30%">Student</th>
-    <th width="20%">Class</th>
+    <th width="15%">Student</th>
+    <th width="15%">Class</th>
     <th width="20%"></th>
 
     </tr>

@@ -73,7 +73,7 @@
             echo "0 results";
         }
     ?>
-
+<br><br><br><br><br><br>
 </div>
 
     <!-- add login for the professor -->
