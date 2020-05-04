@@ -20,7 +20,6 @@ if (isset($_POST['exit'])){
     <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&family=Noto+Serif:wght@700&family=Roboto+Slab:wght@900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Fredericka+the+Great&family=Noto+Serif&family=Roboto&display=swap" rel="stylesheet">
-    <title>UB Tutoring Service</title>
 
     <script>
         function refreshchat() {
@@ -98,7 +97,7 @@ if (isset($_POST['exit'])){
 
     </div>
     </div>
-    <div id="cont" class="cont">
+    <div id="cont" class="chatcont">
         <p id="chat"></p>
 
     </div>   

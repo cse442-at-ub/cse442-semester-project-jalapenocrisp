@@ -122,12 +122,15 @@
         </div>
 
     </div>
+
     <hr class="hr-navbar">
+    <br><br><br><br>
     <div class="modal">
 
     <h1 class="welcome-page-title modal-title">Enter your verification code:</h1>
     <p class="center">* code may take up to a minute to arrive *</p>
-<br>
+    <br><br><br><br>
+    
     <div class="message">
     <?php 
     if($mess!="") { 
@@ -146,7 +149,6 @@
         <br><br><br>
         </form>
     </div>
-    
     </div>
     </div>
     <script src="../index.js"></script>

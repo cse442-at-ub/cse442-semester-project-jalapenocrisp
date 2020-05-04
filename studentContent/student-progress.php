@@ -37,9 +37,6 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
 
         <div class="menu_welcomePage">
             <ul>
-
-                <!-- the line of code commented below is important when we upload the work on a server. for now, i'm using an alternative below -->
-                <!-- <li><a href="javascript:loadPage('./login.php')">login</a> </li> -->
                 <li><a class="navlink" href="./student-appts.php?user_id=<?php echo $_GET['user_id']; ?>">my appointments</a> </li>
                 <div class="dropdown">
                 <li><button onclick="progressclick()" class="dropbtn">my progress</button>
@@ -103,8 +100,10 @@ chart.render();
 </script>
 </head>
 <body>
+<br><br><br><br>
+
 <button class="selectButton" onclick="window.location.href = './student-add-exam.php?user_id=<?php echo $_GET['user_id']; ?>';">Add a grade</button>
-    <br><br><br>
+<br><br><br><br>
 <div id="chartContainer" style="margin-left: auto; margin-right: auto; height: 100%; width: 70%;"></div>
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </body>

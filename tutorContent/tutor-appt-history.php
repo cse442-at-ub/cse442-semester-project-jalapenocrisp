@@ -65,8 +65,7 @@ if (isset($_POST['submit'])){
     <table class="infoAppt">
     <tr>
     <th width="10%"></th>
-    <th width="15%">Date</th>
-    <th width="15%">Time</th>
+    <th width="30%">Date</th>
     <th width="30%">Student</th>
     <th width="20%">Class</th>
     <th width="10%">Status</th>
@@ -82,8 +81,7 @@ if (isset($_POST['submit'])){
 
  
     <tr><td><form method="post"><input type="hidden" name="id" value=<?php echo $appt['appt_id'];?>><input class="cancel" type="submit" name="submit" value="X"></form></td>
-        <td><?php echo $appt["day"]; ?></td>
-        <td><?php if($appt["time"]>12){echo $appt["time"]-12  . ":00 PM";}else{echo $appt["time"]  . ":00 AM";}  ?></td>
+        <td><?php echo $appt["day"]." "; if($appt["time"]>12){echo $appt["time"]-12  . ":00 PM";}else{echo $appt["time"]  . ":00 AM";}  ?></td>
         <td><a style="text-decoration: none" class="navlink" href="./studentprof-tutor.php?user_id=<?php echo $_GET['user_id']; ?>&student_id=<?php echo $tid;?>"><?php echo $tutarray["fname"]; ?> <?php echo $tutarray["lname"]; ?></td>
         <td><?php echo $row["courses"]; ?></td>
         <td><?php echo $appt["status"]; ?></td>
@@ -101,6 +99,7 @@ if (isset($_POST['submit'])){
     ?>
 
     </table>
+    <br><br><br><br>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="../index.js"></script>

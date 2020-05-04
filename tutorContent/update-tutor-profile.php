@@ -46,9 +46,7 @@ $row= mysqli_fetch_array($result);
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&family=Noto+Serif:wght@700&family=Roboto+Slab:wght@900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Fredericka+the+Great&family=Noto+Serif&family=Roboto&display=swap" rel="stylesheet">
-    
-    <title>UB Tutoring Service</title>
-</head>
+    </head>
 <body>
 <div class="header">
         <div class="menu_welcomePage">

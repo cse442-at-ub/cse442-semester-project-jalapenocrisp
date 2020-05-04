@@ -82,13 +82,11 @@ if (isset($_POST['submit'])){
     ?>
     <table class="infoAppt">
     <tr>
-    <th width="5%"></th>
-    <th width="15%">Date</th>
-    <th width="15%">Time</th>
-    <th width="30%">Tutor</th>
+    <th width="20%">Date</th>
+    <th width="20%">Tutor</th>
     <th width="20%">Class</th>
     <th width="10%">Status</th>
-    <th width="5%"></th>
+    <th width="10%"></th>
     </tr>
 
     <?php
@@ -100,16 +98,20 @@ if (isset($_POST['submit'])){
     ?>
 
  
-    <tr><td><form method="post"><input type="hidden" name="id" value=<?php echo $appt['appt_id'];?>><input class="cancel" type="submit" name="submit" value="X"></form></td>
-        <td><?php echo $appt["day"]; ?></td>
-        <td><?php if($appt["time"]>12){echo $appt["time"]-12 . ":00 PM";}else{echo $appt["time"] . ":00 AM";} ?></td>
+    <tr>
+        <td><?php echo $appt["day"]." "; if($appt["time"]>12){echo $appt["time"]-12 . ":00 PM";}else{echo $appt["time"] . ":00 AM";} ?></td>
         <td><a style="text-decoration: none" class="navlink" href="./tutorprof-student.php?user_id=<?php echo $_GET['user_id']; ?>&tutor_id=<?php echo $tid;?>"><?php echo $tutarray["fname"]; ?> <?php echo $tutarray["lname"]; ?></td>
         <td><?php echo $tutarray["courses"]; ?></td>
         <td><?php echo $appt["status"]; ?></td>
-    <?php
-    if ($appt['status']=="completed"){
-        ?>
-        <td><button onclick="window.location.href = './rate-tutor.php?tutor_id=<?php echo $tutarray['user_id']; ?>&user_id=<?php echo $_GET['user_id'];?>';" class="rate">rate</button><td>
+        <td><div class="cont">
+            <button class="dropbtn2">options</button>
+            <div class="dropdown-content2">
+                <a><form method="post"><input type="hidden" name="id" value=<?php echo $appt['appt_id'];?>><input class="complete" type="submit" name="submit" value="delete"></form></a>
+                <?php if ($appt['status']=="completed"){
+                $link="./rate-tutor.php?user_id=" . $_GET['user_id'] . "&tutor_id=" . $tutarray['user_id'] ; 
+                echo '<a href='.$link.'>rate tutor</a>";';
+                ?>          
+            </div></div></td>
     <?php
     }
     ?>
@@ -119,8 +121,8 @@ if (isset($_POST['submit'])){
         }
     }
     ?>
-
     </table>
+    <br><br><br><br>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="../index.js"></script>

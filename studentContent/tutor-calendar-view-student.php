@@ -203,8 +203,8 @@ if (isset($_POST['submit'])){
     <link rel="stylesheet" type="text/css" href="../style.css" />
     <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <title>UB Tutoring Service</title>
-</head>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&family=Noto+Serif:wght@700&family=Roboto+Slab:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Fredericka+the+Great&family=Noto+Serif&family=Roboto&display=swap" rel="stylesheet"></head>
 
 
 <body>
@@ -247,11 +247,9 @@ if (isset($_POST['submit'])){
     </div>
     <hr class="hr-navbar">
 
-    <h1 class = "welcome-page-title">Appointment Slots</h1>
+    <h1 class = "modal-title welcome-page-title">Appointment Slots</h1>
     <a class="center" href="./tutorprof-student.php?user_id=<?php echo $_GET['user_id'];?>&tutor_id=<?php echo $_GET['tutor_id'];?>">back to profile</a>
-    <button class="selectButton" onclick="window.location.href = 'mailto:<?php echo $tutarray['email'];?>?subject = Feedback&body = Message'">
-     Contact Tutor
-    </button>
+
     <br><br>
     <table id=calendar_tutor rules="all">
             <tr style="height: 40px">

@@ -72,8 +72,15 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
      echo '<img class="profilePicture" src="user-default.jpg" alt="you">';
     }
     ?>    
-
-    <button class="calendarView" onclick="window.location.href = './change-photo-student.php?user_id=<?php echo $row['user_id']; ?>';">Edit Photo</button>
+    <br><br><br>
+    <div class="cont">
+        <button class="dropbtn2">options</button>
+            <div class="dropdown-content2">
+                <a href='./change-photo-student.php?user_id=<?php echo $row['user_id']; ?>'>edit photo</a>
+                <a href='./update-student-profile.php?user_id=<?php echo $row['user_id']; ?>'>edit personal info</a>
+                <a href='./delete-profile-student.php?user_id=<?php echo $row['user_id']; ?>'>delete profile</a>
+            </div>
+    </div>
     <br> 
     <?php if ($row['complete'] / ($row['complete'] + $row['cancel']) < .5) : ?>
     <table class= "info">
@@ -114,14 +121,6 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
 	?></td></tr>
     </table>
     
-    <table>
-    <tr>
-    <th width="50%"></th>
-    <th width="50%"></th>
-    <button class="selectButton" onclick="window.location.href ='./update-student-profile.php?user_id=<?php echo $row['user_id']; ?>';">Edit Information</button>  
-    </tr>
-    </table>
-    <button class="delButton" onclick="window.location.href ='./delete-profile-student.php?user_id=<?php echo $row['user_id']; ?>';">Delete Profile</button> 
     <br><br><br>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

@@ -121,18 +121,22 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
 
     </div>
     <hr class="hr-navbar">
-    <br>
-    <h1 class="welcome-page-title">Enter your most recent grades for <?php echo $course;?></h1>
-    <p class="center"> * must be in number format *</p>
+    <br><br><br><br>
+    <div class="modal">
+    <h1 class="modal-title welcome-page-title">Enter your most recent grades for <?php echo $course;?></h1>
+    <p class="center"> * grades must be in number format *</p>
+    <br><br><br>
+
     
     <?php if($incorrect_date == TRUE){ ?>
-        <p class="center"> * * * ENTER A FUTURE DATE (or today) * * *</p>
+        <p class="center">Enter a future date.</p>
     <?php  }?>
 
-    <div id="student_appointment_div">
-        <form method="post">
+    <div id="tutor_signup_div">
+    <div class="modal-input">   
+            <form method="post">
             
-            <select id="num_of_exams">
+            <select class="input1">
                 <option value="number" selected>number of grades to enter</option>
                 <option value="0">0</option>
                 <option value="1">1</option>
@@ -146,13 +150,10 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
                 <option value="9">9</option>
                 <option value="10">10</option>
             </select>
-            <div id="all_classes_input">
-
-            </div>
-
-            <label id="student_appointment_label" for="nextExam">Enter the date of your next exam </label>
-            <div id="student_appointment_div2">
-                <select id="nextExam_month" name="nextExam_month">
+            <br><br>
+            <label for="nextExam">Enter the date of your next exam: </label>
+                <div id="student_appointment_div2">
+                    <select id="nextExam_month" name="nextExam_month">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -199,17 +200,21 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
                     <option value="30">30</option>
                     <option value="31">31</option>
                 </select>
-                <select id="nextExam_year" name="nextExam_year">
+                <select  id="nextExam_year" name="nextExam_year">
                     <option value="2020">2020</option>
                     <option value="2021">2021</option>
 
                 </select>
+                </div>
             </div>
             
 
-            <input id="student_appt_submit" type="submit" name="submit">
+            <input id="log_in_button" type="submit" name="submit">
 
         </form>
+        <br><br><br>
+        </div>
+    </div>
     </div>
     <script src="../index.js"></script>
 </body>

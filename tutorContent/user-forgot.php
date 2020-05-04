@@ -64,11 +64,14 @@ if(count($_POST)>0) {
 
     </div>
     <hr class="hr-navbar">
-
-    <!-- <button class="selectButton" onclick ="window.location.href = './tutor_signup.html';">Not Registered? Sign Up Here.</button> -->
+    <br>
+    <br>
+    <br>
+    <br>
     <div class="modal">
 
     <h1 class="welcome-page-title modal-title">Forgot Password</h1>
+    <br>
     <br>
     <br>
     <br>
@@ -93,7 +96,6 @@ if(count($_POST)>0) {
         <br><br>
         </div>
 
-            <!-- <button class="selectButton" onclick ="window.location.href = './tutorprofile.html';">Submit</button> -->
     </div>
     </div>
     <script src="../index.js"></script>

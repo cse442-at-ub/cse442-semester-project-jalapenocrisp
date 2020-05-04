@@ -45,8 +45,8 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
     <link rel="stylesheet" type="text/css" href="../style.css" />
     <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <title>UB Tutoring Service</title>
-</head>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&family=Noto+Serif:wght@700&family=Roboto+Slab:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Fredericka+the+Great&family=Noto+Serif&family=Roboto&display=swap" rel="stylesheet"></head>
 <body>
 <div class="header">
         <div class="menu_welcomePage">
@@ -83,7 +83,10 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
     </div>
     <hr class="hr-navbar">
 
-<h1 class="welcome-page-title">Please Save Before Returning</h1>
+    <br><br><br><br>
+<div class="modal">
+
+<h1 class="welcome-page-title modal-title">Please Save Before Returning</h1>
 
 <form class = "info1" name="frmUser" method="post" action="">
 
@@ -91,13 +94,14 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
 </div>
 <div style="padding-bottom:5px;">
 </div>
+
+<div class="modal-input">
+
 First Name:<br>
 <input type="text" name="fname" class="input1" value="<?php echo $row['fname']; ?>">
 <br>
-<br>
 Last Name:<br>
 <input type="text" name="lname" class="input1" value="<?php echo $row['lname']; ?>">
-<br>
 <br>
 Level:<br>
 <select class="input1" name="title" id= "title">
@@ -107,21 +111,20 @@ Level:<br>
     <option value="Postgraduate">Postgraduate</option>
 </select>
 <br>
-<br>
 Email:<br>
 <input type="text" name="email" class="input1" value="<?php echo $row['email']; ?>">
-<br>
 <br>
 Password:<br>
 <input type="password" name="paswd" class="input1" value="<?php echo $row['paswd']; ?>">
 <br>
-<br>
 Confirm password:<br>
 <input type="password" name="paswd2" class="input1" value="<?php echo $row['paswd']; ?>">
 <br>
-<br>
-<input id="tutor_signup_submit" type="submit" name="submit" value="Save" class="button">
+<input id="log_in_button" type="submit" name="submit" value="Save" class="button">
 </form>
+<br><br>
+</div>
+</div>
 <br>
 <br>
 <br>

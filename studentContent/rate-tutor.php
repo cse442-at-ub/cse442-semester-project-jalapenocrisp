@@ -61,8 +61,8 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
     <link rel="stylesheet" type="text/css" href="../style.css" />
     <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <title>UB Tutoring Service</title>
-</head>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&family=Noto+Serif:wght@700&family=Roboto+Slab:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Fredericka+the+Great&family=Noto+Serif&family=Roboto&display=swap" rel="stylesheet"></head>
 
 
 <body class="main-container">
@@ -99,7 +99,10 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
     </div>
     <hr class="hr-navbar">
 
-    <h1 class="welcome-page-title">Rating: <?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?> </h1>
+    <br><br><br><br>
+    <div class="modal">
+
+    <h1 class="modal-title welcome-page-title">Rating: <?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?> </h1>
 
 <form class = "info1" method="post" action="">
 
@@ -107,6 +110,7 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
 </div>
 <div style="padding-bottom:5px;">
 </div>
+<div class="modal-input">
 
 <label>Teaching Skills:</label>
 <br>
@@ -130,8 +134,11 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
 <br>
 <br>
 
-<input class="selectButton2" type="submit" id="submit" value="Submit" >
+<input class="selectButton" type="submit" id="submit" value="Submit" ><br><br>
+</div>
 </form>
 
+</div>
+<br><br><br><br>
 </body>
 </html>

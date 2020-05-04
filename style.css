@@ -238,6 +238,10 @@ ul li a:hover {
 .modal-title {
     font-size: 45px;
 }
+.modal-title-h2{
+    font-size: 30px;
+
+}
 
 .log_in_input,
 .sign_up_input {
@@ -573,7 +577,7 @@ input[type="submit"]:hover {
 /* styling for student appt page */
 
 .infoAppt {
-    width: 70%;
+    width: 60%;
     padding-top: 100px;
     font-size: larger;
     text-align: center;
@@ -609,10 +613,9 @@ input[type="submit"]:hover {
     margin-right: auto;
     padding: 2px;
     font-size: 16px;
-    background-color: black;
+    background-color: lightblue;
     cursor: pointer;
     border: none;
-    color: white;
 }
 
 .center {
@@ -830,7 +833,11 @@ input[type="submit"]:hover {
       margin-left: auto;
       margin-right: auto;
   }
-
+.chatcont{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ end student appt styling ~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 
@@ -859,7 +866,7 @@ input[type="submit"]:hover {
     width: 100px;
     background-color: #4CAF50;
     color: white;
-    padding: 8px;
+    padding: 2px;
     font-size: 16px;
     border: none;
     cursor: pointer;

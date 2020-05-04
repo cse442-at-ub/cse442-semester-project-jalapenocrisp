@@ -103,12 +103,10 @@ while($arr_exam_result = mysqli_fetch_array($next_exam_result)){
     ?>
     <table class="infoAppt">
     <tr>
-    <th width="15%">Date</th>
-    <th width="15%">Time</th>
+    <th width="30%">Date</th>
     <th width="30%">Tutor</th>
     <th width="20%">Class</th>
-    <th width="10%"></th>
-    <th width="10%"></th>
+    <th width="20%"></th>
 
     </tr>
 
@@ -121,13 +119,15 @@ while($arr_exam_result = mysqli_fetch_array($next_exam_result)){
     ?>
 
  
-    <tr><td><?php echo $appt["day"]; ?></td>
-        <td><?php if($appt["time"]>12){echo $appt["time"]-12  . ":00 PM";}else{echo $appt["time"]  . ":00 AM";}  ?></td>
+    <tr><td><?php echo $appt["day"]." "; if($appt["time"]>12){echo $appt["time"]-12  . ":00 PM";}else{echo $appt["time"]  . ":00 AM";}  ?></td>
         <td><a class="navlink" style="text-decoration: none" href="./tutorprof-student.php?user_id=<?php echo $_GET['user_id']; ?>&tutor_id=<?php echo $tid;?>"><?php echo $tutarray["fname"]; ?> <?php echo $tutarray["lname"]; ?></td>
         <td><?php echo $tutarray["courses"]; ?></td>
-        <td><form method="post"><input type="hidden" name="apptid" class="input1" value="<?php echo $appt['appt_id']; ?>"><input type="submit" class="rate" name="yes" value="done"></form>
-        <td><button class="cancel" onclick="window.location.href='./cancel-appt.php?user_id=<?php echo $_GET['user_id']; ?>&appt_id=<?php echo $appt['appt_id']; ?>'">X</a><td>
-
+        <td><div class="cont">
+            <button class="dropbtn2">options</button>
+            <div class="dropdown-content2">
+                <a><form method="post"><input type="hidden" name="apptid" value="<?php echo $appt['appt_id']; ?>"><input type="submit" class="complete" name="yes" value="complete"></form></a>
+                <a href='./cancel-appt.php?user_id=<?php echo $_GET['user_id']; ?>&appt_id=<?php echo $appt['appt_id']; ?>'>cancel appointment</a>
+            </div></div></td>
     </tr>
 
     <?php
@@ -138,6 +138,8 @@ while($arr_exam_result = mysqli_fetch_array($next_exam_result)){
     <?php 
     }
     ?>
+        <br><br><br><br>
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="../index.js"></script>

@@ -49,7 +49,6 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&family=Noto+Serif:wght@700&family=Roboto+Slab:wght@900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Fredericka+the+Great&family=Noto+Serif&family=Roboto&display=swap" rel="stylesheet">
-    <title>UB Tutoring Service</title>
 </head>
 <body>
 
@@ -69,11 +68,18 @@
 
     </div>
     <hr class="hr-navbar">
+    <br>
+    <br>
+    <br>
+    <br>
     <div class="modal">
 
     <h1 class="welcome-page-title modal-title">Enter your verification code:</h1>
     <p class="center">* code may take up to a minute to arrive *</p>
-<br>
+    <br>
+    <br>
+    <br>
+    <br>
     <div class="message">
     <?php 
     if($mess!="") { 
@@ -82,6 +88,7 @@
         } ?> 
     </div> 
     <div id="tutor_signup_div">
+
     <div class="modal-input">
 
         <form method="post" action="">
@@ -91,6 +98,7 @@
 
         <br><br><br>
         </form>
+    </div>
     </div>
     </div>
     <script src="../index.js"></script>

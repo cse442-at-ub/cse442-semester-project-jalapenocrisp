@@ -35,7 +35,6 @@ if(count($_POST)>0) {
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&family=Noto+Serif:wght@700&family=Roboto+Slab:wght@900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Fredericka+the+Great&family=Noto+Serif&family=Roboto&display=swap" rel="stylesheet">
-    <title>UB Tutoring Service</title>
 </head>
 <body class="main-container">
 
@@ -58,7 +57,6 @@ if(count($_POST)>0) {
     <br><br><br><br><br>
     <div class="modal">
     <h1 class="welcome-page-title modal-title ">Enter your password to complete profile delete: </h1>
-    <div id="tutor_signup_div">
 
     <form name="frmUser" method="post" action="">
     <div class="message">
@@ -68,7 +66,6 @@ if(count($_POST)>0) {
         
         } ?> 
     </div> 
-    <br>
     <div class="modal-input">
 
         Password:<br>
@@ -78,7 +75,6 @@ if(count($_POST)>0) {
     </div>
     </div>
     <br><br>
-    </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="../index.js"></script>

@@ -55,6 +55,7 @@ $uid=$_GET['user_id'];
     ?>    
     
     <br>
+    <br>
 
     <div class="cont">
         <button class="dropbtn2">options</button>
@@ -71,7 +72,7 @@ $uid=$_GET['user_id'];
 <br>
 
     <?php if ($row['bio_leadership'] != NULL || $row['bio_languages'] != NULL || $row['bio_topics'] != NULL) {
-        echo '<h1 class="modal-title welcome-page-title">Bio</h1>';
+        echo '<h1 class="modal-title-h2 welcome-page-title">Bio</h1>';
         echo '<table class="info">';
         if ($row['bio_leadership'] != NULL) {
             echo '<tr><td>Leadership: </td><td>'.$row["bio_leadership"].'</td></tr>';
