@@ -95,11 +95,12 @@ if(count($_POST)>0) {
             <br>
             <br>
             <a href="user-forgot-student.php" id="forgot_link_id"> forgot password? </a>
+            <br><br>
         </form>
     </div>
     
     </div>
-    <button class="selectButton" onclick="window.location.href = '../create-account.html';">Register</button>
+    <!-- <button class="selectButton" onclick="window.location.href = '../create-account.html';">Register</button> -->
 
     <script src="../index.js"></script>
     

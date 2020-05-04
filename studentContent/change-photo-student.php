@@ -29,8 +29,8 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
     <link rel="stylesheet" type="text/css" href="../style.css" />
     <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <title>UB Tutoring Service</title>
-</head>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&family=Noto+Serif:wght@700&family=Roboto+Slab:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Fredericka+the+Great&family=Noto+Serif&family=Roboto&display=swap" rel="stylesheet"></head>
 <body class="main-container">
 
     <div class="header">
@@ -67,13 +67,25 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
     </div>
     <hr class="hr-navbar">
 
-    <div class="center">
-        <p> * must be jpeg format * </p>
+    <br><br><br>
+    <h1 class="modal-title welcome-page-title">Upload a new photo</h1>
+    <br><br><br>
+    <div class="modal">
+        <br><br><br>
+        <p> * photo must be jpeg format * </p><br><br>
+        <div id="tutor_signup_div">
+
         <form method="post" action="" enctype="multipart/form-data">
-            <input type="file" name="imagefile">
-            <input type="submit" name="submit" value="Upload">
+        <div class="modal-input">
+
+            <input type="file" name="imagefile"><br><br>
+            <input class="log_in_button" type="submit" name="submit" value="Upload">
+        </div>
         </form>
+</div>
+        <br><br><br>
     </div>
+
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

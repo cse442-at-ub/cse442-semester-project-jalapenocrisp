@@ -27,8 +27,6 @@
         
 
         if($formatted_todays_date > $nextExam){
-            // echo "now = $formatted_todays_date recieved = $nextExam \n";
-            // echo "incorrect date \n";
             $incorrect_date = TRUE;
         }else{
 
@@ -79,6 +77,9 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
     <meta name="viewport" content ="width=device-width,initial-scale=1,user-scalable=yes" />    <link rel="stylesheet" type="text/css" href="../style.css" >
     <link rel="stylesheet" type="text/css" href="../style.css" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&family=Noto+Serif:wght@700&family=Roboto+Slab:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Fredericka+the+Great&family=Noto+Serif&family=Roboto&display=swap" rel="stylesheet">
+    
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <title>UB Tutoring Service</title>
 </head>
@@ -118,15 +119,19 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
 
     </div>
     <hr class="hr-navbar">
-    <br>
-    <h1 class="welcome-page-title">Enter your most recent grades for <?php echo $course;?></h1>
-    <p class="center"> * must be in number format *</p>
+    <br><br><br><br>
+    <div class="modal">
+    <h1 class="modal-title welcome-page-title">Enter your most recent grades for <?php echo $course;?></h1><br>
+    <p class="center"> *must be in number format*</p>
+    <br><br><br>
+
     
     <?php if($incorrect_date == TRUE){ ?>
-        <p class="center"> * * * ENTER A FUTURE DATE (or today) * * *</p>
+        <p class="center">Enter a future date.</p>
     <?php  }?>
 
-    <div id="student_appointment_div">
+    <div id="tutor_signup_div">
+    <div class="modal-input">   
         <form method="post">
             
             <select id="num_of_exams">
@@ -204,9 +209,10 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
             </div>
             
 
-            <input id="student_appt_submit" type="submit" name="submit">
-
+            <input id="log_in_button" type="submit" name="submit">
+        <br><br><br>
         </form>
+    </div>
     </div>
     <script src="../index.js"></script>
 </body>

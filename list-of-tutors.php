@@ -1,8 +1,8 @@
 <?php
    include_once "access-db.php";
 
-   $sql = "SELECT fname, lname, email, numRatings, courses FROM tutors ORDER BY numRatings DESC";
-    $result = $conn->query($sql);
+   $sql = "SELECT fname, lname, email, rank, courses FROM tutors ORDER BY rank DESC";
+   $result = $conn->query($sql);
 
     
 ?>
@@ -17,6 +17,9 @@
     <link rel="stylesheet" type="text/css" href="style.css" />
     <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&family=Noto+Serif:wght@700&family=Roboto+Slab:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Fredericka+the+Great&family=Noto+Serif&family=Roboto&display=swap" rel="stylesheet">
+    
     <title>UB Tutoring Service</title>
 </head>
 
@@ -42,22 +45,36 @@
     </div>
     <hr class="hr-navbar">
 
+    
+    
 
-    <p>The list of tutors sorted based on their ratings. </p>
 
+    <h1 class="modal-title welcome-page-title">List of UBTutoring tutors sorted by rating </h1>
+<br><br>
+    <div class="list-of-tutors-table">
+
+    
     <?php
 
         if ($result->num_rows > 0) {
-            echo "<table class='tutortable'><tr><th>first name </th><th>last name</th><th>email</th><th>ratings</th><th>course</th></tr>";
+            echo "<table class='tutortable'><tr style='height: 80px'><th style='text-align:left'>first name </th><th style='text-align:left'>last name</th><th style='text-align:left'>email</th><th style='text-align:left'>rating</th><th style='text-align:left'>course</th></tr><br><br>";
             // output data of each row
-            while($row = $result->fetch_assoc()) {
-                echo "<tr><td>" .$row["fname"]. "<td>" . $row["lname"]. "<td>" . $row["email"]. "<td>". $row["numRatings"]. "<td>" .$row["courses"]. "</td></tr>";
+            while($row = mysqli_fetch_array($result)) {
+                echo "<tr style='height: 40px'>
+                    <td>" .$row["fname"]. "</td>
+                    <td>" . $row["lname"]. "</td>
+                    <td>" . $row["email"]. "</td>
+                    <td>". $row["rank"]. "</td>
+                    <td>" .$row["courses"]. "</td>
+                </tr>";
             }
             echo "</table>";
         } else {
             echo "0 results";
         }
     ?>
+<br><br><br><br><br><br>
+</div>
 
     <!-- add login for the professor -->
         

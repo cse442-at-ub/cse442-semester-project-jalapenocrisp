@@ -91,6 +91,8 @@
     <h1 class="modal-title welcome-page-title">Student Sign Up</h1>
     <br>
     <div id="tutor_signup_div">
+    <div class="modal-input">
+
         <form method="post" action="">
             <label>Fields marked * must be filled in order to create an account.</label>
             <br>
@@ -158,7 +160,7 @@
             <input type="submit" id="tutor_signup_submit" value= "Verify"> 
             <br><br><br>
         </form>
-
+    </div>
             <!-- <button class="selectButton" onclick="window.location.href = './tutorprofile.html';">Submit</button> -->
     </div>
     <script src="../index.js"></script>

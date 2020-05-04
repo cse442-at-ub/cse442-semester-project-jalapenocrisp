@@ -85,12 +85,16 @@ if(count($_POST)>0) {
             <br>
             <br>
             <a href="user-forgot.php" id="forgot_link_id"> forgot password? </a>
+            <br>
+            <br>
+            </div>
+
         </form>
     </div>
     </div>
     
-    <button class="selectButton" onclick="window.location.href = './tutor-signup.php';">Register</button>
-
+    <!-- <button class="selectButton" onclick="window.location.href = './tutor-signup.php';">Register</button> -->
+    <br><br>
     <script src="../index.js"></script>
     
 </body>

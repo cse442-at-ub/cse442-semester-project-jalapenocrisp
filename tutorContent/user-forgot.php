@@ -38,10 +38,12 @@ if(count($_POST)>0) {
     <link rel="stylesheet" type="text/css" href="../style.css" />
     <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&family=Noto+Serif:wght@700&family=Roboto+Slab:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Fredericka+the+Great&family=Noto+Serif&family=Roboto&display=swap" rel="stylesheet">
     <title>UB Tutoring Service</title>
 </head>
 
-<body class="main-container">
+<body>
 
     <div class="header">
 
@@ -62,10 +64,14 @@ if(count($_POST)>0) {
 
     </div>
     <hr class="hr-navbar">
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="modal">
 
-    <!-- <button class="selectButton" onclick ="window.location.href = './tutor_signup.html';">Not Registered? Sign Up Here.</button> -->
-
-    <h1 class="welcome-page-title">Forgot Password</h1>
+    <h1 class="welcome-page-title modal-title">Forgot Password</h1>
+    <br>
     <br>
     <br>
     <br>
@@ -78,7 +84,8 @@ if(count($_POST)>0) {
             
             } ?> 
         </div> 
-            
+        <div class="modal-input">
+
             <label for="email">User Email</label>
             <input class= "log_in_input" type="text" id="email" name="email" placeholder="Enter @buffalo.edu email">
 
@@ -86,9 +93,10 @@ if(count($_POST)>0) {
 
 
         </form>
+        <br><br>
+        </div>
 
-
-            <!-- <button class="selectButton" onclick ="window.location.href = './tutorprofile.html';">Submit</button> -->
+    </div>
     </div>
     <script src="../index.js"></script>
 </body>

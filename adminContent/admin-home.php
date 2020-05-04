@@ -17,7 +17,9 @@ if (isset($_POST['exit'])){
     <title>UB Tutoring</title>
     <link rel="stylesheet" type="text/css" href="../style.css" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <title>UB Tutoring Service</title>
+    <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&family=Noto+Serif:wght@700&family=Roboto+Slab:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Fredericka+the+Great&family=Noto+Serif&family=Roboto&display=swap" rel="stylesheet">
 
     <script>
         function refreshchat() {
@@ -81,9 +83,12 @@ if (isset($_POST['exit'])){
     <hr class="hr-navbar">
 
     <br>
-    <h1 class="welcome-page-title">Chatting with Student: </h1>
+    <h1 class="welcome-page-title modal-title">Chatting with Student: </h1>
     <br><br>
-    <div style="width: 50%; margin-left: auto; margin-right: auto;">
+    <div style="width: 60%; margin-left: auto; margin-right: auto;">
+
+    <div class="modal-input">
+
     <form id="msg" action="" method="post" enctype="multipart/form-data" onsubmit="sendFormData();return false;">
         <input class="log_in_input" type="text" id="message" name="message" placeholder="say something to the user"/>
         <input type="hidden" name="user" value="admin">
@@ -91,20 +96,21 @@ if (isset($_POST['exit'])){
     </form>
 
     </div>
-    <div id="cont" class="cont">
+    <div id="cont" class="chatcont">
         <p id="chat"></p>
 
-    </div>   
     <br>
     <p class="center">Please wait for a student to connect...</p>
+    <br><br>
+    </div>   
+
+    </div>
 
     <form method="post" action="">
         <input class="selectButton" type="submit" name="exit" id="exit" value="exit chat"/>
     </form>
     <br>
     <br>
-
-
 
 </body>
 

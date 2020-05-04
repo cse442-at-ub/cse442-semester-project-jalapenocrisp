@@ -15,7 +15,6 @@ if(count($_POST)>0){
     	$message="Please enter valid Zoom Meeting Room Url";
     }else{    
      	mysqli_query($conn,"UPDATE tutors SET zoom_link='" . $zoomLink . "' WHERE user_id='" . $_GET['user_id'] . "'");
-	$message = "Url added successfully!";
      	header('Location: ./tutorprof.php?user_id=' . $_GET["user_id"]);     
     }   
 }
@@ -36,7 +35,8 @@ $row = mysqli_fetch_array($result);
     <link rel="stylesheet" type="text/css" href="../style.css" />
     <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <title>UB Tutoring Service</title>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&family=Noto+Serif:wght@700&family=Roboto+Slab:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Fredericka+the+Great&family=Noto+Serif&family=Roboto&display=swap" rel="stylesheet">
 </head>
 
 <body class="main-container">
@@ -45,9 +45,10 @@ $row = mysqli_fetch_array($result);
 
         <div class="menu_welcomePage">
             <ul>
-              
+            <li><a class="navlink" href="./tutorCalendarView.php?user_id=<?php echo $_GET['user_id']; ?>">set availability</a> </li>
+                <li><a class="navlink" href="./tutor-appts.php?user_id=<?php echo $_GET['user_id']; ?>">appointments</a> </li>
+                <li><a class="navlink" href="./tutorprof.php?user_id=<?php echo $_GET['user_id']; ?>">profile</a> </li>
                 <li><a class="navlink" href="../index.html">logout</a> </li>
-
             </ul>
         </div>
 
@@ -57,33 +58,29 @@ $row = mysqli_fetch_array($result);
 
     </div>
     <hr class="hr-navbar">
+<br><br><br><br>
+    <div class="modal">
 
-    <h1 class="welcome-page-title">Zoom Meeting Link: <?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?> </h1>
+    <h1 class="welcome-page-title modal-title">Update Your Zoom Meeting Link</h1>
     
-    
-    <button class="calendarView" onclick="window.open('https://zoom.us/signin','_blank')">Go to Zoom Sign in</button>
-   
-    <button class="calendarView">
-    <br>
-    <label>Open the link above in a new tab.</label><br>
-    <label>Then, sign into your Zoom account and</label><br>
-    <label>copy your meeting link (found below you Personal Meeting ID).</label><br>
-    <label>Return to this page and paste it in the textbox below.</label><br>
-    <br>
+        <br><br>
+    <button class="selectButton" onclick="window.open('https://zoom.us/signin','_blank')">Zoom</button>
+    <br><br><br>
+    <p class="center">Open the link above in a new tab. Then, sign into your Zoom account and copy your meeting link</p> 
+    <p class="center">(found below you Personal Meeting ID). Return to this page and paste it in the textbox below.</p>
 
     <?php if(isset($message)) { echo $message; } ?>
     
     <form method="post" class="info1" action="">
-	   <input type="hidden" id="fname" value=<?php echo $row['fname']?>>
-	   <input type="hidden" id="lname" value=<?php echo $row['lname']?>>
-	   <input type="hidden" id="user_id" value=<?php echo $row['user_id']?>>
-	   
+        <div class="modal-input">
+
 	   <input class="sign_up_input" type="text" id="zoomLink" name="zoomLink" value=<?php echo $row['zoom-link']?>>
-           <input class= "sign_up_input" type="submit" id="tutor_zoom_submit" name="submit" value= "Save">
+       <input class= "log_in_button" type="submit" id="tutor_zoom_submit" name="submit" value= "Save">
+    </div>
      </form>
      <br>
-     </button>	
-     <br>	
+     <br>
+    </div>	
 <script src="../index.js"></script>
 
 </body>

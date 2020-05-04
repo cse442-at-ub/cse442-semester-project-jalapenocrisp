@@ -15,6 +15,7 @@ $uid=$_GET['user_id'];
     <title>UB Tutoring</title>
     <link rel="stylesheet" type="text/css" href="../style.css" />
     <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
+    <script src="../index.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&family=Noto+Serif:wght@700&family=Roboto+Slab:wght@900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Fredericka+the+Great&family=Noto+Serif&family=Roboto&display=swap" rel="stylesheet">
@@ -53,18 +54,43 @@ $uid=$_GET['user_id'];
        }
     ?>    
     
-    <button class="calendarView" onclick="window.location.href = './change-photo.php?user_id=<?php echo $row['user_id']; ?>';">Add/Edit Photo</button>
-
-    
-    <table class = "info">
-    <tr><td><?php echo $row['zoom_link']?></td></tr>
-    </table>	
-    <button class="calendarView" onclick="window.location.href = './add-zoom.php?user_id=<?php echo $row['user_id']; ?>';">Add/Edit Zoom Link</button>
+    <br>
     <br>
 
+    <div class="cont">
+        <button class="dropbtn2">options</button>
+            <div class="dropdown-content2">
+                <a href='./change-photo.php?user_id=<?php echo $row['user_id']; ?>'>edit photo</a>
+                <a href='./add-bio.php?user_id=<?php echo $row['user_id']; ?>'>edit bio</a>
+                <a href='./add-zoom.php?user_id=<?php echo $row['user_id']; ?>'>edit zoom link</a>
+                <a href='./update-tutor-profile.php?user_id=<?php echo $row['user_id']; ?>'>edit personal info</a>
+                <a href='./delete-profile.php?user_id=<?php echo $row['user_id']; ?>'>delete profile</a>
+            </div>
+    </div>
 
+<br>
+<br>
+
+    <?php if ($row['bio_leadership'] != NULL || $row['bio_languages'] != NULL || $row['bio_topics'] != NULL) {
+        echo '<h1 class="modal-title-h2 welcome-page-title">Bio</h1>';
+        echo '<table class="info">';
+        if ($row['bio_leadership'] != NULL) {
+            echo '<tr><td>Leadership: </td><td>'.$row["bio_leadership"].'</td></tr>';
+        }if ($row['bio_languages'] != NULL) {
+            echo '<tr><td>Coding Languages: </td><td>'.$row["bio_languages"].'</td></tr>';
+        }if ($row['bio_topics'] != NULL) {
+            echo '<tr><td>Topics: </td><td>'.$row["bio_topics"].'</td></tr>';
+        }
+        echo "</table>";    }
+    ?>
+    <br><br>
+    <hr class="divider">
+    <br><br>
     <table class="info">
-
+    <?php if($row['zoom_link']){
+        echo "<tr><td>Zoom Link: </td><td>".$row['zoom_link']."</td></tr>";
+    }
+    ?>
     <tr><td> Phone Number: </td>
     <td><?php 
             echo $row["phone"]; 
@@ -82,45 +108,11 @@ $uid=$_GET['user_id'];
     <tr><td class="score" title="The number of tutoring hours you have completed.">Score: </td><td><?php echo $row["score"]; ?></td></tr>
     
     </table>
-    <button class="selectButton" onclick="window.location.href ='./update-tutor-profile.php?user_id=<?php echo $row['user_id']; ?>';">Edit Information</button>
 
-
-    <button class="calendarView" onclick="window.location.href = './add-bio.php?user_id=<?php echo $row['user_id']; ?>';">Personalize Your Bio</button>
-    <br>
-     </table> 
-    <?php if ($row['bio_leadership'] != NULL || $row['bio_languages'] != NULL || $row['bio_topics'] != NULL) : ?>
-    <h1 class="modal-title welcome-page-title">Your Bio</label>
-    <?php endif ?>
-           
-    <table class="info">
-    <tr><td>
-    <?php if ($row['bio_leadership'] != NULL) : ?>
-    <label>Leadership: <?php echo $row["bio_leadership"]; ?></label>
-    <?php endif ?>
-    </td></tr>
-    
-    <tr><td>
-    <?php if ($row['bio_languages'] != NULL) : ?>
-    <label>Coding Languages: <?php echo $row["bio_languages"]; ?></label>
-    <?php endif ?>
-    </td></tr>
-    
-    <tr><td>
-    <?php if ($row['bio_topics'] != NULL) : ?>
-    <label class="info1">Topics: <?php echo $row["bio_topics"]; ?></label>
-    <?php endif ?>
-    </td></tr>
-    </table>
-    <br>
-    
-    <button class="delButton" onclick="window.location.href ='./delete-profile.php?user_id=<?php echo $row['user_id']; ?>';">Delete Profile</button> 
     <br><br><br>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="index.js"></script>
-    <script>
-        
-    </script>
+
 
 </body>
 

@@ -51,7 +51,7 @@
             }
             
             mysqli_query($conn, "UPDATE progress SET grades=\"$prev_grades\", nextExam=\"\" WHERE student_id=$student_id AND course=\"$choosen_class\" ;");
-            header('Refresh:0');
+            header('Location: ./student-progress.php?user_id='.$_GET['user_id'].'&cid='.$_POST["student_choosen_class"]);
         }else{
             $msg_error = "Enter a valid grade";
         }
@@ -114,12 +114,12 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
 
     </div>
     <hr class="hr-navbar">
-
-
+    <br><br><br><br>
+    <div class="modal">
 
     <?php
         if(strcmp($msg_error, "")!= 0){
-            echo "<h2 class=\"modal-title\">***ENTER A VALID GRADE (between 0 - 150)***</h1><br>";
+            echo "<h2 class=\"modal-title\">Please enter a grade between 0 and 150.</h1><br>";
         }
         
         $num_classes = count($all_courses);
@@ -127,15 +127,17 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
     ?>
     
     <h1 class="modal-title welcome-page-title">Your Classes</h1><br>
+    <br><br><br>
     <?php
     if($num_of_grades > 0){ ?>
-            <p style="color:red" class="center"> <?php  echo "ENTER GRADES FOR : ". $courses_need_grades; ?> </p> <?php } ?>
+            <p style="color:white" class="center"> <?php  echo "Enter grades for: ". $courses_need_grades; ?> </p> <?php } ?>
 
-    <div id="student_appointment_div">
+    <div id="tutor_signup_div">
+    <div class="modal-input">        
         <form method="post">
         
-        <label id="student_appointment_label" for="nextExam"> Choose a Course </label>
-            <select name="student_choosen_class" id="num_of_exams">
+        <label for="nextExam"> Choose a Course </label>
+            <select class="input1" name="student_choosen_class">
                 
                 <?php
                     foreach($all_courses as $key => $value){
@@ -146,10 +148,12 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
                     }
                 ?>
             </select>
-            <input class="exam_student_input" type="text" onkeypress="validate(event)", name="grade_for_course">
-            <input id="student_appt_submit" type="submit" name="submit">
+            <input class="sign_up_input" type="text" placeholder="enter your grade" onkeypress="validate(event)", name="grade_for_course"><br><br>
+            <input id="log_in_button" type="submit" name="submit">
 
         </form>
+        <br><br><br>
+    </div>
     </div>
 
     <?php
@@ -159,10 +163,8 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
     <?php
         }
     ?>
-
-
-    
-
+    </div>
+    <br><br><br>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="../index.js"></script>
 

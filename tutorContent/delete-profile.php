@@ -17,7 +17,6 @@ if(count($_POST)>0) {
         $stmt->execute();
         $stmt->close();
         header('Location: ../');
-        echo "Profile deleted successfully, we are sad to see you go!";
     }
 
 }
@@ -34,21 +33,32 @@ if(count($_POST)>0) {
     <link rel="stylesheet" type="text/css" href="../style.css" />
     <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <title>UB Tutoring Service</title>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&family=Noto+Serif:wght@700&family=Roboto+Slab:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Fredericka+the+Great&family=Noto+Serif&family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body class="main-container">
 
     <div class="header">
+    <div class="menu_welcomePage">
+            <ul>
+                <li><a class="navlink" href="./tutorCalendarView.php?user_id=<?php echo $_GET['user_id']; ?>">set availability</a> </li>
+                <li><a class="navlink" href="./tutor-appts.php?user_id=<?php echo $_GET['user_id']; ?>">appointments</a> </li>
+                <li><a class="navlink" href="./tutorprof.php?user_id=<?php echo $_GET['user_id']; ?>">profile</a> </li>
+                <li><a class="navlink" href="../index.html">logout</a> </li>
 
+            </ul>
+        </div>
         <div class="logo">
             <h2 class="logo"> <a href="../index.html">UBtutoring</a> </h2>
         </div>
 
     </div>
     <hr class="hr-navbar">
+    <br><br><br><br><br>
+    <div class="modal">
+    <h1 class="welcome-page-title modal-title ">Enter your password to complete profile delete: </h1>
 
-    <h1 class="welcome-page-title">Enter your password to complete profile delete: </h1>
-    <form class = "info1" name="frmUser" method="post" action="">
+    <form class="info1" name="frmUser" method="post" action="">
     <div class="message">
     
     <?php if($message!="") { 
@@ -56,13 +66,15 @@ if(count($_POST)>0) {
         
         } ?> 
     </div> 
-    <br>
+    <div class="modal-input">
+
         Password:<br>
-        <input type="password" name="pass" class="input1" placeholder="enter password" autofocus><br>
-        <input type="submit" name="submit" value="delete forever" class="selectButton2">
+        <input type="password" name="pass" class="log_in_input" placeholder="enter password" autofocus><br><br>
+        <input type="submit" name="submit" value="delete forever" class="log_in_button"><br><br>
 
-
-
+    </div>
+    </div>
+    <br><br>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="../index.js"></script>

@@ -21,7 +21,8 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
     <link rel="stylesheet" type="text/css" href="../style.css" />
     <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <title>UB Tutoring Service</title>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&family=Noto+Serif:wght@700&family=Roboto+Slab:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Fredericka+the+Great&family=Noto+Serif&family=Roboto&display=swap" rel="stylesheet">
 </head>
 
 <body class="main-container">
@@ -29,9 +30,7 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
     <div class="header">
     <div class="menu_welcomePage">
             <ul>
-                <!-- the line of code commented below is important when we upload the work on a server. for now, i'm using an alternative below -->
-                <!-- <li><a href="javascript:loadPage('./login.php')">login</a> </li> -->
-		<li><a class="navlink" href="./student-appts.php?user_id=<?php echo $_GET['user_id']; ?>">my appointments</a> </li>
+		        <li><a class="navlink" href="./student-appts.php?user_id=<?php echo $_GET['user_id']; ?>">my appointments</a> </li>
                 <li><a class="navlink" href="./search.php?user_id=<?php echo $_GET['user_id']; ?>">find a tutor</a> </li>
                 <div class="dropdown">
                 <li><button onclick="progressclick()" class="dropbtn">my progress</button>
@@ -59,8 +58,10 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
 
     </div>
     <hr class="hr-navbar">
+    <br><br><br><br>
+    <div class="modal">
 
-    <h1 class="welcome-page-title">Are you sure you want to delete this appointment? </h1>
+    <h1 class="welcome-page-title modal-title">Are you sure you want to delete this appointment? </h1>
 
     <br><br>
 
@@ -78,13 +79,13 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
         <td><?php echo $tutarray["courses"]; ?></td>
     </tr>
 
-
+<br><br>
     <form method="post"> 
         <input type="submit" class="selectButton" name="yes" value="yes" />     
     </form>
     <button onclick="window.location.href ='./student-appts.php?user_id=<?php echo $_GET['user_id']; ?>';"class="selectButton">no</button>
-
-
+   
+    </div>
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

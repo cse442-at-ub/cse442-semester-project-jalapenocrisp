@@ -18,12 +18,23 @@ $tutarray = mysqli_fetch_array($tutorRes);
     <link rel="stylesheet" type="text/css" href="../style.css" />
     <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&family=Noto+Serif:wght@700&family=Roboto+Slab:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Fredericka+the+Great&family=Noto+Serif&family=Roboto&display=swap" rel="stylesheet">
     <title>UB Tutoring Service</title>
 </head>
 
 <body class="main-container">
 
     <div class="header">
+        <div class="menu_welcomePage">
+            <ul>
+            <li><a class="navlink" href="./tutorCalendarView.php?user_id=<?php echo $_GET['user_id']; ?>">set availability</a> </li>
+                <li><a class="navlink" href="./tutor-appts.php?user_id=<?php echo $_GET['user_id']; ?>">appointments</a> </li>
+                <li><a class="navlink" href="./tutorprof.php?user_id=<?php echo $_GET['user_id']; ?>">profile</a> </li>
+                <li><a class="navlink" href="../index.html">logout</a> </li>
+
+            </ul>
+        </div>
 
         <div class="logo">
             <h2 class="logo"> <a href="../index.html">UBtutoring</a> </h2>
@@ -31,8 +42,10 @@ $tutarray = mysqli_fetch_array($tutorRes);
 
     </div>
     <hr class="hr-navbar">
+    <br><br><br><br>
+    <div class="modal">
 
-    <h1 class="welcome-page-title">Are you sure you want to delete this appointment? </h1>
+    <h1 class="modal-title welcome-page-title">Are you sure you want to delete this appointment? </h1>
 
     <br><br>
 
@@ -46,14 +59,14 @@ $tutarray = mysqli_fetch_array($tutorRes);
         <td><?php if($row["time"]>12){echo $row["time"]-12  . ":00 PM";}else{echo $row["time"]  . ":00 AM";} ?></td>
         <td><?php echo $tutarray["fname"]; ?> <?php echo $tutarray["lname"]; ?></td>
     </tr>
-
+    <br><br><br>
 
     <form method="post"> 
         <input type="submit" class="selectButton" name="yes" value="yes" />     
     </form>
     <button onclick="window.location.href ='./tutor-appts.php?user_id=<?php echo $_GET['user_id']; ?>';"class="selectButton">no</button>
 
-
+</div>
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

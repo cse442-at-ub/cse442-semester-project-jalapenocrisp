@@ -65,16 +65,19 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
 
     </div>
     <hr class="hr-navbar">
-
+    <br><br><br><br>
+    <div class="modal">
     <h1 class="modal-title welcome-page-title">Find Your Class: </h1>
     <br>
     <br>
     <div class="dd">
+    <div id="tutor_signup_div">
+
     <form method="post">
 
-      <div class="options">
+    <div class="modal-input">
 
-        <select class="input2" id ="first-choice">
+        <select class="input1" id ="first-choice">
             <option selected>Pick a class</option>
             <?php    
                 foreach($courseArray as $item){
@@ -89,14 +92,20 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
 
         <br>
 
-        <select class="input2" id="second-choice" name="tutor">
+        <select class="input1" id="second-choice" name="tutor">
             <option selected>Please choose from above</option>
         </select>
         <br>
         <br>
         <input class="selectButton" type="submit" value="Go">
+        <br><br><br>
       </div>
     </form>
+    <div id="tutor_signup_div">
+
+    </div>
+    </div>
+
     <?php
     if(count($_POST)>0) {
         $userid=$_GET['user_id'];
