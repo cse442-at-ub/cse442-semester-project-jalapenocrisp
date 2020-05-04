@@ -818,3 +818,17 @@ input[type="submit"]:hover {
 
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ end student appt styling ~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ student appeal styling ~~~~~~~~~~~~~~~~~~~~~~~~ */
+#appeal_reason {
+    margin: auto;
+    width: 100%;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 10px;
+    padding-top: 20px;
+    display: block;
+}
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ end student appeal styling ~~~~~~~~~~~~~~~~~~~~~~~~ */
