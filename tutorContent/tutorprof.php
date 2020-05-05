@@ -46,7 +46,9 @@ $row = mysqli_fetch_array($result);
     <?php
     if ($row['user_image']){
      echo '<img class="profilePicture" src="data:image/jpeg;base64,'. $row['user_image'] .'"/>';
-    }
+    }else{
+        echo '<img class="profilePicture" src="user-default.jpg" alt="you">';
+       }
     ?>    
     
     <br>
