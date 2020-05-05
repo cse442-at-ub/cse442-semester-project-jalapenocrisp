@@ -218,7 +218,14 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
             $num_of_cancel++;
             
             $ress2 = mysqli_query($conn, "UPDATE students SET cancel=$num_of_cancel WHERE user_id=$userid;");
-            header('Location: ./student-appts.php?user_id=' . $userid);
+
+            $student= mysqli_query($conn, "SELECT * from  students WHERE user_id=$userid;");
+            $rowstud=mysqli_fetch_array($student);
+            if ($rowstud['complete'] / ($rowstud['complete'] + $rowstud['cancel']) < .5){
+                header('Location: ../index.html');
+            }else{
+                header('Location: ./student-appts.php?user_id=' . $userid);
+            }
 
         }
 
