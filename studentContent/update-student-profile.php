@@ -19,7 +19,7 @@ if(count($_POST)>0) {
     }else if ($pass!=$pass2){
         $message="Passwords do not match";
     }else{
-        mysqli_query($conn,"UPDATE students SET fname='" . $_POST['fname'] . "', lname='" . $_POST['lname'] . "', email='" . $_POST['email'] . "', paswd='" . $_POST['paswd'] . "' WHERE user_id='" . $_POST['user_id'] . "'"); 
+        mysqli_query($conn,"UPDATE students SET fname='" . $_POST['fname'] . "', lname='" . $_POST['lname'] . "', email='" . $_POST['email'] . "', paswd='" . $_POST['paswd'] . "' WHERE user_id='" . $_GET['user_id'] . "'"); 
         $message = "Record Modified Successfully";}
 
     header('Location: ./studentprof.php?user_id=' .$uid);

@@ -24,7 +24,7 @@ if(count($_POST)>0) {
     }else if($pass!=$pass2){
         $message="Passwords do not match.";
     }else{
-        mysqli_query($conn,"UPDATE tutors SET fname='" . $_POST['fname'] . "', lname='" . $_POST['lname'] . "', phone='" . $_POST['phone'] . "' ,title='" . $_POST['title'] . "' , email='" . $_POST['email'] . "', courses='" . $_POST['courses'] . "', paswd='" . $_POST['paswd'] . "' WHERE user_id='" . $_POST['user_id'] . "'"); 
+        mysqli_query($conn,"UPDATE tutors SET fname='" . $_POST['fname'] . "', lname='" . $_POST['lname'] . "', phone='" . $_POST['phone'] . "' ,title='" . $_POST['title'] . "' , email='" . $_POST['email'] . "', courses='" . $_POST['courses'] . "', paswd='" . $_POST['paswd'] . "' WHERE user_id='" . $_GET['user_id'] . "'"); 
         header('Location: ./tutorprof.php?user_id=' .$uid);
 
 }
@@ -154,7 +154,7 @@ Password:<br>
 Confirm password:<br>
 <input type="password" name="paswd2" class="input1" value="<?php echo $row['paswd']; ?>">
 <br>
-<input id="log_in_button" type="submit" name="submit" value="Save" class="button">
+<input id="log_in_button" type="submit" name="submit" value="Save" >
 <br><br>
 </div>
 </form>
