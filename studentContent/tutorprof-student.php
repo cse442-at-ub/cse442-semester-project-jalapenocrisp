@@ -71,6 +71,8 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
 
     if ($row['user_image']){
      echo '<img class="profilePicture" src="data:image/jpeg;base64,'. $row['user_image'] .'"/>';
+    }else{
+     echo '<img class="profilePicture" src="user-default.jpg" alt="you">';
     }
     ?>    
     <br><br>
