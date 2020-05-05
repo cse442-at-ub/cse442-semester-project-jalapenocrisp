@@ -4,10 +4,13 @@
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content ="width=device-width,initial-scale=1,user-scalable=yes" />
     <title>UB Tutoring</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
     <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&family=Noto+Serif:wght@700&family=Roboto+Slab:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Fredericka+the+Great&family=Noto+Serif&family=Roboto&display=swap" rel="stylesheet">
     <title>UB Tutoring Service</title>
 </head>
 
@@ -21,6 +24,8 @@
                 <!-- the line of code commented below is important when we upload the work on a server. for now, i'm using an alternative below -->
                 <!-- <li><a href="javascript:loadPage('./login.php')">login</a> </li> -->
                 <li><a class="navlink" href="./about.html">about</a> </li>
+                <li><a class="navlink" href="./adminContent/admin-login.php">admin login</a> </li>
+                <li><a class="navlink" href="./professor-login.php">professor access</a></li>
                 <li><a class="navlink" href="./tutorContent/login.php">tutor login</a> </li>
                 <li><a class="navlink" href="./studentContent/login-student.php">student login</a> </li>
                 <li><a class="navlink" href="./create-account.html">create account</a></li>
@@ -34,15 +39,21 @@
 
     </div>
     <hr class="hr-navbar">
-
-    <h1 class="welcome-page-title">Welcome to UB Tutoring Services</h1>
-
-    <div class="route-buttons">
-        <button onclick="window.location.href = './tutorContent/login.php';" class="welcome-page-buttons tutor-button">Enter as a tutor</button>
-        <button onclick="window.location.href = './studentContent/login-student.php';" class="welcome-page-buttons student-button">Enter as a student</button>
+    
+    <div class="welcome-page-content"> 
+        <h1 class="welcome-page-title">Welcome to UB Tutoring Services</h1>
+    
+        <div class="welcome-text"> 
+            <p> UB tutoring is dedicated to providing the best tutoring services to SEAS students. Our goal is to ensure that every student gets the help they need to perform to the best of their ability in their college courses. <p>
+        </div>
     </div>
 
+    <div class="route-buttons">
+        <button onclick="window.location.href = './tutorContent/login.php';" class="new-login-btn tutor-button">Tutor Login</button>
+        <button onclick="window.location.href = './studentContent/login-student.php';" class="new-login-btn student-button">Student Login</button>
+    </div>
 
+    <br><br><br>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="index.js"></script>
     <script>

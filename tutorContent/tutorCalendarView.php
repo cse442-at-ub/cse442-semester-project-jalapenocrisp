@@ -19,13 +19,17 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" /> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
-    <title>UB Tutoring Service</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content ="width=device-width,initial-scale=1,user-scalable=yes" />
+    <title>UB Tutoring</title>
     <link rel="stylesheet" type="text/css" href="../style.css" />
+    <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <!-- <script type="text/javascript" src="js/modernizr.custom.86080.js"></script> -->
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&family=Noto+Serif:wght@700&family=Roboto+Slab:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Fredericka+the+Great&family=Noto+Serif&family=Roboto&display=swap" rel="stylesheet">
+    
+    <title>UB Tutoring Service</title>
 </head>
 
 
@@ -53,8 +57,8 @@
     <hr class="hr-navbar">
 
 
-    <h1 class = "welcome-page-title">Your Availability</h1>
-    <a class="center">* A dark box indicates that you are available at that time *</a>
+    <h1 class = "modal-title welcome-page-title">Your Availability</h1>
+    <a class="center">Click a box to add your availability at that tine. A blue box indicates that you are available.</a>
     <br><br>
     <form method="post">
         <table id="calendar_tutor" rules="all">
@@ -63,25 +67,25 @@
                     <th>
                     </th>
                     <th>
-                        <span id="calendar_monday">Monday</span>
+                        <span id="calendar_monday">Mon</span>
                     </th>
                     <th>
-                        <span id="calendar_tuesday">Tuesday</span>
+                        <span id="calendar_tuesday">Tue</span>
                     </th>
                     <th>
-                        <span id="calendar_wednesday">Wednesday</span>
+                        <span id="calendar_wednesday">Wed</span>
                     </th>
                     <th>
-                        <span id="calendar_thursday">Thursday</span>
+                        <span id="calendar_thursday">Thu</span>
                     </th>
                     <th>
-                        <span id="calendar_friday">Friday</span>
+                        <span id="calendar_friday">Fri</span>
                     </th>
                     <th>
-                        <span id="calendar_saturday">Saturday</span>
+                        <span id="calendar_saturday">Sat</span>
                     </th>
                     <th>
-                        <span id="calendar_sunday">Sunday</span>
+                        <span id="calendar_sunday">Sun</span>
                     </th>
                 </tr>
             </thead>
@@ -124,8 +128,8 @@
                                 $color = "transparent";
                                 $v = "-";
                                 if($items[$k] == 1){
-                                    $color = "#00334d";
-                                    $v = "--";
+                                    $color = "#b6d9ee";
+                                    $v = "";
                                 }
                                 echo "<td style=\" background-color: $color;\"><input type=submit name=$columns[$k] style=\"width:100%; height:100%; background: transparent; border: none;\" value=\"$v\"></td>";
 

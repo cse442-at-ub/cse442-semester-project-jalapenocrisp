@@ -13,10 +13,14 @@ $result2 = mysqli_query($conn,"SELECT * FROM appointments WHERE tutor_id='" . $_
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content ="width=device-width,initial-scale=1,user-scalable=yes" />
     <title>UB Tutoring</title>
     <link rel="stylesheet" type="text/css" href="../style.css" />
     <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&family=Noto+Serif:wght@700&family=Roboto+Slab:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Fredericka+the+Great&family=Noto+Serif&family=Roboto&display=swap" rel="stylesheet">
+    
     <title>UB Tutoring Service</title>
 </head>
 
@@ -43,7 +47,7 @@ $result2 = mysqli_query($conn,"SELECT * FROM appointments WHERE tutor_id='" . $_
     </div>
     <hr class="hr-navbar">
 
-    <h1 class="welcome-page-title">Your Appointments</h1><br>
+    <h1 class="modal-title welcome-page-title">Your Appointments</h1><br>
     <a class="center" href="./tutor-appt-history.php?user_id=<?php echo $_GET['user_id']; ?>">appointment history</a>
 
     <?php 
@@ -53,12 +57,10 @@ $result2 = mysqli_query($conn,"SELECT * FROM appointments WHERE tutor_id='" . $_
     ?>
     <table class="infoAppt">
     <tr>
-    <th width="15%">Date</th>
-    <th width="15%">Time</th>
-    <th width="30%">Student</th>
-    <th width="20%">Class</th>
-    <th width="10%"></th>
-    <th width="10%"></th>
+    <th width="30%">Date</th>
+    <th width="15%">Student</th>
+    <th width="15%">Class</th>
+    <th width="20%"></th>
 
     </tr>
 
@@ -71,12 +73,19 @@ $result2 = mysqli_query($conn,"SELECT * FROM appointments WHERE tutor_id='" . $_
     ?>
 
  
-    <tr><td><?php echo $appt["day"]; ?></td>
-        <td><?php echo $appt["time"]; ?>:00</td>
-        <td><?php echo $tutarray["fname"]; ?> <?php echo $tutarray["lname"]; ?></td>
+    <tr ><td><?php echo $appt["day"]." "; if($appt["time"]>12){echo $appt["time"]-12  . ":00 PM";}else{echo $appt["time"]  . ":00 AM";}  ?></td>
+        <td><a style="text-decoration: none" class="navlink" href="./studentprof-tutor.php?user_id=<?php echo $_GET['user_id']; ?>&student_id=<?php echo $tid;?>"><?php echo $tutarray["fname"]; ?> <?php echo $tutarray["lname"]; ?></td>
         <td><?php echo $row["courses"]; ?></td>
-        <td><form method="post"><input type="hidden" name="apptid" class="input1" value="<?php echo $appt['appt_id']; ?>"><input type="submit" class="rate" name="yes" value="complete"></form>
-        <td><a href="./cancel-appt-tutor-side.php?user_id=<?php echo $_GET['user_id']; ?>&appt_id=<?php echo $appt['appt_id']; ?>">cancel</a><td>
+        <td><div class="cont">
+            <button class="dropbtn2">options</button>
+            <div class="dropdown-content2">
+                <a><form method="post"><input type="hidden" name="apptid" value="<?php echo $appt['appt_id']; ?>"><input type="submit" class="complete" name="yes" value="complete"></form></a>
+                <a href='mailto:<?php echo $tutarray['email'];?>?subject = Feedback&body = Message'>contact <?php echo $tutarray["fname"]; ?></a>
+                <a href='./cancel-appt-tutor-side.php?user_id=<?php echo $_GET['user_id']; ?>&appt_id=<?php echo $appt['appt_id']; ?>'>cancel appointment</a>
+            </div></div></td>
+        <!-- <td>
+        <td><button class="contact-button selectButton" onclick="window.location.href = 'mailto:<?php echo $tutarray['email'];?>?subject = Feedback&body = Message'">Contact</button></td>
+        <td><button class="cancel" onclick="window.location.href='./cancel-appt-tutor-side.php?user_id=<?php echo $_GET['user_id']; ?>&appt_id=<?php echo $appt['appt_id']; ?>'">X</button><td> -->
 
     </tr>
 
@@ -88,6 +97,7 @@ $result2 = mysqli_query($conn,"SELECT * FROM appointments WHERE tutor_id='" . $_
     <?php 
     }
     ?>
+    <br><br><br><br>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="../index.js"></script>

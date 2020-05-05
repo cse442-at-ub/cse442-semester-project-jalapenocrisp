@@ -1,19 +1,8 @@
 <?php
-include_once 'access-db.php';
-if (isset($_POST['submit'])) {
-    $userid=$_GET['user_id'];
-    if (getimagesize($_FILES['imagefile']['tmp_name']) == false) {
-        echo "<br />Please Select An Image.";
-    } else {
-        $image = $_FILES['imagefile']['tmp_name'];
-        $name = $_FILES['imagefile']['name'];
-        $image = base64_encode(file_get_contents(addslashes($image)));
-        mysqli_query($conn, "UPDATE tutors SET img_name='" . $name . "', user_image='" . $image . "' WHERE user_id='" . $userid . "'");
+include_once "access-db.php";
 
-    }
-    header('Location: ./tutorprof.php?user_id=' .$userid);
-}
-
+$result = mysqli_query($conn,"SELECT * FROM students WHERE user_id='" . $_GET['student_id'] . "'");
+$row = mysqli_fetch_array($result);
 
 ?>
 
@@ -30,14 +19,19 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&family=Noto+Serif:wght@700&family=Roboto+Slab:wght@900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Fredericka+the+Great&family=Noto+Serif&family=Roboto&display=swap" rel="stylesheet">
+    <title>UB Tutoring Service</title>
 </head>
+
 <body class="main-container">
 
     <div class="header">
 
         <div class="menu_welcomePage">
             <ul>
-                <li><a class="navlink" href="./tutor-appts.php?user_id=<?php echo $_GET['user_id']; ?>">appointments</a> </li>
+
+                <!-- the line of code commented below is important when we upload the work on a server. for now, i'm using an alternative below -->
+                <!-- <li><a href="javascript:loadPage('./login.html')">login</a> </li> -->
+                <li><a class="navlink" href="./tutor-appts.php?user_id=<?php echo $_GET['user_id']; ?>">my appointments</a> </li>
                 <li><a class="navlink" href="./tutorprof.php?user_id=<?php echo $_GET['user_id']; ?>">profile</a> </li>
                 <li><a class="navlink" href="../index.html">logout</a> </li>
 
@@ -49,29 +43,35 @@ if (isset($_POST['submit'])) {
         </div>
 
     </div>
+
     <hr class="hr-navbar">
-    <br><br><br>
-    <h1 class="modal-title welcome-page-title">Upload a new photo</h1>
-    <br><br><br>
-    <div class="modal">
-        <br><br><br>
-        <p> * photo must be jpeg format * </p><br><br>
-        <div id="tutor_signup_div">
 
-        <form method="post" action="" enctype="multipart/form-data">
-        <div class="modal-input">
+    <h1 class="modal-title welcome-page-title"><?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?></h1>
+    <br>
+    <br>
+    <?php
+    
 
-            <input type="file" name="imagefile"><br><br>
-            <input class="log_in_button" type="submit" name="submit" value="Upload">
-        </div>
-        </form>
-</div>
-        <br><br><br>
-    </div>
+    if ($row['user_image']){
+     echo '<img class="profilePicture" src="data:image/jpeg;base64,'. $row['user_image'] .'"/>';
+    }else{
+        echo '<img class="profilePicture" src="user-default.jpg" alt="you">';
+       }
+    ?>    
+    <br>
+    <table class="info">
+    <tr><td>Academic Level: </td><td><?php echo $row["title"]; ?></td></tr>
+    <tr><td>Email: </td><td><?php echo $row["email"]; ?></td></tr>
 
-
+    </table>    
+        
+    <br><br>
+    <button class="selectButton" onclick="window.location.href = 'mailto:<?php echo $row['email'];?>?subject = Feedback&body = Message'">
+     Contact Student
+    </button>
+    <br><br><br><br>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="index.js"></script>
+    <script src="../index.js"></script>
     <script>
         
     </script>

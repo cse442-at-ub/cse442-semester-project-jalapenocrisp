@@ -24,12 +24,13 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content ="width=device-width,initial-scale=1,user-scalable=yes" />
     <title>UB Tutoring</title>
     <link rel="stylesheet" type="text/css" href="../style.css" />
     <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <title>UB Tutoring Service</title>
-</head>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&family=Noto+Serif:wght@700&family=Roboto+Slab:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Fredericka+the+Great&family=Noto+Serif&family=Roboto&display=swap" rel="stylesheet"></head>
 <body class="main-container">
 
     <div class="header">
@@ -38,13 +39,17 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
             <ul>
                     <li><a class="navlink" href="./student-appts.php?user_id=<?php echo $_GET['user_id']; ?>">my appointments</a> </li>
                     <div class="dropdown">
-                        <li><a class="dropbtn">my progress</a>
-                            <div class="dropdown-content">
+                    <li><button onclick="progressclick()" class="dropbtn">my progress</button>
+                            <div id="myDropdown" class="dropdown-content">
                                 <?php 
+                                if (mysqli_num_rows($progress)<1){
+                                    echo "<p class='center'>no progress yet</p>";
+                                }else{
                                 while ($progressInfo = mysqli_fetch_array($progress)){ 
                                     $linkname=$progressInfo['course'];
                                     $link="./student-progress.php?user_id=" . $_GET['user_id'] . "&cid=" . $linkname ; 
                                     echo "<a href=".$link.">".$linkname."</a>";}
+                                }
                                 ?>
                             </div>
                         </li>
@@ -62,13 +67,25 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
     </div>
     <hr class="hr-navbar">
 
-    <div class="center">
-        <p> * must be jpeg format * </p>
+    <br><br><br>
+    <h1 class="modal-title welcome-page-title">Upload a new photo</h1>
+    <br><br><br>
+    <div class="modal">
+        <br><br><br>
+        <p> * photo must be jpeg format * </p><br><br>
+        <div id="tutor_signup_div">
+
         <form method="post" action="" enctype="multipart/form-data">
-            <input type="file" name="imagefile">
-            <input type="submit" name="submit" value="Upload">
+        <div class="modal-input">
+
+            <input type="file" name="imagefile"><br><br>
+            <input class="log_in_button" type="submit" name="submit" value="Upload">
+        </div>
         </form>
+</div>
+        <br><br><br>
     </div>
+
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

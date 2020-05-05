@@ -24,10 +24,13 @@ if (isset($_POST['submit'])){
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content ="width=device-width,initial-scale=1,user-scalable=yes" />
     <title>UB Tutoring</title>
     <link rel="stylesheet" type="text/css" href="../style.css" />
     <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&family=Noto+Serif:wght@700&family=Roboto+Slab:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Fredericka+the+Great&family=Noto+Serif&family=Roboto&display=swap" rel="stylesheet">
     <title>UB Tutoring Service</title>
 </head>
 
@@ -43,13 +46,17 @@ if (isset($_POST['submit'])){
                 <li><a class="navlink" href="./student-appts.php?user_id=<?php echo $_GET['user_id']; ?>">my appointments</a> </li>
                 <li><a class="navlink" href="./search.php?user_id=<?php echo $row['user_id']; ?>">find a tutor</a> </li>
                 <div class="dropdown">
-                        <li><a class="dropbtn">my progress</a>
-                            <div class="dropdown-content">
+                <li><button onclick="progressclick()" class="dropbtn">my progress</button>
+                            <div id="myDropdown" class="dropdown-content">
                                 <?php 
+                                if (mysqli_num_rows($progress)<1){
+                                    echo "<p class='center'>no progress yet</p>";
+                                }else{
                                 while ($progressInfo = mysqli_fetch_array($progress)){ 
                                     $linkname=$progressInfo['course'];
                                     $link="./student-progress.php?user_id=" . $_GET['user_id'] . "&cid=" . $linkname ; 
                                     echo "<a href=".$link.">".$linkname."</a>";}
+                                }
                                 ?>
                             </div>
                         </li>
@@ -66,7 +73,8 @@ if (isset($_POST['submit'])){
     </div>
     <hr class="hr-navbar">
 
-    <h1 class="welcome-page-title">Your Past Appointments</h1>
+    <h1 class=" modal-title welcome-page-title">Your Past Appointments</h1>
+    <br>
     <?php 
     if (mysqli_num_rows($result2)<1){
         echo "<br><br><br><br><h2 class='center'>No past appointments.</h2>";
@@ -74,9 +82,7 @@ if (isset($_POST['submit'])){
     ?>
     <table class="infoAppt">
     <tr>
-    <th width="10%"></th>
-    <th width="15%">Date</th>
-    <th width="15%">Time</th>
+    <th width="20%">Date</th>
     <th width="20%">Tutor</th>
     <th width="20%">Class</th>
     <th width="10%">Status</th>
@@ -92,16 +98,20 @@ if (isset($_POST['submit'])){
     ?>
 
  
-    <tr><td><form method="post"><input type="hidden" name="id" value=<?php echo $appt['appt_id'];?>><input class="cancel" type="submit" name="submit" value="remove"></form></td>
-        <td><?php echo $appt["day"]; ?></td>
-        <td><?php echo $appt["time"]; ?>:00</td>
+    <tr>
+        <td><?php echo $appt["day"]." "; if($appt["time"]>12){echo $appt["time"]-12 . ":00 PM";}else{echo $appt["time"] . ":00 AM";} ?></td>
         <td><a style="text-decoration: none" class="navlink" href="./tutorprof-student.php?user_id=<?php echo $_GET['user_id']; ?>&tutor_id=<?php echo $tid;?>"><?php echo $tutarray["fname"]; ?> <?php echo $tutarray["lname"]; ?></td>
         <td><?php echo $tutarray["courses"]; ?></td>
         <td><?php echo $appt["status"]; ?></td>
-    <?php
-    if ($appt['status']=="completed"){
-        ?>
-        <td><button onclick="window.location.href = './rate-tutor.php?tutor_id=<?php echo $tutarray['user_id']; ?>&user_id=<?php echo $_GET['user_id'];?>';" class="rate">rate tutor</button><td>
+        <td><div class="cont">
+            <button class="dropbtn2">options</button>
+            <div class="dropdown-content2">
+                <a><form method="post"><input type="hidden" name="id" value=<?php echo $appt['appt_id'];?>><input class="complete" type="submit" name="submit" value="delete"></form></a>
+                <?php if ($appt['status']=="completed"){
+                $link="./rate-tutor.php?user_id=" . $_GET['user_id'] . "&tutor_id=" . $tutarray['user_id'] ; 
+                echo '<a href='.$link.'>rate tutor</a>";';
+                ?>          
+            </div></div></td>
     <?php
     }
     ?>
@@ -111,8 +121,8 @@ if (isset($_POST['submit'])){
         }
     }
     ?>
-
     </table>
+    <br><br><br><br>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="../index.js"></script>

@@ -5,45 +5,65 @@
     $course_arr = mysqli_fetch_array(mysqli_query($conn,"SELECT courses FROM tutors WHERE user_id=$tutor_id;"));
     $course = $course_arr['courses'];
 
+    $incorrect_date = FALSE;
     
     if(count($_POST) > 0){
 
         $allClasses = "";
-        $nextExam= $_POST["nextExam_year"] . "-" . $_POST["nextExam_month"] . "-" . $_POST["nextExam_date"] . " 00:00:00";
+        $nextExam_string= $_POST["nextExam_year"] . "-" . $_POST["nextExam_month"] . "-" . $_POST["nextExam_date"];
+
+
+        $nextExam_date = strtotime($nextExam_string); 
+        $nextExam = date('Y-m-d', $nextExam_date); 
+        
         unset($_POST["nextExam_month"]);
         unset($_POST["nextExam_year"]);
         unset($_POST["nextExam_date"]);
         unset($_POST["submit"]);
-        $flag = FALSE;
-        foreach($_POST as $key => $value){
-            if( strlen($value) > 0 && floatval($value) <=100 && floatval($value) >= 0){
-                $allClasses .= $value .",";
-                $flag = TRUE;
-            }
-        }
-        if($flag == TRUE){
-            $allClasses = substr_replace($allClasses ,"",-1);
-        }
-        
-        $results = mysqli_query($conn, "SELECT * FROM progress WHERE student_id=$student_id AND course=\"$course\";");
-        $count = mysqli_num_rows($results);
-        
-        $sql_query = "";
 
-        if($count > 0){
-            $arr_results = mysqli_fetch_array($results);
-            $prev = $arr_results['grades'];
-            if($flag == TRUE){
-                $prev .= "," . $allClasses;
-            }           
-            $sql_query = "UPDATE progress SET grades=\"$prev\", nextExam=\"$nextExam\" WHERE student_id=$student_id AND course=\"$course\" ;";
+        $todays_date = new DateTime("now", new DateTimeZone('America/New_York') );
+        $formatted_todays_date = $todays_date->format('Y-m-d');
+
+        
+
+        if($formatted_todays_date > $nextExam){
+            $incorrect_date = TRUE;
         }else{
-            $sql_query = "INSERT INTO progress (student_id, course, grades, nextExam) VALUES ($student_id, \"$course\", \"$allClasses\", \"$nextExam\");";
-        }
 
+            $flag = FALSE;
+            foreach($_POST as $key => $value){
+                if( strlen($value) > 0 && floatval($value) <=100 && floatval($value) >= 0){
+                    $allClasses .= $value .",";
+                    $flag = TRUE;
+                }
+            }
+            if($flag == TRUE){
+                $allClasses = substr_replace($allClasses ,"",-1);
+            }
+            
+            $results = mysqli_query($conn, "SELECT * FROM progress WHERE student_id=$student_id AND course=\"$course\";");
+            $count = mysqli_num_rows($results);
+            
+            $sql_query = "";
+
+            if($count > 0){
+                $arr_results = mysqli_fetch_array($results);
+                $prev = $arr_results['grades'];
+                if($flag == TRUE){
+                    $prev .= "," . $allClasses;
+                }           
+                $sql_query = "UPDATE progress SET grades=\"$prev\", nextExam=\"$nextExam\" WHERE student_id=$student_id AND course=\"$course\" ;";
+            }else{
+                $sql_query = "INSERT INTO progress (student_id, course, grades, nextExam) VALUES ($student_id, \"$course\", \"$allClasses\", \"$nextExam\");";
+            }
+
+            
+            mysqli_query($conn, $sql_query);
+            header('Location: student-appts.php?user_id=' . $student_id);
+
+        }
         
-        mysqli_query($conn, $sql_query);
-        header('Location: student-appts.php?user_id=' . $student_id);
+        
     }
 
 $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GET['user_id'] . "'");
@@ -53,8 +73,13 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../style.css" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content ="width=device-width,initial-scale=1,user-scalable=yes" />    <link rel="stylesheet" type="text/css" href="../style.css" >
+    <link rel="stylesheet" type="text/css" href="../style.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&family=Noto+Serif:wght@700&family=Roboto+Slab:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Fredericka+the+Great&family=Noto+Serif&family=Roboto&display=swap" rel="stylesheet">
+    
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <title>UB Tutoring Service</title>
 </head>
@@ -66,13 +91,17 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
             <ul>
                  <li><a class="navlink" href="./student-appts.php?user_id=<?php echo $_GET['user_id']; ?>">my appointments</a> </li>
                     <div class="dropdown">
-                        <li><a class="dropbtn">my progress</a>
-                            <div class="dropdown-content">
+                    <li><button onclick="progressclick()" class="dropbtn">my progress</button>
+                            <div id="myDropdown" class="dropdown-content">
                                 <?php 
+                                if (mysqli_num_rows($progress)<1){
+                                    echo "<p class='center'>no progress yet</p>";
+                                }else{
                                 while ($progressInfo = mysqli_fetch_array($progress)){ 
                                     $linkname=$progressInfo['course'];
                                     $link="./student-progress.php?user_id=" . $_GET['user_id'] . "&cid=" . $linkname ; 
                                     echo "<a href=".$link.">".$linkname."</a>";}
+                                }
                                 ?>
                             </div>
                         </li>
@@ -89,12 +118,20 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
         </div>
 
     </div>
-    <br>
     <hr class="hr-navbar">
-    <br>
-    <h1 class="welcome-page-title">Enter your most recent grades for <?php echo $course;?></h1>
-    <p class="center"> * must be in number format *</p>
-    <div id="student_appointment_div">
+    <br><br><br><br>
+    <div class="modal">
+    <h1 class="modal-title welcome-page-title">Enter your most recent grades for <?php echo $course;?></h1><br>
+    <p class="center"> *must be in number format*</p>
+    <br><br><br>
+
+    
+    <?php if($incorrect_date == TRUE){ ?>
+        <p class="center">Enter a future date.</p>
+    <?php  }?>
+
+    <div id="tutor_signup_div">
+    <div class="modal-input">   
         <form method="post">
             
             <select id="num_of_exams">
@@ -172,9 +209,10 @@ $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GE
             </div>
             
 
-            <input id="student_appt_submit" type="submit" name="submit">
-
+            <input id="log_in_button" type="submit" name="submit">
+        <br><br><br>
         </form>
+    </div>
     </div>
     <script src="../index.js"></script>
 </body>

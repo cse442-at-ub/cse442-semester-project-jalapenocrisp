@@ -1,7 +1,7 @@
 <?php
 $message="";
+include_once "access-db.php";
 if(count($_POST)>0) {
-	$conn = mysqli_connect("tethys.cse.buffalo.edu","nekesame","50278839","cse442_542_2020_spring_teami_db");
 	$result = mysqli_query($conn,"SELECT * FROM students WHERE email='" . $_POST["email"] . "' and paswd = '". $_POST["paswd"]."'");
 	$count  = mysqli_num_rows($result);
 	if($count==0) {
@@ -12,17 +12,16 @@ if(count($_POST)>0) {
         $message = "You are successfully authenticated!";
         $var1=$row['user_id'];
 
-        // KEEP FOLLOWING COMMENTS.. IT WILL BE USED ON SPRINT 4  -syed
-
-        // $results = mysqli_query($conn, "SELECT * FROM progress WHERE student_id=$var1;");
-        // $count = mysqli_num_rows($results);
-        // for($i= 0; $i< count; $i++){
-
-        // }
-        // date_default_timezone_set('America/New_York');
-        // $timezone = date_default_timezone_get();
-
-        header('Location: ./student-appts.php?user_id=' .$var1);
+        
+        $ress2 = mysqli_query($conn, "SELECT complete, cancel from students where user_id=$var1 ;");
+        $arr_ = mysqli_fetch_array($ress2);
+        $num_of_complete = $arr_["complete"];  
+        $num_of_cancel = $arr_["cancel"];
+        if($num_of_complete >= $num_of_cancel){
+            header('Location: ./student-appts.php?user_id=' .$var1);
+        }else{
+            $message= " It seems you cancellation rate is too high <br> You're currently being banned. For more info <a href=\"student-appeal.php?user_id=$var1\"> contact us </a>";
+        }
 	}
 }
 ?>
@@ -31,9 +30,15 @@ if(count($_POST)>0) {
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content ="width=device-width,initial-scale=1,user-scalable=yes" />
+    <title>UB Tutoring</title>
     <link rel="stylesheet" type="text/css" href="../style.css" />
-    <title>UB Tutoring Login</title>
+    <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&family=Noto+Serif:wght@700&family=Roboto+Slab:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Fredericka+the+Great&family=Noto+Serif&family=Roboto&display=swap" rel="stylesheet">
+    <title>UB Tutoring Service</title>
 </head>
 
 <body>
@@ -55,12 +60,16 @@ if(count($_POST)>0) {
             <h2 class="logo"> <a href="../index.html">UBtutoring</a> </h2>
         </div>
     </div>
-    <br>
     <hr class="hr-navbar">
-    <br>
-    <button class="selectButton" onclick="window.location.href = '../create-account.html';">Not Registered? Sign Up Here.</button>
 
-    <h1 class="welcome-page-title">Student Log In</h1>
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="modal">
+    <h1 class="welcome-page-title modal-title">Student Log In</h1>
+    <br> <br>
 
     <div id="tutor_signup_div">
         <form name="frmUser" method='post' action="">
@@ -72,20 +81,26 @@ if(count($_POST)>0) {
             
             } ?> 
         </div> 
+        
+        <div class="modal-input">
 
-            <label for="email">User Email</label>
-            <input class="log_in_input" type="text" id="email" name="email" placeholder="Email">
+            <label for="email">Email</label>
+            <input class="log_in_input" type="text" id="email" name="email" placeholder="email" autofocus>
 
             <label for="password">Password</label>
-            <input class="log_in_input" type="password" id="password" name="paswd">
+            <input class="log_in_input" type="password" id="password" name="paswd" placeholder="password">
             
             <input id="log_in_button" name="submit" type="submit" value="Submit">
             <br>
             <br>
             <br>
-            <a href="user-forgot-student.html" id="forgot_link_id"> forgot password? </a>
+            <a href="user-forgot-student.php" id="forgot_link_id"> forgot password? </a>
+            <br><br>
         </form>
     </div>
+    
+    </div>
+    <!-- <button class="selectButton" onclick="window.location.href = '../create-account.html';">Register</button> -->
 
     <script src="../index.js"></script>
     

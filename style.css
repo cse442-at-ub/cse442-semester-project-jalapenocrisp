@@ -1,15 +1,25 @@
 :root {
-    --teal: #b1cddd;
-    --yellow: #cbcaa5;
-    --black: #000000;
+    --teal: #5CDB95;
+    --yellow: #EDF5E1;
+    --blue: #05386B;
 }
 
 body {
     background-color: var(--teal);
-    color: black;
+    color: var(--yellow);
+    background-repeat: no-repeat;
+    background: linear-gradient( rgba(20, 20, 20, .9), rgba(20, 20, 20, .9)), url(ub-banner.jpg);
+    background-size: cover;
 }
 
-.aboutButton{
+.page-card {
+    width: 80%;
+    height: 80%;
+    background-color: rgba(0, 0, 0, 0.342);
+    margin: auto;
+}
+
+.aboutButton {
     width: 50%;
     margin-top: 2%;
     display: block;
@@ -19,31 +29,95 @@ body {
     padding: 5px;
     font-size: 24px;
     background-color: white;
-    cursor: pointer;        
+    cursor: pointer;
     border: none;
+    font-size: 20px;
     color: black;
+    font-family: 'Roboto', sans-serif;
 }
-.about{
+
+.about {
     padding-top: 50px;
 }
+
+.create-acct-buttons {
+    margin-top: 80px;
+    text-align: center;
+}
+
+
 /* styling for the welcome page */
+
+.welcome-page-content {
+    width: 60%;
+    height: 40%;
+    margin: auto;
+    padding-top: 50px;
+    text-align: center;
+}
+
+.new-login-btn {
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    color: black;
+    border: solid 1px black;
+    background: white;
+    border-radius: 3px;
+    transition: .4s;
+    width: 30%;
+}
+.selectButton {
+    display: block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    color: black;
+    margin-left: auto;
+    margin-right: auto;
+    border: solid 1px black;
+    background: white;
+    border-radius: 3px;
+    transition: .4s;
+    width: 30%;
+}
+
+.new-login-btn:hover {
+    background: rgb(0, 0, 131);
+    color: #FFF;
+}
 
 .welcome-page-title {
     text-align: center;
     margin: auto;
-    padding-top: 80px;
+    padding-top: 20px;
+    font-family: 'Barlow Condensed', sans-serif;
+    color: var(--teal);
+    font-size: 70px;
+}
+
+.welcome-text {
+    display: inline-block;
+    margin: 0;
+    width: 75%;
+    padding-top: 30px;
+    font-size: 20px;
+    color: white;
+}
+
+.welcome-text p {
+    font-family: 'Roboto', sans-serif;
 }
 
 hr.hr-navbar {
-    border-top: .5px solid black;
+    border-top: .5px solid white;
 }
 
-.bottompad{
+.bottompad {
     padding-bottom: 100px;
 }
 
 .welcome-page-buttons {
-    width: 25%;
+    width: 40%;
     background-color: white;
     border: none;
     border-radius: 8px;
@@ -59,34 +133,38 @@ hr.hr-navbar {
 
 .route-buttons {
     display: flex;
-    justify-content: center;
-    margin-top: 200px;
+    justify-content: space-evenly;
+    margin-top: 150px;
 }
 
-.welcome-page-buttons:hover, .aboutButton:hover {
-    background-color: rgb(0, 0, 131);
+.welcome-page-buttons:hover,
+.aboutButton:hover {
     color: white;
+    background-color: rgb(0, 0, 131);
 }
 
 .navlink:hover,
 .dropbtn:hover {
-    color: blue;
+    color: var(--teal);
 }
-.centerp{
+
+.centerp {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;    
+    width: 80%;
+    color: white;
+    font-family: 'Roboto', sans-serif;
 }
 
 .logo a {
-    color: black;
-    font-family: sans-serif;
+    color: white;
+    font-family: 'Fredericka the Great', cursive;
     text-decoration: none;
 }
 
 .logo a:hover {
-    color: blue;
+    color: var(--teal);
 }
 
 .header {
@@ -94,31 +172,81 @@ hr.hr-navbar {
 }
 
 .menu_welcomePage {
-    font-family: "Alatsi", sans-serif;
+    font-family: 'Roboto', sans-serif;
     float: right;
 }
 
 ul li {
     display: inline;
-    padding: 30px;
+    padding: 10px;
 }
 
 ul li a {
-    color: black;
+    color: white;
     text-decoration: none;
+    font-family: 'Roboto', sans-serif;
 }
 
 ul li a:hover {
     text-decoration: underline;
 }
 
+.selectButton-wide {
+    width: 30%;
+    margin-top: 2%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px;
+    font-size: 16px;
+    background-color: white;
+    cursor: pointer;
+    border: none;
+    color: black;
+}
+
+
+/* styling for the list of tutors table */
+
+.list-of-tutors-table table {
+    margin: auto;
+}
+
 
 /*-------------------- styling for the tutor signup page */
+
+.modal {
+    height: 60%;
+    background-color: rgba(0, 0, 0, 0.342);
+    width: 70%;
+    margin: auto;
+    text-align: center;
+    text-align: center;
+}
+
+.modal-input input {
+    border: 0;
+    border-bottom: 1px solid rgb(143, 141, 141);
+    background: transparent;
+    width: 100%;
+    padding: 8px 0 5px 0;
+    padding-left: 10px;
+    font-size: 16px;
+    color: #fff;
+}
+
+.modal-title {
+    font-size: 45px;
+}
+.modal-title-h2{
+    font-size: 30px;
+
+}
 
 .log_in_input,
 .sign_up_input {
     width: 100%;
-    padding: 12px;
+    padding: 8px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
@@ -131,13 +259,12 @@ ul li a:hover {
 }
 
 input[type="submit"]:hover {
-    background-color: blue;
+    background-color: var(--teal);
     color: white;
 }
 
 #tutor_signup_div {
     border-radius: 5px;
-    margin-top: 5%;
     margin-left: 20%;
     margin-right: 20%;
 }
@@ -146,33 +273,35 @@ input[type="submit"]:hover {
 #log_in_button {
     display: inline-block;
     border: 0px solid #ccc;
-    margin-top: 10px;
-    background-color: blue;
-    color: white;
+    margin-top: 60px;
+    background-color: white;
+    color: black;
     width: 100%;
-    padding: 12px;
 }
 
 #tutor_signup_submit:hover,
 #log_in_button:hover {
     background-color: rgb(0, 0, 131);
+    color: white;
 }
 
 #forgot_link_id {
-    color: black;
+    color: white;
     font-weight: bold;
+    font-family: 'Roboto', sans-serif;
 }
 
 .message {
     color: red;
     font-size: larger;
+    display: block;
 }
 
 
 /* search style */
-
+/* 
 .selectButton {
-    width: 15%;
+    width: 30%;
     margin-top: 2%;
     display: block;
     margin-left: auto;
@@ -184,7 +313,7 @@ input[type="submit"]:hover {
     cursor: pointer;
     border: none;
     color: black;
-}
+} */
 
 .selectButton:hover,
 .calendarView:hover,
@@ -194,7 +323,7 @@ input[type="submit"]:hover {
 }
 
 .selectButton2 {
-    width: 20%;
+    width: 30%;
     margin-top: 2%;
     display: block;
     margin-left: auto;
@@ -209,7 +338,7 @@ input[type="submit"]:hover {
 }
 
 .delButton {
-    width: 15%;
+    width: 30%;
     margin-top: 2%;
     display: block;
     margin-left: auto;
@@ -228,11 +357,11 @@ input[type="submit"]:hover {
 }
 
 .info {
-    font-size: larger;
-    width: 960px;
-    margin-left: auto;
+    font-size: medium;
+    width: 60%;
+    margin-left: 30%;
     margin-right: auto;
-    text-align: center;
+    text-align: left;
 }
 
 .info td {
@@ -240,7 +369,7 @@ input[type="submit"]:hover {
 }
 
 .info1 {
-    font-size: larger;
+    font-size: medium;
     width: 50%;
     margin-left: 25%;
     margin-right: 25%;
@@ -257,7 +386,7 @@ input[type="submit"]:hover {
 }
 
 .calendarView {
-    width: 15%;
+    width: 30%;
     margin-top: 2%;
     display: block;
     margin-left: auto;
@@ -288,7 +417,17 @@ input[type="submit"]:hover {
 }
 
 .input1 {
-    width: 50%;
+    width: 100%;
+    padding: 6px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 1px;
+    box-sizing: border-box;
+}
+
+.input2 {
+    width: 70%;
     padding: 12px;
     margin: 8px 0;
     display: inline-block;
@@ -438,30 +577,45 @@ input[type="submit"]:hover {
 /* styling for student appt page */
 
 .infoAppt {
+    width: 60%;
     padding-top: 100px;
     font-size: larger;
-    width: 70%;
-    margin-left: 15%;
-    margin-right: 15%;
     text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .infoAppt td {
     height: 50px;
+    font-size: small;
 }
 
 .cancel {
-    width: 50px;
+    width: 20px;
+    height: 20px;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    border-radius: 4px;
+    border-radius: 10px;
     padding: 2px;
     font-size: 11px;
-    background-color: rgb(112, 109, 109);
+    background-color: black;
     cursor: pointer;
     border: none;
     color: white;
+}
+
+.claim {
+    width: 100%;
+    height: 40px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2px;
+    font-size: 16px;
+    background-color: lightblue;
+    cursor: pointer;
+    border: none;
 }
 
 .center {
@@ -470,7 +624,7 @@ input[type="submit"]:hover {
 }
 
 .rate {
-    width: 80px;
+    width: 40px;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -483,18 +637,34 @@ input[type="submit"]:hover {
     color: black;
 }
 
+.verify {
+    padding-left: 10px;
+    color: red;
+    text-decoration: none;
+}
+
+.verify:hover {
+    color: rgb(131, 11, 11);
+    cursor: pointer;
+    text-decoration: underline;
+}
+
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ profile styling ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 .score:hover {
-    color: blue;
+    color: var(--teal);
 }
 
 .profilePicture {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
     border-radius: 50%;
-    width: 10%;
-    height: 20%;
-    margin-left: 45%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 5px solid white;
 }
 
 .contact-tutor-btn:link,
@@ -513,21 +683,187 @@ input[type="submit"]:hover {
     background-color: gray;
 }
 
+
 /* style for my progress dropdowns */
+
+
 /* Dropdown Content (Hidden by Default) */
+
 .dropbtn {
-    color: black;
+    background: none;
+    border: none;
+    margin: 0;
+    color: white;
     padding: 0px;
     font-size: 16px;
+    cursor: pointer;
+}
+.complete{
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 0px;
+
+}
+
+/* The container <div> - needed to position the dropdown content */
+
+.dropdown {
+    font-family: "Alatsi", sans-serif;
+}
+
+
+/* The container <div> - needed to position the dropdown content */
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+
+/* Links inside the dropdown */
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+
+/* Change color of dropdown links on hover */
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1
+}
+
+
+/* Show the dropdown menu on hover */
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.show {
+    display: block;
+}
+
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~student appt styling ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+#student_appt_info_header {
+    text-align: center;
+    font-size: 160%;
+    margin: auto;
+    padding-top: 20px;
+}
+
+#student_appointment_div {
+    background-color: #f2f2f2;
+    width: 50%;
+    padding: 20px;
+    margin: auto;
+    margin-top: 30px;
+}
+
+.exam_student_input {
+    width: 100%;
+    text-align: left;
+    display: block;
+    height: 40px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+#num_of_exams {
+    width: 100%;
+    text-align: left;
+    display: block;
+    height: 40px;
+}
+
+
+#student_appt_submit:hover {
+    background-color: var(--teal);
+}
+
+#student_appointment_label {
+    text-align: left;
+    display: block;
+    margin-top: 20px;
+}
+
+#student_appointment_div2 {
+    width: 100%;
+    margin-top: 30px;
+    display: inline-block;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ chat css ~~~~~~~~~~~~~~~~~~~~~~~~ */
+   
+  .cont{
+      width: 60%;
+      margin-left: auto;
+      margin-right: auto;
+  }
+.chatcont{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ end student appt styling ~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+
+/* styling for the list of tutor page */
+
+
+/* table styling */
+
+.tutortable
+ {
+    /* border: 1px solid black; */
+    font-size: 16px;
+    width: 70%;
+}
+
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ end student appt styling ~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+
+
+/*styling for contact tutor button */
+
+.contact-button {
+    width: 100%;
+}
+.dropbtn2 {
+    width: 100px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 2px;
+    font-size: 16px;
+    border: none;
     cursor: pointer;
   }
   
   /* The container <div> - needed to position the dropdown content */
-  .dropdown {
-    position: relative;
-    display: inline-block;
+  .cont{
+    width: 10%;
+    margin-left: auto;
+    margin-right: auto;
   }
-.dropdown-content {
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content2 {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
@@ -537,90 +873,50 @@ input[type="submit"]:hover {
   }
   
   /* Links inside the dropdown */
-  .dropdown-content a {
+  .dropdown-content2 a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
-    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;    
+
   }
   
   /* Change color of dropdown links on hover */
-  .dropdown-content a:hover {background-color: #f1f1f1}
+  .dropdown-content2 a:hover {
+      background-color: #f1f1f1;}
+      /* margin-left: auto;
+      margin-right: auto;
+      display: block;
+    } */
   
   /* Show the dropdown menu on hover */
-  .dropdown:hover .dropdown-content {
+  .cont:hover .dropdown-content2 {
     display: block;
   }
+  
+  /* Change the background color of the dropdown button when the dropdown content is shown */
+  .cont:hover .dropbtn2 {
+    background-color: #3e8e41;
+  }
+  hr.divider {
+    border-top: 1px solid white;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 
-
-/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~student appt styling ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-
-#student_appt_info_header{
-    text-align: center;
-    font-family: 'Open Sans';
-    font-size:160%;
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ student appeal styling ~~~~~~~~~~~~~~~~~~~~~~~~ */
+#appeal_reason {
     margin: auto;
+    width: 100%;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 10px;
     padding-top: 20px;
-}
-
-#student_appointment_div{
-    background-color: #f2f2f2;
-    width: 50%;
-    padding: 20px;
-    margin: auto;
-    margin-top: 30px;
-}
-
-.exam_student_input{
-    width: 100%;
-    text-align: left;
-    font-family: 'Open Sans';
-    font-size: 14px;
-    display: block;
-    height: 20px;
-    margin-bottom: 5px;
-    margin-top: 5px;
-}
-
-#num_of_exams{
-    width: 100%;
-    text-align: left;
-    font-family: 'Open Sans';
-    font-size: 14px;
-    display: block;
-    height: 20px;
-}
-
-#student_appt_submit{
-    width: 100%;
-    font-family: 'Open Sans';
-    font-size: 16px;
-    text-align: center;
-    background-color: rgb(0, 63, 99);
-    color: #b1cdd0;
-    height: 30px;
-    margin-top: 5px;
     display: block;
 }
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ end student appeal styling ~~~~~~~~~~~~~~~~~~~~~~~~ */
 
-#student_appt_submit:hover {
-    background-color: #005eac;
-}
-
-#student_appointment_label{
-    text-align: left;
-    font-family: 'Open Sans';
-    font-size: 14px;
-    display: block;
-    margin-top: 20px;
-}
-
-#student_appointment_div2{
-    width: 100%;
-    margin-top: 30px;
-    display: inline-block;
-    
-}
-
-/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ end student appt styling ~~~~~~~~~~~~~~~~~~~~~~~~ */

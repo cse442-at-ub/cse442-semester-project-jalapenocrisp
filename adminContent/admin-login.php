@@ -1,16 +1,14 @@
 <?php
 $message="";
-include_once "access-db.php";
+include_once "../access-db.php";
 if(count($_POST)>0) {
-	$result = mysqli_query($conn,"SELECT * FROM tutors WHERE email='" . $_POST["email"] . "' and paswd = '". $_POST["paswd"]."'");
+	$result = mysqli_query($conn,"SELECT * FROM admin WHERE username='" . $_POST["email"] . "' and password = '". $_POST["paswd"]."'");
 	$count  = mysqli_num_rows($result);
 	if($count==0) {
-		$message = "Invalid email or password!";
+		$message = "Invalid request.";
 	} else {
-        $row = mysqli_fetch_array($result);
-        $message = "You are successfully authenticated!";
-        $var1=$row['user_id'];
-        header('Location: ./tutor-appts.php?user_id=' .$var1);
+
+        header('Location: ./admin-home.php');
 	}
 }
 ?>
@@ -35,14 +33,7 @@ if(count($_POST)>0) {
     <div class="header">
         <div class="menu_welcomePage">
             <ul>
-                <!-- the line of code commented below is important when we upload the work on a server. for now, i'm using an alternative below -->
-                <!-- <li><a href="javascript:loadPage('./login.php')">login</a> </li> -->
-                <li>
-                    <a class="navlink" href="../create-account.html">create account</a> </li>
-                <li>
-                    <a class="navlink" href="../index.html">home</a> </li>
-       
-
+                <li><a class="navlink" href="../index.html">home</a> </li>
             </ul>
         </div>
 
@@ -52,15 +43,13 @@ if(count($_POST)>0) {
     </div>
     <hr class="hr-navbar">
 
-    
-    <br>
     <br>
     <br>
     <br>
     <div class="modal">
-    <h1 class="welcome-page-title modal-title">Tutor Log In</h1>
-    <br><br>
 
+    <h1 class="welcome-page-title modal-title">Administrator Login</h1>
+<br><br>
     <div id="tutor_signup_div">
         <form name="frmUser" method='post' action="">
 
@@ -71,11 +60,10 @@ if(count($_POST)>0) {
             
             } ?> 
         </div> 
-           
-            <div class="modal-input">
+        <div class="modal-input">
 
-            <label for="email">User Email</label>
-            <input class="log_in_input" type="text" id="email" name="email" placeholder="email" autofocus>
+            <label for="email">Admin Username</label>
+            <input class="log_in_input" type="text" id="email" name="email" placeholder="username" autofocus>
 
             <label for="password">Password</label>
             <input class="log_in_input" type="password" id="password" name="paswd" placeholder="password">
@@ -84,17 +72,12 @@ if(count($_POST)>0) {
             <br>
             <br>
             <br>
-            <a href="user-forgot.php" id="forgot_link_id"> forgot password? </a>
-            <br>
-            <br>
-            </div>
-
         </form>
+        </div>
     </div>
     </div>
-    
-    <!-- <button class="selectButton" onclick="window.location.href = './tutor-signup.php';">Register</button> -->
-    <br><br>
+
+
     <script src="../index.js"></script>
     
 </body>
