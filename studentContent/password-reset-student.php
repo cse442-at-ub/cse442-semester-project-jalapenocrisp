@@ -34,7 +34,8 @@ if(count($_POST)>0) {
     <link rel="stylesheet" type="text/css" href="../style.css" />
     <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <title>UB Tutoring Service</title>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&family=Noto+Serif:wght@700&family=Roboto+Slab:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Fredericka+the+Great&family=Noto+Serif&family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
 <div class="header">
@@ -51,23 +52,27 @@ if(count($_POST)>0) {
     </div>
     <hr class="hr-navbar">
 
-<h1 class="welcome-page-title">Password Reset</h1>
+<h1 class="modal-title welcome-page-title">Password Reset</h1>
     
     
     <div id="tutor_signup_div">
     <form class = "info1" name="frmUser" method="post" action="">
+    <div class="modal-input">
+
     <div class="message"><?php if(isset($message)) { echo $message; } ?>
         </div>
         <div style="padding-bottom:5px;">
     </div>
         Password:<br>
         <label>Requires at least 8 characters, 1 uppercase, 1 lowercase, 1 special character and 1 number.</label>
-        <input type="password" name="paswd" class="input1" placeholder="password" autofocus>
+        <input type="password" name="paswd" class="log_in_input" placeholder="password" autofocus>
         <br>
         <br>
         Confirm password:<br>
-        <input type="password" name="paswd2" class="input1" placeholder="confirm password" autofocus>
+        <input type="password" name="paswd2" class="log_in_input" placeholder="confirm password" autofocus>
         <br>
         <br>
         <input id="tutor_signup_submit" type="submit" name="submit" value="Save" class="button">
+</div>
     </form>
+</div>

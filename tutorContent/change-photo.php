@@ -23,7 +23,6 @@ if (isset($_POST['submit'])) {
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content ="width=device-width,initial-scale=1,user-scalable=yes" />
     <title>UB Tutoring</title>
     <link rel="stylesheet" type="text/css" href="../style.css" />
     <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
@@ -37,8 +36,6 @@ if (isset($_POST['submit'])) {
 
         <div class="menu_welcomePage">
             <ul>
-                <li><a class="navlink" href="./tutor-appts.php?user_id=<?php echo $_GET['user_id']; ?>">appointments</a> </li>
-                <li><a class="navlink" href="./tutorprof.php?user_id=<?php echo $_GET['user_id']; ?>">profile</a> </li>
                 <li><a class="navlink" href="../index.html">logout</a> </li>
 
             </ul>

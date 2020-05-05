@@ -117,7 +117,7 @@ hr.hr-navbar {
 }
 
 .welcome-page-buttons {
-    width: 40%;
+    width: 25%;
     background-color: white;
     border: none;
     border-radius: 8px;
@@ -246,7 +246,7 @@ ul li a:hover {
 .log_in_input,
 .sign_up_input {
     width: 100%;
-    padding: 8px;
+    padding: 12px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
@@ -265,6 +265,7 @@ input[type="submit"]:hover {
 
 #tutor_signup_div {
     border-radius: 5px;
+    margin-top: 5%;
     margin-left: 20%;
     margin-right: 20%;
 }
@@ -294,14 +295,13 @@ input[type="submit"]:hover {
 .message {
     color: red;
     font-size: larger;
-    display: block;
 }
 
 
 /* search style */
 /* 
 .selectButton {
-    width: 30%;
+    width: 15%;
     margin-top: 2%;
     display: block;
     margin-left: auto;
@@ -323,7 +323,7 @@ input[type="submit"]:hover {
 }
 
 .selectButton2 {
-    width: 30%;
+    width: 20%;
     margin-top: 2%;
     display: block;
     margin-left: auto;
@@ -338,7 +338,7 @@ input[type="submit"]:hover {
 }
 
 .delButton {
-    width: 30%;
+    width: 15%;
     margin-top: 2%;
     display: block;
     margin-left: auto;
@@ -369,7 +369,7 @@ input[type="submit"]:hover {
 }
 
 .info1 {
-    font-size: medium;
+    font-size: larger;
     width: 50%;
     margin-left: 25%;
     margin-right: 25%;
@@ -386,7 +386,7 @@ input[type="submit"]:hover {
 }
 
 .calendarView {
-    width: 30%;
+    width: 15%;
     margin-top: 2%;
     display: block;
     margin-left: auto;
@@ -580,23 +580,22 @@ input[type="submit"]:hover {
     width: 60%;
     padding-top: 100px;
     font-size: larger;
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
     text-align: center;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .infoAppt td {
     height: 50px;
-    font-size: small;
 }
 
 .cancel {
-    width: 20px;
-    height: 20px;
+    width: 50px;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    border-radius: 10px;
+    border-radius: 4px;
     padding: 2px;
     font-size: 11px;
     background-color: black;
@@ -624,7 +623,7 @@ input[type="submit"]:hover {
 }
 
 .rate {
-    width: 40px;
+    width: 80px;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -779,7 +778,7 @@ input[type="submit"]:hover {
     width: 100%;
     text-align: left;
     display: block;
-    height: 40px;
+    height: 20px;
     margin-bottom: 5px;
     margin-top: 5px;
 }
@@ -788,7 +787,7 @@ input[type="submit"]:hover {
     width: 100%;
     text-align: left;
     display: block;
-    height: 40px;
+    height: 20px;
 }
 
 

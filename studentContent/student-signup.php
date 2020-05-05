@@ -1,61 +1,8 @@
-<?php
-   include_once "access-db.php";
-   
-   $message="";
-
-   if(count($_POST)>0) {
-       $fname=$_POST['fname'];
-       $lname=$_POST['lname'];
-       $email=$_POST['email'];
-       $pass=$_POST['paswd'];
-       $title=$_POST['title'];
-       $phone=$_POST['phone'];
-       $pass2=$_POST['paswd2'];
-       $carrier=$_POST["carrier"];
-
-       $result = mysqli_query($conn,"SELECT * FROM students WHERE email='" . $_POST["email"] . "'");
-       $count  = mysqli_num_rows($result);
-
-       if(empty($fname) || empty($lname)){
-           $message="Please enter a first and last name.";
-       }else if ((strpos( $email, '@buffalo.edu' ) === false)){
-           $message="Please enter a valid UB email address.";
-       }else if($count>0){
-           $message="Email address is already in use.";
-       }else if(!preg_match('(^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])\S*$)', $pass)){
-           $message="Please enter a valid password.";
-       }else if($pass!=$pass2){
-           $message="Passwords do not match!";
-       }else if (strlen($phone)!=10){
-           $message="Please input a 10 digit phone number.";
-       }else if (!$title){
-           $message="Please choose an academic level.";    
-       }else if (!$carrier){
-           $message="Please choose a carrier.";
-       }else{
-           $sql = "INSERT INTO students (fname, lname, email, paswd, title, phone, carrier) VALUES (?,?,?,?,?,?,?)";
-           $stmt= $conn->prepare($sql);
-           $stmt->bind_param("sssssss", $fname, $lname, $email, $pass, $title, $phone, $carrier);
-           $stmt->execute();
-
-           $result1 = mysqli_query($conn,"SELECT * FROM students WHERE email='" . $_POST["email"] . "'");
-           $row=mysqli_fetch_array($result1);
-           $userid=$row['user_id'];
-
-           header('Location: ./verify-text-student.php?user_id=' .$userid);
-
-       }
-   }
-                     
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content ="width=device-width,initial-scale=1,user-scalable=yes" />
-    <title>UB Tutoring</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../style.css" />
     <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -86,6 +33,7 @@
         </div>
 
     </div>
+    <br>
     <hr class="hr-navbar">
 
     <h1 class="modal-title welcome-page-title">Student Sign Up</h1>
@@ -96,6 +44,7 @@
         <form method="post" action="">
             <label>Fields marked * must be filled in order to create an account.</label>
             <br>
+            <br>
             <div class="message">
     
                 <?php 
@@ -104,7 +53,8 @@
         
                     } ?> 
             </div> 
-
+            <br>
+            <br>
             <label for="fname">First Name *</label>
 
             <input class="sign_up_input" type="text"  id= "fname" name="fname" placeholder="first name" autofocus>
@@ -167,4 +117,36 @@
 
     </body>
     </html>
+    
+    <?php
+    $message="";
 
+    include_once "access-db.php";
+
+    if(count($_POST)>0) {
+        $fname=$_POST['fname'];
+        $lname=$_POST['lname'];
+        $email=$_POST['email'];
+        $pass=$_POST['paswd'];
+
+        $result = mysqli_query($conn,"SELECT * FROM students WHERE email='" . $_POST["email"] . "'");
+        $count  = mysqli_num_rows($result);
+
+        if(empty($fname) || empty($lname)){
+            $message="Please enter a first and last name.";
+        }else if ((strpos( $email, '@buffalo.edu' ) === false)){
+            $message="Please enter a valid UB email address.";
+        }else if($count>0){
+            $message="Email address is already in use.";
+        }else if(!preg_match('(^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])\S*$)', $pass)){
+            $message="Please enter a valid password.";
+        }else{
+            $sql = "INSERT INTO students (fname, lname, email, paswd) VALUES (?,?,?,?)";
+            $stmt= $conn->prepare($sql);
+            $stmt->bind_param("ssss", $fname, $lname, $email, $pass);
+            $stmt->execute();
+            header('Location: ./login-student.php');
+        }
+    }
+                      
+?>

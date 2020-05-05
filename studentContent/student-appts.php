@@ -34,7 +34,6 @@ while($arr_exam_result = mysqli_fetch_array($next_exam_result)){
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content ="width=device-width,initial-scale=1,user-scalable=yes" />
     <title>UB Tutoring</title>
     <link rel="stylesheet" type="text/css" href="../style.css" />
     <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
@@ -65,17 +64,13 @@ while($arr_exam_result = mysqli_fetch_array($next_exam_result)){
                 
                 <li><a class="navlink" href="./search.php?user_id=<?php echo $row['user_id']; ?>">find a tutor</a> </li>
                 <div class="dropdown">
-                        <li><button oncli1ck="progressclick()" class="dropbtn">my progress</button>
-                            <div id="myDropdown" class="dropdown-content">
+                        <li><a class="dropbtn">my progress</a>
+                            <div class="dropdown-content">
                                 <?php 
-                                if (mysqli_num_rows($progress)<1){
-                                    echo "<p class='center'>no progress yet</p>";
-                                }else{
                                 while ($progressInfo = mysqli_fetch_array($progress)){ 
                                     $linkname=$progressInfo['course'];
                                     $link="./student-progress.php?user_id=" . $_GET['user_id'] . "&cid=" . $linkname ; 
                                     echo "<a href=".$link.">".$linkname."</a>";}
-                                }
                                 ?>
                             </div>
                         </li>

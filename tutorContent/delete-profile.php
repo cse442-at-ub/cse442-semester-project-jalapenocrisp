@@ -28,7 +28,6 @@ if(count($_POST)>0) {
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content ="width=device-width,initial-scale=1,user-scalable=yes" />
     <title>UB Tutoring</title>
     <link rel="stylesheet" type="text/css" href="../style.css" />
     <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
@@ -36,6 +35,7 @@ if(count($_POST)>0) {
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&family=Noto+Serif:wght@700&family=Roboto+Slab:wght@900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Fredericka+the+Great&family=Noto+Serif&family=Roboto&display=swap" rel="stylesheet">
 </head>
+
 <body class="main-container">
 
     <div class="header">

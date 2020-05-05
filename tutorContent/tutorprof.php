@@ -2,7 +2,6 @@
 include_once "access-db.php";
 $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['user_id'] . "'");
 $row = mysqli_fetch_array($result);
-$uid=$_GET['user_id'];
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +10,6 @@ $uid=$_GET['user_id'];
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content ="width=device-width,initial-scale=1,user-scalable=yes" />
     <title>UB Tutoring</title>
     <link rel="stylesheet" type="text/css" href="../style.css" />
     <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
@@ -22,7 +20,6 @@ $uid=$_GET['user_id'];
     
     <title>UB Tutoring Service</title>
 </head>
-
 <body class="main-container">
 
     <div class="header">
@@ -49,9 +46,7 @@ $uid=$_GET['user_id'];
     <?php
     if ($row['user_image']){
      echo '<img class="profilePicture" src="data:image/jpeg;base64,'. $row['user_image'] .'"/>';
-    }else{
-        echo '<img class="profilePicture" src="user-default.jpg" alt="you">';
-       }
+    }
     ?>    
     
     <br>
@@ -105,7 +100,7 @@ $uid=$_GET['user_id'];
     <tr><td>Email: </td><td><?php echo $row["email"]; ?></td></tr>
     <tr><td>Course: </td><td><?php echo $row["courses"]; ?></td></tr>
     <tr><td>Rating: </td><td><?php echo $row["rank"]; ?></td></tr>
-    <tr><td class="score" title="The number of tutoring hours you have completed.">Score: </td><td><?php echo $row["score"]; ?></td></tr>
+    <tr><td class="score" title="The number of tutoring hours this tutor has completed.">Score: </td><td><?php echo $row["score"]; ?></td></tr>
     
     </table>
 

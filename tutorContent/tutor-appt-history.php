@@ -22,7 +22,6 @@ if (isset($_POST['submit'])){
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content ="width=device-width,initial-scale=1,user-scalable=yes" />
     <title>UB Tutoring</title>
     <link rel="stylesheet" type="text/css" href="../style.css" />
     <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
@@ -69,6 +68,7 @@ if (isset($_POST['submit'])){
     <th width="30%">Student</th>
     <th width="20%">Class</th>
     <th width="10%">Status</th>
+    <th width="10%"></th>
     </tr>
 
     <?php

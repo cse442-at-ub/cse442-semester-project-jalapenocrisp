@@ -10,8 +10,6 @@ if(count($_POST)>0) {
     $title=$_POST['title'];
     $courses=$_POST['courses'];                        
     $pass=$_POST['paswd'];
-    $pass2=$_POST['paswd2'];
-    $carrier=$_POST["carrier"];
 
     $uid=$_GET['user_id'];
 
@@ -21,8 +19,8 @@ if(count($_POST)>0) {
         $message="Please enter a valid UB email address.";
     }else if(!preg_match('(^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])\S*$)', $pass)){
         $message="Please enter a valid password.";
-    }else if($pass!=$pass2){
-        $message="Passwords do not match.";
+    }else if (strlen($phone)!=12){
+        $message="Please input phone number as 555-555-5555.";
     }else{
         mysqli_query($conn,"UPDATE tutors SET fname='" . $_POST['fname'] . "', lname='" . $_POST['lname'] . "', phone='" . $_POST['phone'] . "' ,title='" . $_POST['title'] . "' , email='" . $_POST['email'] . "', courses='" . $_POST['courses'] . "', paswd='" . $_POST['paswd'] . "' WHERE user_id='" . $_GET['user_id'] . "'"); 
         header('Location: ./tutorprof.php?user_id=' .$uid);
@@ -36,10 +34,10 @@ $row= mysqli_fetch_array($result);
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content ="width=device-width,initial-scale=1,user-scalable=yes" />
     <title>UB Tutoring</title>
     <link rel="stylesheet" type="text/css" href="../style.css" />
     <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
@@ -53,9 +51,8 @@ $row= mysqli_fetch_array($result);
             <ul>
                 <!-- the line of code commented below is important when we upload the work on a server. for now, i'm using an alternative below -->
                 <!-- <li><a href="javascript:loadPage('./login.php')">login</a> </li> -->
-                <li><a class="navlink" href="./tutor-appts.php?user_id=<?php echo $_GET['user_id']; ?>">appointments</a> </li>
-                <li><a class="navlink" href="./tutorprof.php?user_id=<?php echo $_GET['user_id']; ?>">profile</a> </li>
-                <li><a class="navlink" href="../index.html">logout</a> </li>
+                <li>
+                    <a class="navlink" href="../index.html">logout</a> </li>
 
             </ul>
         </div>
@@ -72,7 +69,7 @@ $row= mysqli_fetch_array($result);
 
 <form class = "info1" name="frmUser" method="post" action="">
 
-<div class="message"><?php if(isset($message)) { echo $message; } ?>
+<div><?php if(isset($message)) { echo $message; } ?>
 </div>
 <div style="padding-bottom:5px;">
 </div>
@@ -86,7 +83,7 @@ Last Name:<br>
 <br>
 Level:<br>
 <select class="input1" name="title" id= "title">
-    <option selected><?php echo $row['title']; ?></option>
+    <option selected="<?php echo $row['title']; ?>"></option>
     <option value="Undergraduate">Undergraduate</option>
     <option value="Graduate">Graduate</option>
     <option value="Postgraduate">Postgraduate</option>
@@ -99,7 +96,7 @@ Email:<br>
 Course:<br>
 
 <select class="input1" name="courses" id= "courses">
-                <option selected><?php echo $row['courses']; ?></option>
+                <option selected="choose one"></option>
                 <option value="CSE115">CSE115</option>
                 <option value="CSE116">CSE116</option>
                 <option value="CSE220">CSE220</option>
@@ -149,7 +146,9 @@ Course:<br>
 </select>
 <br>
 Password:<br>
+
 <input type="password" name="paswd" class="input1" value="<?php echo $row['paswd']; ?>">
+
 <br>
 Confirm password:<br>
 <input type="password" name="paswd2" class="input1" value="<?php echo $row['paswd']; ?>">

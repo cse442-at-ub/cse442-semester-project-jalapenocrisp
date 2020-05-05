@@ -5,7 +5,6 @@ $result = mysqli_query($conn,"SELECT * FROM tutors WHERE user_id='" . $_GET['tut
 
 $progress= mysqli_query($conn,"SELECT * FROM progress WHERE student_id='" . $_GET['user_id'] . "'");
 
-$row = mysqli_fetch_array($result);
 
 ?>
 
@@ -15,7 +14,6 @@ $row = mysqli_fetch_array($result);
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content ="width=device-width,initial-scale=1,user-scalable=yes" />
     <title>UB Tutoring</title>
     <link rel="stylesheet" type="text/css" href="../style.css" />
     <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
@@ -39,22 +37,17 @@ $row = mysqli_fetch_array($result);
                 <li><a class="navlink" href="./student-appts.php?user_id=<?php echo $_GET['user_id']; ?>">my appointments</a> </li>
                 <li><a class="navlink" href="./search.php">find a tutor</a> </li>
                 <div class="dropdown">
-                <li><button onclick="progressclick()" class="dropbtn">my progress</button>
-                            <div id="myDropdown" class="dropdown-content">
+                        <li><a class="dropbtn">my progress</a>
+                            <div class="dropdown-content">
                                 <?php 
-                                if (mysqli_num_rows($progress)<1){
-                                    echo "<p class='center'>no progress yet</p>";
-                                }else{
                                 while ($progressInfo = mysqli_fetch_array($progress)){ 
                                     $linkname=$progressInfo['course'];
                                     $link="./student-progress.php?user_id=" . $_GET['user_id'] . "&cid=" . $linkname ; 
                                     echo "<a href=".$link.">".$linkname."</a>";}
-                                }
                                 ?>
                             </div>
                         </li>
-                    </div>                
-                    <li><a class="navlink" href="./studentprof.php?user_id=<?php echo $_GET['user_id']; ?>">profile</a> </li>
+                    </div>                <li><a class="navlink" href="./studentprof.php?user_id=<?php echo $_GET['user_id']; ?>">profile</a> </li>
                 <li><a class="navlink" href="../index.html">logout</a> </li>
 
             </ul>
@@ -74,12 +67,11 @@ $row = mysqli_fetch_array($result);
     <br>
     <?php
     
+    $row = mysqli_fetch_array($result);
 
     if ($row['user_image']){
      echo '<img class="profilePicture" src="data:image/jpeg;base64,'. $row['user_image'] .'"/>';
-    }else{
-        echo '<img class="profilePicture" src="user-default.jpg" alt="you">';
-       }
+    }
     ?>    
     <br><br>
     <div class="cont">
